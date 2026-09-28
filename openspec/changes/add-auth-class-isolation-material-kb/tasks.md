@@ -11,7 +11,7 @@
 - [x] 2.3 Persist every account credential in a `password_hash`-equivalent field using bcrypt or Argon2-family hashes, with seed passwords supplied only through server environment configuration; verify no plaintext password appears in PostgreSQL, logs, repository files, or API responses
 - [x] 2.4 Make production startup opt out of seed mode unless explicitly enabled; verify a clean non-development startup does not silently create demo accounts or demo class/material data
 - [x] 2.5 Add parameterized repositories/services for users, sessions, class scope, materials, and knowledge-base records; verify repository tests cannot return a class-owned record outside the supplied server-side class scope
-- [ ] 2.6 Expand development seed data to two teachers and four students across classes A/B, with passwords supplied only through environment variables; verify both teachers can log in, each teacher is scoped to the own class, and all four students remain read-only
+- [x] 2.6 Expand development seed data to two teachers and four students across classes A/B, with passwords supplied only through environment variables; verify both teachers can log in, each teacher is scoped to the own class, and all four students remain read-only
 
 ## 3. Session, password, and role authorization
 
