@@ -33,7 +33,7 @@
 - [x] 5.1 Implement `POST /api/classes/<class_id>/materials` as a teacher-only multipart endpoint using the session-derived class, with safe title/filename handling and bounded `.txt`/`.md` validation; verify an authorized teacher receives a material identity and a teacher targeting another class receives HTTP 403
 - [x] 5.2 Implement temporary-file staging, parse-to-plain-text, class-scoped final storage, and cleanup for invalid extension, empty/oversized file, parse failure, or transaction failure; verify each failure returns an explicit 400-class error with no orphan file or completed database row
 - [x] 5.3 Insert the material metadata and knowledge-base body/chunks in one PostgreSQL transaction, retaining class and uploader associations; verify success is returned only when both records are durable and an indexing failure leaves no completed upload
-- [x] 5.4 Implement `GET /api/classes/<class_id>/materials` from the committed database rows with server-side class filtering; verify the uploading teacher sees the new title after upload and a same-class student sees it read-only
+- [x] 5.4 Implement class-scoped material list and detail reads plus an inline browser preview that renders material text safely; verify the uploading teacher and a same-class student can preview the new material, while a cross-class preview returns HTTP 403 without content
 - [x] 5.5 Add direct-request tests for student upload, student update/replace, unauthenticated upload, malformed upload, cross-class upload, and cross-class listing; verify each returns the specified error and makes no unauthorized state change
 
 ## 6. Compose, health, and persistence acceptance

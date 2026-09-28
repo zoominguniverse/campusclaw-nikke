@@ -104,6 +104,18 @@ def test_cross_class_material_id_is_forbidden(app, client):
     assert "B 班" not in response.get_data(as_text=True)
 
 
+def test_same_class_material_preview_returns_parsed_text(app, client):
+    with app.app_context():
+        material = Material.query.filter_by(class_id=1).first()
+        material_id = material.id
+    login(client, "student_a1", "student-a-password")
+    response = client.get(f"/api/classes/1/materials/{material_id}")
+    assert response.status_code == 200
+    payload = response.get_json()
+    assert payload["material"]["id"] == material_id
+    assert payload["body_text"] == "A 班示例材料内容"
+
+
 def test_missing_csrf_token_rejects_a_state_change(client):
     login(client, "teacher_a", "teacher-password")
     response = client.post(

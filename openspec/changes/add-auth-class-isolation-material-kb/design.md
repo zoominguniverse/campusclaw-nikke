@@ -72,9 +72,12 @@ The initial API surface should include:
 - `POST /api/auth/logout` to revoke the current session.
 - `POST /api/classes/<class_id>/materials` for teacher-only uploads.
 - `GET /api/classes/<class_id>/materials` for class-scoped material records.
+- `GET /api/classes/<class_id>/materials/<material_id>` for an authorized material's title and parsed text, used by the browser's inline preview.
 - `GET /health` for readiness-aware health reporting.
 
 The exact framework and response envelope may follow the implementation stack, but status semantics are fixed: unauthenticated API access returns 401, authenticated but unauthorized role or class access returns 403, and successful material creation is not returned until persistence and knowledge-base ingestion both complete.
+
+The browser material list provides an inline preview control for both teacher and student users. It requests the existing class-scoped material-detail operation and assigns returned title and body through DOM text APIs, so material text is not interpreted as HTML.
 
 ### 7. Use Docker Compose with three services and PostgreSQL persistence
 

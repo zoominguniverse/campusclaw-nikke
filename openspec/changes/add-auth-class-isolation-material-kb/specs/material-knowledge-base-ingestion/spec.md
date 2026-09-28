@@ -66,3 +66,17 @@ The system SHALL make a successfully uploaded material discoverable in the mater
 
 - **WHEN** a user requests a material list for another class
 - **THEN** the response does not contain the uploaded material and the request is rejected when the caller is not authorized for that class
+
+### Requirement: Class-scoped online material preview
+
+The system SHALL let an authenticated teacher or student open an online preview of a material in the caller's authorized class. The browser SHALL render the returned material body as text, not executable HTML.
+
+#### Scenario: Authorized user previews own-class material
+
+- **WHEN** an authenticated user selects a material in the user's authorized class from the material list
+- **THEN** the system returns the material title and parsed text through the class-scoped material-detail operation and the browser displays that text inline
+
+#### Scenario: User attempts to preview another class's material
+
+- **WHEN** an authenticated user requests a material preview for a class outside the user's authorized scope
+- **THEN** the system returns HTTP 403 without returning the material title or body, and the browser displays no preview content

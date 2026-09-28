@@ -29,3 +29,16 @@ def test_materials_page_includes_csrf_protected_logout_control():
     assert 'id="logout-button"' in body
     assert "'/api/auth/logout'" in body
     assert "{method: 'POST'}" in body
+
+
+def test_materials_page_includes_safe_inline_preview_control():
+    client = app.test_client()
+    user = {"username": "student_a1", "role": "student", "class_id": 1}
+    with patch("server.current_user", return_value=user):
+        response = client.get("/materials")
+    body = response.get_data(as_text=True)
+    assert response.status_code == 200
+    assert 'id="preview" hidden' in body
+    assert 'id="preview-body"' in body
+    assert "materials/${materialId}" in body
+    assert "preview-body').textContent = data.body_text" in body

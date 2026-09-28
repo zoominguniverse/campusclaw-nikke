@@ -14,6 +14,11 @@
     {% endif %}
     <p id="message" role="status"></p>
     <ul id="materials"></ul>
+    <section id="preview" hidden>
+      <h2 id="preview-title">材料预览</h2>
+      <pre id="preview-body"></pre>
+      <button id="close-preview" type="button">关闭预览</button>
+    </section>
   </main>
   <script>
     const api = '{{ api_url }}';
@@ -31,8 +36,24 @@
       if (!response.ok) return;
       const data = await response.json();
       document.querySelector('#materials').replaceChildren(...data.items.map(item => {
-        const li = document.createElement('li'); li.textContent = item.title; return li;
+        const li = document.createElement('li');
+        const title = document.createElement('span'); title.textContent = item.title;
+        const button = document.createElement('button'); button.type = 'button'; button.textContent = '在线预览';
+        button.addEventListener('click', () => previewMaterial(item.id));
+        li.append(title, ' ', button);
+        return li;
       }));
+    }
+    async function previewMaterial(materialId) {
+      const response = await apiFetch(`/api/classes/${user.class_id}/materials/${materialId}`);
+      if (!response.ok) {
+        document.querySelector('#message').textContent = '预览加载失败。';
+        return;
+      }
+      const data = await response.json();
+      document.querySelector('#preview-title').textContent = data.material.title;
+      document.querySelector('#preview-body').textContent = data.body_text;
+      document.querySelector('#preview').hidden = false;
     }
     (async () => {
       const response = await apiFetch('/api/auth/me');
@@ -54,6 +75,9 @@
         return;
       }
       document.querySelector('#message').textContent = '退出登录失败，请重试。';
+    });
+    document.querySelector('#close-preview').addEventListener('click', () => {
+      document.querySelector('#preview').hidden = true;
     });
   </script>
 </body>

@@ -38,6 +38,8 @@ CampusClaw 目前需要建立真实互联网应用的安全边界和教学材料
 
 ## Impact
 
+- Add an inline, class-scoped material preview to the browser material list. The preview uses the authorized material-detail API and renders parsed text as text rather than executable HTML.
+
 - 新增用户、角色、班级、材料和知识库记录相关的数据模型及持久化逻辑。
 - 新增登录、鉴权、材料上传、材料列表和健康检查 API，并对受保护页面增加未登录跳转行为。
 - 需要服务端会话或令牌方案、密码哈希依赖、文件/材料存储与知识库写入适配层。
