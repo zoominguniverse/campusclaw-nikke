@@ -47,4 +47,6 @@ def client(app):
 def login(client, username, password):
     response = client.post("/api/auth/login", json={"username": username, "password": password})
     assert response.status_code == 200
-    return response.get_json()["csrf_token"]
+    identity = response.get_json()
+    assert set(identity) == {"username", "role", "class_id"}
+    return client.get("/api/auth/me").get_json()["csrf_token"]

@@ -2,10 +2,11 @@ from __future__ import annotations
 
 import shutil
 import tempfile
+from io import BytesIO
 from pathlib import Path
 from uuid import uuid4
 
-from flask import Blueprint, current_app, g, jsonify, request
+from flask import Blueprint, current_app, g, jsonify, request, send_file
 from werkzeug.utils import secure_filename
 
 from .auth import json_error, require_auth, require_csrf
@@ -67,6 +68,44 @@ def get_material(class_id: int, material_id: str):
         return json_error(404, "material not found")
     entry = KnowledgeEntry.query.filter_by(material_id=material.id, class_id=class_id).one_or_none()
     return jsonify(material=_material_payload(material), body_text=entry.body_text if entry else "")
+
+
+@materials_bp.get("/<int:class_id>/materials/<string:material_id>/download")
+@require_auth
+def download_material(class_id: int, material_id: str):
+    denied = _assert_class_scope(class_id)
+    if denied:
+        return denied
+    material = find_material_in_class(material_id, class_id)
+    if not material:
+        other = db.session.get(Material, material_id)
+        if other and other.class_id != class_id:
+            return json_error(403, "class access denied")
+        return json_error(404, "material not found")
+
+    if material.storage_path == "seeded":
+        entry = KnowledgeEntry.query.filter_by(material_id=material.id, class_id=class_id).one_or_none()
+        return send_file(
+            BytesIO((entry.body_text if entry else "").encode("utf-8")),
+            mimetype=material.content_type,
+            as_attachment=True,
+            download_name=material.original_filename,
+        )
+
+    upload_root = Path(current_app.config["UPLOAD_DIR"]).resolve()
+    file_path = (upload_root / material.storage_path).resolve()
+    try:
+        file_path.relative_to(upload_root)
+    except ValueError:
+        return json_error(404, "material file not found")
+    if not file_path.is_file():
+        return json_error(404, "material file not found")
+    return send_file(
+        file_path,
+        mimetype=material.content_type,
+        as_attachment=True,
+        download_name=material.original_filename,
+    )
 
 
 @materials_bp.post("/<int:class_id>/materials")

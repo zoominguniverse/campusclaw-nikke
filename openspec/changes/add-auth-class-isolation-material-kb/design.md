@@ -46,7 +46,7 @@ The initial knowledge-base representation stores the material source, class owne
 
 ### 3. Use Flask sessions and hashed passwords
 
-Use Flask's signed session cookie for the browser login flow. The session records `user_id`, `role`, and `class_id` needed for request context, is signed with `SECRET_KEY`, and is configured as `HttpOnly`, `SameSite=Lax`, and `Secure` in production. The application MUST resolve the current user, role, and class membership from PostgreSQL on protected requests rather than trusting a client-edited session payload; a logout operation clears or revokes the session. Expose `POST /api/auth/login` and `POST /api/auth/logout`; the frontend redirects unauthenticated page requests while API middleware returns HTTP 401.
+Use Flask's signed session cookie for the browser login flow. The session records `user_id`, `role`, and `class_id` needed for request context, is signed with `SECRET_KEY`, and is configured as `HttpOnly`, `SameSite=Lax`, and `Secure` in production. The application MUST resolve the current user, role, and class membership from PostgreSQL on protected requests rather than trusting a client-edited session payload; a logout operation clears or revokes the session. `POST /api/auth/login` returns top-level `username`, `role`, and `class_id` fields on success; `POST /api/auth/logout` revokes the session. The frontend redirects unauthenticated page requests while API middleware returns HTTP 401.
 
 The signed-cookie session is preferred here because it keeps the greenfield Flask deployment small while supporting protected-page redirects. If an implementation uses an opaque server-side session table instead, it must preserve the same fields and behavior. Store only a `password_hash` using bcrypt or Argon2id through the selected Flask/Python library, and compare passwords with the library's safe verification function. Password fields, login payloads, seed passwords, and session credentials must not be written to logs. Required secrets such as `SECRET_KEY` are read only from server-side environment variables and missing values fail explicitly.
 
@@ -73,11 +73,14 @@ The initial API surface should include:
 - `POST /api/classes/<class_id>/materials` for teacher-only uploads.
 - `GET /api/classes/<class_id>/materials` for class-scoped material records.
 - `GET /api/classes/<class_id>/materials/<material_id>` for an authorized material's title and parsed text, used by the browser's inline preview.
+- `GET /api/classes/<class_id>/materials/<material_id>/download` for an authorized attachment download using the stored safe original filename.
 - `GET /health` for readiness-aware health reporting.
 
 The exact framework and response envelope may follow the implementation stack, but status semantics are fixed: unauthenticated API access returns 401, authenticated but unauthorized role or class access returns 403, and successful material creation is not returned until persistence and knowledge-base ingestion both complete.
 
 The browser material list provides an inline preview control for both teacher and student users. It requests the existing class-scoped material-detail operation and assigns returned title and body through DOM text APIs, so material text is not interpreted as HTML.
+
+The browser also provides a download link for each listed material. The API applies the same authenticated class predicate as detail reads before resolving its stored relative path under the upload root. It returns an attachment with `Content-Disposition` and the stored safe original filename, never a raw storage path; preconfigured materials without a file on disk are emitted from their class-scoped knowledge-base text as attachments.
 
 ### 7. Use Docker Compose with three services and PostgreSQL persistence
 

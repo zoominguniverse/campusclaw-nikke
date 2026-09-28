@@ -40,7 +40,10 @@
         const title = document.createElement('span'); title.textContent = item.title;
         const button = document.createElement('button'); button.type = 'button'; button.textContent = '在线预览';
         button.addEventListener('click', () => previewMaterial(item.id));
-        li.append(title, ' ', button);
+        const download = document.createElement('a');
+        download.href = `${api}/api/classes/${user.class_id}/materials/${item.id}/download`;
+        download.textContent = '下载文件';
+        li.append(title, ' ', button, ' ', download);
         return li;
       }));
     }

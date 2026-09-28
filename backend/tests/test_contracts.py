@@ -58,6 +58,12 @@ def test_invalid_password_does_not_create_a_session(client):
     assert client.get("/api/auth/me").status_code == 401
 
 
+def test_login_response_returns_top_level_identity_fields_only(client):
+    response = client.post("/api/auth/login", json={"username": "teacher_a", "password": "teacher-password"})
+    assert response.status_code == 200
+    assert response.get_json() == {"username": "teacher_a", "role": "teacher", "class_id": 1}
+
+
 def test_logout_revokes_the_current_session(client):
     token = login(client, "teacher_a", "teacher-password")
     response = client.post("/api/auth/logout", headers={"X-CSRF-Token": token})
@@ -114,6 +120,46 @@ def test_same_class_material_preview_returns_parsed_text(app, client):
     payload = response.get_json()
     assert payload["material"]["id"] == material_id
     assert payload["body_text"] == "A 班示例材料内容"
+
+
+def test_same_class_user_can_download_seeded_material(app, client):
+    with app.app_context():
+        material = Material.query.filter_by(class_id=1).first()
+        expected = KnowledgeEntry.query.filter_by(material_id=material.id).one().body_text.encode("utf-8")
+    login(client, "student_a1", "student-a-password")
+    response = client.get(f"/api/classes/1/materials/{material.id}/download")
+    assert response.status_code == 200
+    assert response.data == expected
+    assert "attachment" in response.headers["Content-Disposition"]
+    assert material.original_filename in response.headers["Content-Disposition"]
+
+
+def test_uploaded_material_downloads_without_storage_path_leakage(app, client):
+    token = login(client, "teacher_a", "teacher-password")
+    created = client.post(
+        "/api/classes/1/materials",
+        data={"file": (io.BytesIO(b"downloadable lesson"), "lesson.md")},
+        headers={"X-CSRF-Token": token},
+    )
+    material_id = created.get_json()["material"]["id"]
+    with app.app_context():
+        material = db.session.get(Material, material_id)
+        storage_path = material.storage_path
+    response = client.get(f"/api/classes/1/materials/{material_id}/download")
+    assert response.status_code == 200
+    assert response.data == b"downloadable lesson"
+    assert "attachment" in response.headers["Content-Disposition"]
+    assert "lesson.md" in response.headers["Content-Disposition"]
+    assert storage_path not in response.headers["Content-Disposition"]
+
+
+def test_cross_class_material_download_is_forbidden(app, client):
+    with app.app_context():
+        material_id = Material.query.filter_by(class_id=2).first().id
+    login(client, "student_a1", "student-a-password")
+    response = client.get(f"/api/classes/1/materials/{material_id}/download")
+    assert response.status_code == 403
+    assert response.data == b'{"error":"class access denied"}\n'
 
 
 def test_missing_csrf_token_rejects_a_state_change(client):

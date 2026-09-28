@@ -42,3 +42,14 @@ def test_materials_page_includes_safe_inline_preview_control():
     assert 'id="preview-body"' in body
     assert "materials/${materialId}" in body
     assert "preview-body').textContent = data.body_text" in body
+
+
+def test_materials_page_includes_class_scoped_download_link():
+    client = app.test_client()
+    user = {"username": "student_a1", "role": "student", "class_id": 1}
+    with patch("server.current_user", return_value=user):
+        response = client.get("/materials")
+    body = response.get_data(as_text=True)
+    assert response.status_code == 200
+    assert "materials/${item.id}/download" in body
+    assert "download.textContent = '下载文件'" in body

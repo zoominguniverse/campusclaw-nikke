@@ -93,7 +93,7 @@ def login():
         class_id=user.class_id,
         csrf_token=csrf_token,
     )
-    return jsonify(user=serialize_user(user), csrf_token=csrf_token), 200
+    return jsonify(username=user.username, role=user.role, class_id=user.class_id), 200
 
 
 @auth_bp.post("/logout")

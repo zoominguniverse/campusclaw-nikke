@@ -11,7 +11,7 @@ The system SHALL allow both teacher and student accounts to authenticate with an
 #### Scenario: Teacher logs in successfully
 
 - **WHEN** the preconfigured `teacher_a` account submits its valid password
-- **THEN** the system establishes an authenticated state containing the server-resolved user identity, teacher role, and class A scope
+- **THEN** the system establishes an authenticated state and returns a success response containing top-level `username`, `role`, and `class_id` fields for the server-resolved teacher identity and class A scope
 
 #### Scenario: Student logs in successfully
 

@@ -80,3 +80,17 @@ The system SHALL let an authenticated teacher or student open an online preview 
 
 - **WHEN** an authenticated user requests a material preview for a class outside the user's authorized scope
 - **THEN** the system returns HTTP 403 without returning the material title or body, and the browser displays no preview content
+
+### Requirement: Class-scoped material download
+
+The system SHALL let an authenticated teacher or student download a material only from the caller's authorized class. The download response SHALL use the stored safe original filename as an attachment name and SHALL NOT disclose the server-side storage path.
+
+#### Scenario: Authorized user downloads own-class material
+
+- **WHEN** an authenticated user selects download for a material in the user's authorized class
+- **THEN** the system returns the material as an attachment with the safe original filename and the material content type
+
+#### Scenario: User attempts to download another class's material
+
+- **WHEN** an authenticated user requests a download for a material outside the user's authorized class
+- **THEN** the system returns HTTP 403 without returning the file bytes, title, storage path, or storage key
