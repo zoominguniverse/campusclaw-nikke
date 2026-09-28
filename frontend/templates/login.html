@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><title>CampusClaw 登录</title></head>
+<body>
+  <main>
+    <h1>CampusClaw</h1>
+    <p>使用教师或学生账号登录。</p>
+    <form id="login-form">
+      <label>账号 <input name="username" required autocomplete="username"></label>
+      <label>密码 <input name="password" type="password" required autocomplete="current-password"></label>
+      <button type="submit">登录</button>
+    </form>
+    <p id="error" role="alert"></p>
+  </main>
+  <script>
+    document.querySelector('#login-form').addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const form = new FormData(event.currentTarget);
+      const response = await fetch('{{ api_url }}/api/auth/login', {
+        method: 'POST', credentials: 'include', headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({username: form.get('username'), password: form.get('password')})
+      });
+      if (!response.ok) {
+        document.querySelector('#error').textContent = '账号或密码错误。';
+        return;
+      }
+      window.location.assign(new URLSearchParams(window.location.search).get('next') || '/materials');
+    });
+  </script>
+</body>
+</html>
+

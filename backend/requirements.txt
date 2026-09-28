@@ -1,0 +1,9 @@
+Flask>=3.1,<4
+Flask-Cors>=5,<7
+Flask-SQLAlchemy>=3.1,<4
+SQLAlchemy>=2.0,<3
+psycopg[binary]>=3.2,<4
+bcrypt>=4.2,<6
+gunicorn>=23,<24
+pytest>=8,<9
+

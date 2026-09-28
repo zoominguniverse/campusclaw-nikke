@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><title>CampusClaw 材料</title></head>
+<body>
+  <main>
+    <h1>本班教学材料</h1>
+    <p>当前用户：{{ user.username }}（{{ user.role }}，班级 {{ user.class_id }}）</p>
+    {% if user.role == 'teacher' %}
+    <form id="upload-form" enctype="multipart/form-data">
+      <label>标题（可选）<input name="title"></label>
+      <label>材料 <input type="file" name="file" accept=".txt,.md" required></label>
+      <button type="submit">上传材料</button>
+    </form>
+    {% endif %}
+    <p id="message" role="status"></p>
+    <ul id="materials"></ul>
+  </main>
+  <script>
+    const api = '{{ api_url }}';
+    const user = {{ user | tojson }};
+    let csrfToken = '';
+    async function apiFetch(path, options = {}) {
+      options.credentials = 'include';
+      options.headers = {...(options.headers || {}), 'X-CSRF-Token': csrfToken};
+      const response = await fetch(api + path, options);
+      if (response.status === 401) window.location.assign('/login?next=/materials');
+      return response;
+    }
+    async function loadMaterials() {
+      const response = await apiFetch(`/api/classes/${user.class_id}/materials`);
+      if (!response.ok) return;
+      const data = await response.json();
+      document.querySelector('#materials').replaceChildren(...data.items.map(item => {
+        const li = document.createElement('li'); li.textContent = item.title; return li;
+      }));
+    }
+    (async () => {
+      const response = await apiFetch('/api/auth/me');
+      if (!response.ok) return;
+      csrfToken = (await response.json()).csrf_token;
+      await loadMaterials();
+    })();
+    const form = document.querySelector('#upload-form');
+    if (form) form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const response = await apiFetch(`/api/classes/${user.class_id}/materials`, {method: 'POST', body: new FormData(form)});
+      document.querySelector('#message').textContent = response.ok ? '上传成功。' : '上传失败。';
+      if (response.ok) { form.reset(); await loadMaterials(); }
+    });
+  </script>
+</body>
+</html>
+
