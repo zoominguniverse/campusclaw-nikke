@@ -15,7 +15,7 @@
 
 ## 3. Session, password, and role authorization
 
-- [x] 3.1 Implement account/password verification and the selected Flask session strategy with `user_id`, `role`, and `class_id` request context; return top-level `username`, `role`, and `class_id` on successful login; verify valid teacher and student credentials establish the correct session context and invalid credentials establish none
+- [x] 3.1 Implement account/password verification and the selected Flask session strategy with `user_id`, `role`, and `class_id` request context; revoke all prior active sessions when issuing a new one; return top-level `username`, `role`, and `class_id` on successful login; verify valid teacher and student credentials establish the correct session context and invalid credentials establish none
 - [x] 3.2 Configure `SECRET_KEY` from a server-only environment variable, secure cookie attributes, logout, and password/session redaction; verify missing `SECRET_KEY` fails explicitly and secrets are absent from frontend assets, logs, and responses
 - [x] 3.3 Implement login and logout endpoints plus protected-page/API middleware; verify an unauthenticated page request returns a redirect to `/login`, an unauthenticated API request returns HTTP 401, and neither response leaks material title, body, or storage path
 - [x] 3.4 Implement deny-by-default teacher/student authorization on every protected operation; verify a student direct-call to the upload endpoint returns HTTP 403 and creates no material, knowledge-base row, or stored upload file

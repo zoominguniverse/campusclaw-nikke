@@ -64,6 +64,17 @@ def test_login_response_returns_top_level_identity_fields_only(client):
     assert response.get_json() == {"username": "teacher_a", "role": "teacher", "class_id": 1}
 
 
+def test_new_login_revokes_all_previous_sessions_for_the_same_user(app):
+    first_client = app.test_client()
+    second_client = app.test_client()
+    login(first_client, "teacher_a", "teacher-password")
+    assert first_client.get("/api/auth/me").status_code == 200
+
+    login(second_client, "teacher_a", "teacher-password")
+    assert second_client.get("/api/auth/me").status_code == 200
+    assert first_client.get("/api/auth/me").status_code == 401
+
+
 def test_logout_revokes_the_current_session(client):
     token = login(client, "teacher_a", "teacher-password")
     response = client.post("/api/auth/logout", headers={"X-CSRF-Token": token})

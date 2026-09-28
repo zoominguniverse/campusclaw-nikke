@@ -75,6 +75,11 @@ def login():
     if not user or not verify_password(password, user.password_hash):
         return json_error(401, "invalid credentials")
 
+    user = User.query.filter_by(id=user.id).with_for_update().one()
+    LoginSession.query.filter(
+        LoginSession.user_id == user.id,
+        LoginSession.revoked_at.is_(None),
+    ).update({LoginSession.revoked_at: utc_now()}, synchronize_session=False)
     session.clear()
     sid = secrets.token_urlsafe(32)
     csrf_token = secrets.token_urlsafe(32)

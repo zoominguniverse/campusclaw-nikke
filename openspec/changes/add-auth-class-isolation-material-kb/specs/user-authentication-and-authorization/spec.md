@@ -23,6 +23,11 @@ The system SHALL allow both teacher and student accounts to authenticate with an
 - **WHEN** a user submits an unknown account or an incorrect password
 - **THEN** the system refuses authentication, does not establish an authenticated state, and does not disclose the stored hash or whether only the account or password was incorrect
 
+#### Scenario: New login invalidates old sessions
+
+- **WHEN** a user successfully logs in while that user has one or more active sessions
+- **THEN** the system revokes every prior active session for that user before issuing the new session, and any request using an old session receives HTTP 401
+
 ### Requirement: Development seed accounts, classes, and core data
 
 The system SHALL provide an explicit development seed mode that creates class A and class B; `teacher_a` for A; `teacher_b` for B; `student_a1` and `student_a2` for A; and `student_b1` and `student_b2` for B, so teacher upload, student read-only access, role authorization, and class isolation can be demonstrated without manually creating accounts. The persisted data model SHALL also establish the six course core structures: classes, users, lectures or teaching materials, assignments, assistants, and skills. Seed mode MUST be disabled or explicitly controlled for production deployments.
