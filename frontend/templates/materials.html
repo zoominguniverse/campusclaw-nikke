@@ -4,7 +4,7 @@
 <body>
   <main>
     <h1>本班教学材料</h1>
-    <p>当前用户：{{ user.username }}（{{ user.role }}，班级 {{ user.class_id }}）</p>
+    <p>当前用户：{{ user.username }}（{{ user.role }}，班级 {{ user.class_id }}） <button id="logout-button" type="button">退出登录</button></p>
     {% if user.role == 'teacher' %}
     <form id="upload-form" enctype="multipart/form-data">
       <label>标题（可选）<input name="title"></label>
@@ -47,7 +47,14 @@
       document.querySelector('#message').textContent = response.ok ? '上传成功。' : '上传失败。';
       if (response.ok) { form.reset(); await loadMaterials(); }
     });
+    document.querySelector('#logout-button').addEventListener('click', async () => {
+      const response = await apiFetch('/api/auth/logout', {method: 'POST'});
+      if (response.status === 204) {
+        window.location.assign('/login');
+        return;
+      }
+      document.querySelector('#message').textContent = '退出登录失败，请重试。';
+    });
   </script>
 </body>
 </html>
-

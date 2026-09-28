@@ -18,3 +18,14 @@ def test_login_page_redirects_authenticated_user_to_materials():
     assert response.status_code == 302
     assert response.headers["Location"] == "/materials"
 
+
+def test_materials_page_includes_csrf_protected_logout_control():
+    client = app.test_client()
+    user = {"username": "teacher_a", "role": "teacher", "class_id": 1}
+    with patch("server.current_user", return_value=user):
+        response = client.get("/materials")
+    body = response.get_data(as_text=True)
+    assert response.status_code == 200
+    assert 'id="logout-button"' in body
+    assert "'/api/auth/logout'" in body
+    assert "{method: 'POST'}" in body

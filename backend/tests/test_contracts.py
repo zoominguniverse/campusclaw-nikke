@@ -58,6 +58,13 @@ def test_invalid_password_does_not_create_a_session(client):
     assert client.get("/api/auth/me").status_code == 401
 
 
+def test_logout_revokes_the_current_session(client):
+    token = login(client, "teacher_a", "teacher-password")
+    response = client.post("/api/auth/logout", headers={"X-CSRF-Token": token})
+    assert response.status_code == 204
+    assert client.get("/api/auth/me").status_code == 401
+
+
 def test_student_upload_is_forbidden_without_side_effects(app, client):
     token = login(client, "student_a1", "student-a-password")
     with app.app_context():
