@@ -26,6 +26,8 @@ class Config:
     SESSION_COOKIE_SAMESITE = "Lax"
     SESSION_COOKIE_SECURE = _as_bool(os.getenv("SESSION_COOKIE_SECURE"))
     SESSION_TTL_HOURS = int(os.getenv("SESSION_TTL_HOURS", "8"))
+    LOGIN_FAILURE_LIMIT = int(os.getenv("LOGIN_FAILURE_LIMIT", "5"))
+    LOGIN_FAILURE_WINDOW_SECONDS = int(os.getenv("LOGIN_FAILURE_WINDOW_SECONDS", "60"))
     SEED_DEMO_DATA = _as_bool(os.getenv("SEED_DEMO_DATA"))
     INITIALIZE_DATABASE = _as_bool(os.getenv("INITIALIZE_DATABASE", "true"))
     DEMO_TEACHER_PASSWORD = os.getenv("DEMO_TEACHER_PASSWORD", "")

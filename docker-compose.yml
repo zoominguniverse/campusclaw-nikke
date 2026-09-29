@@ -5,10 +5,8 @@ services:
       POSTGRES_DB: ${POSTGRES_DB:?set POSTGRES_DB in .env}
       POSTGRES_USER: ${POSTGRES_USER:?set POSTGRES_USER in .env}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
-    ports:
-      - "5432:5432"
     volumes:
-      - ${POSTGRES_DATA_DIR:-./postgres-data}:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
       interval: 5s
@@ -31,10 +29,8 @@ services:
       DEMO_STUDENT_B2_PASSWORD: ${DEMO_STUDENT_B2_PASSWORD:-}
       MAX_UPLOAD_BYTES: ${MAX_UPLOAD_BYTES:-5242880}
       UPLOAD_DIR: /app/uploads
-    ports:
-      - "8080:8080"
     volumes:
-      - ${UPLOAD_DATA_DIR:-./uploads}:/app/uploads
+      - uploads_data:/app/uploads
     depends_on:
       postgres:
         condition: service_healthy
@@ -44,13 +40,17 @@ services:
       timeout: 5s
       retries: 12
 
-  frontend:
+  web:
     build: ./frontend
     environment:
       API_INTERNAL_URL: http://api:8080
-      API_PUBLIC_URL: ${API_PUBLIC_URL:-http://localhost:8080}
+      API_PUBLIC_URL: ""
     ports:
       - "5173:5173"
     depends_on:
       api:
         condition: service_healthy
+
+volumes:
+  postgres_data:
+  uploads_data:

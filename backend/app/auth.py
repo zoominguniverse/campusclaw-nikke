@@ -1,17 +1,20 @@
 from __future__ import annotations
 
 import secrets
+from hashlib import sha256
+import hmac
 from datetime import timedelta, timezone
 from functools import wraps
 
 from flask import Blueprint, current_app, g, jsonify, request, session
 
 from .database import db
-from .models import LoginSession, User, utc_now
+from .models import LoginAttempt, LoginSession, User, utc_now
 from .repositories import find_user_by_username
-from .security import verify_password
+from .security import hash_password, verify_password
 
 auth_bp = Blueprint("auth", __name__, url_prefix="/api/auth")
+DUMMY_PASSWORD_HASH = hash_password(secrets.token_urlsafe(32))
 
 
 def json_error(status: int, message: str):
@@ -66,13 +69,51 @@ def serialize_user(user: User) -> dict:
     return {"id": user.id, "username": user.username, "role": user.role, "class_id": user.class_id}
 
 
+def _utc(value):
+    return value.replace(tzinfo=timezone.utc) if value and value.tzinfo is None else value
+
+
+def _attempt_key(username: str) -> str:
+    return hmac.new(
+        current_app.config["SECRET_KEY"].encode("utf-8"),
+        username.casefold().encode("utf-8"),
+        sha256,
+    ).hexdigest()
+
+
+def _is_rate_limited(attempt: LoginAttempt | None, now) -> bool:
+    return bool(attempt and attempt.blocked_until and _utc(attempt.blocked_until) > now)
+
+
+def _record_failed_login(subject_key: str, now) -> None:
+    attempt = db.session.get(LoginAttempt, subject_key)
+    window = timedelta(seconds=current_app.config["LOGIN_FAILURE_WINDOW_SECONDS"])
+    if not attempt:
+        attempt = LoginAttempt(subject_key=subject_key, failure_count=0, window_started_at=now)
+        db.session.add(attempt)
+    elif _utc(attempt.window_started_at) + window <= now:
+        attempt.failure_count = 0
+        attempt.window_started_at = now
+        attempt.blocked_until = None
+    attempt.failure_count += 1
+    if attempt.failure_count >= current_app.config["LOGIN_FAILURE_LIMIT"]:
+        attempt.blocked_until = now + window
+    db.session.commit()
+
+
 @auth_bp.post("/login")
 def login():
     payload = request.get_json(silent=True) or request.form
     username = (payload.get("username") or "").strip()
     password = payload.get("password") or ""
     user = find_user_by_username(username)
-    if not user or not verify_password(password, user.password_hash):
+    password_valid = verify_password(password, user.password_hash if user else DUMMY_PASSWORD_HASH)
+    now = utc_now()
+    subject_key = _attempt_key(username)
+    attempt = db.session.get(LoginAttempt, subject_key)
+    if not password_valid or _is_rate_limited(attempt, now):
+        if not _is_rate_limited(attempt, now):
+            _record_failed_login(subject_key, now)
         return json_error(401, "invalid credentials")
 
     user = User.query.filter_by(id=user.id).with_for_update().one()
@@ -80,6 +121,9 @@ def login():
         LoginSession.user_id == user.id,
         LoginSession.revoked_at.is_(None),
     ).update({LoginSession.revoked_at: utc_now()}, synchronize_session=False)
+    existing_attempt = db.session.get(LoginAttempt, subject_key)
+    if existing_attempt:
+        db.session.delete(existing_attempt)
     session.clear()
     sid = secrets.token_urlsafe(32)
     csrf_token = secrets.token_urlsafe(32)

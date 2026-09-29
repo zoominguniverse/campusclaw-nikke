@@ -51,6 +51,14 @@ class LoginSession(db.Model):
     created_at = db.Column(db.DateTime(timezone=True), nullable=False, default=utc_now)
 
 
+class LoginAttempt(db.Model):
+    __tablename__ = "login_attempts"
+    subject_key = db.Column(db.String(64), primary_key=True)
+    failure_count = db.Column(db.Integer, nullable=False, default=0)
+    window_started_at = db.Column(db.DateTime(timezone=True), nullable=False, default=utc_now)
+    blocked_until = db.Column(db.DateTime(timezone=True), nullable=True)
+
+
 class Material(db.Model):
     __tablename__ = "materials"
     id = db.Column(db.String(36), primary_key=True, default=lambda: str(uuid4()))

@@ -16,7 +16,7 @@ The system SHALL derive the caller's permitted class scope from the authenticate
 #### Scenario: User reads material from another class
 
 - **WHEN** an authenticated user requests a material belonging to a class outside the user's authorized scope
-- **THEN** the system rejects the request with HTTP 403 and does not disclose the material title, body, knowledge-base content, upload path, or storage key
+- **THEN** the system returns the same HTTP 404 response used for an absent material and does not disclose the material title, body, knowledge-base content, upload path, or storage key
 
 ### Requirement: Server-side class isolation
 
@@ -25,7 +25,7 @@ The system SHALL enforce class isolation at the server-side authorization and da
 #### Scenario: Client changes a class identifier
 
 - **WHEN** a user changes a class identifier in a URL, query, form, or request body to target another class
-- **THEN** the server recomputes the permitted scope from the authenticated identity and rejects the cross-class operation with HTTP 403
+- **THEN** the server discards that client value, recomputes scope from the authenticated identity, and operates only on the caller's server-derived class
 
 #### Scenario: Client omits or falsifies class context
 
@@ -44,7 +44,7 @@ The system SHALL return material list results limited to the requesting user's a
 #### Scenario: User attempts to list another class
 
 - **WHEN** an authenticated user requests a material list for a class outside the user's authorized scope
-- **THEN** the system rejects the request with HTTP 403 rather than returning the other class's records
+- **THEN** the system returns only records from the caller's server-derived class and no record from the client-requested class is exposed
 
 #### Scenario: List filters cannot enumerate another class
 
@@ -54,4 +54,4 @@ The system SHALL return material list results limited to the requesting user's a
 #### Scenario: Cross-class mutation is rejected
 
 - **WHEN** an authenticated user attempts to update, replace, or delete a material or knowledge-base record owned by another class
-- **THEN** the server rejects the request with HTTP 403 before the write and leaves the other class's record unchanged
+- **THEN** the server cannot resolve that record inside the caller's derived class scope, leaves the other class's record unchanged, and returns no cross-class record content

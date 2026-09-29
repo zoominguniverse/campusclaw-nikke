@@ -24,8 +24,9 @@ def test_seeded_users_are_hashed_and_class_scoped(app):
 def test_second_teacher_is_limited_to_own_class(app, client):
     login(client, "teacher_b", "teacher-b-password")
     assert client.get("/api/classes/2/materials").status_code == 200
-    forbidden = client.get("/api/classes/1/materials")
-    assert forbidden.status_code == 403
+    own_scope = client.get("/api/classes/1/materials")
+    assert own_scope.status_code == 200
+    assert all(item["title"].startswith("B 班") for item in own_scope.get_json()["items"])
 
 
 def test_all_seeded_students_are_read_only(app):
@@ -55,6 +56,24 @@ def test_unauthenticated_api_is_rejected_without_material_data(client):
 def test_invalid_password_does_not_create_a_session(client):
     response = client.post("/api/auth/login", json={"username": "teacher_a", "password": "wrong-password"})
     assert response.status_code == 401
+    assert client.get("/api/auth/me").status_code == 401
+
+
+def test_unknown_user_performs_dummy_bcrypt_verification(client):
+    from app.auth import DUMMY_PASSWORD_HASH
+    from unittest.mock import patch
+
+    with patch("app.auth.verify_password", return_value=False) as verify:
+        response = client.post("/api/auth/login", json={"username": "unknown", "password": "wrong-password"})
+    assert response.status_code == 401
+    assert verify.call_args.args[1] == DUMMY_PASSWORD_HASH
+
+
+def test_repeated_failed_logins_are_throttled_without_creating_a_session(client):
+    for _ in range(6):
+        response = client.post("/api/auth/login", json={"username": "unknown", "password": "wrong-password"})
+        assert response.status_code == 401
+        assert response.get_json() == {"error": "invalid credentials"}
     assert client.get("/api/auth/me").status_code == 401
 
 
@@ -104,21 +123,22 @@ def test_student_upload_is_forbidden_without_side_effects(app, client):
     assert update.status_code == 403
 
 
-def test_cross_class_list_is_forbidden_and_does_not_leak(client):
+def test_client_class_id_is_ignored_for_material_lists(client):
     login(client, "student_a1", "student-a-password")
     response = client.get("/api/classes/2/materials")
-    assert response.status_code == 403
-    assert "B 班" not in response.get_data(as_text=True)
+    assert response.status_code == 200
+    assert all(item["title"].startswith("A 班") for item in response.get_json()["items"])
 
 
-def test_cross_class_material_id_is_forbidden(app, client):
+def test_cross_class_material_id_is_indistinguishable_from_missing(app, client):
     with app.app_context():
         material = Material.query.filter_by(class_id=2).first()
         material_id = material.id
     login(client, "student_a1", "student-a-password")
-    response = client.get(f"/api/classes/1/materials/{material_id}")
-    assert response.status_code == 403
-    assert "B 班" not in response.get_data(as_text=True)
+    cross_class = client.get(f"/api/classes/1/materials/{material_id}")
+    missing = client.get("/api/classes/1/materials/not-a-real-id")
+    assert cross_class.status_code == missing.status_code == 404
+    assert cross_class.get_json() == missing.get_json() == {"error": "material not found"}
 
 
 def test_same_class_material_preview_returns_parsed_text(app, client):
@@ -164,13 +184,14 @@ def test_uploaded_material_downloads_without_storage_path_leakage(app, client):
     assert storage_path not in response.headers["Content-Disposition"]
 
 
-def test_cross_class_material_download_is_forbidden(app, client):
+def test_cross_class_material_download_is_indistinguishable_from_missing(app, client):
     with app.app_context():
         material_id = Material.query.filter_by(class_id=2).first().id
     login(client, "student_a1", "student-a-password")
-    response = client.get(f"/api/classes/1/materials/{material_id}/download")
-    assert response.status_code == 403
-    assert response.data == b'{"error":"class access denied"}\n'
+    cross_class = client.get(f"/api/classes/1/materials/{material_id}/download")
+    missing = client.get("/api/classes/1/materials/not-a-real-id/download")
+    assert cross_class.status_code == missing.status_code == 404
+    assert cross_class.get_json() == missing.get_json() == {"error": "material not found"}
 
 
 def test_missing_csrf_token_rejects_a_state_change(client):
@@ -219,7 +240,7 @@ def test_invalid_upload_creates_no_record(app, client):
         assert Material.query.count() == before
 
 
-def test_upload_direct_error_paths(client):
+def test_upload_direct_error_paths(app, client):
     unauthenticated = client.post(
         "/api/classes/1/materials",
         data={"file": (io.BytesIO(b"content"), "lesson.md")},
@@ -231,19 +252,21 @@ def test_upload_direct_error_paths(client):
         data={"file": (io.BytesIO(b"content"), "lesson.md")},
         headers={"X-CSRF-Token": token},
     )
-    assert cross_class.status_code == 403
+    assert cross_class.status_code == 201
+    with app.app_context():
+        assert db.session.get(Material, cross_class.get_json()["material"]["id"]).class_id == 1
     malformed = client.post("/api/classes/1/materials", headers={"X-CSRF-Token": token})
     assert malformed.status_code == 400
 
 
-def test_cross_class_mutation_is_forbidden(client):
+def test_client_class_id_is_ignored_for_material_mutation(client):
     token = login(client, "teacher_a", "teacher-password")
     response = client.put(
         "/api/classes/2/materials/not-a-real-id",
         json={"title": "attempt"},
         headers={"X-CSRF-Token": token},
     )
-    assert response.status_code == 403
+    assert response.status_code == 404
 
 
 def test_health_is_public(client):

@@ -6,7 +6,7 @@
 
 ### Requirement: Docker Compose startup
 
-The system SHALL provide a Docker Compose configuration that starts a frontend service, a Flask API service, and a PostgreSQL service using documented server-side environment configuration. The Compose project SHALL expose exactly the three course-practice ports: frontend `5173`, API `8080`, and PostgreSQL `5432`.
+The system SHALL provide a Docker Compose configuration that starts a web service, a Flask API service, and a PostgreSQL service using documented server-side environment configuration. Only the web service SHALL expose host port `5173`; API and PostgreSQL SHALL remain on the internal Compose network.
 
 #### Scenario: Clean environment starts the stack
 
@@ -21,16 +21,16 @@ The system SHALL provide a Docker Compose configuration that starts a frontend s
 #### Scenario: Three service ports have distinct responsibilities
 
 - **WHEN** the Compose stack is running
-- **THEN** port `5173` serves browser pages, port `8080` serves the Flask API and `GET /health`, and port `5432` accepts PostgreSQL connections; the services do not substitute SQLite or an unlisted database port
+- **THEN** port `5173` serves browser pages and same-origin proxy routes for API and health requests, while API and PostgreSQL accept traffic only from the internal Compose network
 
 ### Requirement: Health endpoint
 
-The Flask API SHALL provide `GET /health` on port `8080` as a lightweight health endpoint that returns HTTP 200 when the API, PostgreSQL connection, and required upload storage are ready to serve requests.
+The Flask API SHALL provide an internal `GET /health` endpoint, and the web service SHALL publish it at same-origin `GET /health` on host port `5173`. It returns HTTP 200 when the API, PostgreSQL connection, and required upload storage are ready to serve requests.
 
 #### Scenario: Healthy application responds
 
-- **WHEN** a running API receives `GET /health` on port `8080`
-- **THEN** it returns HTTP 200 with a machine-readable response indicating the service is healthy, without requiring authentication or redirecting to the login page
+- **WHEN** a browser or host client receives `GET /health` through the running web service on port `5173`
+- **THEN** the web proxy returns the API's HTTP 200 machine-readable healthy response without requiring authentication or redirecting to the login page
 
 #### Scenario: Application dependency is unavailable
 
@@ -58,4 +58,4 @@ The system SHALL document the required environment variables and Compose startup
 #### Scenario: Operator follows the documented startup flow
 
 - **WHEN** an operator copies `.env.example` to the runtime environment, supplies a secret, and runs `docker compose up --build`
-- **THEN** the services become healthy, `GET http://localhost:8080/health` returns HTTP 200 JSON, the login page is reachable at `http://localhost:5173/login`, and PostgreSQL is reachable at the documented `5432` port for local inspection
+- **THEN** the services become healthy, `GET http://localhost:5173/health` returns HTTP 200 JSON, the login page is reachable at `http://localhost:5173/login`, and neither API nor PostgreSQL is reachable directly from a host port

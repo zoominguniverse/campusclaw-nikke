@@ -23,7 +23,7 @@ The MVP SHALL accept bounded plain-text or Markdown material (`.txt` and `.md`),
 #### Scenario: Teacher uploads to an unauthorized class
 
 - **WHEN** an authenticated teacher attempts to upload material for a class the teacher does not manage
-- **THEN** the system rejects the request with HTTP 403 and does not persist or index the material
+- **THEN** the system discards the client-selected class and, if the upload is otherwise valid, persists and indexes the material only in the teacher's server-derived class
 
 ### Requirement: Student cannot upload materials
 
@@ -65,7 +65,7 @@ The system SHALL make a successfully uploaded material discoverable in the mater
 #### Scenario: Other class lists materials
 
 - **WHEN** a user requests a material list for another class
-- **THEN** the response does not contain the uploaded material and the request is rejected when the caller is not authorized for that class
+- **THEN** the response is limited to the caller's server-derived class and does not contain the other class's uploaded material
 
 ### Requirement: Class-scoped online material preview
 
@@ -79,7 +79,7 @@ The system SHALL let an authenticated teacher or student open an online preview 
 #### Scenario: User attempts to preview another class's material
 
 - **WHEN** an authenticated user requests a material preview for a class outside the user's authorized scope
-- **THEN** the system returns HTTP 403 without returning the material title or body, and the browser displays no preview content
+- **THEN** the system returns the same HTTP 404 response as an absent material without returning the material title or body, and the browser displays no preview content
 
 ### Requirement: Class-scoped material download
 
@@ -93,4 +93,4 @@ The system SHALL let an authenticated teacher or student download a material onl
 #### Scenario: User attempts to download another class's material
 
 - **WHEN** an authenticated user requests a download for a material outside the user's authorized class
-- **THEN** the system returns HTTP 403 without returning the file bytes, title, storage path, or storage key
+- **THEN** the system returns the same HTTP 404 response as an absent material without returning file bytes, title, storage path, or storage key

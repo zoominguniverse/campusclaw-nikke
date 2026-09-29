@@ -26,15 +26,15 @@ See `proposal.md` for the motivation and scope. The repository is currently gree
 
 Use a small browser frontend for login and protected pages, a Flask API for authentication, authorization, class isolation, material ingestion, and `/health`, and PostgreSQL for all persistent application data. The API modules remain separated into authentication, authorization, class scope, materials, knowledge-base ingestion, and runtime health. Use SQLAlchemy or an equivalent PostgreSQL persistence layer with parameterized queries and transaction support.
 
-The three Compose services and host/container port mappings are fixed for this course project:
+The Compose stack has three services; only the web service receives a host-port mapping:
 
 | Service | Host port | Container port | Purpose |
 | --- | ---: | ---: | --- |
-| `frontend` | `5173` | `5173` | Login page and browser-facing protected pages |
-| `api` | `8080` | `8080` | Flask HTTP API, authentication, upload/list APIs, and `GET /health` |
-| `postgres` | `5432` | `5432` | PostgreSQL persistence for users, classes, materials, knowledge-base records, and seed data |
+| `web` | `5173` | `5173` | Login page, browser-facing protected pages, and same-origin `/api` and `/health` proxy |
+| `api` | none | `8080` | Internal Flask API, authentication, upload/list APIs, and `GET /health` |
+| `postgres` | none | `5432` | Internal PostgreSQL persistence for users, classes, materials, knowledge-base records, and seed data |
 
-The frontend calls the API through the documented API base URL. The API connects to PostgreSQL through the Compose service name and `DATABASE_URL`; the host mapping of `5432` is provided for course inspection and local database tools. An equivalent frontend framework is acceptable, but the three externally documented ports and PostgreSQL requirement are not optional.
+The browser calls only same-origin Web URLs; the web service proxies `/api` and `/health` to `api:8080`. The API connects to PostgreSQL through the Compose service name and `DATABASE_URL`. An equivalent frontend framework is acceptable, but PostgreSQL and the internal service boundaries remain required.
 
 ### 2. Use a modular monolith with a relational persistence boundary
 
@@ -46,17 +46,17 @@ The initial knowledge-base representation stores the material source, class owne
 
 ### 3. Use Flask sessions and hashed passwords
 
-Use Flask's signed session cookie for the browser login flow. The session records `user_id`, `role`, and `class_id` needed for request context, is signed with `SECRET_KEY`, and is configured as `HttpOnly`, `SameSite=Lax`, and `Secure` in production. The application MUST resolve the current user, role, and class membership from PostgreSQL on protected requests rather than trusting a client-edited session payload; a logout operation clears or revokes the session. On successful login, the API locks the user record, revokes every existing active server-side session for that user, then persists and returns only the new session. `POST /api/auth/login` returns top-level `username`, `role`, and `class_id` fields on success; `POST /api/auth/logout` revokes the session. The frontend redirects unauthenticated page requests while API middleware returns HTTP 401.
+Use Flask's signed session cookie for the browser login flow. The session records `user_id`, `role`, and `class_id` needed for request context, is signed with `SECRET_KEY`, and is configured as `HttpOnly`, `SameSite=Lax`, and `Secure` in production. The application MUST resolve the current user, role, and class membership from PostgreSQL on protected requests rather than trusting a client-edited session payload; a logout operation clears or revokes the session. On successful login, the API locks the user record, revokes every existing active server-side session for that user, then persists and returns only the new session. Unknown accounts receive a bcrypt comparison against a dummy hash; all failed attempts use persistent, keyed rate-limit state and return the same generic 401 response. `POST /api/auth/login` returns top-level `username`, `role`, and `class_id` fields on success; `POST /api/auth/logout` revokes the session. The frontend redirects unauthenticated page requests while API middleware returns HTTP 401.
 
 The signed-cookie session is preferred here because it keeps the greenfield Flask deployment small while supporting protected-page redirects. If an implementation uses an opaque server-side session table instead, it must preserve the same fields and behavior. Store only a `password_hash` using bcrypt or Argon2id through the selected Flask/Python library, and compare passwords with the library's safe verification function. Password fields, login payloads, seed passwords, and session credentials must not be written to logs. Required secrets such as `SECRET_KEY` are read only from server-side environment variables and missing values fail explicitly.
 
 ### 4. Centralize authorization and enforce server-side class filters
 
-Every protected Flask route passes through authentication, role authorization, and class-scope resolution. A class scope is derived from the authenticated user and the server-side membership/teacher assignment; request parameters are only selectors, never proof of access.
+Every protected Flask route passes through authentication, role authorization, and class-scope resolution. A class scope is derived from the authenticated user and the server-side membership/teacher assignment; class identifiers in requests are discarded after route matching and never select a different scope.
 
-Material and knowledge-base queries MUST include the authorized `class_id` predicate before records are returned. For a single-record read, the query must combine the material identifier and authorized class scope rather than loading a record first and filtering in the UI. Cross-class access returns HTTP 403 without material content. Teacher upload additionally requires the teacher role and management rights for the target class.
+Material and knowledge-base queries MUST include the authorized `class_id` predicate before records are returned. For a single-record read, the query must combine the material identifier and authorized class scope rather than loading a record first and filtering in the UI. Cross-class detail and download return the same HTTP 404 as absent material without content; teachers can upload only into their derived class, regardless of a supplied class path value.
 
-For this change, the documented response for an authenticated cross-class single-record or list request is HTTP 403. This is preferred over frontend-only filtering because direct HTTP clients must receive the same denial behavior as the browser. It also prevents a future endpoint from accidentally bypassing a UI guard. Pagination, search, sorting, and count queries must apply the same class predicate.
+Client class identifiers are non-authoritative selectors and are discarded after route matching. Every list, detail, download, upload, update, and delete operation derives its effective class only from the authenticated identity. Detail and download requests for records outside that derived class return the same 404 response as an absent record, preventing existence disclosure. Pagination, search, sorting, and count queries must apply the same class predicate.
 
 ### 5. Make material persistence and knowledge-base ingestion atomic
 
@@ -76,7 +76,7 @@ The initial API surface should include:
 - `GET /api/classes/<class_id>/materials/<material_id>/download` for an authorized attachment download using the stored safe original filename.
 - `GET /health` for readiness-aware health reporting.
 
-The exact framework and response envelope may follow the implementation stack, but status semantics are fixed: unauthenticated API access returns 401, authenticated but unauthorized role or class access returns 403, and successful material creation is not returned until persistence and knowledge-base ingestion both complete.
+The exact framework and response envelope may follow the implementation stack, but status semantics are fixed: unauthenticated API access returns 401, authenticated but unauthorized roles return 403, cross-class detail/download and absent detail/download return an identical 404, and successful material creation is not returned until persistence and knowledge-base ingestion both complete.
 
 The browser material list provides an inline preview control for both teacher and student users. It requests the existing class-scoped material-detail operation and assigns returned title and body through DOM text APIs, so material text is not interpreted as HTML.
 
@@ -84,7 +84,7 @@ The browser also provides a download link for each listed material. The API appl
 
 ### 7. Use Docker Compose with three services and PostgreSQL persistence
 
-Docker Compose should start `frontend`, `api`, and `postgres` services with the fixed mappings `5173:5173`, `8080:8080`, and `5432:5432`. The PostgreSQL service uses a persistent volume such as `./postgres-data:/var/lib/postgresql/data`; the API mounts `./uploads:/app/uploads`; and the frontend uses the API base URL to call port 8080. Compose must wait for PostgreSQL health before starting API initialization. The API healthcheck calls `http://127.0.0.1:8080/health`; the public endpoint returns `{"status":"ok"}` with HTTP 200 only when Flask, PostgreSQL connectivity, and required upload storage are usable, otherwise a non-healthy status. The image entrypoint runs migrations/schema setup and enables seed data only under explicit development configuration. `.env.example` lists `SECRET_KEY`, `DATABASE_URL`, `POSTGRES_DB`, `POSTGRES_USER`, `POSTGRES_PASSWORD`, and frontend API URL placeholders, while real `.env` values remain outside source control. README documents copying the example environment, `docker compose up --build`, `http://localhost:5173/login`, `http://localhost:8080/health`, and the PostgreSQL port for local inspection. Development fixtures create classes A/B; `teacher_a` and `teacher_b` as their respective class teachers; `student_a1`, `student_a2`, `student_b1`, and `student_b2` as read-only students; distinguishable A/B materials; and the six core structures (classes, users, lectures/materials, assignments, assistants, skills).
+Docker Compose starts `web`, `api`, and `postgres`, exposing only `5173:5173` from `web`. The web service proxies same-origin `/api` and `/health` requests to the internal API; PostgreSQL and uploaded files use named volumes, so `docker compose down -v` is the intentional data reset. Compose waits for PostgreSQL health before API initialization. The public health endpoint is `http://localhost:5173/health`. The image entrypoint runs migrations/schema setup and enables seed data only under explicit development configuration.
 
 ## Risks / Trade-offs
 
@@ -98,7 +98,7 @@ Docker Compose should start `frontend`, `api`, and `postgres` services with the 
 
 This is a greenfield change, so no existing user or material migration is required. The implementation should:
 
-1. Add the frontend/API/PostgreSQL Compose services, fixed port mappings, environment template, schema bootstrap, and `/health` endpoint.
+1. Add the web/API/PostgreSQL Compose services, a single web host-port mapping, environment template, schema bootstrap, and proxied `/health` endpoint.
 2. Add PostgreSQL migrations, user, role, class-membership, material, knowledge-base, and session persistence.
 3. Add the six core data structures and seeded development fixtures only when explicitly enabled by environment configuration; production startup must not silently create demo accounts.
 4. Add `.txt`/`.md` validation, parse-to-text ingestion, cleanup on failure, and class-scoped list/read integration tests.

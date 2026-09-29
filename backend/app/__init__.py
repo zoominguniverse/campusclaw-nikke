@@ -3,7 +3,6 @@ from __future__ import annotations
 from pathlib import Path
 
 from flask import Flask, jsonify
-from flask_cors import CORS
 from sqlalchemy import text
 
 from .auth import auth_bp
@@ -22,13 +21,6 @@ def create_app(test_config: dict | None = None) -> Flask:
     Path(app.config["UPLOAD_DIR"], ".tmp").mkdir(parents=True, exist_ok=True)
 
     db.init_app(app)
-    CORS(
-        app,
-        origins=[app.config["FRONTEND_ORIGIN"]],
-        supports_credentials=True,
-        allow_headers=["Content-Type", "X-CSRF-Token"],
-    )
-
     if app.config["INITIALIZE_DATABASE"]:
         with app.app_context():
             initialize_database()

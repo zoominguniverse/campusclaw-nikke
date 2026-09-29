@@ -18,9 +18,13 @@ materials_bp = Blueprint("materials", __name__, url_prefix="/api/classes")
 ALLOWED_EXTENSIONS = {".txt": "text/plain", ".md": "text/markdown"}
 
 
-def _assert_class_scope(class_id: int, *, teacher_required: bool = False):
+def _effective_class_id() -> int:
+    return g.current_user.class_id
+
+
+def _assert_class_scope(*, teacher_required: bool = False):
     user = g.current_user
-    membership = find_membership(user.id, class_id)
+    membership = find_membership(user.id, _effective_class_id())
     if not membership:
         return json_error(403, "class access denied")
     if teacher_required and (user.role != "teacher" or not membership.is_teacher):
@@ -40,9 +44,10 @@ def _material_payload(material: Material) -> dict:
 @materials_bp.get("/<int:class_id>/materials")
 @require_auth
 def list_materials(class_id: int):
-    denied = _assert_class_scope(class_id)
+    denied = _assert_class_scope()
     if denied:
         return denied
+    class_id = _effective_class_id()
     page = max(request.args.get("page", 1, type=int), 1)
     limit = min(max(request.args.get("limit", 20, type=int), 1), 100)
     search = (request.args.get("search") or "").strip()
@@ -57,14 +62,12 @@ def list_materials(class_id: int):
 @materials_bp.get("/<int:class_id>/materials/<string:material_id>")
 @require_auth
 def get_material(class_id: int, material_id: str):
-    denied = _assert_class_scope(class_id)
+    denied = _assert_class_scope()
     if denied:
         return denied
+    class_id = _effective_class_id()
     material = find_material_in_class(material_id, class_id)
     if not material:
-        other = db.session.get(Material, material_id)
-        if other and other.class_id != class_id:
-            return json_error(403, "class access denied")
         return json_error(404, "material not found")
     entry = KnowledgeEntry.query.filter_by(material_id=material.id, class_id=class_id).one_or_none()
     return jsonify(material=_material_payload(material), body_text=entry.body_text if entry else "")
@@ -73,14 +76,12 @@ def get_material(class_id: int, material_id: str):
 @materials_bp.get("/<int:class_id>/materials/<string:material_id>/download")
 @require_auth
 def download_material(class_id: int, material_id: str):
-    denied = _assert_class_scope(class_id)
+    denied = _assert_class_scope()
     if denied:
         return denied
+    class_id = _effective_class_id()
     material = find_material_in_class(material_id, class_id)
     if not material:
-        other = db.session.get(Material, material_id)
-        if other and other.class_id != class_id:
-            return json_error(403, "class access denied")
         return json_error(404, "material not found")
 
     if material.storage_path == "seeded":
@@ -112,9 +113,10 @@ def download_material(class_id: int, material_id: str):
 @require_auth
 @require_csrf
 def upload_material(class_id: int):
-    denied = _assert_class_scope(class_id, teacher_required=True)
+    denied = _assert_class_scope(teacher_required=True)
     if denied:
         return denied
+    class_id = _effective_class_id()
     file = request.files.get("file")
     if not file or not file.filename:
         return json_error(400, "a material file is required")
@@ -184,13 +186,12 @@ def upload_material(class_id: int):
 @require_auth
 @require_csrf
 def rename_material(class_id: int, material_id: str):
-    denied = _assert_class_scope(class_id, teacher_required=True)
+    denied = _assert_class_scope(teacher_required=True)
     if denied:
         return denied
+    class_id = _effective_class_id()
     material = find_material_in_class(material_id, class_id)
     if not material:
-        if db.session.get(Material, material_id):
-            return json_error(403, "class access denied")
         return json_error(404, "material not found")
     title = ((request.get_json(silent=True) or {}).get("title") or "").strip()[:255]
     if not title:
@@ -204,13 +205,12 @@ def rename_material(class_id: int, material_id: str):
 @require_auth
 @require_csrf
 def delete_material(class_id: int, material_id: str):
-    denied = _assert_class_scope(class_id, teacher_required=True)
+    denied = _assert_class_scope(teacher_required=True)
     if denied:
         return denied
+    class_id = _effective_class_id()
     material = find_material_in_class(material_id, class_id)
     if not material:
-        if db.session.get(Material, material_id):
-            return json_error(403, "class access denied")
         return json_error(404, "material not found")
     file_path = Path(current_app.config["UPLOAD_DIR"]) / material.storage_path
     is_seeded = material.storage_path == "seeded"
