@@ -39,6 +39,7 @@
   <script>
     const api = '{{ api_url }}';
     const user = {{ user | tojson }};
+    const canDeleteMaterials = {{ (user.role == 'teacher') | tojson }};
     let csrfToken = '';
     async function apiFetch(path, options = {}) {
       options.credentials = 'include';
@@ -60,8 +61,27 @@
         download.href = `${api}/api/classes/${user.class_id}/materials/${item.id}/download`;
         download.textContent = '下载文件';
         li.append(title, ' ', button, ' ', download);
+        if (canDeleteMaterials) {
+          const remove = document.createElement('button');
+          remove.type = 'button';
+          remove.textContent = '删除材料';
+          remove.addEventListener('click', () => deleteMaterial(item.id, item.title));
+          li.append(' ', remove);
+        }
         return li;
       }));
+    }
+    async function deleteMaterial(materialId, title) {
+      if (!window.confirm(`确定删除“${title}”吗？此操作无法撤销。`)) return;
+      const response = await apiFetch(`/api/classes/${user.class_id}/materials/${materialId}`, {method: 'DELETE'});
+      const message = document.querySelector('#message');
+      if (response.status === 204) {
+        message.textContent = '材料已删除。';
+        await loadMaterials();
+        return;
+      }
+      const failure = await response.json().catch(() => null);
+      message.textContent = failure && typeof failure.error === 'string' && failure.error.trim() ? failure.error : '删除失败，请重试。';
     }
     async function previewMaterial(materialId) {
       const response = await apiFetch(`/api/classes/${user.class_id}/materials/${materialId}`);

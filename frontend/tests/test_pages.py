@@ -78,3 +78,28 @@ def test_materials_page_renders_api_upload_errors_as_text():
     assert "await response.json().catch(() => null)" in body
     assert "typeof failure.error === 'string'" in body
     assert "'#message').textContent = response.ok ? '上传成功。' : uploadMessage" in body
+
+
+def test_teacher_materials_page_wires_confirmed_csrf_delete_action():
+    client = app.test_client()
+    user = {"username": "teacher_a", "role": "teacher", "class_id": 1}
+    with patch("server.current_user", return_value=user):
+        response = client.get("/materials")
+    body = response.get_data(as_text=True)
+    assert "const canDeleteMaterials = true;" in body
+    assert "remove.textContent = '删除材料'" in body
+    assert "deleteMaterial(item.id, item.title)" in body
+    assert "if (!window.confirm(" in body
+    assert "{method: 'DELETE'}" in body
+    assert "message.textContent = '材料已删除。'" in body
+    assert "await loadMaterials();" in body
+
+
+def test_student_materials_page_disables_delete_rendering():
+    client = app.test_client()
+    user = {"username": "student_a1", "role": "student", "class_id": 1}
+    with patch("server.current_user", return_value=user):
+        response = client.get("/materials")
+    body = response.get_data(as_text=True)
+    assert "const canDeleteMaterials = false;" in body
+    assert "if (canDeleteMaterials)" in body
