@@ -11,8 +11,9 @@ from flask import Blueprint, current_app, g, jsonify, request, send_file
 from .auth import json_error, require_auth, require_csrf
 from .database import db
 from .indexing import IndexingFailed, index_entry, reindex_entry
-from .models import ClassMembership, KnowledgeChunk, KnowledgeEntry, KnowledgeIndexGeneration, Material
-from .repositories import find_material_in_class, find_membership, query_materials_for_class
+from .authorization import subject_in_class, subject_is_allowed, subject_scope
+from .models import ClassMembership, ClassSubject, KnowledgeChunk, KnowledgeEntry, KnowledgeIndexGeneration, Material
+from .repositories import find_membership
 
 materials_bp = Blueprint("materials", __name__, url_prefix="/api/classes")
 ALLOWED_EXTENSIONS = {".txt": "text/plain", ".md": "text/markdown"}
@@ -21,6 +22,10 @@ SUPPORTED_TEXT_ENCODINGS = ("utf-8-sig", "gb18030", "gbk")
 
 def _effective_class_id() -> int:
     return g.current_user.class_id
+
+
+def _material_scope():
+    return subject_scope(g.current_user)
 
 
 def _validated_upload_name(filename: str) -> tuple[str, str]:
@@ -68,10 +73,17 @@ def _material_payload(material: Material) -> dict:
     return {
         "id": material.id,
         "title": material.title,
+        "subject_id": material.subject_id,
+        "subject_name": subject.name if (subject := ClassSubject.query.filter_by(id=material.subject_id, class_id=material.class_id).one_or_none()) else "",
         "original_filename": material.original_filename,
         "created_at": material.created_at.isoformat(),
         "index_status": generation.status if generation else "pending",
     }
+
+
+def _allowed_material(material_id: str, scope):
+    material = Material.query.filter_by(id=material_id, class_id=scope.class_id).one_or_none() if scope else None
+    return material if material and subject_is_allowed(scope, material.subject_id) else None
 
 
 @materials_bp.get("/<int:class_id>/materials")
@@ -80,11 +92,21 @@ def list_materials(class_id: int):
     denied = _assert_class_scope()
     if denied:
         return denied
-    class_id = _effective_class_id()
+    scope = _material_scope()
+    if not scope:
+        return json_error(403, "class access denied")
     page = max(request.args.get("page", 1, type=int), 1)
     limit = min(max(request.args.get("limit", 20, type=int), 1), 100)
     search = (request.args.get("search") or "").strip()
-    pagination = query_materials_for_class(class_id, search, page, limit)
+    selected_subject = request.args.get("subject_id", type=int)
+    if selected_subject is not None and not subject_is_allowed(scope, selected_subject):
+        return jsonify(items=[], page=page, total=0)
+    query = Material.query.filter(Material.class_id == scope.class_id, Material.subject_id.in_(scope.subject_ids))
+    if selected_subject is not None:
+        query = query.filter(Material.subject_id == selected_subject)
+    if search:
+        query = query.filter(Material.title.ilike(f"%{search}%"))
+    pagination = query.order_by(Material.created_at.desc(), Material.id.desc()).paginate(page=page, per_page=limit, error_out=False)
     return jsonify(
         items=[_material_payload(material) for material in pagination.items],
         page=page,
@@ -98,11 +120,11 @@ def get_material(class_id: int, material_id: str):
     denied = _assert_class_scope()
     if denied:
         return denied
-    class_id = _effective_class_id()
-    material = find_material_in_class(material_id, class_id)
+    scope = _material_scope()
+    material = _allowed_material(material_id, scope)
     if not material:
         return json_error(404, "material not found")
-    entry = KnowledgeEntry.query.filter_by(material_id=material.id, class_id=class_id).one_or_none()
+    entry = KnowledgeEntry.query.filter_by(material_id=material.id, class_id=scope.class_id).one_or_none()
     return jsonify(material=_material_payload(material), body_text=entry.body_text if entry else "")
 
 
@@ -112,13 +134,13 @@ def download_material(class_id: int, material_id: str):
     denied = _assert_class_scope()
     if denied:
         return denied
-    class_id = _effective_class_id()
-    material = find_material_in_class(material_id, class_id)
+    scope = _material_scope()
+    material = _allowed_material(material_id, scope)
     if not material:
         return json_error(404, "material not found")
 
     if material.storage_path == "seeded":
-        entry = KnowledgeEntry.query.filter_by(material_id=material.id, class_id=class_id).one_or_none()
+        entry = KnowledgeEntry.query.filter_by(material_id=material.id, class_id=scope.class_id).one_or_none()
         return send_file(
             BytesIO((entry.body_text if entry else "").encode("utf-8")),
             mimetype=material.content_type,
@@ -149,7 +171,10 @@ def upload_material(class_id: int):
     denied = _assert_class_scope(teacher_required=True)
     if denied:
         return denied
-    class_id = _effective_class_id()
+    scope = _material_scope()
+    if not scope or g.current_user.role != "teacher":
+        return json_error(403, "teacher subject assignment required")
+    class_id = scope.class_id
     file = request.files.get("file")
     if not file or not file.filename:
         return json_error(400, "a material file is required")
@@ -180,11 +205,16 @@ def upload_material(class_id: int):
         title = (request.form.get("title") or Path(display_name).stem).strip()[:255]
         if not title:
             raise ValueError("material title is required")
-        class_dir = upload_root / str(class_id)
-        class_dir.mkdir(parents=True, exist_ok=True)
-        final_path = class_dir / f"{uuid4()}{suffix}"
+        subject_id = request.form.get("subject_id", type=int)
+        subject = subject_in_class(subject_id, class_id)
+        if not subject or subject.status != "active" or not subject_is_allowed(scope, subject_id):
+            raise ValueError("an assigned active subject is required")
+        subject_dir = upload_root / str(class_id) / str(subject.id)
+        subject_dir.mkdir(parents=True, exist_ok=True)
+        final_path = subject_dir / f"{uuid4()}{suffix}"
         material = Material(
             class_id=class_id,
+            subject_id=subject.id,
             uploader_id=g.current_user.id,
             title=title,
             original_filename=display_name,
@@ -193,7 +223,7 @@ def upload_material(class_id: int):
         )
         db.session.add(material)
         db.session.flush()
-        entry = KnowledgeEntry(material_id=material.id, class_id=class_id, body_text=body_text)
+        entry = KnowledgeEntry(material_id=material.id, class_id=class_id, subject_id=subject.id, body_text=body_text)
         db.session.add(entry)
         db.session.flush()
         options = _chunking_options_from_form()
@@ -235,11 +265,11 @@ def reindex_material(class_id: int, material_id: str):
     denied = _assert_class_scope(teacher_required=True)
     if denied:
         return denied
-    class_id = _effective_class_id()
-    material = find_material_in_class(material_id, class_id)
+    scope = _material_scope()
+    material = _allowed_material(material_id, scope)
     if not material:
         return json_error(404, "material not found")
-    entry = KnowledgeEntry.query.filter_by(material_id=material.id, class_id=class_id).one_or_none()
+    entry = KnowledgeEntry.query.filter_by(material_id=material.id, class_id=scope.class_id).one_or_none()
     if not entry:
         return json_error(404, "material not found")
     payload = request.get_json(silent=True) or {}
@@ -263,8 +293,8 @@ def rename_material(class_id: int, material_id: str):
     denied = _assert_class_scope(teacher_required=True)
     if denied:
         return denied
-    class_id = _effective_class_id()
-    material = find_material_in_class(material_id, class_id)
+    scope = _material_scope()
+    material = _allowed_material(material_id, scope)
     if not material:
         return json_error(404, "material not found")
     title = ((request.get_json(silent=True) or {}).get("title") or "").strip()[:255]
@@ -282,13 +312,14 @@ def delete_material(class_id: int, material_id: str):
     denied = _assert_class_scope(teacher_required=True)
     if denied:
         return denied
-    class_id = _effective_class_id()
-    material = find_material_in_class(material_id, class_id)
+    scope = _material_scope()
+    material = _allowed_material(material_id, scope)
     if not material:
         return json_error(404, "material not found")
-    file_path = Path(current_app.config["UPLOAD_DIR"]) / material.storage_path
+    upload_root = Path(current_app.config["UPLOAD_DIR"]).resolve()
+    file_path = (upload_root / material.storage_path).resolve()
     is_seeded = material.storage_path == "seeded"
-    entry = KnowledgeEntry.query.filter_by(material_id=material.id, class_id=class_id).one_or_none()
+    entry = KnowledgeEntry.query.filter_by(material_id=material.id, class_id=scope.class_id).one_or_none()
     if entry:
         generations = KnowledgeIndexGeneration.query.filter_by(knowledge_entry_id=entry.id).all()
         generation_ids = [generation.id for generation in generations]
@@ -298,6 +329,6 @@ def delete_material(class_id: int, material_id: str):
         db.session.delete(entry)
     db.session.delete(material)
     db.session.commit()
-    if file_path.exists() and not is_seeded:
+    if not is_seeded and file_path.is_relative_to(upload_root) and file_path.exists():
         file_path.unlink(missing_ok=True)
     return "", 204

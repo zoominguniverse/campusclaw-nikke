@@ -10,6 +10,9 @@ os.environ.setdefault("DEMO_STUDENT_A_PASSWORD", "student-a-password")
 os.environ.setdefault("DEMO_STUDENT_A2_PASSWORD", "student-a2-password")
 os.environ.setdefault("DEMO_STUDENT_B_PASSWORD", "student-b-password")
 os.environ.setdefault("DEMO_STUDENT_B2_PASSWORD", "student-b2-password")
+os.environ.setdefault("DEMO_SUPER_ADMIN_PASSWORD", "super-admin-password")
+os.environ.setdefault("DEMO_CLASS_ADMIN_A_PASSWORD", "class-admin-a-password")
+os.environ.setdefault("DEMO_TEACHER_A2_PASSWORD", "teacher-a2-password")
 
 from app import create_app
 from app.database import db
@@ -33,6 +36,9 @@ def app(tmp_path):
             "DEMO_STUDENT_A2_PASSWORD": "student-a2-password",
             "DEMO_STUDENT_B_PASSWORD": "student-b-password",
             "DEMO_STUDENT_B2_PASSWORD": "student-b2-password",
+            "DEMO_SUPER_ADMIN_PASSWORD": "super-admin-password",
+            "DEMO_CLASS_ADMIN_A_PASSWORD": "class-admin-a-password",
+            "DEMO_TEACHER_A2_PASSWORD": "teacher-a2-password",
             "FRONTEND_ORIGIN": "http://localhost:5173",
         }
     )

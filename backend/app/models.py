@@ -63,6 +63,7 @@ class User(db.Model):
     password_hash = db.Column(db.String(255), nullable=False)
     role = db.Column(db.String(32), db.ForeignKey("roles.name"), nullable=False)
     class_id = db.Column(db.Integer, db.ForeignKey("classes.id"), nullable=False, index=True)
+    is_active = db.Column(db.Boolean, nullable=False, default=True)
     created_at = db.Column(db.DateTime(timezone=True), nullable=False, default=utc_now)
 
 
@@ -74,6 +75,48 @@ class ClassMembership(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False, index=True)
     class_id = db.Column(db.Integer, db.ForeignKey("classes.id"), nullable=False, index=True)
     is_teacher = db.Column(db.Boolean, nullable=False, default=False)
+
+
+class ClassAdminGrant(db.Model):
+    __tablename__ = "class_admin_grants"
+    __table_args__ = (db.UniqueConstraint("admin_user_id", "class_id", name="uq_class_admin_grant"),)
+
+    id = db.Column(db.Integer, primary_key=True)
+    admin_user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False, index=True)
+    class_id = db.Column(db.Integer, db.ForeignKey("classes.id"), nullable=False, index=True)
+    created_by = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
+    created_at = db.Column(db.DateTime(timezone=True), nullable=False, default=utc_now)
+
+
+class ClassSubject(db.Model):
+    __tablename__ = "class_subjects"
+    __table_args__ = (
+        db.UniqueConstraint("class_id", "normalized_name", name="uq_class_subject_name"),
+        db.UniqueConstraint("class_id", "subject_key", name="uq_class_subject_key"),
+    )
+
+    id = db.Column(db.Integer, primary_key=True)
+    class_id = db.Column(db.Integer, db.ForeignKey("classes.id"), nullable=False, index=True)
+    subject_key = db.Column(db.String(64), nullable=False)
+    name = db.Column(db.String(128), nullable=False)
+    normalized_name = db.Column(db.String(128), nullable=False)
+    status = db.Column(db.String(16), nullable=False, default="active", index=True)
+    created_by = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
+    created_at = db.Column(db.DateTime(timezone=True), nullable=False, default=utc_now)
+    archived_at = db.Column(db.DateTime(timezone=True), nullable=True)
+
+
+class TeacherSubjectAssignment(db.Model):
+    __tablename__ = "teacher_subject_assignments"
+    __table_args__ = (db.UniqueConstraint("teacher_id", "subject_id", name="uq_teacher_subject_assignment"),)
+
+    id = db.Column(db.Integer, primary_key=True)
+    teacher_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False, index=True)
+    subject_id = db.Column(db.Integer, db.ForeignKey("class_subjects.id"), nullable=False, index=True)
+    granted_by = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
+    is_active = db.Column(db.Boolean, nullable=False, default=True, index=True)
+    created_at = db.Column(db.DateTime(timezone=True), nullable=False, default=utc_now)
+    revoked_at = db.Column(db.DateTime(timezone=True), nullable=True)
 
 
 class LoginSession(db.Model):
@@ -97,6 +140,7 @@ class Material(db.Model):
     __tablename__ = "materials"
     id = db.Column(db.String(36), primary_key=True, default=lambda: str(uuid4()))
     class_id = db.Column(db.Integer, db.ForeignKey("classes.id"), nullable=False, index=True)
+    subject_id = db.Column(db.Integer, db.ForeignKey("class_subjects.id"), nullable=True, index=True)
     uploader_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     title = db.Column(db.String(255), nullable=False)
     original_filename = db.Column(db.String(255), nullable=False)
@@ -110,6 +154,7 @@ class KnowledgeEntry(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     material_id = db.Column(db.String(36), db.ForeignKey("materials.id"), nullable=False, unique=True)
     class_id = db.Column(db.Integer, db.ForeignKey("classes.id"), nullable=False, index=True)
+    subject_id = db.Column(db.Integer, db.ForeignKey("class_subjects.id"), nullable=True, index=True)
     body_text = db.Column(db.Text, nullable=False)
     created_at = db.Column(db.DateTime(timezone=True), nullable=False, default=utc_now)
 
@@ -134,12 +179,14 @@ class KnowledgeChunk(db.Model):
     __table_args__ = (
         db.UniqueConstraint("generation_id", "chunk_index", name="uq_generation_chunk_index"),
         db.Index("ix_chunks_class_status", "class_id", "index_status"),
+        db.Index("ix_chunks_class_subject_status", "class_id", "subject_id", "index_status"),
         db.Index("ix_chunks_entry_current", "knowledge_entry_id", "generation_id"),
     )
 
     id = db.Column(db.Integer, primary_key=True)
     generation_id = db.Column(db.Integer, db.ForeignKey("knowledge_index_generations.id"), nullable=False, index=True)
     class_id = db.Column(db.Integer, db.ForeignKey("classes.id"), nullable=False, index=True)
+    subject_id = db.Column(db.Integer, db.ForeignKey("class_subjects.id"), nullable=True, index=True)
     material_id = db.Column(db.String(36), db.ForeignKey("materials.id"), nullable=False, index=True)
     knowledge_entry_id = db.Column(db.Integer, db.ForeignKey("knowledge_entries.id"), nullable=False, index=True)
     chunk_index = db.Column(db.Integer, nullable=False)

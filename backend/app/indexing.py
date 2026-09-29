@@ -36,6 +36,7 @@ def index_entry(entry: KnowledgeEntry, options: dict | None = None, *, replace: 
         record = KnowledgeChunk(
             generation_id=generation.id,
             class_id=entry.class_id,
+            subject_id=entry.subject_id,
             material_id=entry.material_id,
             knowledge_entry_id=entry.id,
             chunk_index=index,

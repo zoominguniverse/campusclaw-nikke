@@ -7,7 +7,7 @@
 ## Docker Compose 启动
 
 1. 复制配置：`Copy-Item .env.example .env`（PowerShell）或 `cp .env.example .env`。
-2. 在 `.env` 中填入强随机 `SECRET_KEY`、数据库密码和六个演示账号密码。
+2. 在 `.env` 中填入强随机 `SECRET_KEY`、数据库密码和六个演示账号密码；如需演示教务处、班主任和第二位 A 班任课教师，再设置三个可选 `DEMO_*` 管理账号密码。
 3. 执行：`docker compose up --build`。
 
 服务端口：
@@ -18,7 +18,11 @@
 
 健康检查无需登录：`curl http://localhost:5173/health`，预期返回 `{"status":"ok"}`。API 与 PostgreSQL 仅在 Compose 内部网络可访问，浏览器请求通过 Web 的同源 `/api` 路径代理。
 
-开发种子数据由 `SEED_DEMO_DATA=true` 启用：A 班为教师 `teacher_a` 和学生 `student_a1`、`student_a2`，B 班为教师 `teacher_b` 和学生 `student_b1`、`student_b2`。所有密码只从 `.env` 中读取；生产或非演示环境应设置 `SEED_DEMO_DATA=false`。
+开发种子数据由 `SEED_DEMO_DATA=true` 启用：A 班为数学教师 `teacher_a` 和学生 `student_a1`、`student_a2`，B 班为英语教师 `teacher_b` 和学生 `student_b1`、`student_b2`。设置可选密码后还会创建教务处 `super_admin`、A 班班主任 `class_admin_a` 和语文教师 `teacher_a2`。所有密码只从 `.env` 中读取；生产或非演示环境应设置 `SEED_DEMO_DATA=false`。
+
+## 学科文件夹与权限
+
+每个班级的学科目录相互独立。教务处超级管理员管理班主任及班级授权；班主任管理获授权班级的学科与任课教师分配。学生可以浏览、下载、检索本班全部学科材料；任课教师仅可上传、重建、重命名和删除自己被分配学科的材料。新的教师上传请求必须带 `subject_id`，检索与问答可选传入该字段来缩小范围；返回命中和引用会包含学科名称。
 
 ## API 状态约定
 

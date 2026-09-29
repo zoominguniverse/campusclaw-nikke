@@ -18,7 +18,9 @@ def test_seeded_users_are_hashed_and_class_scoped(app):
         assert teacher.role == "teacher"
         assert teacher_b.role == "teacher"
         assert {student_a2.role, student_b.role} == {"student"}
-        assert User.query.count() == 6
+        assert User.query.count() == 9
+        assert User.query.filter_by(username="super_admin", role="super_admin").one()
+        assert User.query.filter_by(username="class_admin_a", role="class_admin").one()
 
 
 def test_second_teacher_is_limited_to_own_class(app, client):
@@ -169,7 +171,7 @@ def test_uploaded_material_downloads_without_storage_path_leakage(app, client):
     token = login(client, "teacher_a", "teacher-password")
     created = client.post(
         "/api/classes/1/materials",
-        data={"file": (io.BytesIO(b"downloadable lesson"), "lesson.md")},
+        data={"subject_id": "1", "file": (io.BytesIO(b"downloadable lesson"), "lesson.md")},
         headers={"X-CSRF-Token": token},
     )
     material_id = created.get_json()["material"]["id"]
@@ -207,7 +209,7 @@ def test_teacher_upload_creates_material_and_knowledge_record(app, client):
     token = login(client, "teacher_a", "teacher-password")
     response = client.post(
         "/api/classes/1/materials",
-        data={"title": "A 班新材料", "file": (io.BytesIO("课程正文".encode()), "lesson.md")},
+        data={"title": "A 班新材料", "subject_id": "1", "file": (io.BytesIO("课程正文".encode()), "lesson.md")},
         headers={"X-CSRF-Token": token},
     )
     assert response.status_code == 201
@@ -232,7 +234,7 @@ def test_teacher_upload_accepts_chinese_filename_and_common_text_encodings(app, 
     for encoding in ("utf-8-sig", "gb18030", "gbk"):
         response = client.post(
             "/api/classes/1/materials",
-            data={"file": (io.BytesIO(body.encode(encoding)), "《活着》.txt")},
+            data={"subject_id": "1", "file": (io.BytesIO(body.encode(encoding)), "《活着》.txt")},
             headers={"X-CSRF-Token": token},
         )
         assert response.status_code == 201
@@ -251,7 +253,7 @@ def test_teacher_upload_normalizes_nul_padding_from_supported_text(app, client):
     token = login(client, "teacher_a", "teacher-password")
     response = client.post(
         "/api/classes/1/materials",
-        data={"file": (io.BytesIO("正文\x00尾注".encode("gb18030")), "带尾注.txt")},
+        data={"subject_id": "1", "file": (io.BytesIO("正文\x00尾注".encode("gb18030")), "带尾注.txt")},
         headers={"X-CSRF-Token": token},
     )
     assert response.status_code == 201
@@ -291,7 +293,7 @@ def test_invalid_upload_creates_no_record(app, client):
         before = Material.query.count()
     response = client.post(
         "/api/classes/1/materials",
-        data={"file": (io.BytesIO(b"not allowed"), "lesson.pdf")},
+        data={"subject_id": "1", "file": (io.BytesIO(b"not allowed"), "lesson.pdf")},
         headers={"X-CSRF-Token": token},
     )
     assert response.status_code == 400
@@ -302,13 +304,13 @@ def test_invalid_upload_creates_no_record(app, client):
 def test_upload_direct_error_paths(app, client):
     unauthenticated = client.post(
         "/api/classes/1/materials",
-        data={"file": (io.BytesIO(b"content"), "lesson.md")},
+        data={"subject_id": "1", "file": (io.BytesIO(b"content"), "lesson.md")},
     )
     assert unauthenticated.status_code == 401
     token = login(client, "teacher_a", "teacher-password")
     cross_class = client.post(
         "/api/classes/2/materials",
-        data={"file": (io.BytesIO(b"content"), "lesson.md")},
+        data={"subject_id": "1", "file": (io.BytesIO(b"content"), "lesson.md")},
         headers={"X-CSRF-Token": token},
     )
     assert cross_class.status_code == 201

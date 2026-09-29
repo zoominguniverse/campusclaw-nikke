@@ -61,11 +61,11 @@ def test_postgresql_retrieval_extensions_indexes_scope_threshold_and_reindex(pos
             for row in db.session.execute(
                 text(
                     "SELECT indexname FROM pg_indexes WHERE tablename = 'knowledge_chunks' "
-                    "AND indexname IN ('ix_chunks_text_trgm', 'ix_chunks_embedding_cosine')"
+                    "AND indexname IN ('ix_chunks_text_trgm', 'ix_chunks_embedding_cosine', 'ix_chunks_class_subject_status_ready')"
                 )
             )
         }
-        assert indexes == {"ix_chunks_text_trgm", "ix_chunks_embedding_cosine"}
+        assert indexes == {"ix_chunks_text_trgm", "ix_chunks_embedding_cosine", "ix_chunks_class_subject_status_ready"}
 
         entry = KnowledgeEntry.query.filter_by(class_id=1).first()
         assert entry is not None
@@ -75,6 +75,9 @@ def test_postgresql_retrieval_extensions_indexes_scope_threshold_and_reindex(pos
         assert retrieve(class_id=1, query=phrase, mode="hybrid")["hits"]
         assert retrieve(class_id=1, query="B 班示例材料内容", mode="keyword")["hits"] == []
         assert retrieve(class_id=1, query="量子色动力学", mode="vector")["hits"] == []
+        assert entry.subject_id is not None
+        assert retrieve(class_id=1, subject_ids={entry.subject_id}, query=phrase, mode="hybrid")["hits"]
+        assert retrieve(class_id=1, subject_ids=set(), query=phrase, mode="keyword")["hits"] == []
 
         old = KnowledgeIndexGeneration.query.filter_by(knowledge_entry_id=entry.id, is_current=True).one()
         result = reindex_entry(entry, {"strategy": "custom", "max_length": 100, "overlap_percent": 0})

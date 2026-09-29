@@ -10,14 +10,14 @@ class AnswerValidationError(RuntimeError):
     pass
 
 
-def answer_question(*, class_id: int, question: str, history: list | None = None) -> dict:
-    result = retrieve(class_id=class_id, query=question, mode="hybrid", limit=4)
+def answer_question(*, class_id: int, question: str, history: list | None = None, subject_ids: set[int] | frozenset[int] | None = None) -> dict:
+    result = retrieve(class_id=class_id, query=question, mode="hybrid", limit=4, subject_ids=subject_ids)
     hits = result["hits"]
     if not hits:
         return {"answer": NO_EVIDENCE_MESSAGE, "citations": []}
     allowed_history = _validated_history(history or [])
     answer = chat_client().answer(question, hits, allowed_history)
-    citations = [{key: hit[key] for key in ("material_id", "material_title", "chunk_id", "chunk_index", "start_offset", "end_offset", "offset_basis", "excerpt")} for hit in hits]
+    citations = [{key: hit[key] for key in ("subject_id", "subject_name", "material_id", "material_title", "chunk_id", "chunk_index", "start_offset", "end_offset", "offset_basis", "excerpt")} for hit in hits]
     _validate_citations(answer, len(citations))
     return {"answer": answer, "citations": citations}
 

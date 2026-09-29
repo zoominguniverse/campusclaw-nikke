@@ -4,6 +4,7 @@ from flask import Blueprint, current_app, g, jsonify, request
 
 from .answers import AnswerValidationError, answer_question
 from .auth import json_error, require_auth
+from .authorization import subject_is_allowed, subject_scope
 from .providers import ProviderUnavailable
 from .retrieval import RetrievalInputError, retrieve
 
@@ -19,12 +20,18 @@ def _effective_class_id() -> int:
 @require_auth
 def retrieve_knowledge(class_id: int):
     payload = request.get_json(silent=True) or {}
+    scope = subject_scope(g.current_user)
+    if not scope:
+        return json_error(403, "class access denied")
+    selected_subject = payload.get("subject_id")
+    allowed_subjects = scope.subject_ids if selected_subject is None else (frozenset({selected_subject}) if isinstance(selected_subject, int) and subject_is_allowed(scope, selected_subject) else frozenset())
     try:
         result = retrieve(
-            class_id=_effective_class_id(),
+            class_id=scope.class_id,
             query=payload.get("query", ""),
             mode=payload.get("mode"),
             limit=payload.get("limit"),
+            subject_ids=allowed_subjects,
         )
         return jsonify(result)
     except RetrievalInputError as error:
@@ -40,11 +47,16 @@ def retrieve_knowledge(class_id: int):
 @require_auth
 def ask_knowledge(class_id: int):
     payload = request.get_json(silent=True) or {}
+    scope = subject_scope(g.current_user)
+    if not scope:
+        return json_error(403, "class access denied")
+    selected_subject = payload.get("subject_id")
+    allowed_subjects = scope.subject_ids if selected_subject is None else (frozenset({selected_subject}) if isinstance(selected_subject, int) and subject_is_allowed(scope, selected_subject) else frozenset())
     try:
         question = (payload.get("question") or "").strip()
         if not question:
             raise RetrievalInputError("question is required")
-        return jsonify(answer_question(class_id=_effective_class_id(), question=question, history=payload.get("history")))
+        return jsonify(answer_question(class_id=scope.class_id, question=question, history=payload.get("history"), subject_ids=allowed_subjects))
     except RetrievalInputError as error:
         return json_error(400, str(error))
     except ProviderUnavailable:

@@ -1,152 +1,62 @@
 <!doctype html>
 <html lang="zh-CN">
-<head><meta charset="utf-8"><title>CampusClaw 材料</title></head>
+<head><meta charset="utf-8"><title>CampusClaw 教学管理</title></head>
 <body>
   <main>
-    <h1>本班教学材料</h1>
+    <h1>教学材料与知识库</h1>
     <p>当前用户：{{ user.username }}（{{ user.role }}，班级 {{ user.class_id }}） <button id="logout-button" type="button">退出登录</button></p>
-    {% if user.role == 'teacher' %}
-    <form id="upload-form" enctype="multipart/form-data">
-      <label>标题（可选）<input name="title"></label>
-      <label>材料 <input type="file" name="file" accept=".txt,.md" required></label>
-      <button type="submit">上传材料</button>
-    </form>
-    {% endif %}
     <p id="message" role="status"></p>
-    <ul id="materials"></ul>
-    <section aria-labelledby="search-heading">
-      <h2 id="search-heading">检索本班材料</h2>
-      <form id="search-form">
-        <label>检索词 <input id="search-query" required></label>
-        <label>模式 <select id="search-mode"><option value="hybrid">混合检索</option><option value="keyword">关键词</option><option value="vector">语义向量</option></select></label>
-        <button type="submit">检索</button>
-      </form>
-      <p id="search-message" role="status"></p>
-      <ol id="search-results"></ol>
+    {% if user.role in ['teacher', 'student'] %}
+    <section id="materials-panel"><h2>本班教学材料</h2>
+      <label>学科 <select id="subject-select"><option value="">全部可访问学科</option></select></label>
+      {% if user.role == 'teacher' %}<form id="upload-form" enctype="multipart/form-data" hidden><label>标题（可选）<input name="title"></label><label>材料 <input type="file" name="file" accept=".txt,.md" required></label><input id="upload-subject-id" name="subject_id" type="hidden" required><button type="submit">上传材料</button></form>{% endif %}
+      <ul id="materials"></ul>
     </section>
-    <section aria-labelledby="ask-heading">
-      <h2 id="ask-heading">基于材料提问</h2>
-      <form id="ask-form"><label>问题 <input id="ask-question" required></label><button type="submit">提问</button></form>
-      <p id="answer-text" role="status"></p>
-      <ol id="citations"></ol>
-    </section>
-    <section id="preview" hidden>
-      <h2 id="preview-title">材料预览</h2>
-      <pre id="preview-body"></pre>
-      <button id="close-preview" type="button">关闭预览</button>
-    </section>
+    <section><h2>检索可访问材料</h2><form id="search-form"><label>检索词 <input id="search-query" required></label><label>模式 <select id="search-mode"><option value="hybrid">混合检索</option><option value="keyword">关键词</option><option value="vector">语义向量</option></select></label><button type="submit">检索</button></form><p id="search-message" role="status"></p><ol id="search-results"></ol></section>
+    <section><h2>基于材料提问</h2><form id="ask-form"><label>问题 <input id="ask-question" required></label><button type="submit">提问</button></form><p id="answer-text" role="status"></p><ol id="citations"></ol></section>
+    {% endif %}
+    {% if user.role == 'class_admin' %}
+    <section id="class-admin-panel"><h2>班级学科与任课教师</h2><form id="subject-form"><label>学科名称 <input id="subject-name" required></label><button type="submit">创建学科</button></form><p id="class-admin-message" role="status"></p><ul id="admin-subjects"></ul></section>
+    {% endif %}
+    {% if user.role == 'super_admin' %}
+    <section id="super-admin-panel"><h2>教务处：班主任管理</h2><form id="class-admin-form"><label>班级 <select id="admin-class-id" required></select></label><label>用户名 <input id="admin-username" required></label><label>初始密码 <input id="admin-password" type="password" required></label><button type="submit">创建班主任并授权</button></form><p id="super-admin-message" role="status"></p><ul id="class-admins"></ul></section>
+    {% endif %}
+    <section id="preview" hidden><h2 id="preview-title">材料预览</h2><pre id="preview-body"></pre><button id="close-preview" type="button">关闭预览</button></section>
   </main>
   <script>
-    const api = '{{ api_url }}';
-    const user = {{ user | tojson }};
+    const api = '{{ api_url }}'; const user = {{ user | tojson }};
+    const canReadMaterials = {{ (user.role in ['teacher', 'student']) | tojson }};
     const canDeleteMaterials = {{ (user.role == 'teacher') | tojson }};
-    let csrfToken = '';
-    async function apiFetch(path, options = {}) {
-      options.credentials = 'include';
-      options.headers = {...(options.headers || {}), 'X-CSRF-Token': csrfToken};
-      const response = await fetch(api + path, options);
-      if (response.status === 401) window.location.assign('/login?next=/materials');
-      return response;
-    }
-    async function loadMaterials() {
-      const response = await apiFetch(`/api/classes/${user.class_id}/materials`);
-      if (!response.ok) return;
-      const data = await response.json();
-      document.querySelector('#materials').replaceChildren(...data.items.map(item => {
-        const li = document.createElement('li');
-        const title = document.createElement('span'); title.textContent = item.title;
-        const button = document.createElement('button'); button.type = 'button'; button.textContent = '在线预览';
-        button.addEventListener('click', () => previewMaterial(item.id));
-        const download = document.createElement('a');
-        download.href = `${api}/api/classes/${user.class_id}/materials/${item.id}/download`;
-        download.textContent = '下载文件';
-        li.append(title, ' ', button, ' ', download);
-        if (canDeleteMaterials) {
-          const remove = document.createElement('button');
-          remove.type = 'button';
-          remove.textContent = '删除材料';
-          remove.addEventListener('click', () => deleteMaterial(item.id, item.title));
-          li.append(' ', remove);
-        }
-        return li;
-      }));
-    }
-    async function deleteMaterial(materialId, title) {
-      if (!window.confirm(`确定删除“${title}”吗？此操作无法撤销。`)) return;
-      const response = await apiFetch(`/api/classes/${user.class_id}/materials/${materialId}`, {method: 'DELETE'});
-      const message = document.querySelector('#message');
-      if (response.status === 204) {
-        message.textContent = '材料已删除。';
-        await loadMaterials();
-        return;
-      }
-      const failure = await response.json().catch(() => null);
-      message.textContent = failure && typeof failure.error === 'string' && failure.error.trim() ? failure.error : '删除失败，请重试。';
-    }
-    async function previewMaterial(materialId) {
-      const response = await apiFetch(`/api/classes/${user.class_id}/materials/${materialId}`);
-      if (!response.ok) {
-        document.querySelector('#message').textContent = '预览加载失败。';
-        return;
-      }
-      const data = await response.json();
-      document.querySelector('#preview-title').textContent = data.material.title;
-      document.querySelector('#preview-body').textContent = data.body_text;
-      document.querySelector('#preview').hidden = false;
-    }
-    (async () => {
-      const response = await apiFetch('/api/auth/me');
-      if (!response.ok) return;
-      csrfToken = (await response.json()).csrf_token;
-      await loadMaterials();
-    })();
-    const form = document.querySelector('#upload-form');
-    if (form) form.addEventListener('submit', async (event) => {
-      event.preventDefault();
-      const response = await apiFetch(`/api/classes/${user.class_id}/materials`, {method: 'POST', body: new FormData(form)});
-      let uploadMessage = '上传失败。';
-      if (!response.ok) {
-        const failure = await response.json().catch(() => null);
-        if (failure && typeof failure.error === 'string' && failure.error.trim()) uploadMessage = failure.error;
-      }
-      document.querySelector('#message').textContent = response.ok ? '上传成功。' : uploadMessage;
-      if (response.ok) { form.reset(); await loadMaterials(); }
-    });
-    document.querySelector('#logout-button').addEventListener('click', async () => {
-      const response = await apiFetch('/api/auth/logout', {method: 'POST'});
-      if (response.status === 204) {
-        window.location.assign('/login');
-        return;
-      }
-      document.querySelector('#message').textContent = '退出登录失败，请重试。';
-    });
-    document.querySelector('#close-preview').addEventListener('click', () => {
-      document.querySelector('#preview').hidden = true;
-    });
-    function renderHits(hits) {
-      document.querySelector('#search-results').replaceChildren(...hits.map(hit => {
-        const li = document.createElement('li');
-        const source = document.createElement('strong'); source.textContent = `${hit.material_title} · 切片 ${hit.chunk_index}`;
-        const excerpt = document.createElement('pre'); excerpt.textContent = hit.excerpt;
-        const open = document.createElement('button'); open.type = 'button'; open.textContent = '打开材料'; open.addEventListener('click', () => previewMaterial(hit.material_id));
-        li.append(source, excerpt, open); return li;
-      }));
-    }
-    document.querySelector('#search-form').addEventListener('submit', async (event) => {
-      event.preventDefault();
-      const response = await apiFetch(`/api/classes/${user.class_id}/knowledge/retrieve`, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({query: document.querySelector('#search-query').value, mode: document.querySelector('#search-mode').value})});
-      const message = document.querySelector('#search-message');
-      if (!response.ok) { message.textContent = '检索暂不可用。'; return; }
-      const data = await response.json(); message.textContent = data.message || `找到 ${data.hits.length} 条结果。`; renderHits(data.hits);
-    });
-    document.querySelector('#ask-form').addEventListener('submit', async (event) => {
-      event.preventDefault();
-      const response = await apiFetch(`/api/classes/${user.class_id}/knowledge/ask`, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({question: document.querySelector('#ask-question').value})});
-      const answer = document.querySelector('#answer-text'); const citations = document.querySelector('#citations');
-      if (!response.ok) { answer.textContent = '回答暂不可用。'; citations.replaceChildren(); return; }
-      const data = await response.json(); answer.textContent = data.answer;
-      citations.replaceChildren(...data.citations.map((citation, index) => { const li = document.createElement('li'); li.textContent = `[${index + 1}] ${citation.material_title} · 切片 ${citation.chunk_index}：${citation.excerpt}`; return li; }));
-    });
+    const canManageClass = {{ (user.role == 'class_admin') | tojson }};
+    const canManageAdmins = {{ (user.role == 'super_admin') | tojson }};
+    let csrfToken = '', subjects = [];
+    async function apiFetch(path, options = {}) { options.credentials = 'include'; options.headers = {...(options.headers || {}), 'X-CSRF-Token': csrfToken}; const response = await fetch(api + path, options); if (response.status === 401) window.location.assign('/login?next=/materials'); return response; }
+    const selectedSubjectId = () => { const value = document.querySelector('#subject-select')?.value; return value ? Number(value) : null; };
+    const subjectPayload = payload => { const id = selectedSubjectId(); if (id !== null) payload.subject_id = id; return payload; };
+    async function loadSubjects() { if (!canReadMaterials) return; const response = await apiFetch(`/api/classes/${user.class_id}/subjects`); if (!response.ok) return; subjects = (await response.json()).items; const select = document.querySelector('#subject-select'); select.replaceChildren(new Option('全部可访问学科', ''), ...subjects.map(s => new Option(`${s.name}${s.status === 'archived' ? '（已归档）' : ''}`, s.id))); select.addEventListener('change', async () => { const selected = subjects.find(s => s.id === selectedSubjectId()); const form = document.querySelector('#upload-form'); if (form) { form.hidden = !selected || selected.status !== 'active'; document.querySelector('#upload-subject-id').value = selected?.id || ''; } await loadMaterials(); }); if (user.role === 'teacher' && subjects.length === 1) { select.value = String(subjects[0].id); select.dispatchEvent(new Event('change')); } else await loadMaterials(); }
+    async function loadMaterials() { if (!canReadMaterials) return; const subject = selectedSubjectId(); const response = await apiFetch(`/api/classes/${user.class_id}/materials${subject ? `?subject_id=${encodeURIComponent(subject)}` : ''}`); if (!response.ok) return; const data = await response.json(); document.querySelector('#materials').replaceChildren(...data.items.map(item => { const li = document.createElement('li'); const title = document.createElement('span'); title.textContent = `${item.subject_name} · ${item.title}`; const preview = document.createElement('button'); preview.type = 'button'; preview.textContent = '在线预览'; preview.addEventListener('click', () => previewMaterial(item.id)); const download = document.createElement('a'); download.href = `${api}/api/classes/${user.class_id}/materials/${item.id}/download`; download.textContent = '下载文件'; li.append(title, ' ', preview, ' ', download); if (canDeleteMaterials && item.subject_id === selectedSubjectId()) { const rename = document.createElement('button'); rename.type = 'button'; rename.textContent = '重命名'; rename.addEventListener('click', () => renameMaterial(item.id, item.title)); const rebuild = document.createElement('button'); rebuild.type = 'button'; rebuild.textContent = '重建索引'; rebuild.addEventListener('click', () => reindexMaterial(item.id)); const remove = document.createElement('button'); remove.type = 'button'; remove.textContent = '删除材料'; remove.addEventListener('click', () => deleteMaterial(item.id, item.title)); li.append(' ', rename, ' ', rebuild, ' ', remove); } return li; })); }
+    async function deleteMaterial(id, title) { if (!window.confirm(`确定删除“${title}”吗？此操作无法撤销。`)) return; const response = await apiFetch(`/api/classes/${user.class_id}/materials/${id}`, {method: 'DELETE'}); document.querySelector('#message').textContent = response.status === 204 ? '材料已删除。' : '删除失败，请重试。'; if (response.status === 204) await loadMaterials(); }
+    async function renameMaterial(id, oldTitle) { const title = window.prompt('材料标题', oldTitle); if (!title) return; const response = await apiFetch(`/api/classes/${user.class_id}/materials/${id}`, {method: 'PUT', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({title})}); document.querySelector('#message').textContent = response.ok ? '材料已重命名。' : '重命名失败。'; if (response.ok) await loadMaterials(); }
+    async function reindexMaterial(id) { const response = await apiFetch(`/api/classes/${user.class_id}/materials/${id}/reindex`, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({})}); document.querySelector('#message').textContent = response.ok ? '索引已重建。' : '重建索引失败。'; if (response.ok) await loadMaterials(); }
+    async function previewMaterial(id) { const response = await apiFetch(`/api/classes/${user.class_id}/materials/${id}`); if (!response.ok) { document.querySelector('#message').textContent = '预览加载失败。'; return; } const data = await response.json(); document.querySelector('#preview-title').textContent = `${data.material.subject_name} · ${data.material.title}`; document.querySelector('#preview-body').textContent = data.body_text; document.querySelector('#preview').hidden = false; }
+    function renderHits(hits) { document.querySelector('#search-results').replaceChildren(...hits.map(hit => { const li = document.createElement('li'); const source = document.createElement('strong'); source.textContent = `${hit.subject_name} · ${hit.material_title} · 切片 ${hit.chunk_index}`; const excerpt = document.createElement('pre'); excerpt.textContent = hit.excerpt; li.append(source, excerpt); return li; })); }
+    async function loadClassAdmin() { if (!canManageClass) return; const [subjectsResponse, teachersResponse] = await Promise.all([apiFetch(`/api/classes/${user.class_id}/subjects`), apiFetch(`/api/classes/${user.class_id}/teachers`)]); if (!subjectsResponse.ok || !teachersResponse.ok) return; const classSubjects = (await subjectsResponse.json()).items, teachers = (await teachersResponse.json()).items; document.querySelector('#admin-subjects').replaceChildren(...classSubjects.map(subject => { const li = document.createElement('li'); li.append(`${subject.name}（${subject.status}） `); const rename = document.createElement('button'); rename.type = 'button'; rename.textContent = '重命名'; rename.addEventListener('click', () => { const name = window.prompt('学科名称', subject.name); if (name) updateSubject(subject.id, {name}); }); const archive = document.createElement('button'); archive.type = 'button'; archive.textContent = subject.status === 'active' ? '归档' : '启用'; archive.addEventListener('click', () => updateSubject(subject.id, {status: subject.status === 'active' ? 'archived' : 'active'})); const select = document.createElement('select'); select.append(...teachers.map(t => new Option(t.username, t.id))); const assign = document.createElement('button'); assign.type = 'button'; assign.textContent = '分配任课教师'; assign.addEventListener('click', () => assignTeacher(subject.id, Number(select.value))); const target = document.createElement('select'); target.append(...classSubjects.filter(item => item.id !== subject.id).map(item => new Option(`迁移到 ${item.name}`, item.id))); const move = document.createElement('button'); move.type = 'button'; move.textContent = '迁移材料'; move.addEventListener('click', () => reassignSubjectMaterials(subject.id, Number(target.value))); li.append(rename, ' ', archive, ' ', select, ' ', assign, ' ', target, ' ', move); loadAssignedTeachers(subject.id, li); return li; })); }
+    async function updateSubject(id, payload) { const response = await apiFetch(`/api/classes/${user.class_id}/subjects/${id}`, {method: 'PUT', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(payload)}); document.querySelector('#class-admin-message').textContent = response.ok ? '学科已更新。' : '学科更新失败。'; if (response.ok) await loadClassAdmin(); }
+    async function assignTeacher(subjectId, teacherId) { const response = await apiFetch(`/api/classes/${user.class_id}/subjects/${subjectId}/teachers`, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({teacher_id: teacherId})}); document.querySelector('#class-admin-message').textContent = response.ok ? '任课教师已分配。' : '任课教师分配失败。'; }
+    async function reassignSubjectMaterials(sourceId, targetSubjectId) { if (!targetSubjectId || !window.confirm('确定迁移该学科下全部材料吗？')) return; const response = await apiFetch(`/api/classes/${user.class_id}/subjects/${sourceId}/reassign`, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({target_subject_id: targetSubjectId})}); document.querySelector('#class-admin-message').textContent = response.ok ? '材料已迁移。' : '材料迁移失败。'; if (response.ok) await loadClassAdmin(); }
+    async function loadAssignedTeachers(subjectId, parent) { const response = await apiFetch(`/api/classes/${user.class_id}/subjects/${subjectId}/teachers`); if (!response.ok) return; const rows = (await response.json()).items; rows.forEach(teacher => { const revoke = document.createElement('button'); revoke.type = 'button'; revoke.textContent = `撤销 ${teacher.username}`; revoke.addEventListener('click', async () => { const result = await apiFetch(`/api/classes/${user.class_id}/subjects/${subjectId}/teachers/${teacher.id}`, {method: 'DELETE'}); document.querySelector('#class-admin-message').textContent = result.ok ? '任课授权已撤销。' : '撤销失败。'; if (result.ok) await loadClassAdmin(); }); parent.append(' ', revoke); }); }
+    async function loadSuperAdmin() { if (!canManageAdmins) return; const [classesResponse, adminsResponse] = await Promise.all([apiFetch('/api/admin/classes'), apiFetch('/api/admin/class-admins')]); if (!classesResponse.ok || !adminsResponse.ok) return; const classes = (await classesResponse.json()).items, admins = (await adminsResponse.json()).items; document.querySelector('#admin-class-id').replaceChildren(...classes.map(c => new Option(c.name, c.id))); document.querySelector('#class-admins').replaceChildren(...admins.map(a => { const li = document.createElement('li'); li.append(`${a.username}：班级 ${a.class_ids.join(', ') || '未授权'} `); const toggle = document.createElement('button'); toggle.type = 'button'; toggle.textContent = a.is_active ? '停用' : '启用'; toggle.addEventListener('click', () => setAdminActive(a.id, !a.is_active)); const classSelect = document.createElement('select'); classSelect.append(...classes.map(c => new Option(c.name, c.id))); const grant = document.createElement('button'); grant.type = 'button'; grant.textContent = '授予班级'; grant.addEventListener('click', () => grantAdminClass(a.id, Number(classSelect.value))); li.append(toggle, ' ', classSelect, ' ', grant); a.class_ids.forEach(classId => { const revoke = document.createElement('button'); revoke.type = 'button'; revoke.textContent = `撤销班级 ${classId}`; revoke.addEventListener('click', () => revokeAdminClass(a.id, classId)); li.append(' ', revoke); }); return li; })); }
+    async function setAdminActive(id, is_active) { const response = await apiFetch(`/api/admin/class-admins/${id}/active`, {method: 'PUT', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({is_active})}); document.querySelector('#super-admin-message').textContent = response.ok ? '班主任状态已更新。' : '状态更新失败。'; if (response.ok) await loadSuperAdmin(); }
+    async function grantAdminClass(id, classId) { const response = await apiFetch(`/api/admin/class-admins/${id}/classes/${classId}`, {method: 'PUT'}); document.querySelector('#super-admin-message').textContent = response.ok ? '班级授权已更新。' : '班级授权失败。'; if (response.ok) await loadSuperAdmin(); }
+    async function revokeAdminClass(id, classId) { const response = await apiFetch(`/api/admin/class-admins/${id}/classes/${classId}`, {method: 'DELETE'}); document.querySelector('#super-admin-message').textContent = response.ok ? '班级授权已撤销。' : '撤销失败。'; if (response.ok) await loadSuperAdmin(); }
+    (async () => { const response = await apiFetch('/api/auth/me'); if (!response.ok) return; csrfToken = (await response.json()).csrf_token; await Promise.all([loadSubjects(), loadClassAdmin(), loadSuperAdmin()]); })();
+    const uploadForm = document.querySelector('#upload-form'); if (uploadForm) uploadForm.addEventListener('submit', async event => { event.preventDefault(); const response = await apiFetch(`/api/classes/${user.class_id}/materials`, {method: 'POST', body: new FormData(uploadForm)}); const failure = response.ok ? null : await response.json().catch(() => null); document.querySelector('#message').textContent = response.ok ? '上传成功。' : (failure?.error || '上传失败。'); if (response.ok) { uploadForm.reset(); document.querySelector('#upload-subject-id').value = selectedSubjectId(); await loadMaterials(); } });
+    const subjectForm = document.querySelector('#subject-form'); if (subjectForm) subjectForm.addEventListener('submit', async event => { event.preventDefault(); const response = await apiFetch(`/api/classes/${user.class_id}/subjects`, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({name: document.querySelector('#subject-name').value})}); document.querySelector('#class-admin-message').textContent = response.ok ? '学科已创建。' : '学科创建失败。'; if (response.ok) { subjectForm.reset(); await loadClassAdmin(); } });
+    const classAdminForm = document.querySelector('#class-admin-form'); if (classAdminForm) classAdminForm.addEventListener('submit', async event => { event.preventDefault(); const response = await apiFetch('/api/admin/class-admins', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({class_id: Number(document.querySelector('#admin-class-id').value), username: document.querySelector('#admin-username').value, password: document.querySelector('#admin-password').value})}); document.querySelector('#super-admin-message').textContent = response.ok ? '班主任已创建并授权。' : '班主任创建失败。'; if (response.ok) { classAdminForm.reset(); await loadSuperAdmin(); } });
+    document.querySelector('#logout-button').addEventListener('click', async () => { const response = await apiFetch('/api/auth/logout', {method: 'POST'}); if (response.status === 204) window.location.assign('/login'); else document.querySelector('#message').textContent = '退出登录失败，请重试。'; });
+    document.querySelector('#close-preview').addEventListener('click', () => { document.querySelector('#preview').hidden = true; });
+    const searchForm = document.querySelector('#search-form'); if (searchForm) searchForm.addEventListener('submit', async event => { event.preventDefault(); const response = await apiFetch(`/api/classes/${user.class_id}/knowledge/retrieve`, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(subjectPayload({query: document.querySelector('#search-query').value, mode: document.querySelector('#search-mode').value}))}); const message = document.querySelector('#search-message'); if (!response.ok) { message.textContent = '检索暂不可用。'; return; } const data = await response.json(); message.textContent = data.message || `找到 ${data.hits.length} 条结果。`; renderHits(data.hits); });
+    const askForm = document.querySelector('#ask-form'); if (askForm) askForm.addEventListener('submit', async event => { event.preventDefault(); const response = await apiFetch(`/api/classes/${user.class_id}/knowledge/ask`, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(subjectPayload({question: document.querySelector('#ask-question').value}))}); const answer = document.querySelector('#answer-text'), citations = document.querySelector('#citations'); if (!response.ok) { answer.textContent = '回答暂不可用。'; citations.replaceChildren(); return; } const data = await response.json(); answer.textContent = data.answer; citations.replaceChildren(...data.citations.map((citation, index) => { const li = document.createElement('li'); li.textContent = `[${index + 1}] ${citation.subject_name} · ${citation.material_title} · 切片 ${citation.chunk_index}：${citation.excerpt}`; return li; })); });
   </script>
 </body>
 </html>

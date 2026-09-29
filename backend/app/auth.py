@@ -35,7 +35,7 @@ def _load_identity():
     if expiry <= utc_now():
         return None
     user = db.session.get(User, user_id)
-    if not user:
+    if not user or not user.is_active:
         return None
     return user
 
@@ -107,11 +107,11 @@ def login():
     username = (payload.get("username") or "").strip()
     password = payload.get("password") or ""
     user = find_user_by_username(username)
-    password_valid = verify_password(password, user.password_hash if user else DUMMY_PASSWORD_HASH)
+    password_valid = verify_password(password, user.password_hash if user and user.is_active else DUMMY_PASSWORD_HASH)
     now = utc_now()
     subject_key = _attempt_key(username)
     attempt = db.session.get(LoginAttempt, subject_key)
-    if not password_valid or _is_rate_limited(attempt, now):
+    if not user or not user.is_active or not password_valid or _is_rate_limited(attempt, now):
         if not _is_rate_limited(attempt, now):
             _record_failed_login(subject_key, now)
         return json_error(401, "invalid credentials")

@@ -40,7 +40,7 @@ def test_materials_page_includes_safe_inline_preview_control():
     assert response.status_code == 200
     assert 'id="preview" hidden' in body
     assert 'id="preview-body"' in body
-    assert "materials/${materialId}" in body
+    assert "materials/${id}" in body
     assert "preview-body').textContent = data.body_text" in body
 
 
@@ -76,8 +76,8 @@ def test_materials_page_renders_api_upload_errors_as_text():
         response = client.get("/materials")
     body = response.get_data(as_text=True)
     assert "await response.json().catch(() => null)" in body
-    assert "typeof failure.error === 'string'" in body
-    assert "'#message').textContent = response.ok ? '上传成功。' : uploadMessage" in body
+    assert "failure?.error || '上传失败。'" in body
+    assert "new FormData(uploadForm)" in body
 
 
 def test_teacher_materials_page_wires_confirmed_csrf_delete_action():
@@ -91,7 +91,7 @@ def test_teacher_materials_page_wires_confirmed_csrf_delete_action():
     assert "deleteMaterial(item.id, item.title)" in body
     assert "if (!window.confirm(" in body
     assert "{method: 'DELETE'}" in body
-    assert "message.textContent = '材料已删除。'" in body
+    assert "response.status === 204 ? '材料已删除。'" in body
     assert "await loadMaterials();" in body
 
 
@@ -102,4 +102,37 @@ def test_student_materials_page_disables_delete_rendering():
         response = client.get("/materials")
     body = response.get_data(as_text=True)
     assert "const canDeleteMaterials = false;" in body
-    assert "if (canDeleteMaterials)" in body
+    assert "if (canDeleteMaterials && item.subject_id === selectedSubjectId())" in body
+
+
+def test_teacher_page_has_subject_required_upload_and_scoped_controls():
+    client = app.test_client()
+    with patch("server.current_user", return_value={"username": "teacher_a", "role": "teacher", "class_id": 1}):
+        body = client.get("/materials").get_data(as_text=True)
+    assert 'id="subject-select"' in body
+    assert 'name="subject_id"' in body
+    assert "form.hidden = !selected || selected.status !== 'active'" in body
+    assert "item.subject_name" in body
+
+
+def test_student_page_has_all_subject_read_only_browser_and_subject_citations():
+    client = app.test_client()
+    with patch("server.current_user", return_value={"username": "student_a1", "role": "student", "class_id": 1}):
+        body = client.get("/materials").get_data(as_text=True)
+    assert "const canReadMaterials = true;" in body
+    assert "subjectPayload({query:" in body
+    assert "citation.subject_name" in body
+    assert 'id="upload-form"' not in body
+
+
+def test_administration_roles_receive_only_their_management_panels():
+    client = app.test_client()
+    with patch("server.current_user", return_value={"username": "class_admin_a", "role": "class_admin", "class_id": 1}):
+        class_body = client.get("/materials").get_data(as_text=True)
+    with patch("server.current_user", return_value={"username": "super_admin", "role": "super_admin", "class_id": 1}):
+        super_body = client.get("/materials").get_data(as_text=True)
+    assert 'id="class-admin-panel"' in class_body
+    assert "const canManageClass = true;" in class_body
+    assert 'id="super-admin-panel"' in super_body
+    assert "const canManageAdmins = true;" in super_body
+    assert "/api/admin/class-admins" in super_body

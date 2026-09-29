@@ -10,6 +10,7 @@ from .config import Config
 from .database import db, initialize_database
 from .materials import materials_bp
 from .knowledge import knowledge_bp
+from .administration import admin_bp
 
 
 def create_app(test_config: dict | None = None) -> Flask:
@@ -31,6 +32,7 @@ def create_app(test_config: dict | None = None) -> Flask:
     app.register_blueprint(auth_bp)
     app.register_blueprint(materials_bp)
     app.register_blueprint(knowledge_bp)
+    app.register_blueprint(admin_bp)
 
     @app.get("/health")
     def health():
