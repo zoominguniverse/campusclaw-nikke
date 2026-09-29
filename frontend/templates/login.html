@@ -1,16 +1,35 @@
 <!doctype html>
 <html lang="zh-CN">
-<head><meta charset="utf-8"><title>CampusClaw 登录</title></head>
-<body>
-  <main>
-    <h1>CampusClaw</h1>
-    <p>使用教师或学生账号登录。</p>
-    <form id="login-form">
-      <label>账号 <input name="username" required autocomplete="username"></label>
-      <label>密码 <input name="password" type="password" required autocomplete="current-password"></label>
-      <button type="submit">登录</button>
-    </form>
-    <p id="error" role="alert"></p>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CampusClaw 登录</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
+</head>
+<body class="login-page">
+  <main class="login-layout">
+    <section class="login-brand" aria-labelledby="platform-title">
+      <span class="brand-mark" aria-hidden="true">✦</span>
+      <span class="eyebrow">智能教学平台</span>
+      <h1 id="platform-title">CampusClaw<br>让课堂知识更有序</h1>
+      <p>面向班级教学材料、知识检索和学习协作的一体化工作区。登录后，系统会依据你的账号权限提供相应功能。</p>
+      <div class="feature-pills" aria-label="平台能力">
+        <span>▣ 班级知识库</span><span>◈ 角色权限隔离</span><span>↗ 可追溯检索</span>
+      </div>
+    </section>
+    <section class="login-form-region" aria-labelledby="login-title">
+      <div class="login-card">
+        <h2 id="login-title">账号登录</h2>
+        <p>请输入学校分配的账号和密码。登录后将进入与你权限匹配的教学工作区。</p>
+        <form id="login-form" class="form-stack">
+          <label>账号 <input name="username" required autocomplete="username" placeholder="请输入账号"></label>
+          <label>密码 <input name="password" type="password" required autocomplete="current-password" placeholder="请输入密码"></label>
+          <button class="primary-action" type="submit">登录并进入平台</button>
+        </form>
+        <p id="error" class="form-error" role="alert" aria-live="assertive"></p>
+        <p class="login-note">账号身份由服务端验证；本页面不提供角色选择或账号切换。</p>
+      </div>
+    </section>
   </main>
   <script>
     document.querySelector('#login-form').addEventListener('submit', async (event) => {
@@ -24,9 +43,10 @@
         document.querySelector('#error').textContent = '账号或密码错误。';
         return;
       }
-      window.location.assign(new URLSearchParams(window.location.search).get('next') || '/materials');
+      const requestedNext = new URLSearchParams(window.location.search).get('next');
+      const destination = requestedNext && requestedNext.startsWith('/') && !requestedNext.startsWith('//') ? requestedNext : '/materials';
+      window.location.assign(destination);
     });
   </script>
 </body>
 </html>
-

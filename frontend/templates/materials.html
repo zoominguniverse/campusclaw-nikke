@@ -1,34 +1,132 @@
 <!doctype html>
 <html lang="zh-CN">
-<head><meta charset="utf-8"><title>CampusClaw 教学管理</title></head>
-<body>
-  <main>
-    <h1>教学材料与知识库</h1>
-    <p>当前用户：{{ user.username }}（{{ user.role }}，班级 {{ user.class_id }}） <button id="logout-button" type="button">退出登录</button></p>
-    <p id="message" role="status"></p>
-    {% if user.role in ['teacher', 'student'] %}
-    <section id="materials-panel"><h2>本班教学材料</h2>
-      <label>学科 <select id="subject-select"><option value="">全部可访问学科</option></select></label>
-      {% if user.role == 'teacher' %}<form id="upload-form" enctype="multipart/form-data" hidden><label>标题（可选）<input name="title"></label><label>材料 <input type="file" name="file" accept=".txt,.md" required></label><input id="upload-subject-id" name="subject_id" type="hidden" required><button type="submit">上传材料</button></form>{% endif %}
-      <ul id="materials"></ul>
-    </section>
-    <section><h2>检索可访问材料</h2><form id="search-form"><label>检索词 <input id="search-query" required></label><label>模式 <select id="search-mode"><option value="hybrid">混合检索</option><option value="keyword">关键词</option><option value="vector">语义向量</option></select></label><button type="submit">检索</button></form><p id="search-message" role="status"></p><ol id="search-results"></ol></section>
-    <section><h2>基于材料提问</h2><form id="ask-form"><label>问题 <input id="ask-question" required></label><button type="submit">提问</button></form><p id="answer-text" role="status"></p><ol id="citations"></ol></section>
-    {% endif %}
-    {% if user.role == 'class_admin' %}
-    <section id="class-admin-panel"><h2>班级学科与任课教师</h2><form id="subject-form"><label>学科名称 <input id="subject-name" required></label><button type="submit">创建学科</button></form><p id="class-admin-message" role="status"></p><ul id="admin-subjects"></ul></section>
-    {% endif %}
-    {% if user.role == 'super_admin' %}
-    <section id="super-admin-panel"><h2>教务处：班主任管理</h2><form id="class-admin-form"><label>班级 <select id="admin-class-id" required></select></label><label>用户名 <input id="admin-username" required></label><label>初始密码 <input id="admin-password" type="password" required></label><button type="submit">创建班主任并授权</button></form><p id="super-admin-message" role="status"></p><ul id="class-admins"></ul></section>
-    {% endif %}
-    <section id="preview" hidden><h2 id="preview-title">材料预览</h2><pre id="preview-body"></pre><button id="close-preview" type="button">关闭预览</button></section>
-  </main>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CampusClaw 教学工作区</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
+</head>
+<body class="workspace-page" data-sidebar-open="false">
+  <div class="app-shell">
+    <aside id="workspace-sidebar" class="sidebar" aria-label="工作区导航">
+      <a class="sidebar-brand" href="#" aria-label="CampusClaw 工作区首页">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <span><strong>CampusClaw</strong><small>智能教学平台</small></span>
+      </a>
+      <p class="nav-kicker">{{ {'teacher': '教师工作区', 'student': '学习工作区', 'class_admin': '班级管理', 'super_admin': '教务管理'}[user.role] }}</p>
+      <nav id="workspace-nav" class="role-nav" aria-label="角色可用功能">
+        {% if user.role == 'teacher' %}
+        <a href="#materials" data-nav-view="materials"><span class="nav-icon" aria-hidden="true">▣</span>材料管理</a>
+        <a href="#retrieve" data-nav-view="retrieve"><span class="nav-icon" aria-hidden="true">⌕</span>知识检索</a>
+        <a href="#ask" data-nav-view="ask"><span class="nav-icon" aria-hidden="true">✦</span>基于资料提问</a>
+        {% elif user.role == 'student' %}
+        <a href="#materials" data-nav-view="materials"><span class="nav-icon" aria-hidden="true">▣</span>学习材料</a>
+        <a href="#retrieve" data-nav-view="retrieve"><span class="nav-icon" aria-hidden="true">⌕</span>知识检索</a>
+        <a href="#ask" data-nav-view="ask"><span class="nav-icon" aria-hidden="true">✦</span>基于资料提问</a>
+        {% elif user.role == 'class_admin' %}
+        <a href="#class-admin" data-nav-view="class-admin"><span class="nav-icon" aria-hidden="true">▦</span>学科与任课教师</a>
+        {% elif user.role == 'super_admin' %}
+        <a href="#super-admin" data-nav-view="super-admin"><span class="nav-icon" aria-hidden="true">◇</span>班主任管理</a>
+        {% endif %}
+      </nav>
+      <p class="sidebar-footer">权限由账号登录态决定</p>
+    </aside>
+
+    <div class="workspace">
+      <header class="topbar">
+        <button id="nav-toggle" class="nav-toggle" type="button" aria-controls="workspace-sidebar" aria-expanded="false"><span class="sr-only">打开导航</span>☰</button>
+        <span class="context-indicator">{{ '班级 ' ~ user.class_id if user.role != 'super_admin' else '教务处工作区' }}</span>
+        <span class="topbar-spacer"></span>
+        <span class="current-account">当前账号：{{ user.username }}</span>
+        <button id="logout-button" class="logout-action" type="button">退出登录</button>
+      </header>
+      <main class="workspace-content" id="workspace-main">
+        <p id="message" class="status-message" role="status" aria-live="polite"></p>
+        {% if user.role in ['teacher', 'student'] %}
+        <section id="view-materials" class="workspace-view" data-view="materials" tabindex="-1" aria-labelledby="materials-heading">
+          <div class="page-intro"><h1 id="materials-heading">{{ '教学材料管理' if user.role == 'teacher' else '本班学习材料' }}</h1><p>{{ '按学科整理、上传与维护你的课程资料。' if user.role == 'teacher' else '浏览当前班级授权使用的教学材料。' }}</p></div>
+          <div class="panel-grid">
+            <section id="materials-panel" class="panel panel--wide"><h2>材料列表</h2>
+              <div class="toolbar"><label class="field-label">学科 <select id="subject-select"><option value="">全部可访问学科</option></select></label></div>
+              <ul id="materials" class="material-list"></ul>
+            </section>
+            {% if user.role == 'teacher' %}
+            <section class="panel panel--narrow"><h2>上传材料</h2><p>请先选择一个可管理的有效学科。</p>
+              <form id="upload-form" class="form-stack" enctype="multipart/form-data" hidden><label>标题（可选）<input name="title"></label><label>材料 <input type="file" name="file" accept=".txt,.md" required></label><input id="upload-subject-id" name="subject_id" type="hidden" required><button class="primary-action" type="submit">上传材料</button></form>
+            </section>
+            {% endif %}
+          </div>
+        </section>
+        <section id="view-retrieve" class="workspace-view" data-view="retrieve" tabindex="-1" aria-labelledby="retrieve-heading" hidden>
+          <div class="page-intro"><h1 id="retrieve-heading">知识检索</h1><p>在你有权访问的教学资料中查找内容，结果会显示材料与切片来源。</p></div>
+          <section class="panel"><form id="search-form" class="inline-form"><label class="field-label">检索词 <input id="search-query" required></label><label class="field-label">模式 <select id="search-mode"><option value="hybrid">混合检索</option><option value="keyword">关键词</option><option value="vector">语义向量</option></select></label><button class="primary-action" type="submit">开始检索</button></form><p id="search-message" class="status-message" role="status"></p><ol id="search-results" class="result-list"></ol></section>
+        </section>
+        <section id="view-ask" class="workspace-view" data-view="ask" tabindex="-1" aria-labelledby="ask-heading" hidden>
+          <div class="page-intro"><h1 id="ask-heading">基于资料提问</h1><p>回答仅依据本班授权的知识资料，并提供对应引用。</p></div>
+          <section class="panel"><form id="ask-form" class="inline-form"><label class="field-label">问题 <input id="ask-question" required></label><button class="primary-action" type="submit">提交问题</button></form><p id="answer-text" class="status-message" role="status"></p><ol id="citations" class="result-list"></ol></section>
+        </section>
+        {% endif %}
+        {% if user.role == 'class_admin' %}
+        <section id="view-class-admin" class="workspace-view" data-view="class-admin" tabindex="-1" aria-labelledby="class-admin-heading">
+          <div class="page-intro"><h1 id="class-admin-heading">班级学科与任课教师</h1><p>维护本班学科、任课授权与材料归属。</p></div>
+          <section id="class-admin-panel" class="panel"><form id="subject-form" class="inline-form"><label class="field-label">学科名称 <input id="subject-name" required></label><button class="primary-action" type="submit">创建学科</button></form><p id="class-admin-message" class="status-message" role="status"></p><ul id="admin-subjects" class="admin-list"></ul></section>
+        </section>
+        {% endif %}
+        {% if user.role == 'super_admin' %}
+        <section id="view-super-admin" class="workspace-view" data-view="super-admin" tabindex="-1" aria-labelledby="super-admin-heading">
+          <div class="page-intro"><h1 id="super-admin-heading">班主任管理</h1><p>为班级创建、启用并配置班主任账号授权。</p></div>
+          <section id="super-admin-panel" class="panel"><form id="class-admin-form" class="inline-form"><label class="field-label">班级 <select id="admin-class-id" required></select></label><label class="field-label">用户名 <input id="admin-username" required></label><label class="field-label">初始密码 <input id="admin-password" type="password" required></label><button class="primary-action" type="submit">创建并授权</button></form><p id="super-admin-message" class="status-message" role="status"></p><ul id="class-admins" class="admin-list"></ul></section>
+        </section>
+        {% endif %}
+        <section id="preview" hidden class="panel preview-panel"><h2 id="preview-title">材料预览</h2><pre id="preview-body"></pre><button class="logout-action" id="close-preview" type="button">关闭预览</button></section>
+      </main>
+    </div>
+  </div>
   <script>
     const api = '{{ api_url }}'; const user = {{ user | tojson }};
     const canReadMaterials = {{ (user.role in ['teacher', 'student']) | tojson }};
     const canDeleteMaterials = {{ (user.role == 'teacher') | tojson }};
     const canManageClass = {{ (user.role == 'class_admin') | tojson }};
     const canManageAdmins = {{ (user.role == 'super_admin') | tojson }};
+    const viewLinks = [...document.querySelectorAll('[data-nav-view]')];
+    const workspaceViews = [...document.querySelectorAll('[data-view]')];
+    const validViews = new Set(viewLinks.map(link => link.dataset.navView));
+    const sidebar = document.querySelector('#workspace-sidebar');
+    const navToggle = document.querySelector('#nav-toggle');
+
+    function setSidebarOpen(open) {
+      document.body.dataset.sidebarOpen = String(open);
+      navToggle?.setAttribute('aria-expanded', String(open));
+    }
+
+    function activateWorkspaceView(requestedView, moveFocus = false) {
+      const view = validViews.has(requestedView) ? requestedView : viewLinks[0]?.dataset.navView;
+      if (!view) return;
+      workspaceViews.forEach(panel => { panel.hidden = panel.dataset.view !== view; });
+      viewLinks.forEach(link => {
+        const active = link.dataset.navView === view;
+        link.classList.toggle('is-active', active);
+        if (active) link.setAttribute('aria-current', 'page'); else link.removeAttribute('aria-current');
+      });
+      setSidebarOpen(false);
+      if (moveFocus) document.querySelector(`[data-view="${view}"] h1`)?.focus();
+    }
+
+    function activateFromHash(moveFocus = false) {
+      let requestedView = window.location.hash.slice(1);
+      try { requestedView = decodeURIComponent(requestedView); } catch (_) { requestedView = ''; }
+      activateWorkspaceView(requestedView, moveFocus);
+    }
+
+    navToggle?.addEventListener('click', () => setSidebarOpen(document.body.dataset.sidebarOpen !== 'true'));
+    viewLinks.forEach(link => link.addEventListener('click', event => {
+      event.preventDefault();
+      const view = link.dataset.navView;
+      if (window.location.hash.slice(1) !== view) window.location.hash = view;
+      activateWorkspaceView(view, true);
+    }));
+    window.addEventListener('hashchange', () => activateFromHash(true));
+    activateFromHash();
     let csrfToken = '', subjects = [];
     async function apiFetch(path, options = {}) { options.credentials = 'include'; options.headers = {...(options.headers || {}), 'X-CSRF-Token': csrfToken}; const response = await fetch(api + path, options); if (response.status === 401) window.location.assign('/login?next=/materials'); return response; }
     const selectedSubjectId = () => { const value = document.querySelector('#subject-select')?.value; return value ? Number(value) : null; };

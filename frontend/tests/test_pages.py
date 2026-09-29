@@ -19,6 +19,24 @@ def test_login_page_redirects_authenticated_user_to_materials():
     assert response.headers["Location"] == "/materials"
 
 
+def test_login_page_is_branded_account_password_entry_without_role_picker():
+    client = app.test_client()
+    with patch("server.current_user", return_value=None):
+        body = client.get("/login").get_data(as_text=True)
+    assert 'class="login-layout"' in body
+    assert 'name="username"' in body
+    assert 'name="password"' in body
+    assert 'href="/static/app.css"' in body
+    assert 'data-role' not in body
+    assert '预置账号' not in body
+
+
+def test_local_workspace_stylesheet_is_served_without_external_dependency():
+    response = app.test_client().get("/static/app.css")
+    assert response.status_code == 200
+    assert b"--brand:" in response.data
+
+
 def test_materials_page_includes_csrf_protected_logout_control():
     client = app.test_client()
     user = {"username": "teacher_a", "role": "teacher", "class_id": 1}
@@ -103,6 +121,35 @@ def test_student_materials_page_disables_delete_rendering():
     body = response.get_data(as_text=True)
     assert "const canDeleteMaterials = false;" in body
     assert "if (canDeleteMaterials && item.subject_id === selectedSubjectId())" in body
+
+
+def test_role_navigation_is_server_rendered_without_account_switcher():
+    client = app.test_client()
+    with patch("server.current_user", return_value={"username": "teacher_a", "role": "teacher", "class_id": 1}):
+        teacher_body = client.get("/materials").get_data(as_text=True)
+    with patch("server.current_user", return_value={"username": "student_a1", "role": "student", "class_id": 1}):
+        student_body = client.get("/materials").get_data(as_text=True)
+    assert 'data-nav-view="materials"' in teacher_body
+    assert 'data-nav-view="retrieve"' in teacher_body
+    assert 'data-nav-view="ask"' in teacher_body
+    assert 'data-nav-view="class-admin"' not in teacher_body
+    assert 'data-nav-view="super-admin"' not in teacher_body
+    assert '当前账号：teacher_a' in teacher_body
+    assert '切换账号' not in teacher_body
+    assert '切换角色' not in teacher_body
+    assert 'data-nav-view="materials"' in student_body
+    assert 'id="upload-form"' not in student_body
+
+
+def test_workspace_navigation_has_allowlisted_view_and_mobile_toggle_hooks():
+    client = app.test_client()
+    with patch("server.current_user", return_value={"username": "teacher_a", "role": "teacher", "class_id": 1}):
+        body = client.get("/materials").get_data(as_text=True)
+    assert 'id="nav-toggle"' in body
+    assert 'id="workspace-sidebar"' in body
+    assert "const validViews = new Set" in body
+    assert "activateWorkspaceView" in body
+    assert "aria-current" in body
 
 
 def test_teacher_page_has_subject_required_upload_and_scoped_controls():
