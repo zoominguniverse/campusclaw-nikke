@@ -22,6 +22,9 @@ def app(tmp_path):
             "TESTING": True,
             "SQLALCHEMY_DATABASE_URI": "sqlite://",
             "SECRET_KEY": "test-secret",
+            # Compose delegates startup initialization to init_db.py, but each
+            # isolated SQLite test app must create its own schema explicitly.
+            "INITIALIZE_DATABASE": True,
             "UPLOAD_DIR": str(tmp_path / "uploads"),
             "SEED_DEMO_DATA": True,
             "DEMO_TEACHER_PASSWORD": "teacher-password",

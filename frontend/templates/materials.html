@@ -14,6 +14,22 @@
     {% endif %}
     <p id="message" role="status"></p>
     <ul id="materials"></ul>
+    <section aria-labelledby="search-heading">
+      <h2 id="search-heading">检索本班材料</h2>
+      <form id="search-form">
+        <label>检索词 <input id="search-query" required></label>
+        <label>模式 <select id="search-mode"><option value="hybrid">混合检索</option><option value="keyword">关键词</option><option value="vector">语义向量</option></select></label>
+        <button type="submit">检索</button>
+      </form>
+      <p id="search-message" role="status"></p>
+      <ol id="search-results"></ol>
+    </section>
+    <section aria-labelledby="ask-heading">
+      <h2 id="ask-heading">基于材料提问</h2>
+      <form id="ask-form"><label>问题 <input id="ask-question" required></label><button type="submit">提问</button></form>
+      <p id="answer-text" role="status"></p>
+      <ol id="citations"></ol>
+    </section>
     <section id="preview" hidden>
       <h2 id="preview-title">材料预览</h2>
       <pre id="preview-body"></pre>
@@ -81,6 +97,30 @@
     });
     document.querySelector('#close-preview').addEventListener('click', () => {
       document.querySelector('#preview').hidden = true;
+    });
+    function renderHits(hits) {
+      document.querySelector('#search-results').replaceChildren(...hits.map(hit => {
+        const li = document.createElement('li');
+        const source = document.createElement('strong'); source.textContent = `${hit.material_title} · 切片 ${hit.chunk_index}`;
+        const excerpt = document.createElement('pre'); excerpt.textContent = hit.excerpt;
+        const open = document.createElement('button'); open.type = 'button'; open.textContent = '打开材料'; open.addEventListener('click', () => previewMaterial(hit.material_id));
+        li.append(source, excerpt, open); return li;
+      }));
+    }
+    document.querySelector('#search-form').addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const response = await apiFetch(`/api/classes/${user.class_id}/knowledge/retrieve`, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({query: document.querySelector('#search-query').value, mode: document.querySelector('#search-mode').value})});
+      const message = document.querySelector('#search-message');
+      if (!response.ok) { message.textContent = '检索暂不可用。'; return; }
+      const data = await response.json(); message.textContent = data.message || `找到 ${data.hits.length} 条结果。`; renderHits(data.hits);
+    });
+    document.querySelector('#ask-form').addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const response = await apiFetch(`/api/classes/${user.class_id}/knowledge/ask`, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({question: document.querySelector('#ask-question').value})});
+      const answer = document.querySelector('#answer-text'); const citations = document.querySelector('#citations');
+      if (!response.ok) { answer.textContent = '回答暂不可用。'; citations.replaceChildren(); return; }
+      const data = await response.json(); answer.textContent = data.answer;
+      citations.replaceChildren(...data.citations.map((citation, index) => { const li = document.createElement('li'); li.textContent = `[${index + 1}] ${citation.material_title} · 切片 ${citation.chunk_index}：${citation.excerpt}`; return li; }));
     });
   </script>
 </body>

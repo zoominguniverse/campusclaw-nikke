@@ -53,3 +53,17 @@ def test_materials_page_includes_class_scoped_download_link():
     assert response.status_code == 200
     assert "materials/${item.id}/download" in body
     assert "download.textContent = '下载文件'" in body
+
+
+def test_materials_page_includes_retrieval_and_citations_without_vector_exposure():
+    client = app.test_client()
+    user = {"username": "student_a1", "role": "student", "class_id": 1}
+    with patch("server.current_user", return_value=user):
+        response = client.get("/materials")
+    body = response.get_data(as_text=True)
+    assert 'id="search-form"' in body
+    assert 'id="ask-form"' in body
+    assert 'id="citations"' in body
+    assert "knowledge/retrieve" in body
+    assert "knowledge/ask" in body
+    assert "vector" not in body.replace('value="vector"', '')

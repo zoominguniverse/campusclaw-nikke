@@ -14,7 +14,7 @@
 
 | 服务 | 地址 | 用途 |
 | --- | --- | --- |
-| Web | http://localhost:5173/login | 登录、受保护页面和同源 `/api` 代理 |
+| Web | http://localhost:5173/login | 登录、受保护页面和同源 `/api` 代理（可用 `WEB_PORT` 覆盖） |
 
 健康检查无需登录：`curl http://localhost:5173/health`，预期返回 `{"status":"ok"}`。API 与 PostgreSQL 仅在 Compose 内部网络可访问，浏览器请求通过 Web 的同源 `/api` 路径代理。
 
@@ -28,3 +28,15 @@
 - 本班材料列表：`GET /api/classes/<class_id>/materials`。
 
 PostgreSQL 数据和上传文件使用 Docker named volumes。停止后使用 `docker compose up` 重启会保留数据；执行 `docker compose down -v` 会删除这些卷，用于主动重置开发数据。
+
+## 可追溯知识库检索
+
+第 4 课将材料正文切分为可回溯的 `knowledge_chunks`，正文、切片和向量均位于 PostgreSQL。Compose 使用带 `pgvector` 的 PostgreSQL 16 镜像，启动时会验证 `vector` 与 `pg_trgm` 扩展；不要改回不含扩展的官方 Alpine 镜像。
+
+- `POST /api/classes/<class_id>/knowledge/retrieve`：认证用户检索本班切片。请求为 `{ "query": "...", "mode": "keyword|vector|hybrid" }`，默认 `hybrid`；路径中的班级编号不会覆盖会话班级。
+- `POST /api/classes/<class_id>/materials/<material_id>/reindex`：教师携带 CSRF 令牌以 `{ "chunking": { ... } }` 重建本班材料索引。
+- `POST /api/classes/<class_id>/knowledge/ask`：仅在本班混合检索有依据时调用对话模型；无命中时返回 `资料中未找到相关内容` 和空 `citations`。
+
+切分策略为 `auto`（默认，约 800 字/80 字重叠）、`custom`（100–2000 字、0–50% 重叠，支持 URL/邮箱/连续空白预处理）和 `hierarchy`（保留 Markdown `#` 至 `###` 标题）。重建索引通过新的 generation 完成后才替换旧 generation，避免检索到混合版本。
+
+本地演示默认使用只在服务端运行的 `deterministic` 嵌入与对话提供方。部署真实模型时设置 `EMBEDDING_PROVIDER=openai-compatible`、`EMBEDDING_API_URL`、`EMBEDDING_API_KEY`、`EMBEDDING_MODEL` 以及同类 `CHAT_*` 配置；密钥不得设置给前端容器。`EMBEDDING_DIMENSIONS` 必须与模型输出一致。对于已有材料，运行 `docker compose exec api python backfill_indexes.py` 可按默认策略补齐索引；该操作可重复执行且不会删除原始材料。

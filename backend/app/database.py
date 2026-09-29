@@ -1,15 +1,77 @@
 from __future__ import annotations
 
 from flask import current_app
+from sqlalchemy import text
 from .extensions import db
-from .models import Assistant, Assignment, ClassMembership, KnowledgeEntry, Material, Role, SchoolClass, Skill, User
+from .models import (
+    Assistant,
+    Assignment,
+    ClassMembership,
+    KnowledgeEntry,
+    Material,
+    Role,
+    SchemaMigration,
+    SchoolClass,
+    Skill,
+    User,
+)
 from .security import hash_password
 
 
 def initialize_database() -> None:
+    _install_postgres_extensions()
     db.create_all()
+    _install_retrieval_indexes()
+    _record_schema_upgrade("20260929_traceable_retrieval")
     if current_app.config["SEED_DEMO_DATA"]:
         seed_demo_data()
+    # Existing materials receive an idempotent auto-strategy generation at startup.
+    from .indexing import backfill_entries
+
+    backfill_entries()
+
+
+def _install_postgres_extensions() -> None:
+    """Fail early in PostgreSQL if the retrieval extensions are unavailable."""
+    if db.engine.dialect.name != "postgresql":
+        return
+    try:
+        db.session.execute(text("CREATE EXTENSION IF NOT EXISTS vector"))
+        db.session.execute(text("CREATE EXTENSION IF NOT EXISTS pg_trgm"))
+        db.session.commit()
+    except Exception as error:
+        db.session.rollback()
+        raise RuntimeError("PostgreSQL pgvector and pg_trgm extensions are required") from error
+
+
+def _record_schema_upgrade(version: str) -> None:
+    if not db.session.get(SchemaMigration, version):
+        db.session.add(SchemaMigration(version=version))
+        db.session.commit()
+
+
+def _install_retrieval_indexes() -> None:
+    if db.engine.dialect.name != "postgresql":
+        return
+    try:
+        db.session.execute(
+            text(
+                "CREATE INDEX IF NOT EXISTS ix_chunks_text_trgm "
+                "ON knowledge_chunks USING gin (chunk_text gin_trgm_ops) "
+                "WHERE index_status = 'ready'"
+            )
+        )
+        db.session.execute(
+            text(
+                "CREATE INDEX IF NOT EXISTS ix_chunks_embedding_cosine "
+                "ON knowledge_chunks USING hnsw (embedding vector_cosine_ops) "
+                "WHERE index_status = 'ready' AND embedding IS NOT NULL"
+            )
+        )
+        db.session.commit()
+    except Exception as error:
+        db.session.rollback()
+        raise RuntimeError("PostgreSQL retrieval indexes could not be created") from error
 
 
 def seed_demo_data() -> None:

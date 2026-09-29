@@ -11,7 +11,8 @@ from werkzeug.utils import secure_filename
 
 from .auth import json_error, require_auth, require_csrf
 from .database import db
-from .models import ClassMembership, KnowledgeEntry, Material
+from .indexing import IndexingFailed, index_entry, reindex_entry
+from .models import ClassMembership, KnowledgeChunk, KnowledgeEntry, KnowledgeIndexGeneration, Material
 from .repositories import find_material_in_class, find_membership, query_materials_for_class
 
 materials_bp = Blueprint("materials", __name__, url_prefix="/api/classes")
@@ -33,11 +34,18 @@ def _assert_class_scope(*, teacher_required: bool = False):
 
 
 def _material_payload(material: Material) -> dict:
+    entry = KnowledgeEntry.query.filter_by(material_id=material.id, class_id=material.class_id).one_or_none()
+    generation = (
+        KnowledgeIndexGeneration.query.filter_by(knowledge_entry_id=entry.id, is_current=True).one_or_none()
+        if entry
+        else None
+    )
     return {
         "id": material.id,
         "title": material.title,
         "original_filename": material.original_filename,
         "created_at": material.created_at.isoformat(),
+        "index_status": generation.status if generation else "pending",
     }
 
 
@@ -160,11 +168,15 @@ def upload_material(class_id: int):
         )
         db.session.add(material)
         db.session.flush()
-        db.session.add(KnowledgeEntry(material_id=material.id, class_id=class_id, body_text=body_text))
+        entry = KnowledgeEntry(material_id=material.id, class_id=class_id, body_text=body_text)
+        db.session.add(entry)
+        db.session.flush()
+        options = _chunking_options_from_form()
+        index_result = index_entry(entry, options)
         shutil.move(str(temp_path), str(final_path))
         db.session.commit()
         committed = True
-        return jsonify(material=_material_payload(material)), 201
+        return jsonify(material=_material_payload(material), indexing=index_result), 201
     except ValueError as error:
         db.session.rollback()
         return json_error(400, str(error))
@@ -180,6 +192,46 @@ def upload_material(class_id: int):
             temp_path.unlink(missing_ok=True)
         if final_path and final_path.exists() and not committed:
             final_path.unlink(missing_ok=True)
+
+
+def _chunking_options_from_form() -> dict:
+    strategy = request.form.get("strategy") or "auto"
+    if strategy != "custom":
+        return {"strategy": strategy}
+    options: dict = {"strategy": "custom"}
+    if request.form.get("max_length"):
+        options["max_length"] = request.form.get("max_length", type=int)
+    if request.form.get("overlap_percent"):
+        options["overlap_percent"] = request.form.get("overlap_percent", type=float)
+    return options
+
+
+@materials_bp.post("/<int:class_id>/materials/<string:material_id>/reindex")
+@require_auth
+@require_csrf
+def reindex_material(class_id: int, material_id: str):
+    denied = _assert_class_scope(teacher_required=True)
+    if denied:
+        return denied
+    class_id = _effective_class_id()
+    material = find_material_in_class(material_id, class_id)
+    if not material:
+        return json_error(404, "material not found")
+    entry = KnowledgeEntry.query.filter_by(material_id=material.id, class_id=class_id).one_or_none()
+    if not entry:
+        return json_error(404, "material not found")
+    payload = request.get_json(silent=True) or {}
+    try:
+        result = reindex_entry(entry, payload.get("chunking"))
+        db.session.commit()
+        return jsonify(material=_material_payload(material), indexing=result)
+    except ValueError as error:
+        db.session.rollback()
+        return json_error(400, str(error))
+    except Exception:
+        db.session.rollback()
+        current_app.logger.exception("material reindex failed")
+        return json_error(500, "material reindex failed")
 
 
 @materials_bp.put("/<int:class_id>/materials/<string:material_id>")
@@ -214,7 +266,14 @@ def delete_material(class_id: int, material_id: str):
         return json_error(404, "material not found")
     file_path = Path(current_app.config["UPLOAD_DIR"]) / material.storage_path
     is_seeded = material.storage_path == "seeded"
-    KnowledgeEntry.query.filter_by(material_id=material.id, class_id=class_id).delete()
+    entry = KnowledgeEntry.query.filter_by(material_id=material.id, class_id=class_id).one_or_none()
+    if entry:
+        generations = KnowledgeIndexGeneration.query.filter_by(knowledge_entry_id=entry.id).all()
+        generation_ids = [generation.id for generation in generations]
+        if generation_ids:
+            KnowledgeChunk.query.filter(KnowledgeChunk.generation_id.in_(generation_ids)).delete(synchronize_session=False)
+            KnowledgeIndexGeneration.query.filter(KnowledgeIndexGeneration.id.in_(generation_ids)).delete(synchronize_session=False)
+        db.session.delete(entry)
     db.session.delete(material)
     db.session.commit()
     if file_path.exists() and not is_seeded:

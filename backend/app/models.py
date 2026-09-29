@@ -1,13 +1,47 @@
 from __future__ import annotations
 
 from datetime import datetime, timezone
+import json
 from uuid import uuid4
+
+from sqlalchemy.types import UserDefinedType
 
 from .extensions import db
 
 
 def utc_now() -> datetime:
     return datetime.now(timezone.utc)
+
+
+class Vector(UserDefinedType):
+    """A small pgvector-compatible type that also keeps SQLite tests runnable."""
+
+    cache_ok = True
+
+    def __init__(self, dimensions: int):
+        self.dimensions = dimensions
+
+    def get_col_spec(self, **kw):
+        return f"VECTOR({self.dimensions})"
+
+    def bind_processor(self, dialect):
+        def process(value):
+            if value is None:
+                return None
+            return "[" + ",".join(str(float(item)) for item in value) + "]"
+
+        return process
+
+    def result_processor(self, dialect, coltype):
+        def process(value):
+            if value is None or isinstance(value, list):
+                return value
+            try:
+                return [float(item) for item in json.loads(value)]
+            except (TypeError, ValueError, json.JSONDecodeError):
+                return value
+
+        return process
 
 
 class Role(db.Model):
@@ -78,6 +112,50 @@ class KnowledgeEntry(db.Model):
     class_id = db.Column(db.Integer, db.ForeignKey("classes.id"), nullable=False, index=True)
     body_text = db.Column(db.Text, nullable=False)
     created_at = db.Column(db.DateTime(timezone=True), nullable=False, default=utc_now)
+
+
+class KnowledgeIndexGeneration(db.Model):
+    __tablename__ = "knowledge_index_generations"
+    __table_args__ = (db.UniqueConstraint("knowledge_entry_id", "generation", name="uq_entry_generation"),)
+
+    id = db.Column(db.Integer, primary_key=True)
+    knowledge_entry_id = db.Column(db.Integer, db.ForeignKey("knowledge_entries.id"), nullable=False, index=True)
+    generation = db.Column(db.Integer, nullable=False)
+    strategy = db.Column(db.String(32), nullable=False)
+    preprocessing = db.Column(db.JSON, nullable=False, default=dict)
+    status = db.Column(db.String(16), nullable=False, default="building", index=True)
+    is_current = db.Column(db.Boolean, nullable=False, default=False, index=True)
+    created_at = db.Column(db.DateTime(timezone=True), nullable=False, default=utc_now)
+    completed_at = db.Column(db.DateTime(timezone=True), nullable=True)
+
+
+class KnowledgeChunk(db.Model):
+    __tablename__ = "knowledge_chunks"
+    __table_args__ = (
+        db.UniqueConstraint("generation_id", "chunk_index", name="uq_generation_chunk_index"),
+        db.Index("ix_chunks_class_status", "class_id", "index_status"),
+        db.Index("ix_chunks_entry_current", "knowledge_entry_id", "generation_id"),
+    )
+
+    id = db.Column(db.Integer, primary_key=True)
+    generation_id = db.Column(db.Integer, db.ForeignKey("knowledge_index_generations.id"), nullable=False, index=True)
+    class_id = db.Column(db.Integer, db.ForeignKey("classes.id"), nullable=False, index=True)
+    material_id = db.Column(db.String(36), db.ForeignKey("materials.id"), nullable=False, index=True)
+    knowledge_entry_id = db.Column(db.Integer, db.ForeignKey("knowledge_entries.id"), nullable=False, index=True)
+    chunk_index = db.Column(db.Integer, nullable=False)
+    chunk_text = db.Column(db.Text, nullable=False)
+    start_offset = db.Column(db.Integer, nullable=False)
+    end_offset = db.Column(db.Integer, nullable=False)
+    offset_basis = db.Column(db.String(32), nullable=False, default="source")
+    index_status = db.Column(db.String(16), nullable=False, default="building", index=True)
+    embedding = db.Column(Vector(64), nullable=True)
+    created_at = db.Column(db.DateTime(timezone=True), nullable=False, default=utc_now)
+
+
+class SchemaMigration(db.Model):
+    __tablename__ = "schema_migrations"
+    version = db.Column(db.String(64), primary_key=True)
+    applied_at = db.Column(db.DateTime(timezone=True), nullable=False, default=utc_now)
 
 
 class Assignment(db.Model):

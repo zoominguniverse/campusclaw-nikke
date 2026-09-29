@@ -1,6 +1,6 @@
 services:
   postgres:
-    image: postgres:16-alpine
+    image: pgvector/pgvector:pg16
     environment:
       POSTGRES_DB: ${POSTGRES_DB:?set POSTGRES_DB in .env}
       POSTGRES_USER: ${POSTGRES_USER:?set POSTGRES_USER in .env}
@@ -29,6 +29,15 @@ services:
       DEMO_STUDENT_B2_PASSWORD: ${DEMO_STUDENT_B2_PASSWORD:-}
       MAX_UPLOAD_BYTES: ${MAX_UPLOAD_BYTES:-5242880}
       UPLOAD_DIR: /app/uploads
+      EMBEDDING_PROVIDER: ${EMBEDDING_PROVIDER:-deterministic}
+      EMBEDDING_API_URL: ${EMBEDDING_API_URL:-}
+      EMBEDDING_API_KEY: ${EMBEDDING_API_KEY:-}
+      EMBEDDING_MODEL: ${EMBEDDING_MODEL:-campusclaw-deterministic}
+      EMBEDDING_DIMENSIONS: ${EMBEDDING_DIMENSIONS:-64}
+      CHAT_PROVIDER: ${CHAT_PROVIDER:-deterministic}
+      CHAT_API_URL: ${CHAT_API_URL:-}
+      CHAT_API_KEY: ${CHAT_API_KEY:-}
+      CHAT_MODEL: ${CHAT_MODEL:-campusclaw-deterministic}
     volumes:
       - uploads_data:/app/uploads
     depends_on:
@@ -46,7 +55,7 @@ services:
       API_INTERNAL_URL: http://api:8080
       API_PUBLIC_URL: ""
     ports:
-      - "5173:5173"
+      - "${WEB_PORT:-5173}:5173"
     depends_on:
       api:
         condition: service_healthy
