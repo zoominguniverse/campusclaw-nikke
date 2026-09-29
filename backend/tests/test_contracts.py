@@ -226,6 +226,65 @@ def test_teacher_upload_creates_material_and_knowledge_record(app, client):
     assert any(item["id"] == material_id for item in student_list.get_json()["items"])
 
 
+def test_teacher_upload_accepts_chinese_filename_and_common_text_encodings(app, client):
+    token = login(client, "teacher_a", "teacher-password")
+    body = "《活着》课程正文"
+    for encoding in ("utf-8-sig", "gb18030", "gbk"):
+        response = client.post(
+            "/api/classes/1/materials",
+            data={"file": (io.BytesIO(body.encode(encoding)), "《活着》.txt")},
+            headers={"X-CSRF-Token": token},
+        )
+        assert response.status_code == 201
+        material_id = response.get_json()["material"]["id"]
+        assert response.get_json()["material"]["original_filename"] == "《活着》.txt"
+        with app.app_context():
+            material = db.session.get(Material, material_id)
+            entry = KnowledgeEntry.query.filter_by(material_id=material_id).one()
+            assert material.title == "《活着》"
+            assert entry.body_text == body
+            assert material.storage_path.endswith(".txt")
+            assert "活着" not in material.storage_path
+
+
+def test_teacher_upload_normalizes_nul_padding_from_supported_text(app, client):
+    token = login(client, "teacher_a", "teacher-password")
+    response = client.post(
+        "/api/classes/1/materials",
+        data={"file": (io.BytesIO("正文\x00尾注".encode("gb18030")), "带尾注.txt")},
+        headers={"X-CSRF-Token": token},
+    )
+    assert response.status_code == 201
+    material_id = response.get_json()["material"]["id"]
+    with app.app_context():
+        entry = KnowledgeEntry.query.filter_by(material_id=material_id).one()
+        assert entry.body_text == "正文尾注"
+
+
+def test_localized_upload_rejects_paths_and_undecodable_text_without_records(app, client):
+    token = login(client, "teacher_a", "teacher-password")
+    with app.app_context():
+        before_materials = Material.query.count()
+        before_entries = KnowledgeEntry.query.count()
+    path_name = client.post(
+        "/api/classes/1/materials",
+        data={"file": (io.BytesIO(b"content"), "folder/lesson.txt")},
+        headers={"X-CSRF-Token": token},
+    )
+    assert path_name.status_code == 400
+    assert path_name.get_json() == {"error": "material filename must not contain a path"}
+    undecodable = client.post(
+        "/api/classes/1/materials",
+        data={"file": (io.BytesIO(b"\xff\xff"), "broken.txt")},
+        headers={"X-CSRF-Token": token},
+    )
+    assert undecodable.status_code == 400
+    assert undecodable.get_json() == {"error": "material text must use UTF-8, GB18030, or GBK encoding"}
+    with app.app_context():
+        assert Material.query.count() == before_materials
+        assert KnowledgeEntry.query.count() == before_entries
+
+
 def test_invalid_upload_creates_no_record(app, client):
     token = login(client, "teacher_a", "teacher-password")
     with app.app_context():

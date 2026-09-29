@@ -16,11 +16,15 @@ The system SHALL accept an authorized teacher's `.txt` or `.md` upload when the 
 - **THEN** the system rejects it with HTTP 400 before creating material, entry, chunk, or stored-file records
 
 ### Requirement: Common Chinese text encodings are normalized for indexing
-The system SHALL decode accepted text uploads using strict UTF-8 (including UTF-8 BOM), GB18030, or GBK decoding, normalize the result to Unicode text before persisting `knowledge_entries.body_text` and indexing, and SHALL NOT store lossy replacement characters introduced by decoding.
+The system SHALL decode accepted text uploads using strict UTF-8 (including UTF-8 BOM), GB18030, or GBK decoding, normalize the result to Unicode text before persisting `knowledge_entries.body_text` and indexing, remove U+0000 code points that PostgreSQL text fields cannot store, and SHALL NOT introduce lossy replacement characters during decoding. Original uploaded bytes SHALL remain available through the existing download flow.
 
 #### Scenario: Upload a GBK course text file
 - **WHEN** an authorized teacher uploads a valid GBK-encoded `.txt` file
 - **THEN** the material upload succeeds and the stored material body equals the intended Unicode text
+
+#### Scenario: Normalize NUL-padded legacy text
+- **WHEN** an authorized teacher uploads a supported-encoding text file containing U+0000 padding
+- **THEN** the upload succeeds, its normalized stored/indexed body contains no U+0000 code points, and its original download remains available
 
 #### Scenario: Upload an unsupported binary or malformed text file
 - **WHEN** an authorized teacher uploads an allowed-extension file that cannot be decoded using UTF-8, GB18030, or GBK

@@ -7,7 +7,6 @@ from pathlib import Path
 from uuid import uuid4
 
 from flask import Blueprint, current_app, g, jsonify, request, send_file
-from werkzeug.utils import secure_filename
 
 from .auth import json_error, require_auth, require_csrf
 from .database import db
@@ -17,10 +16,36 @@ from .repositories import find_material_in_class, find_membership, query_materia
 
 materials_bp = Blueprint("materials", __name__, url_prefix="/api/classes")
 ALLOWED_EXTENSIONS = {".txt": "text/plain", ".md": "text/markdown"}
+SUPPORTED_TEXT_ENCODINGS = ("utf-8-sig", "gb18030", "gbk")
 
 
 def _effective_class_id() -> int:
     return g.current_user.class_id
+
+
+def _validated_upload_name(filename: str) -> tuple[str, str]:
+    """Keep a Unicode display name separate from the UUID storage path."""
+    display_name = (filename or "").strip()
+    if not display_name or len(display_name) > 255 or "\x00" in display_name:
+        raise ValueError("material filename is invalid")
+    if "/" in display_name or "\\" in display_name:
+        raise ValueError("material filename must not contain a path")
+    suffix = Path(display_name).suffix.lower()
+    if suffix not in ALLOWED_EXTENSIONS:
+        raise ValueError("only .txt and .md files are supported")
+    return display_name, suffix
+
+
+def _decode_text_upload(raw_bytes: bytes) -> str:
+    for encoding in SUPPORTED_TEXT_ENCODINGS:
+        try:
+            # PostgreSQL TEXT rejects NUL. Keep the original bytes on disk for
+            # download, but remove this storage-prohibited padding from the
+            # Unicode body used for preview, chunking, and embeddings.
+            return raw_bytes.decode(encoding).replace("\x00", "")
+        except UnicodeDecodeError:
+            continue
+    raise ValueError("material text must use UTF-8, GB18030, or GBK encoding")
 
 
 def _assert_class_scope(*, teacher_required: bool = False):
@@ -128,10 +153,10 @@ def upload_material(class_id: int):
     file = request.files.get("file")
     if not file or not file.filename:
         return json_error(400, "a material file is required")
-    safe_name = secure_filename(file.filename)
-    suffix = Path(safe_name).suffix.lower()
-    if not safe_name or suffix not in ALLOWED_EXTENSIONS:
-        return json_error(400, "only .txt and .md files are supported")
+    try:
+        display_name, suffix = _validated_upload_name(file.filename)
+    except ValueError as error:
+        return json_error(400, str(error))
 
     upload_root = Path(current_app.config["UPLOAD_DIR"])
     temp_dir = upload_root / ".tmp"
@@ -148,11 +173,11 @@ def upload_material(class_id: int):
                 if total > current_app.config["MAX_CONTENT_LENGTH"]:
                     raise ValueError("file exceeds the configured size limit")
                 temporary.write(chunk)
-        body_text = temp_path.read_text(encoding="utf-8")
+        body_text = _decode_text_upload(temp_path.read_bytes())
         if not body_text.strip():
             raise ValueError("file must not be empty")
 
-        title = (request.form.get("title") or Path(safe_name).stem).strip()[:255]
+        title = (request.form.get("title") or Path(display_name).stem).strip()[:255]
         if not title:
             raise ValueError("material title is required")
         class_dir = upload_root / str(class_id)
@@ -162,7 +187,7 @@ def upload_material(class_id: int):
             class_id=class_id,
             uploader_id=g.current_user.id,
             title=title,
-            original_filename=safe_name,
+            original_filename=display_name,
             storage_path=str(final_path.relative_to(upload_root)),
             content_type=ALLOWED_EXTENSIONS[suffix],
         )
@@ -180,9 +205,6 @@ def upload_material(class_id: int):
     except ValueError as error:
         db.session.rollback()
         return json_error(400, str(error))
-    except UnicodeDecodeError:
-        db.session.rollback()
-        return json_error(400, "material must be valid UTF-8 text")
     except Exception:
         db.session.rollback()
         current_app.logger.exception("material upload failed")

@@ -25,7 +25,7 @@ This prevents the storage path from inheriting user-controlled characters while 
 
 ### Use a deterministic strict decoding sequence
 
-Decode raw upload bytes strictly with `utf-8-sig`, then `gb18030`, then `gbk`; the first successful decoding is the Unicode body used for the existing material, chunking, embedding, and download flows.  No decoder uses `errors="replace"` or a heuristic detector.
+Decode raw upload bytes strictly with `utf-8-sig`, then `gb18030`, then `gbk`; the first successful result is normalized by removing U+0000 before use as the Unicode body for material persistence, chunking, and embedding.  No decoder uses `errors="replace"` or a heuristic detector.  Original bytes remain in the UUID-derived upload file for download.
 
 `gb18030` covers most modern Chinese legacy text and is more complete than GBK; explicit GBK remains in the supported contract for compatibility and clear behavior.  A third-party charset detector was rejected because detection ambiguity can silently corrupt teaching content and adds a dependency.
 
@@ -39,7 +39,7 @@ The browser extracts an `error` string only from a JSON failure response and ass
 
 ## Risks / Trade-offs
 
-- [Some arbitrary byte sequences can decode under GB18030] → Use strict decoding, keep the supported set intentionally small, and retain existing non-empty validation.
+- [Some arbitrary byte sequences can decode under GB18030] → Use strict decoding, keep the supported set intentionally small, remove only PostgreSQL-prohibited U+0000 from normalized text, and retain existing non-empty validation.
 - [Original filenames can include confusing Unicode] → They are display metadata only; UUID-derived storage paths and existing class-scoped download authorization remain authoritative.
 - [Downloaded source bytes may retain their original encoding while indexed text is Unicode] → Preserve original uploaded bytes for download and document that indexing/preview operate on normalized Unicode.
 

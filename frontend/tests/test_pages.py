@@ -67,3 +67,14 @@ def test_materials_page_includes_retrieval_and_citations_without_vector_exposure
     assert "knowledge/retrieve" in body
     assert "knowledge/ask" in body
     assert "vector" not in body.replace('value="vector"', '')
+
+
+def test_materials_page_renders_api_upload_errors_as_text():
+    client = app.test_client()
+    user = {"username": "teacher_a", "role": "teacher", "class_id": 1}
+    with patch("server.current_user", return_value=user):
+        response = client.get("/materials")
+    body = response.get_data(as_text=True)
+    assert "await response.json().catch(() => null)" in body
+    assert "typeof failure.error === 'string'" in body
+    assert "'#message').textContent = response.ok ? '上传成功。' : uploadMessage" in body

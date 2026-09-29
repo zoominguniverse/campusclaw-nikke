@@ -84,7 +84,12 @@
     if (form) form.addEventListener('submit', async (event) => {
       event.preventDefault();
       const response = await apiFetch(`/api/classes/${user.class_id}/materials`, {method: 'POST', body: new FormData(form)});
-      document.querySelector('#message').textContent = response.ok ? '上传成功。' : '上传失败。';
+      let uploadMessage = '上传失败。';
+      if (!response.ok) {
+        const failure = await response.json().catch(() => null);
+        if (failure && typeof failure.error === 'string' && failure.error.trim()) uploadMessage = failure.error;
+      }
+      document.querySelector('#message').textContent = response.ok ? '上传成功。' : uploadMessage;
       if (response.ok) { form.reset(); await loadMaterials(); }
     });
     document.querySelector('#logout-button').addEventListener('click', async () => {
