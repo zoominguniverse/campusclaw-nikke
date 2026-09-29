@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import json
+
 from flask import current_app
 from sqlalchemy import inspect, text
 from .extensions import db
@@ -11,6 +13,8 @@ from .models import (
     ClassSubject,
     KnowledgeEntry,
     KnowledgeChunk,
+    KnowledgeIndexGeneration,
+    LoginSession,
     Material,
     Role,
     SchemaMigration,
@@ -21,6 +25,83 @@ from .models import (
     utc_now,
 )
 from .security import hash_password
+
+
+DEMO_CLASSES = (
+    ("1", "1 班"),
+    ("2", "2 班"),
+    ("3", "3 班"),
+)
+DEMO_SUBJECTS = (
+    ("mathematics", "数学"),
+    ("language", "语文"),
+    ("english", "英语"),
+    ("physics", "物理"),
+    ("chemistry", "化学"),
+    ("biology", "生物"),
+)
+# These usernames are pinyin renderings of Chinese personal-style names.  The
+# roster is fixed so seeding can be safely re-run without account duplication.
+DEMO_USERS = (
+    ("zhangruoxi", "super_admin", "1"),
+    ("liuyifei", "class_admin", "1"),
+    ("chenwanqing", "class_admin", "2"),
+    ("zhouziyan", "class_admin", "3"),
+    ("linzimo", "teacher", "1"),  # Shared mathematics teacher for 1/2 班.
+    ("wangyuxin", "teacher", "1"),
+    ("chenzixuan", "teacher", "1"),
+    ("zhoumingyuan", "teacher", "1"),
+    ("liqinghe", "teacher", "1"),
+    ("sunwanru", "teacher", "1"),
+    ("hejiayi", "teacher", "2"),
+    ("songxinyue", "teacher", "2"),
+    ("panhaoran", "teacher", "2"),
+    ("wumengyao", "teacher", "2"),
+    ("gaoxiaoyu", "teacher", "2"),
+    ("taoyichen", "teacher", "3"),
+    ("xiaowenhao", "teacher", "3"),
+    ("luojingyan", "teacher", "3"),
+    ("shenqianyu", "teacher", "3"),
+    ("guoxinyi", "teacher", "3"),
+    ("yeyuhan", "teacher", "3"),
+    ("zhouchengxi", "student", "1"),
+    ("xiewanqing", "student", "2"),
+    ("chendongyi", "student", "3"),
+)
+DEMO_TEACHER_ASSIGNMENTS = (
+    ("linzimo", "1", "mathematics"),
+    ("linzimo", "2", "mathematics"),
+    ("wangyuxin", "1", "language"),
+    ("chenzixuan", "1", "english"),
+    ("zhoumingyuan", "1", "physics"),
+    ("liqinghe", "1", "chemistry"),
+    ("sunwanru", "1", "biology"),
+    ("hejiayi", "2", "language"),
+    ("songxinyue", "2", "english"),
+    ("panhaoran", "2", "physics"),
+    ("wumengyao", "2", "chemistry"),
+    ("gaoxiaoyu", "2", "biology"),
+    ("taoyichen", "3", "language"),
+    ("xiaowenhao", "3", "mathematics"),
+    ("luojingyan", "3", "english"),
+    ("shenqianyu", "3", "physics"),
+    ("guoxinyi", "3", "chemistry"),
+    ("yeyuhan", "3", "biology"),
+)
+LEGACY_DEMO_CLASS_CODES = ("A", "B")
+LEGACY_DEMO_USERNAMES = frozenset(
+    {
+        "super_admin",
+        "class_admin_a",
+        "teacher_a",
+        "teacher_a2",
+        "teacher_b",
+        "student_a1",
+        "student_a2",
+        "student_b1",
+        "student_b2",
+    }
+)
 
 
 def initialize_database() -> None:
@@ -191,93 +272,135 @@ def _install_retrieval_indexes() -> None:
 
 
 def seed_demo_data() -> None:
-    required_passwords = {
-        "teacher_a": current_app.config["DEMO_TEACHER_PASSWORD"],
-        "teacher_b": current_app.config["DEMO_TEACHER_B_PASSWORD"],
-        "student_a1": current_app.config["DEMO_STUDENT_A_PASSWORD"],
-        "student_a2": current_app.config["DEMO_STUDENT_A2_PASSWORD"],
-        "student_b1": current_app.config["DEMO_STUDENT_B_PASSWORD"],
-        "student_b2": current_app.config["DEMO_STUDENT_B2_PASSWORD"],
-    }
-    missing = [name for name, password in required_passwords.items() if not password]
-    if missing:
-        raise RuntimeError("demo seed mode requires passwords for all demo accounts")
+    passwords = _demo_passwords()
+    if current_app.config["PURGE_LEGACY_DEMO_DATA"]:
+        _purge_legacy_demo_data()
 
     for role_name in ("super_admin", "class_admin", "teacher", "student"):
         if not db.session.get(Role, role_name):
             db.session.add(Role(name=role_name))
 
-    class_a = SchoolClass.query.filter_by(code="A").one_or_none()
-    if not class_a:
-        class_a = SchoolClass(code="A", name="A 班")
-        db.session.add(class_a)
-    class_b = SchoolClass.query.filter_by(code="B").one_or_none()
-    if not class_b:
-        class_b = SchoolClass(code="B", name="B 班")
-        db.session.add(class_b)
+    classes: dict[str, SchoolClass] = {}
+    for code, name in DEMO_CLASSES:
+        school_class = SchoolClass.query.filter_by(code=code).one_or_none()
+        if not school_class:
+            school_class = SchoolClass(code=code, name=name)
+            db.session.add(school_class)
+        classes[code] = school_class
     db.session.flush()
 
-    math_a = _ensure_subject(class_a, "mathematics", "数学")
-    language_a = _ensure_subject(class_a, "language", "语文")
-    english_b = _ensure_subject(class_b, "english", "英语")
+    subjects = {
+        (code, key): _ensure_subject(classes[code], key, name)
+        for code, _ in DEMO_CLASSES
+        for key, name in DEMO_SUBJECTS
+    }
 
-    demo_users = (
-        ("teacher_a", "teacher", class_a.id, required_passwords["teacher_a"]),
-        ("student_a1", "student", class_a.id, required_passwords["student_a1"]),
-        ("student_a2", "student", class_a.id, required_passwords["student_a2"]),
-        ("teacher_b", "teacher", class_b.id, required_passwords["teacher_b"]),
-        ("student_b1", "student", class_b.id, required_passwords["student_b1"]),
-        ("student_b2", "student", class_b.id, required_passwords["student_b2"]),
-    )
-    for username, role, class_id, password in demo_users:
+    users: dict[str, User] = {}
+    for username, role, class_code in DEMO_USERS:
+        school_class = classes[class_code]
         user = User.query.filter_by(username=username).one_or_none()
         if not user:
             user = User(
-                    username=username,
-                    role=role,
-                    class_id=class_id,
-                    password_hash=hash_password(password),
+                username=username,
+                role=role,
+                class_id=school_class.id,
+                password_hash=hash_password(passwords[username]),
             )
             db.session.add(user)
             db.session.flush()
-        if not ClassMembership.query.filter_by(user_id=user.id, class_id=class_id).one_or_none():
-            db.session.add(ClassMembership(user_id=user.id, class_id=class_id, is_teacher=role == "teacher"))
-    db.session.flush()
+        users[username] = user
+        if role == "student":
+            _ensure_membership(user, school_class, is_teacher=False)
 
-    teacher_a = User.query.filter_by(username="teacher_a").one()
-    teacher_b = User.query.filter_by(username="teacher_b").one()
-    _ensure_teacher_assignment(teacher_a, math_a)
-    _ensure_teacher_assignment(teacher_b, english_b)
-    _seed_material(class_a, math_a, teacher_a, "A 班教学示例材料", "A 班示例材料内容")
-    _seed_material(class_b, english_b, teacher_b, "B 班教学示例材料", "B 班示例材料内容")
+    for username, class_code in (("liuyifei", "1"), ("chenwanqing", "2"), ("zhouziyan", "3")):
+        school_class = classes[class_code]
+        if not ClassAdminGrant.query.filter_by(admin_user_id=users[username].id, class_id=school_class.id).one_or_none():
+            db.session.add(ClassAdminGrant(admin_user_id=users[username].id, class_id=school_class.id, created_by=None))
 
-    optional_users = (
-        ("super_admin", "super_admin", class_a.id, current_app.config["DEMO_SUPER_ADMIN_PASSWORD"]),
-        ("class_admin_a", "class_admin", class_a.id, current_app.config["DEMO_CLASS_ADMIN_A_PASSWORD"]),
-        ("teacher_a2", "teacher", class_a.id, current_app.config["DEMO_TEACHER_A2_PASSWORD"]),
-    )
-    for username, role, class_id, password in optional_users:
-        if not password:
-            continue
-        user = User.query.filter_by(username=username).one_or_none()
-        if not user:
-            user = User(username=username, role=role, class_id=class_id, password_hash=hash_password(password))
-            db.session.add(user)
-            db.session.flush()
-        if role == "class_admin" and not ClassAdminGrant.query.filter_by(admin_user_id=user.id, class_id=class_id).one_or_none():
-            db.session.add(ClassAdminGrant(admin_user_id=user.id, class_id=class_id, created_by=None))
-        if role == "teacher":
-            if not ClassMembership.query.filter_by(user_id=user.id, class_id=class_id).one_or_none():
-                db.session.add(ClassMembership(user_id=user.id, class_id=class_id, is_teacher=True))
-            _ensure_teacher_assignment(user, language_a)
+    for username, class_code, subject_key in DEMO_TEACHER_ASSIGNMENTS:
+        teacher = users[username]
+        school_class = classes[class_code]
+        _ensure_membership(teacher, school_class, is_teacher=True)
+        _ensure_teacher_assignment(teacher, subjects[(class_code, subject_key)])
+
+    _seed_material(classes["1"], subjects[("1", "mathematics")], users["linzimo"], "1 班数学示例材料", "1 班数学示例材料内容")
+    _seed_material(classes["2"], subjects[("2", "language")], users["hejiayi"], "2 班语文示例材料", "2 班语文示例材料内容")
+    _seed_material(classes["3"], subjects[("3", "english")], users["luojingyan"], "3 班英语示例材料", "3 班英语示例材料内容")
 
     if not Assignment.query.first():
-        db.session.add(Assignment(class_id=class_a.id, title="A 班占位作业"))
+        db.session.add(Assignment(class_id=classes["1"].id, title="1 班占位作业"))
     if not Assistant.query.first():
         db.session.add(Assistant(name="课程助手占位"))
     if not Skill.query.first():
         db.session.add(Skill(name="材料管理占位技能"))
     db.session.commit()
+
+
+def _purge_legacy_demo_data() -> None:
+    """Remove only the former fixed A/B demo graph when explicitly requested."""
+    legacy_classes = SchoolClass.query.filter(SchoolClass.code.in_(LEGACY_DEMO_CLASS_CODES)).all()
+    if not legacy_classes:
+        return
+    legacy_class_ids = [school_class.id for school_class in legacy_classes]
+    legacy_users = User.query.filter(User.class_id.in_(legacy_class_ids)).all()
+    unknown_usernames = {user.username for user in legacy_users} - LEGACY_DEMO_USERNAMES
+    if unknown_usernames:
+        raise RuntimeError("legacy demo cleanup found non-demo A/B users and will not delete them")
+    legacy_user_ids = [user.id for user in legacy_users]
+    legacy_subject_ids = [
+        subject.id for subject in ClassSubject.query.filter(ClassSubject.class_id.in_(legacy_class_ids)).all()
+    ]
+    legacy_entry_ids = [
+        entry.id for entry in KnowledgeEntry.query.filter(KnowledgeEntry.class_id.in_(legacy_class_ids)).all()
+    ]
+    if legacy_entry_ids:
+        generation_ids = [
+            generation.id
+            for generation in KnowledgeIndexGeneration.query.filter(
+                KnowledgeIndexGeneration.knowledge_entry_id.in_(legacy_entry_ids)
+            ).all()
+        ]
+        if generation_ids:
+            KnowledgeChunk.query.filter(KnowledgeChunk.generation_id.in_(generation_ids)).delete(synchronize_session=False)
+            KnowledgeIndexGeneration.query.filter(KnowledgeIndexGeneration.id.in_(generation_ids)).delete(synchronize_session=False)
+        KnowledgeEntry.query.filter(KnowledgeEntry.id.in_(legacy_entry_ids)).delete(synchronize_session=False)
+    KnowledgeChunk.query.filter(KnowledgeChunk.class_id.in_(legacy_class_ids)).delete(synchronize_session=False)
+    if legacy_user_ids:
+        LoginSession.query.filter(LoginSession.user_id.in_(legacy_user_ids)).delete(synchronize_session=False)
+        ClassMembership.query.filter(ClassMembership.user_id.in_(legacy_user_ids)).delete(synchronize_session=False)
+        ClassAdminGrant.query.filter(ClassAdminGrant.admin_user_id.in_(legacy_user_ids)).delete(synchronize_session=False)
+        TeacherSubjectAssignment.query.filter(TeacherSubjectAssignment.teacher_id.in_(legacy_user_ids)).delete(synchronize_session=False)
+    ClassMembership.query.filter(ClassMembership.class_id.in_(legacy_class_ids)).delete(synchronize_session=False)
+    ClassAdminGrant.query.filter(ClassAdminGrant.class_id.in_(legacy_class_ids)).delete(synchronize_session=False)
+    if legacy_subject_ids:
+        TeacherSubjectAssignment.query.filter(TeacherSubjectAssignment.subject_id.in_(legacy_subject_ids)).delete(synchronize_session=False)
+    Assignment.query.filter(Assignment.class_id.in_(legacy_class_ids)).delete(synchronize_session=False)
+    Material.query.filter(Material.class_id.in_(legacy_class_ids)).delete(synchronize_session=False)
+    ClassSubject.query.filter(ClassSubject.class_id.in_(legacy_class_ids)).delete(synchronize_session=False)
+    if legacy_user_ids:
+        User.query.filter(User.id.in_(legacy_user_ids)).delete(synchronize_session=False)
+    SchoolClass.query.filter(SchoolClass.id.in_(legacy_class_ids)).delete(synchronize_session=False)
+    db.session.commit()
+
+
+def _demo_passwords() -> dict[str, str]:
+    raw = current_app.config.get("DEMO_ACCOUNT_PASSWORDS", "")
+    try:
+        passwords = json.loads(raw) if isinstance(raw, str) else raw
+    except json.JSONDecodeError as error:
+        raise RuntimeError("demo seed mode requires a valid complete credential mapping") from error
+    if not isinstance(passwords, dict):
+        raise RuntimeError("demo seed mode requires a valid complete credential mapping")
+    expected = {username for username, _, _ in DEMO_USERS}
+    if set(passwords) != expected or any(not isinstance(password, str) or not password.strip() for password in passwords.values()):
+        raise RuntimeError("demo seed mode requires a valid complete credential mapping")
+    return passwords
+
+
+def _ensure_membership(user: User, school_class: SchoolClass, *, is_teacher: bool) -> None:
+    membership = ClassMembership.query.filter_by(user_id=user.id, class_id=school_class.id).one_or_none()
+    if not membership:
+        db.session.add(ClassMembership(user_id=user.id, class_id=school_class.id, is_teacher=is_teacher))
 
 
 def _ensure_subject(school_class: SchoolClass, key: str, name: str) -> ClassSubject:

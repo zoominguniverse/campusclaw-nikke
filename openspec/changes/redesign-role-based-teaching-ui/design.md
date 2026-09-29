@@ -1,6 +1,6 @@
 ## Context
 
-The current Flask frontend has only two rendered pages: a minimal `login.html` and a single `materials.html` that mixes all role-specific controls and its client-side API integration. Server-side authentication, session handling, CSRF use for protected mutations, and per-role/per-class API authorization already exist and are verified by frontend tests. The target reference shows a split entry page and a light, card-based teaching dashboard with a persistent left rail; this change adopts that hierarchy without copying its mock-account switcher or its unimplemented business areas. See `proposal.md` and the three UI capability specs for the behavioral contract.
+The current Flask frontend has only two rendered pages: a minimal `login.html` and a single `materials.html` that mixes all role-specific controls and its client-side API integration. Server-side authentication, session handling, CSRF use for protected mutations, and per-role/per-class API authorization already exist and are verified by frontend tests. The current demo fixture is too small to demonstrate the intended three-class teaching organization. The target reference shows a split entry page and a light, card-based teaching dashboard with a persistent left rail; this change adopts that hierarchy without copying its mock-account switcher or its unimplemented business areas. See `proposal.md` and the three UI capability specs for the behavioral contract.
 
 ## Goals / Non-Goals
 
@@ -10,11 +10,12 @@ The current Flask frontend has only two rendered pages: a minimal `login.html` a
 - Preserve all current API contracts, server-derived user scope, CSRF flow, safe text rendering, and protected-page redirects while making allowed functions discoverable by role.
 - Keep the frontend dependency-free and usable without a JavaScript build pipeline.
 - Give desktop users a persistent left rail and narrow-screen users an accessible compact navigation control.
+- Provide an idempotent, realistic local demonstration roster for three classes without placing usable passwords in version control.
 
 **Non-Goals:**
 
 - Creating preset-login buttons, client-side role switching, a new identity provider, or new account-management semantics.
-- Implementing the reference product's mock lectures, assistants, homework, audits, analytics, or data model.
+- Implementing the reference product's mock lectures, assistants, homework, audits, analytics, or a new database schema.
 - Changing material/knowledge/admin endpoints, their authorization rules, or the existing protected-operation confirmations.
 - Delivering a byte-for-byte copy of the reference's images or icons.
 
@@ -63,6 +64,16 @@ The alternative of replacing the API layer as part of the redesign creates avoid
 
 Extend Flask template tests to assert role-specific navigation, absence of prohibited controls, CSRF-protected logout, existing safe rendering hooks, and protected redirects. Add a lightweight browser-level visual/responsive check if the repository test tooling can execute it without new runtime services; otherwise preserve that verification as a manual acceptance checklist using seeded accounts and standard/narrow viewport widths.
 
+### 7. Seed a fixed three-class roster with externally supplied local credentials
+
+Keep the roster shape in application-owned seed data so its identity and assignment graph are reviewable and idempotent: 1 班, 2 班, and 3 班 each receive the six standard subjects; one super administrator receives institution scope; three class administrators receive one class grant apiece; three students receive one class membership apiece; and 17 teacher identities cover the 18 class-subject assignments because the 1 班/2 班 mathematics assignment is shared. Account identifiers are fixed, unique lower-case pinyin personal names selected once for this fixture, not generic English role words.
+
+Introduce one validated server-side runtime credential mapping for that complete roster, documented as a JSON-shaped environment setting and supplied only by the ignored local `.env`. The mapping is parsed before database mutation and must contain each roster identity with a non-empty easy-to-remember random password. The database receives only the existing password hashes. Seed re-runs create only missing fixture rows and relationships and preserve an existing fixture user's password hash, avoiding duplicate records and surprise credential rotation. The committed `.env.example` documents names and structure but contains no working password values.
+
+For an existing development database created by the former A/B fixture, expose a separate `PURGE_LEGACY_DEMO_DATA` flag that defaults to false. When it is explicitly true, the seed first removes only the former known A/B class codes, their fixed legacy seed usernames, and dependent rows in a referentially safe order (sessions, memberships/grants/assignments, material knowledge/index records, subjects, assignments, users, then classes). It must not derive deletion targets from user input or remove arbitrary classes. The local migration enables the requested exact three-class roster while keeping routine seed runs non-destructive.
+
+The alternative—hard-coding passwords in the seed function or retaining a handful of individually named role-password variables—either exposes reusable credentials or becomes impractical for the full roster. A schema change is unnecessary because existing users, memberships, grants, subjects, and teacher assignments express the requested relationships.
+
 ## Risks / Trade-offs
 
 - [Large template refactor can disconnect existing JavaScript selectors] → Preserve stable IDs where practical, migrate selector changes together, and run current page tests plus role-by-role smoke checks.
@@ -70,11 +81,15 @@ Extend Flask template tests to assert role-specific navigation, absence of prohi
 - [Visual similarity can harm narrow-screen usability] → Treat the supplied dashboard as a hierarchy reference, not a fixed desktop canvas; test the form and navigation keyboard flow at a narrow viewport.
 - [Hash/view state can refer to a forbidden or obsolete view] → Allowlist view identifiers, fall back to the role's default view, and never use client state to choose data scope.
 - [External icon libraries add network/privacy and failure modes] → Use simple local/inline semantic icons and visible textual labels.
+- [A local credential map can be malformed or accidentally committed] → Validate the full map before seed writes, keep the actual `.env` ignored, use non-secret placeholders in `.env.example`, and add a test that committed tracked files contain no fixture password.
+- [Repeated seeds can change live demo access or multiply relationships] → Treat the roster as a stable natural-key fixture; create only missing rows/links and preserve stored password hashes unless a future explicit reset workflow is designed.
+- [Legacy demo cleanup could remove user-managed data] → Require an opt-in configuration flag and restrict cleanup to the fixed legacy A/B fixture identifiers and dependency graph; the flag remains false in the committed example.
 
 ## Migration Plan
 
 1. Add the shared style/template assets and refactor login and workspace markup behind the existing routes.
 2. Keep all existing API URLs and request shapes, then migrate client selectors and role panels without modifying backend authorization.
-3. Run frontend page tests and backend authorization tests; manually sign in with one account from each seeded role at desktop and narrow widths.
-4. Deploy as a frontend template/static-asset update. No database migration, session invalidation, or API consumer migration is required.
-5. If rollback is needed, restore the previous frontend template/static-asset revision; the API, database schema, and session contract remain compatible.
+3. Add the validated local credential-map configuration and the idempotent three-class fixture using existing database relationships; if replacing the previous local A/B fixture, explicitly enable the restricted legacy-fixture purge in the ignored local `.env`.
+4. Run frontend page tests and backend authorization/data-isolation tests; manually sign in with one account from each seeded role at desktop and narrow widths.
+5. Deploy as a frontend template/static-asset and optional demo-fixture update. No database migration, session invalidation, or API consumer migration is required.
+6. If rollback is needed, restore the previous frontend template/static-asset revision and disable demo seeding; the API, database schema, and session contract remain compatible.

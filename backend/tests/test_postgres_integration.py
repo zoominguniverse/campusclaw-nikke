@@ -12,6 +12,8 @@ import os
 import pytest
 from sqlalchemy import text
 
+from .conftest import DEMO_ACCOUNT_PASSWORDS
+
 
 POSTGRES_URL = os.getenv("POSTGRES_INTEGRATION_URL")
 pytestmark = pytest.mark.skipif(not POSTGRES_URL, reason="POSTGRES_INTEGRATION_URL is not configured")
@@ -29,12 +31,7 @@ def postgres_app(tmp_path):
             "UPLOAD_DIR": str(tmp_path / "uploads"),
             "INITIALIZE_DATABASE": True,
             "SEED_DEMO_DATA": True,
-            "DEMO_TEACHER_PASSWORD": "teacher-password",
-            "DEMO_TEACHER_B_PASSWORD": "teacher-b-password",
-            "DEMO_STUDENT_A_PASSWORD": "student-a-password",
-            "DEMO_STUDENT_A2_PASSWORD": "student-a2-password",
-            "DEMO_STUDENT_B_PASSWORD": "student-b-password",
-            "DEMO_STUDENT_B2_PASSWORD": "student-b2-password",
+            "DEMO_ACCOUNT_PASSWORDS": DEMO_ACCOUNT_PASSWORDS,
         }
     )
     yield app

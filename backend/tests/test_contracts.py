@@ -3,24 +3,24 @@ import io
 from app.database import db
 from app.models import KnowledgeEntry, Material, User
 
-from .conftest import login
+from .conftest import LEGACY_TEST_USERNAMES, login
 
 
 def test_seeded_users_are_hashed_and_class_scoped(app):
     with app.app_context():
-        teacher = User.query.filter_by(username="teacher_a").one()
-        teacher_b = User.query.filter_by(username="teacher_b").one()
-        student_a2 = User.query.filter_by(username="student_a2").one()
-        student_b = User.query.filter_by(username="student_b1").one()
+        teacher = User.query.filter_by(username=LEGACY_TEST_USERNAMES["teacher_a"]).one()
+        teacher_b = User.query.filter_by(username=LEGACY_TEST_USERNAMES["teacher_b"]).one()
+        student_a2 = User.query.filter_by(username=LEGACY_TEST_USERNAMES["student_a2"]).one()
+        student_b = User.query.filter_by(username=LEGACY_TEST_USERNAMES["student_b1"]).one()
         assert teacher.password_hash != "teacher-password"
         assert teacher.password_hash.startswith("$2")
         assert teacher.class_id != student_b.class_id
         assert teacher.role == "teacher"
         assert teacher_b.role == "teacher"
         assert {student_a2.role, student_b.role} == {"student"}
-        assert User.query.count() == 9
-        assert User.query.filter_by(username="super_admin", role="super_admin").one()
-        assert User.query.filter_by(username="class_admin_a", role="class_admin").one()
+        assert User.query.count() == 24
+        assert User.query.filter_by(username=LEGACY_TEST_USERNAMES["super_admin"], role="super_admin").one()
+        assert User.query.filter_by(username=LEGACY_TEST_USERNAMES["class_admin_a"], role="class_admin").one()
 
 
 def test_second_teacher_is_limited_to_own_class(app, client):
@@ -34,9 +34,8 @@ def test_second_teacher_is_limited_to_own_class(app, client):
 def test_all_seeded_students_are_read_only(app):
     students = (
         ("student_a1", "student-a-password", 1),
-        ("student_a2", "student-a2-password", 1),
         ("student_b1", "student-b-password", 2),
-        ("student_b2", "student-b2-password", 2),
+        ("student_b2", "student-c-password", 3),
     )
     for username, password, class_id in students:
         client = app.test_client()
@@ -56,7 +55,7 @@ def test_unauthenticated_api_is_rejected_without_material_data(client):
 
 
 def test_invalid_password_does_not_create_a_session(client):
-    response = client.post("/api/auth/login", json={"username": "teacher_a", "password": "wrong-password"})
+    response = client.post("/api/auth/login", json={"username": LEGACY_TEST_USERNAMES["teacher_a"], "password": "wrong-password"})
     assert response.status_code == 401
     assert client.get("/api/auth/me").status_code == 401
 
@@ -80,9 +79,9 @@ def test_repeated_failed_logins_are_throttled_without_creating_a_session(client)
 
 
 def test_login_response_returns_top_level_identity_fields_only(client):
-    response = client.post("/api/auth/login", json={"username": "teacher_a", "password": "teacher-password"})
+    response = client.post("/api/auth/login", json={"username": LEGACY_TEST_USERNAMES["teacher_a"], "password": "teacher-password"})
     assert response.status_code == 200
-    assert response.get_json() == {"username": "teacher_a", "role": "teacher", "class_id": 1}
+    assert response.get_json() == {"username": LEGACY_TEST_USERNAMES["teacher_a"], "role": "teacher", "class_id": 1}
 
 
 def test_new_login_revokes_all_previous_sessions_for_the_same_user(app):
@@ -129,7 +128,7 @@ def test_client_class_id_is_ignored_for_material_lists(client):
     login(client, "student_a1", "student-a-password")
     response = client.get("/api/classes/2/materials")
     assert response.status_code == 200
-    assert all(item["title"].startswith("A 班") for item in response.get_json()["items"])
+    assert all(item["title"].startswith("1 班") for item in response.get_json()["items"])
 
 
 def test_cross_class_material_id_is_indistinguishable_from_missing(app, client):
@@ -152,7 +151,7 @@ def test_same_class_material_preview_returns_parsed_text(app, client):
     assert response.status_code == 200
     payload = response.get_json()
     assert payload["material"]["id"] == material_id
-    assert payload["body_text"] == "A 班示例材料内容"
+    assert payload["body_text"] == "1 班数学示例材料内容"
 
 
 def test_same_class_user_can_download_seeded_material(app, client):

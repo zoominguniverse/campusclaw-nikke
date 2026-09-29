@@ -26,5 +26,13 @@
 ## 5. Regression and acceptance validation
 
 - [x] 5.1 Update `frontend/tests/test_pages.py` for the branded login, shared shell, role navigation matrix, responsive-navigation hooks, and preserved protected-page/logout behavior; verify `pytest frontend/tests` passes.
-- [ ] 5.2 Run the backend authorization and data-isolation regression suite without modifying API contracts; verify the project-supported backend test command passes.
-- [ ] 5.3 Perform seeded-account visual smoke tests for teacher, student, class administrator, and super administrator at desktop width, plus login and workspace at narrow width; verify each screen has the reference-like hierarchy, permitted left navigation, usable logout, and no visible out-of-role controls.
+- [x] 5.2 Run the backend authorization and data-isolation regression suite without modifying API contracts; verify the project-supported backend test command passes.
+- [x] 5.3 Perform seeded-account visual smoke tests for teacher, student, class administrator, and super administrator at desktop width, plus login and workspace at narrow width; use the new three-class fixture and verify each screen has the reference-like hierarchy, permitted left navigation, usable logout, and no visible out-of-role controls.
+
+## 6. Three-class local demonstration fixture
+
+- [x] 6.1 Add server-side parsing and complete-roster validation for a local ignored runtime credential mapping; document only its non-secret shape in `.env.example` and verify tracked files contain no usable fixture password.
+- [x] 6.2 Define an idempotent fixture roster with 1 班、2 班、3 班; one 教务管理员; three class-specific 班主任; 17 teachers; and one student per class. Use unique lower-case Chinese personal-name pinyin account identifiers and existing password hashing.
+- [x] 6.3 Seed 语文、数学、英语、物理、化学、生物 for every class and create the required memberships, class-administrator grants, and teacher-subject assignments; verify the same mathematics teacher is assigned to both 1 班 and 2 班 while every other class-subject assignment has its own teacher identity.
+- [x] 6.4 Add fixture tests for the roster counts, scopes, shared mathematics assignment, invalid/incomplete credential-map atomicity, and repeat-run idempotency including preservation of existing password hashes.
+- [x] 6.5 Create the generated easy-to-remember credentials only in the local ignored `.env`; explicitly purge the recognized prior A/B demonstration fixture; seed the exact three-class roster; and use those credentials to complete the four-role visual smoke tests at `http://127.0.0.1:5174`.

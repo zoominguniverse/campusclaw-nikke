@@ -26,7 +26,7 @@ def test_chunking_defaults_custom_preprocess_and_hierarchy():
 def test_keyword_retrieval_is_class_scoped_and_skips_embedding(app, client):
     login(client, "student_a1", "student-a-password")
     with patch("app.retrieval.embedding_client") as embedding:
-        response = client.post("/api/classes/2/knowledge/retrieve", json={"query": "A 班示例材料内容", "mode": "keyword"})
+        response = client.post("/api/classes/2/knowledge/retrieve", json={"query": "1 班数学示例材料内容", "mode": "keyword"})
     assert response.status_code == 200
     assert response.get_json()["hits"]
     embedding.assert_not_called()
@@ -42,9 +42,9 @@ def test_retrieval_errors_and_vector_fallback(client):
     assert response.status_code == 200
     assert response.get_json()["hits"] == []
     with patch("app.retrieval.embedding_client", side_effect=ProviderUnavailable("offline")):
-        keyword = client.post("/api/classes/1/knowledge/retrieve", json={"query": "A 班示例材料内容", "mode": "keyword"})
-        vector = client.post("/api/classes/1/knowledge/retrieve", json={"query": "A 班示例材料内容", "mode": "vector"})
-        hybrid = client.post("/api/classes/1/knowledge/retrieve", json={"query": "A 班示例材料内容", "mode": "hybrid"})
+        keyword = client.post("/api/classes/1/knowledge/retrieve", json={"query": "1 班数学示例材料内容", "mode": "keyword"})
+        vector = client.post("/api/classes/1/knowledge/retrieve", json={"query": "1 班数学示例材料内容", "mode": "vector"})
+        hybrid = client.post("/api/classes/1/knowledge/retrieve", json={"query": "1 班数学示例材料内容", "mode": "hybrid"})
     assert keyword.status_code == 200 and keyword.get_json()["hits"]
     assert vector.status_code == 503 and vector.get_json() == {"error": "vector retrieval is unavailable"}
     assert hybrid.status_code == 503 and hybrid.get_json() == {"error": "vector retrieval is unavailable"}

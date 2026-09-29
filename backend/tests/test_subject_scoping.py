@@ -6,7 +6,7 @@ from app.database import db, initialize_database
 from app.models import ClassSubject, KnowledgeChunk, KnowledgeEntry, Material, TeacherSubjectAssignment, User
 from app.retrieval import NO_EVIDENCE_MESSAGE
 
-from .conftest import login
+from .conftest import LEGACY_TEST_USERNAMES, login
 
 
 def subject_id(app, class_id, key):
@@ -16,12 +16,12 @@ def subject_id(app, class_id, key):
 
 def test_seeded_roles_subjects_and_backfill_are_idempotent(app):
     with app.app_context():
-        assert User.query.filter_by(role="super_admin").one().username == "super_admin"
-        assert User.query.filter_by(role="class_admin").one().username == "class_admin_a"
+        assert User.query.filter_by(role="super_admin").one().username == LEGACY_TEST_USERNAMES["super_admin"]
+        assert User.query.filter_by(username=LEGACY_TEST_USERNAMES["class_admin_a"], role="class_admin").one()
         math = ClassSubject.query.filter_by(class_id=1, subject_key="mathematics").one()
         language = ClassSubject.query.filter_by(class_id=1, subject_key="language").one()
-        teacher_a = User.query.filter_by(username="teacher_a").one()
-        teacher_a2 = User.query.filter_by(username="teacher_a2").one()
+        teacher_a = User.query.filter_by(username=LEGACY_TEST_USERNAMES["teacher_a"]).one()
+        teacher_a2 = User.query.filter_by(username=LEGACY_TEST_USERNAMES["teacher_a2"]).one()
         assert TeacherSubjectAssignment.query.filter_by(teacher_id=teacher_a.id, subject_id=math.id, is_active=True).one()
         assert TeacherSubjectAssignment.query.filter_by(teacher_id=teacher_a2.id, subject_id=language.id, is_active=True).one()
         before = (ClassSubject.query.count(), Material.query.count(), KnowledgeEntry.query.count(), KnowledgeChunk.query.count())
@@ -44,7 +44,7 @@ def test_super_admin_and_class_admin_management_boundaries(app, client):
     head_token = login(head_client, "class_admin_a", "class-admin-a-password")
     denied = head_client.post("/api/admin/class-admins", json={"username": "bad", "password": "bad", "class_id": 2}, headers={"X-CSRF-Token": head_token})
     assert denied.status_code == 403
-    subject = head_client.post("/api/classes/1/subjects", json={"name": "物理", "key": "physics"}, headers={"X-CSRF-Token": head_token})
+    subject = head_client.post("/api/classes/1/subjects", json={"name": "地理", "key": "geography"}, headers={"X-CSRF-Token": head_token})
     assert subject.status_code == 201
     cross = head_client.post("/api/classes/2/subjects", json={"name": "化学"}, headers={"X-CSRF-Token": head_token})
     assert cross.status_code == 403
@@ -131,7 +131,7 @@ def test_subject_deletion_conflict_and_revocation_take_effect_immediately(app, c
     head_token = login(head, "class_admin_a", "class-admin-a-password")
     assert head.delete(f"/api/classes/1/subjects/{language}", headers={"X-CSRF-Token": head_token}).status_code == 409
     with app.app_context():
-        teacher_id = User.query.filter_by(username="teacher_a2").one().id
+        teacher_id = User.query.filter_by(username=LEGACY_TEST_USERNAMES["teacher_a2"]).one().id
     assert head.delete(f"/api/classes/1/subjects/{language}/teachers/{teacher_id}", headers={"X-CSRF-Token": head_token}).status_code == 204
     assert language_teacher.get(f"/api/classes/1/materials/{created.get_json()['material']['id']}").status_code == 404
     assert language_teacher.post("/api/classes/1/knowledge/retrieve", json={"query": "撤销后不应泄露", "mode": "keyword"}).get_json()["hits"] == []

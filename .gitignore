@@ -4,6 +4,8 @@ __pycache__/
 *.py[cod]
 .pytest_cache/
 .pytest-tmp/
+.pytest-fixture/
+.pytest-uploads/
 postgres-data/
 uploads/
 .smoke-postgres-data/
