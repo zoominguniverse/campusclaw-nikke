@@ -8,7 +8,7 @@ from uuid import uuid4
 
 from flask import Blueprint, current_app, g, jsonify, request, send_file
 
-from .auth import json_error, require_auth, require_csrf
+from .auth import json_error, require_auth
 from .database import db
 from .indexing import IndexingFailed, index_entry, reindex_entry
 from .authorization import subject_in_class, subject_is_allowed, subject_scope
@@ -166,7 +166,6 @@ def download_material(class_id: int, material_id: str):
 
 @materials_bp.post("/<int:class_id>/materials")
 @require_auth
-@require_csrf
 def upload_material(class_id: int):
     denied = _assert_class_scope(teacher_required=True)
     if denied:
@@ -260,7 +259,6 @@ def _chunking_options_from_form() -> dict:
 
 @materials_bp.post("/<int:class_id>/materials/<string:material_id>/reindex")
 @require_auth
-@require_csrf
 def reindex_material(class_id: int, material_id: str):
     denied = _assert_class_scope(teacher_required=True)
     if denied:
@@ -288,7 +286,6 @@ def reindex_material(class_id: int, material_id: str):
 
 @materials_bp.put("/<int:class_id>/materials/<string:material_id>")
 @require_auth
-@require_csrf
 def rename_material(class_id: int, material_id: str):
     denied = _assert_class_scope(teacher_required=True)
     if denied:
@@ -307,7 +304,6 @@ def rename_material(class_id: int, material_id: str):
 
 @materials_bp.delete("/<int:class_id>/materials/<string:material_id>")
 @require_auth
-@require_csrf
 def delete_material(class_id: int, material_id: str):
     denied = _assert_class_scope(teacher_required=True)
     if denied:

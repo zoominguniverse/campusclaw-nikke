@@ -2,11 +2,11 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from sqlalchemy import text
 
 from .auth import auth_bp
-from .config import Config
+from .config import Config, validate_auth_config
 from .database import db, initialize_database
 from .materials import materials_bp
 from .knowledge import knowledge_bp
@@ -18,6 +18,7 @@ def create_app(test_config: dict | None = None) -> Flask:
     app.config.from_object(Config)
     if test_config:
         app.config.update(test_config)
+    validate_auth_config(app.config)
     if app.config["EMBEDDING_DIMENSIONS"] != 64:
         raise RuntimeError("EMBEDDING_DIMENSIONS must match the PostgreSQL VECTOR(64) schema")
 
@@ -33,6 +34,19 @@ def create_app(test_config: dict | None = None) -> Flask:
     app.register_blueprint(materials_bp)
     app.register_blueprint(knowledge_bp)
     app.register_blueprint(admin_bp)
+
+    @app.after_request
+    def security_headers(response):
+        origin = request.headers.get("Origin", "").rstrip("/")
+        if origin and origin in app.config["TRUSTED_ORIGINS"]:
+            response.headers["Access-Control-Allow-Origin"] = origin
+            response.headers["Access-Control-Allow-Headers"] = "Authorization, Content-Type"
+            response.headers["Access-Control-Allow-Methods"] = "GET, POST, PUT, DELETE, OPTIONS"
+            response.headers.add("Vary", "Origin")
+        response.headers.setdefault("X-Content-Type-Options", "nosniff")
+        response.headers.setdefault("Referrer-Policy", "no-referrer")
+        response.headers.setdefault("X-Frame-Options", "DENY")
+        return response
 
     @app.get("/health")
     def health():

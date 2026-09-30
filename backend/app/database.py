@@ -7,6 +7,7 @@ from sqlalchemy import inspect, text
 from .extensions import db
 from .models import (
     Assistant,
+    AuthToken,
     Assignment,
     ClassMembership,
     ClassAdminGrant,
@@ -108,6 +109,7 @@ def initialize_database() -> None:
     _install_postgres_extensions()
     db.create_all()
     _upgrade_subject_schema()
+    _upgrade_authorization_only_auth()
     _install_retrieval_indexes()
     _record_schema_upgrade("20260929_traceable_retrieval")
     if current_app.config["SEED_DEMO_DATA"]:
@@ -139,6 +141,16 @@ def _upgrade_subject_schema() -> None:
         db.session.execute(text("CREATE INDEX IF NOT EXISTS ix_chunks_class_subject_status_ready ON knowledge_chunks (class_id, subject_id) WHERE index_status = 'ready'"))
         db.session.commit()
     _record_schema_upgrade("20260929_subject_scoped_materials")
+
+
+def _upgrade_authorization_only_auth() -> None:
+    """One-way cutover: old Cookie-backed sessions can never authenticate again."""
+    version = "20260930_authorization_only_authentication"
+    if db.session.get(SchemaMigration, version):
+        return
+    LoginSession.query.filter(LoginSession.revoked_at.is_(None)).update({LoginSession.revoked_at: utc_now()}, synchronize_session=False)
+    db.session.commit()
+    _record_schema_upgrade(version)
 
 
 def _history_subject(school_class: SchoolClass) -> ClassSubject:
@@ -366,6 +378,11 @@ def _purge_legacy_demo_data() -> None:
         KnowledgeEntry.query.filter(KnowledgeEntry.id.in_(legacy_entry_ids)).delete(synchronize_session=False)
     KnowledgeChunk.query.filter(KnowledgeChunk.class_id.in_(legacy_class_ids)).delete(synchronize_session=False)
     if legacy_user_ids:
+        legacy_session_ids = [
+            item.id for item in LoginSession.query.filter(LoginSession.user_id.in_(legacy_user_ids)).all()
+        ]
+        if legacy_session_ids:
+            AuthToken.query.filter(AuthToken.session_id.in_(legacy_session_ids)).delete(synchronize_session=False)
         LoginSession.query.filter(LoginSession.user_id.in_(legacy_user_ids)).delete(synchronize_session=False)
         ClassMembership.query.filter(ClassMembership.user_id.in_(legacy_user_ids)).delete(synchronize_session=False)
         ClassAdminGrant.query.filter(ClassAdminGrant.admin_user_id.in_(legacy_user_ids)).delete(synchronize_session=False)

@@ -6,9 +6,11 @@ from uuid import uuid4
 
 import pytest
 import bcrypt
+from flask.testing import FlaskClient
 
 os.environ.setdefault("SECRET_KEY", "test-secret")
 os.environ.setdefault("DATABASE_URL", "sqlite://")
+os.environ.setdefault("AUTH_TOKEN_SECRET", "test-token-secret")
 
 DEMO_ACCOUNT_PASSWORDS = {
     "zhangruoxi": "super-admin-password",
@@ -54,6 +56,20 @@ from app import database
 from app.database import db
 
 
+class BearerClient(FlaskClient):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.access_token = None
+
+    def open(self, *args, **kwargs):
+        path = kwargs.get("path") or (args[0] if args else "")
+        if self.access_token and path not in {"/api/auth/login", "/api/auth/token/refresh"}:
+            headers = dict(kwargs.pop("headers", {}) or {})
+            headers.setdefault("Authorization", f"Bearer {self.access_token}")
+            kwargs["headers"] = headers
+        return super().open(*args, **kwargs)
+
+
 def _test_hash_password(password: str) -> str:
     """Keep the large fixed fixture practical while production retains its default cost."""
     return bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt(rounds=4)).decode("utf-8")
@@ -70,6 +86,7 @@ def app():
             "TESTING": True,
             "SQLALCHEMY_DATABASE_URI": "sqlite://",
             "SECRET_KEY": "test-secret",
+            "AUTH_TOKEN_SECRET": "test-token-secret",
             # Compose delegates startup initialization to init_db.py, but each
             # isolated SQLite test app must create its own schema explicitly.
             "INITIALIZE_DATABASE": True,
@@ -79,6 +96,7 @@ def app():
             "FRONTEND_ORIGIN": "http://localhost:5173",
         }
     )
+    app.test_client_class = BearerClient
     yield app
     with app.app_context():
         db.session.remove()
@@ -95,6 +113,7 @@ def login(client, username, password):
     username = LEGACY_TEST_USERNAMES.get(username, username)
     response = client.post("/api/auth/login", json={"username": username, "password": password})
     assert response.status_code == 200
-    identity = response.get_json()
-    assert set(identity) == {"username", "role", "class_id"}
-    return client.get("/api/auth/me").get_json()["csrf_token"]
+    payload = response.get_json()
+    assert {"access_token", "refresh_token", "token_type", "user"} <= set(payload)
+    client.access_token = payload["access_token"]
+    return payload["access_token"]

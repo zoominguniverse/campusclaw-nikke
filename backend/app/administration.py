@@ -4,7 +4,7 @@ from uuid import uuid4
 
 from flask import Blueprint, g, jsonify, request
 
-from .auth import json_error, require_auth, require_csrf
+from .auth import json_error, require_auth
 from .authorization import effective_class_id, is_class_admin_for, is_super_admin, subject_scope
 from .database import db
 from .models import ClassAdminGrant, ClassMembership, ClassSubject, KnowledgeChunk, KnowledgeEntry, Material, SchoolClass, TeacherSubjectAssignment, User, utc_now
@@ -45,7 +45,6 @@ def list_class_admins():
 
 @admin_bp.post("/admin/class-admins")
 @require_auth
-@require_csrf
 def create_class_admin():
     if not is_super_admin(g.current_user):
         return json_error(403, "super administrator role required")
@@ -68,7 +67,6 @@ def create_class_admin():
 
 @admin_bp.put("/admin/class-admins/<int:user_id>/active")
 @require_auth
-@require_csrf
 def set_class_admin_active(user_id: int):
     if not is_super_admin(g.current_user):
         return json_error(403, "super administrator role required")
@@ -83,7 +81,6 @@ def set_class_admin_active(user_id: int):
 
 @admin_bp.put("/admin/class-admins/<int:user_id>/classes/<int:class_id>")
 @require_auth
-@require_csrf
 def grant_class_admin(user_id: int, class_id: int):
     if not is_super_admin(g.current_user):
         return json_error(403, "super administrator role required")
@@ -99,7 +96,6 @@ def grant_class_admin(user_id: int, class_id: int):
 
 @admin_bp.delete("/admin/class-admins/<int:user_id>/classes/<int:class_id>")
 @require_auth
-@require_csrf
 def revoke_class_admin(user_id: int, class_id: int):
     if not is_super_admin(g.current_user):
         return json_error(403, "super administrator role required")
@@ -127,7 +123,6 @@ def list_subjects(class_id: int):
 
 @admin_bp.post("/classes/<int:class_id>/subjects")
 @require_auth
-@require_csrf
 def create_subject(class_id: int):
     if not _class_admin_scope(class_id):
         return json_error(403, "class administrator role required")
@@ -162,7 +157,6 @@ def list_class_teachers(class_id: int):
 
 @admin_bp.put("/classes/<int:class_id>/subjects/<int:subject_id>")
 @require_auth
-@require_csrf
 def update_subject(class_id: int, subject_id: int):
     if not _class_admin_scope(class_id):
         return json_error(403, "class administrator role required")
@@ -188,7 +182,6 @@ def update_subject(class_id: int, subject_id: int):
 
 @admin_bp.delete("/classes/<int:class_id>/subjects/<int:subject_id>")
 @require_auth
-@require_csrf
 def delete_subject(class_id: int, subject_id: int):
     if not _class_admin_scope(class_id):
         return json_error(403, "class administrator role required")
@@ -205,7 +198,6 @@ def delete_subject(class_id: int, subject_id: int):
 
 @admin_bp.post("/classes/<int:class_id>/subjects/<int:subject_id>/teachers")
 @require_auth
-@require_csrf
 def assign_teacher(class_id: int, subject_id: int):
     if not _class_admin_scope(class_id):
         return json_error(403, "class administrator role required")
@@ -246,7 +238,6 @@ def list_assigned_teachers(class_id: int, subject_id: int):
 
 @admin_bp.delete("/classes/<int:class_id>/subjects/<int:subject_id>/teachers/<int:teacher_id>")
 @require_auth
-@require_csrf
 def revoke_teacher(class_id: int, subject_id: int, teacher_id: int):
     if not _class_admin_scope(class_id):
         return json_error(403, "class administrator role required")
@@ -261,7 +252,6 @@ def revoke_teacher(class_id: int, subject_id: int, teacher_id: int):
 
 @admin_bp.post("/classes/<int:class_id>/subjects/<int:subject_id>/reassign")
 @require_auth
-@require_csrf
 def reassign_subject_materials(class_id: int, subject_id: int):
     if not _class_admin_scope(class_id):
         return json_error(403, "class administrator role required")

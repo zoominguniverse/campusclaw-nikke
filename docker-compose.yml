@@ -17,8 +17,13 @@ services:
     build: ./backend
     environment:
       SECRET_KEY: ${SECRET_KEY:?set SECRET_KEY in .env}
+      AUTH_TOKEN_SECRET: ${AUTH_TOKEN_SECRET:?set AUTH_TOKEN_SECRET in .env}
       DATABASE_URL: ${DATABASE_URL:?set DATABASE_URL in .env}
       FRONTEND_ORIGIN: ${FRONTEND_ORIGIN:-http://localhost:5173}
+      TRUSTED_ORIGINS: ${TRUSTED_ORIGINS:-http://localhost:5173}
+      APP_ENV: ${APP_ENV:-development}
+      AUTH_ACCESS_TTL_SECONDS: ${AUTH_ACCESS_TTL_SECONDS:-900}
+      AUTH_REFRESH_TTL_SECONDS: ${AUTH_REFRESH_TTL_SECONDS:-28800}
       SEED_DEMO_DATA: ${SEED_DEMO_DATA:-false}
       PURGE_LEGACY_DEMO_DATA: ${PURGE_LEGACY_DEMO_DATA:-false}
       INITIALIZE_DATABASE: "false"

@@ -128,6 +128,20 @@ class LoginSession(db.Model):
     created_at = db.Column(db.DateTime(timezone=True), nullable=False, default=utc_now)
 
 
+class AuthToken(db.Model):
+    """A server-revocable opaque credential; plaintext values never reach this table."""
+
+    __tablename__ = "auth_tokens"
+    id = db.Column(db.String(36), primary_key=True, default=lambda: str(uuid4()))
+    session_id = db.Column(db.String(64), db.ForeignKey("sessions.id"), nullable=False, index=True)
+    token_hash = db.Column(db.String(64), nullable=False, unique=True, index=True)
+    token_type = db.Column(db.String(16), nullable=False, index=True)  # access or refresh
+    expires_at = db.Column(db.DateTime(timezone=True), nullable=False, index=True)
+    revoked_at = db.Column(db.DateTime(timezone=True), nullable=True, index=True)
+    replaced_by_id = db.Column(db.String(36), nullable=True)
+    created_at = db.Column(db.DateTime(timezone=True), nullable=False, default=utc_now)
+
+
 class LoginAttempt(db.Model):
     __tablename__ = "login_attempts"
     subject_key = db.Column(db.String(64), primary_key=True)

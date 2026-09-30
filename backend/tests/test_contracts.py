@@ -78,10 +78,14 @@ def test_repeated_failed_logins_are_throttled_without_creating_a_session(client)
     assert client.get("/api/auth/me").status_code == 401
 
 
-def test_login_response_returns_top_level_identity_fields_only(client):
+def test_login_response_returns_bearer_token_pair(client):
     response = client.post("/api/auth/login", json={"username": LEGACY_TEST_USERNAMES["teacher_a"], "password": "teacher-password"})
     assert response.status_code == 200
-    assert response.get_json() == {"username": LEGACY_TEST_USERNAMES["teacher_a"], "role": "teacher", "class_id": 1}
+    payload = response.get_json()
+    assert payload["token_type"] == "Bearer"
+    assert payload["user"] == {"id": 5, "username": LEGACY_TEST_USERNAMES["teacher_a"], "role": "teacher", "class_id": 1}
+    assert payload["access_token"] and payload["refresh_token"]
+    assert "Set-Cookie" not in response.headers
 
 
 def test_new_login_revokes_all_previous_sessions_for_the_same_user(app):
@@ -195,13 +199,13 @@ def test_cross_class_material_download_is_indistinguishable_from_missing(app, cl
     assert cross_class.get_json() == missing.get_json() == {"error": "material not found"}
 
 
-def test_missing_csrf_token_rejects_a_state_change(client):
+def test_bearer_mutation_does_not_require_csrf_token(client):
     login(client, "teacher_a", "teacher-password")
     response = client.post(
         "/api/classes/1/materials",
-        data={"file": (io.BytesIO(b"content"), "lesson.md")},
+        data={"subject_id": "1", "file": (io.BytesIO(b"content"), "lesson.md")},
     )
-    assert response.status_code == 403
+    assert response.status_code == 201
 
 
 def test_teacher_upload_creates_material_and_knowledge_record(app, client):

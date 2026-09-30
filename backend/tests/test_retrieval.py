@@ -3,8 +3,9 @@ from unittest.mock import patch
 import pytest
 
 from app.chunking import ChunkingError, chunk_text
+from app.answers import answer_question
 from app.models import KnowledgeChunk, Material
-from app.providers import ProviderUnavailable
+from app.providers import OpenAICompatibleChatClient, ProviderUnavailable
 from app.retrieval import NO_EVIDENCE_MESSAGE
 from app.retrieval import _rrf
 
@@ -50,13 +51,29 @@ def test_retrieval_errors_and_vector_fallback(client):
     assert hybrid.status_code == 503 and hybrid.get_json() == {"error": "vector retrieval is unavailable"}
 
 
-def test_answer_no_evidence_does_not_call_chat(client):
-    login(client, "student_a1", "student-a-password")
-    with patch("app.answers.chat_client") as chat:
-        response = client.post("/api/classes/1/knowledge/ask", json={"question": "天气怎么样"})
-    assert response.status_code == 200
-    assert response.get_json() == {"answer": NO_EVIDENCE_MESSAGE, "citations": []}
+def test_answer_no_evidence_does_not_call_chat():
+    # The answer service owns this guard so no provider can be invoked after a
+    # class-scoped hybrid search misses.
+    with patch("app.answers.retrieve", return_value={"hits": []}) as retrieve, patch("app.answers.chat_client") as chat:
+        result = answer_question(class_id=1, question="天气怎么样")
+    assert result == {"answer": NO_EVIDENCE_MESSAGE, "citations": []}
+    retrieve.assert_called_once_with(class_id=1, query="天气怎么样", mode="hybrid", limit=4, subject_ids=None)
     chat.assert_not_called()
+
+
+def test_openai_chat_requests_a_short_cited_answer(app):
+    with app.app_context():
+        app.config.update(CHAT_API_URL="https://chat.example", CHAT_API_KEY="test-key", CHAT_MODEL="test-model")
+        evidence = [{"material_title": "资料", "chunk_index": 1, "chunk_text": "第一条资料"}]
+        with patch("app.providers.requests.post") as post:
+            post.return_value.json.return_value = {"choices": [{"message": {"content": "简短回答 [1]"}}]}
+            post.return_value.raise_for_status.return_value = None
+            answer = OpenAICompatibleChatClient().answer("问题", evidence, [])
+    assert answer == "简短回答 [1]"
+    request = post.call_args.kwargs["json"]
+    assert request["max_tokens"] == 256
+    assert "concise Chinese answer" in request["messages"][0]["content"]
+    assert "[1] or [2]" in request["messages"][0]["content"]
 
 
 def test_answer_discards_system_history_and_returns_ordered_citations(app, client):

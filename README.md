@@ -7,7 +7,7 @@
 ## Docker Compose 启动
 
 1. 复制配置：`Copy-Item .env.example .env`（PowerShell）或 `cp .env.example .env`。
-2. 在 `.env` 中填入强随机 `SECRET_KEY`、数据库密码和六个演示账号密码；如需演示教务处、班主任和第二位 A 班任课教师，再设置三个可选 `DEMO_*` 管理账号密码。
+2. 在 `.env` 中填入彼此不同的强随机 `SECRET_KEY` 和 `AUTH_TOKEN_SECRET`、数据库密码和六个演示账号密码；如需演示教务处、班主任和第二位 A 班任课教师，再设置三个可选 `DEMO_*` 管理账号密码。
 3. 执行：`docker compose up --build`。
 
 服务端口：
@@ -26,10 +26,21 @@
 
 ## API 状态约定
 
-- 未登录 API 请求：`401`。
+- 未登录 API 请求：`401`，并带 `WWW-Authenticate: Bearer`。
 - 已登录但角色无权：`403`；材料详情和下载若不在会话派生的班级范围内，返回与不存在对象相同的 `404`。
 - 教师上传：`POST /api/classes/<class_id>/materials`，仅支持 `.txt`、`.md`。
 - 本班材料列表：`GET /api/classes/<class_id>/materials`。
+
+## Authorization Bearer 认证迁移
+
+本版本已完全移除 Cookie 会话和 CSRF 令牌。登录 `POST /api/auth/login` 返回不透明的 `access_token` 与 `refresh_token`；客户端把二者仅保存于同一浏览器标签页的 `sessionStorage`，并在每个受保护请求中发送 `Authorization: Bearer <access_token>`。令牌不得放入 Cookie、`localStorage`、URL、DOM 或日志。
+
+- `POST /api/auth/token/refresh` 只接受 `Authorization: Bearer <refresh_token>`，并返回新令牌对。旧刷新令牌的重复使用会撤销整个登录会话族，客户端须清除令牌并重新登录。
+- `POST /api/auth/logout` 只接受访问令牌并返回 `204`；服务器会撤销该登录会话族。访问令牌过期或刷新失败时，客户端同样应清除状态并回到登录页。
+- 切换部署时，服务启动迁移会撤销现有 Cookie 时代会话，用户必须重新登录。若回滚到旧版本，也应通知用户重新登录，不应尝试复用旧 Cookie。
+- 生产环境必须配置 HTTPS 的精确 `TRUSTED_ORIGINS`，不可使用 `*`；API CORS 不允许凭据。前端通过外部脚本和限制性 CSP 降低 XSS 风险，但令牌位于 JavaScript 可读存储中，仍应持续执行 CSP、依赖审计和输入输出编码。
+
+建议监控不含敏感值的认证事件（签发、刷新、拒绝、注销）与 401/429 比例；日志、错误追踪及代理不得记录完整 `Authorization`、令牌、密码或 Cookie。令牌响应包含 `Cache-Control: no-store`，中间层不得覆盖该头。
 
 PostgreSQL 数据和上传文件使用 Docker named volumes。停止后使用 `docker compose up` 重启会保留数据；执行 `docker compose down -v` 会删除这些卷，用于主动重置开发数据。
 
@@ -38,7 +49,7 @@ PostgreSQL 数据和上传文件使用 Docker named volumes。停止后使用 `d
 第 4 课将材料正文切分为可回溯的 `knowledge_chunks`，正文、切片和向量均位于 PostgreSQL。Compose 使用带 `pgvector` 的 PostgreSQL 16 镜像，启动时会验证 `vector` 与 `pg_trgm` 扩展；不要改回不含扩展的官方 Alpine 镜像。
 
 - `POST /api/classes/<class_id>/knowledge/retrieve`：认证用户检索本班切片。请求为 `{ "query": "...", "mode": "keyword|vector|hybrid" }`，默认 `hybrid`；路径中的班级编号不会覆盖会话班级。
-- `POST /api/classes/<class_id>/materials/<material_id>/reindex`：教师携带 CSRF 令牌以 `{ "chunking": { ... } }` 重建本班材料索引。
+- `POST /api/classes/<class_id>/materials/<material_id>/reindex`：教师携带 Bearer 访问令牌并以 `{ "chunking": { ... } }` 重建本班材料索引。
 - `POST /api/classes/<class_id>/knowledge/ask`：仅在本班混合检索有依据时调用对话模型；无命中时返回 `资料中未找到相关内容` 和空 `citations`。
 
 切分策略为 `auto`（默认，约 800 字/80 字重叠）、`custom`（100–2000 字、0–50% 重叠，支持 URL/邮箱/连续空白预处理）和 `hierarchy`（保留 Markdown `#` 至 `###` 标题）。重建索引通过新的 generation 完成后才替换旧 generation，避免检索到混合版本。
