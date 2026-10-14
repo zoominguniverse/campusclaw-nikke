@@ -1,0 +1,101 @@
+{
+  "corpus_version": "1.0.1",
+  "split": "dev",
+  "metadata": {
+    "embedding_provider": "openai-compatible",
+    "embedding_model": "text-embedding-v4",
+    "embedding_revision": "local-bailian-v4-v1",
+    "dimensions": 1024,
+    "chat_provider": "deterministic",
+    "chat_model": "campusclaw-deterministic",
+    "hardware": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.41",
+    "structural_browser_performance_gates": "incomplete",
+    "profile_fingerprint": "340c5e8586b85a9473c8f940bee385108cf146f8522480315c1a98ddca5a8bbe",
+    "processing_version": "source-map-v1;chunker-v2;jieba-0.42.1/default-dict+terms-v2",
+    "vector_threshold": 0.35,
+    "corpus_hash": "0f03c5350422abb8df916827d5a466a4e9961f6683c1b81c3f7138ae5851ce19"
+  },
+  "metrics": [
+    {
+      "category": "exact",
+      "mode": "keyword",
+      "metric": "top1",
+      "passed": 8,
+      "total": 8,
+      "required": 8,
+      "rate": 1.0,
+      "failures": [],
+      "incomplete": [],
+      "gate_passed": true
+    },
+    {
+      "category": "distributed",
+      "mode": "keyword",
+      "metric": "recall5",
+      "passed": 8,
+      "total": 8,
+      "required": 8,
+      "rate": 1.0,
+      "failures": [],
+      "incomplete": [],
+      "gate_passed": true
+    },
+    {
+      "category": "paraphrase",
+      "mode": "vector",
+      "metric": "recall5",
+      "passed": 8,
+      "total": 8,
+      "required": 8,
+      "rate": 1.0,
+      "failures": [],
+      "incomplete": [],
+      "gate_passed": true
+    },
+    {
+      "category": "paraphrase",
+      "mode": "hybrid",
+      "metric": "recall5",
+      "passed": 8,
+      "total": 8,
+      "required": 8,
+      "rate": 1.0,
+      "failures": [],
+      "incomplete": [],
+      "gate_passed": true
+    },
+    {
+      "category": "unrelated",
+      "mode": "hybrid",
+      "metric": "empty",
+      "passed": 0,
+      "total": 0,
+      "required": 0,
+      "rate": null,
+      "failures": [],
+      "incomplete": [],
+      "gate_passed": false
+    }
+  ],
+  "exact_comparisons": [],
+  "stage_latency": {
+    "db": {
+      "count": 72,
+      "p95_ms": 7.548805020633154
+    },
+    "embedding": {
+      "count": 72,
+      "p95_ms": 160.8735570043791
+    },
+    "chat": {
+      "count": 72,
+      "p95_ms": 0.0
+    },
+    "total": {
+      "count": 72,
+      "p95_ms": 172.52457599533955
+    }
+  },
+  "required_reviews_incomplete": [],
+  "semantic_release_passed": false
+}

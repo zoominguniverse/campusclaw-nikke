@@ -40,12 +40,54 @@ class Config:
     EMBEDDING_API_KEY = os.getenv("EMBEDDING_API_KEY", "")
     EMBEDDING_MODEL = os.getenv("EMBEDDING_MODEL", "campusclaw-deterministic")
     EMBEDDING_DIMENSIONS = int(os.getenv("EMBEDDING_DIMENSIONS", "64"))
+    EMBEDDING_REVISION = os.getenv("EMBEDDING_REVISION") or ("sha256-demo-v1" if EMBEDDING_PROVIDER == "deterministic" else "")
+    EMBEDDING_BATCH_SIZE = int(os.getenv("EMBEDDING_BATCH_SIZE", "32"))
+    EMBEDDING_TIMEOUT_SECONDS = int(os.getenv("EMBEDDING_TIMEOUT_SECONDS", "30"))
+    VECTOR_THRESHOLD = float(os.getenv("VECTOR_THRESHOLD", "0.35"))
     CHAT_PROVIDER = os.getenv("CHAT_PROVIDER", "deterministic")
     CHAT_API_URL = os.getenv("CHAT_API_URL", "").rstrip("/")
     CHAT_API_KEY = os.getenv("CHAT_API_KEY", "")
     CHAT_MODEL = os.getenv("CHAT_MODEL", "campusclaw-deterministic")
+    CHAT_TIMEOUT_SECONDS = int(os.getenv("CHAT_TIMEOUT_SECONDS", "60"))
+    SEMANTIC_RELEASE = _as_bool(os.getenv("SEMANTIC_RELEASE"))
+    SEMANTIC_ACCEPTANCE_REPORT = os.getenv("SEMANTIC_ACCEPTANCE_REPORT", "")
     RETRIEVAL_MAX_HITS = int(os.getenv("RETRIEVAL_MAX_HITS", "10"))
     ANSWER_HISTORY_LIMIT = int(os.getenv("ANSWER_HISTORY_LIMIT", "6"))
+
+
+def validate_retrieval_config(config):
+    import json
+    import math
+    from urllib.parse import urlsplit
+    if type(config["EMBEDDING_DIMENSIONS"]) is not int or not 1 <= config["EMBEDDING_DIMENSIONS"] <= 16000:
+        raise RuntimeError("EMBEDDING_DIMENSIONS must be between 1 and 16000")
+    if not math.isfinite(config["VECTOR_THRESHOLD"]) or not .35 <= config["VECTOR_THRESHOLD"] <= 1:
+        raise RuntimeError("VECTOR_THRESHOLD must be between 0.35 and 1")
+    if not 1 <= config["EMBEDDING_BATCH_SIZE"] <= 128 or not 1 <= config["EMBEDDING_TIMEOUT_SECONDS"] <= 300 or not 1 <= config["CHAT_TIMEOUT_SECONDS"] <= 300:
+        raise RuntimeError("provider batch size or timeout is outside supported bounds")
+    if type(config["ANSWER_HISTORY_LIMIT"]) is not int or not 0 <= config["ANSWER_HISTORY_LIMIT"] <= 10:
+        raise RuntimeError("ANSWER_HISTORY_LIMIT must be between 0 and 10")
+    for prefix in ("EMBEDDING", "CHAT"):
+        provider = config[f"{prefix}_PROVIDER"]
+        if provider not in {"deterministic", "openai-compatible"}:
+            raise RuntimeError(f"unsupported {prefix}_PROVIDER")
+        if provider == "openai-compatible":
+            url = urlsplit(config[f"{prefix}_API_URL"])
+            if url.scheme not in {"http", "https"} or not url.netloc or url.username or url.password or url.query or url.fragment or not config[f"{prefix}_API_KEY"] or not config[f"{prefix}_MODEL"]:
+                raise RuntimeError(f"{prefix} requires a base URL, model and server-side API key")
+    if not config["EMBEDDING_REVISION"]:
+        raise RuntimeError("EMBEDDING_REVISION must identify the configured model release")
+    if config["SEMANTIC_RELEASE"]:
+        if config["EMBEDDING_PROVIDER"] != "openai-compatible" or config["CHAT_PROVIDER"] != "openai-compatible":
+            raise RuntimeError("semantic release requires real embedding and chat providers")
+        from .profiles import profile_identity
+        try:
+            report = json.loads(Path(config["SEMANTIC_ACCEPTANCE_REPORT"]).read_text(encoding="utf-8"))
+            valid = report["semantic_release_passed"] is True and report["metadata"]["profile_fingerprint"] == profile_identity(config)["fingerprint"] and report["metadata"]["chat_model"] == config["CHAT_MODEL"]
+        except (OSError, ValueError, KeyError, TypeError):
+            valid = False
+        if not valid:
+            raise RuntimeError("semantic release requires a passing acceptance report for the configured profile and chat model")
 
 
 def validate_auth_config(config) -> None:

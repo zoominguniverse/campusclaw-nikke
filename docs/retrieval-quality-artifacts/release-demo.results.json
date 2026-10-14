@@ -1,0 +1,4082 @@
+{
+  "metadata": {
+    "embedding_provider": "deterministic",
+    "embedding_model": "campusclaw-deterministic",
+    "embedding_revision": "sha256-demo-v1",
+    "dimensions": 64,
+    "chat_provider": "deterministic",
+    "chat_model": "campusclaw-deterministic",
+    "hardware": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.41",
+    "structural_browser_performance_gates": "incomplete",
+    "profile_fingerprint": "93a61e494055dd956a003109bb9b215031372bab1704bd607bdc6ef4a4d98274",
+    "processing_version": "source-map-v1;chunker-v2;jieba-0.42.1/default-dict+terms-v2",
+    "vector_threshold": 0.35,
+    "corpus_hash": "0f03c5350422abb8df916827d5a466a4e9961f6683c1b81c3f7138ae5851ce19"
+  },
+  "results": [
+    {
+      "case_id": "exact-01",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-01",
+          "chunk_id": 1,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 39
+            }
+          ],
+          "excerpt": "细胞是生物体结构和功能的基本单位。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 3.8887909995537484,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 11.256409999987227
+      }
+    },
+    {
+      "case_id": "exact-01",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-01",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-01",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-01",
+          "chunk_id": 1,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 39
+            }
+          ],
+          "excerpt": "细胞是生物体结构和功能的基本单位。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.6253399992128834,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 7.211885998913203
+      }
+    },
+    {
+      "case_id": "distributed-01",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-01",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-01",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.7438779980002437,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 8.755765000387328
+      }
+    },
+    {
+      "case_id": "paraphrase-01",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-01",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "answer-01",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-31",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.1591119966615224,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 7.480508000298869
+      }
+    },
+    {
+      "case_id": "paraphrase-31",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-31",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-02",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-02",
+          "chunk_id": 2,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 42
+            }
+          ],
+          "excerpt": "叶绿体是绿色植物进行光合作用的主要场所。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.568556001278921,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 8.605139999417588
+      }
+    },
+    {
+      "case_id": "exact-02",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-02",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-02",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-02",
+          "chunk_id": 2,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 42
+            }
+          ],
+          "excerpt": "叶绿体是绿色植物进行光合作用的主要场所。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.361836999625666,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.649249000067357
+      }
+    },
+    {
+      "case_id": "distributed-02",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-02",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-02",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.4870190009096405,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 8.821471999908681
+      }
+    },
+    {
+      "case_id": "paraphrase-02",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-02",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "answer-02",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-32",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.9555799992522225,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 9.3994950002525
+      }
+    },
+    {
+      "case_id": "paraphrase-32",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-32",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-03",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-03",
+          "chunk_id": 3,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 38
+            }
+          ],
+          "excerpt": "线粒体为细胞的生命活动提供能量。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.643803003593348,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 5.9858889999304665
+      }
+    },
+    {
+      "case_id": "exact-03",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-03",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-03",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-03",
+          "chunk_id": 3,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 38
+            }
+          ],
+          "excerpt": "线粒体为细胞的生命活动提供能量。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.8855349992227275,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 7.930009998744936
+      }
+    },
+    {
+      "case_id": "distributed-03",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-03",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-03",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.618274998894776,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 9.99688999945647
+      }
+    },
+    {
+      "case_id": "paraphrase-03",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-03",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "answer-03",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-33",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.7915299961023265,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 5.289262999212951
+      }
+    },
+    {
+      "case_id": "paraphrase-33",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-33",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-04",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-04",
+          "chunk_id": 4,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 35
+            }
+          ],
+          "excerpt": "细胞膜能控制物质进出细胞。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.816566000547027,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 5.475740001202212
+      }
+    },
+    {
+      "case_id": "exact-04",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-04",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-04",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-04",
+          "chunk_id": 4,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 35
+            }
+          ],
+          "excerpt": "细胞膜能控制物质进出细胞。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.8758639980660519,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.166742000961676
+      }
+    },
+    {
+      "case_id": "distributed-04",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-04",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-04",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.544649998526438,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 5.625664000035613
+      }
+    },
+    {
+      "case_id": "paraphrase-04",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-04",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "answer-04",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-34",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.627662999657332,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 10.30835999881674
+      }
+    },
+    {
+      "case_id": "paraphrase-34",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-34",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-05",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-05",
+          "chunk_id": 5,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 36
+            }
+          ],
+          "excerpt": "遗传信息主要储存在细胞核中。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.263906999360188,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 5.071538998890901
+      }
+    },
+    {
+      "case_id": "exact-05",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-05",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-05",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-05",
+          "chunk_id": 5,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 36
+            }
+          ],
+          "excerpt": "遗传信息主要储存在细胞核中。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.477636000548955,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.846546000408125
+      }
+    },
+    {
+      "case_id": "distributed-05",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-05",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-05",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.2720850010955473,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 5.359270000553806
+      }
+    },
+    {
+      "case_id": "paraphrase-05",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-05",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "answer-05",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-35",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.229208997960086,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.6951179992902325
+      }
+    },
+    {
+      "case_id": "paraphrase-35",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-35",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-06",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-06",
+          "chunk_id": 6,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 41
+            }
+          ],
+          "excerpt": "蒸腾作用能促进植物对水分的吸收和运输。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 3.450195001278189,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 7.64055199942959
+      }
+    },
+    {
+      "case_id": "exact-06",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-06",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-06",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-06",
+          "chunk_id": 6,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 41
+            }
+          ],
+          "excerpt": "蒸腾作用能促进植物对水分的吸收和运输。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.076548000331968,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.498622000028263
+      }
+    },
+    {
+      "case_id": "distributed-06",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-06",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-06",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.1427819956443273,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 5.042492999564274
+      }
+    },
+    {
+      "case_id": "paraphrase-06",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-06",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "answer-06",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-36",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.9499110005417606,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 6.191854999997304
+      }
+    },
+    {
+      "case_id": "paraphrase-36",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-36",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-07",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-07",
+          "chunk_id": 7,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 46
+            }
+          ],
+          "excerpt": "光合作用把二氧化碳和水转化为有机物，并释放氧气。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.371825998125132,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 5.869209000593401
+      }
+    },
+    {
+      "case_id": "exact-07",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-07",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-07",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-07",
+          "chunk_id": 7,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 46
+            }
+          ],
+          "excerpt": "光合作用把二氧化碳和水转化为有机物，并释放氧气。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.0152229990344495,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.485519999434473
+      }
+    },
+    {
+      "case_id": "distributed-07",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-07",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-07",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.553238000473357,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 5.159027999980026
+      }
+    },
+    {
+      "case_id": "paraphrase-07",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-07",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "answer-07",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-37",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.504352998585091,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.985822000890039
+      }
+    },
+    {
+      "case_id": "paraphrase-37",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-37",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-08",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-08",
+          "chunk_id": 8,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 37
+            }
+          ],
+          "excerpt": "呼吸作用分解有机物，释放能量。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.8883679986174684,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.415114999574143
+      }
+    },
+    {
+      "case_id": "exact-08",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-08",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-08",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-08",
+          "chunk_id": 8,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 37
+            }
+          ],
+          "excerpt": "呼吸作用分解有机物，释放能量。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.66108400298981,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 3.9903399992908817
+      }
+    },
+    {
+      "case_id": "distributed-08",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-08",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-08",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.0430990007298533,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.497765001360676
+      }
+    },
+    {
+      "case_id": "paraphrase-08",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-08",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "answer-08",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-38",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.6120120000996394,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 5.527213999812375
+      }
+    },
+    {
+      "case_id": "paraphrase-38",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-38",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-09",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-09",
+          "chunk_id": 9,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 43
+            }
+          ],
+          "excerpt": "根尖的成熟区是根吸收水和无机盐的主要部位。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.49651799822459,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 5.424795001090388
+      }
+    },
+    {
+      "case_id": "exact-09",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-09",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-09",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-09",
+          "chunk_id": 9,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 43
+            }
+          ],
+          "excerpt": "根尖的成熟区是根吸收水和无机盐的主要部位。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.6552149972994812,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.022371998871677
+      }
+    },
+    {
+      "case_id": "distributed-09",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-09",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-09",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.172410000639502,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.853644000831991
+      }
+    },
+    {
+      "case_id": "paraphrase-09",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-09",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "answer-09",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-39",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.3970850015757605,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 5.004239001209498
+      }
+    },
+    {
+      "case_id": "paraphrase-39",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-39",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-10",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-10",
+          "chunk_id": 10,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 39
+            }
+          ],
+          "excerpt": "导管负责在植物体内运输水和无机盐。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.079163999951561,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.850175000683521
+      }
+    },
+    {
+      "case_id": "exact-10",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-10",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-10",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-10",
+          "chunk_id": 10,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 39
+            }
+          ],
+          "excerpt": "导管负责在植物体内运输水和无机盐。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.6473340001539327,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 3.9000000015221303
+      }
+    },
+    {
+      "case_id": "distributed-10",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-10",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-10",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.387847998761572,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 5.2795729989156825
+      }
+    },
+    {
+      "case_id": "paraphrase-10",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-10",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "answer-10",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-40",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.08193600155937,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.810041999007808
+      }
+    },
+    {
+      "case_id": "paraphrase-40",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-40",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-11",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-11",
+          "chunk_id": 11,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 40
+            }
+          ],
+          "excerpt": "同种电荷相互排斥，异种电荷相互吸引。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 3.8155460006237263,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 6.486563001089962
+      }
+    },
+    {
+      "case_id": "exact-11",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-11",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-11",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-11",
+          "chunk_id": 11,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 40
+            }
+          ],
+          "excerpt": "同种电荷相互排斥，异种电荷相互吸引。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.6831369994179113,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.044753999551176
+      }
+    },
+    {
+      "case_id": "distributed-11",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-11",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-11",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.2569129996554693,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 5.156834000445087
+      }
+    },
+    {
+      "case_id": "paraphrase-11",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-11",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "answer-11",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-12",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-12",
+          "chunk_id": 12,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 40
+            }
+          ],
+          "excerpt": "电流方向规定为正电荷定向移动的方向。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.4935329984145937,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 5.49878899983014
+      }
+    },
+    {
+      "case_id": "exact-12",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-12",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-12",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-12",
+          "chunk_id": 12,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 40
+            }
+          ],
+          "excerpt": "电流方向规定为正电荷定向移动的方向。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.011732998653315,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 7.602203999340418
+      }
+    },
+    {
+      "case_id": "distributed-12",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-12",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-12",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.041249001194956,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.844842998863896
+      }
+    },
+    {
+      "case_id": "paraphrase-12",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-12",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "answer-12",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-13",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-13",
+          "chunk_id": 13,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 34
+            }
+          ],
+          "excerpt": "串联电路中各处电流相等。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.062770998236374,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.79654999980994
+      }
+    },
+    {
+      "case_id": "exact-13",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-13",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-13",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-13",
+          "chunk_id": 13,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 34
+            }
+          ],
+          "excerpt": "串联电路中各处电流相等。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.441325001200312,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 5.001969000659301
+      }
+    },
+    {
+      "case_id": "distributed-13",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-13",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-13",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.687327996682143,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 5.941727000390529
+      }
+    },
+    {
+      "case_id": "paraphrase-13",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-13",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "answer-13",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-14",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-14",
+          "chunk_id": 14,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 38
+            }
+          ],
+          "excerpt": "并联电路中各支路两端的电压相等。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.059161000943277,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 5.083673000626732
+      }
+    },
+    {
+      "case_id": "exact-14",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-14",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-14",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-14",
+          "chunk_id": 14,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 38
+            }
+          ],
+          "excerpt": "并联电路中各支路两端的电压相等。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.2703979991783854,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 3.5256370010756655
+      }
+    },
+    {
+      "case_id": "distributed-14",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-14",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-14",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.514415000405279,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 5.314952999469824
+      }
+    },
+    {
+      "case_id": "paraphrase-14",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-14",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "answer-14",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-15",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-15",
+          "chunk_id": 15,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 38
+            }
+          ],
+          "excerpt": "物体受到的重力方向总是竖直向下。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.9585640002333093,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.964841000401066
+      }
+    },
+    {
+      "case_id": "exact-15",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-15",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-15",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-15",
+          "chunk_id": 15,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 38
+            }
+          ],
+          "excerpt": "物体受到的重力方向总是竖直向下。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.5164449978328776,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 3.6746060013683746
+      }
+    },
+    {
+      "case_id": "distributed-15",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-15",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-15",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.8091729998559458,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.361008999694604
+      }
+    },
+    {
+      "case_id": "paraphrase-15",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-15",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "answer-15",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-16",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-16",
+          "chunk_id": 16,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 39
+            }
+          ],
+          "excerpt": "惯性是物体保持原来运动状态的性质。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.071611999781453,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.686350999691058
+      }
+    },
+    {
+      "case_id": "exact-16",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-16",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-16",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-16",
+          "chunk_id": 16,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 39
+            }
+          ],
+          "excerpt": "惯性是物体保持原来运动状态的性质。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.0143720030318946,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.536459000519244
+      }
+    },
+    {
+      "case_id": "distributed-16",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-16",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-16",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.1034560013504233,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.842004000238376
+      }
+    },
+    {
+      "case_id": "paraphrase-16",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-16",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "answer-16",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-17",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-17",
+          "chunk_id": 17,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 39
+            }
+          ],
+          "excerpt": "声音的传播需要介质，真空不能传声。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.8927070013887715,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.678397001043777
+      }
+    },
+    {
+      "case_id": "exact-17",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-17",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-17",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-17",
+          "chunk_id": 17,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 39
+            }
+          ],
+          "excerpt": "声音的传播需要介质，真空不能传声。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.308430997596588,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 3.615240999351954
+      }
+    },
+    {
+      "case_id": "distributed-17",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-17",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-17",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.156818998628296,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 5.077449999589589
+      }
+    },
+    {
+      "case_id": "paraphrase-17",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-17",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "answer-17",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-18",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-18",
+          "chunk_id": 18,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 35
+            }
+          ],
+          "excerpt": "光在均匀介质中沿直线传播。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.200353999796789,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 5.223665000812616
+      }
+    },
+    {
+      "case_id": "exact-18",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-18",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-18",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-18",
+          "chunk_id": 18,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 35
+            }
+          ],
+          "excerpt": "光在均匀介质中沿直线传播。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.448785000524367,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.758912000397686
+      }
+    },
+    {
+      "case_id": "distributed-18",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-18",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-18",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.342599998883088,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 5.002773999876808
+      }
+    },
+    {
+      "case_id": "paraphrase-18",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-18",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "answer-18",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-19",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-19",
+          "chunk_id": 19,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 33
+            }
+          ],
+          "excerpt": "凸透镜对光有会聚作用。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.3404350013151998,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 7.5220079997961875
+      }
+    },
+    {
+      "case_id": "exact-19",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-19",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-19",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-19",
+          "chunk_id": 19,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 33
+            }
+          ],
+          "excerpt": "凸透镜对光有会聚作用。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.4560969993908657,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.033463999803644
+      }
+    },
+    {
+      "case_id": "distributed-19",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-19",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-19",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 3.1299939983000513,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 11.746492000384023
+      }
+    },
+    {
+      "case_id": "paraphrase-19",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-19",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "answer-19",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-20",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-20",
+          "chunk_id": 20,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 37
+            }
+          ],
+          "excerpt": "物体的密度等于质量与体积之比。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.1862260000489186,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 5.129883000336122
+      }
+    },
+    {
+      "case_id": "exact-20",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-20",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-20",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-20",
+          "chunk_id": 20,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 37
+            }
+          ],
+          "excerpt": "物体的密度等于质量与体积之比。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.2951050011906773,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 3.617637001298135
+      }
+    },
+    {
+      "case_id": "distributed-20",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-20",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-20",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.970495997738908,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.780141998708132
+      }
+    },
+    {
+      "case_id": "paraphrase-20",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-20",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "answer-20",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-21",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-21",
+          "chunk_id": 21,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 32
+            }
+          ],
+          "excerpt": "酸溶液的pH小于7。"
+        },
+        {
+          "material": "release-22",
+          "chunk_id": 22,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 32
+            }
+          ],
+          "excerpt": "碱溶液的pH大于7。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.9324049974093214,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 8.505939000315266
+      }
+    },
+    {
+      "case_id": "exact-21",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-21",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-21",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-21",
+          "chunk_id": 21,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 32
+            }
+          ],
+          "excerpt": "酸溶液的pH小于7。"
+        },
+        {
+          "material": "release-22",
+          "chunk_id": 22,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 32
+            }
+          ],
+          "excerpt": "碱溶液的pH大于7。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.773796000838047,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 9.359366000353475
+      }
+    },
+    {
+      "case_id": "distributed-21",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-21",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-21",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.5130789997783722,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.7663060013292124
+      }
+    },
+    {
+      "case_id": "paraphrase-21",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-21",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "answer-21",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-22",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-22",
+          "chunk_id": 22,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 32
+            }
+          ],
+          "excerpt": "碱溶液的pH大于7。"
+        },
+        {
+          "material": "release-21",
+          "chunk_id": 21,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 32
+            }
+          ],
+          "excerpt": "酸溶液的pH小于7。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.651302997037419,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 7.192646999101271
+      }
+    },
+    {
+      "case_id": "exact-22",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-22",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-22",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-22",
+          "chunk_id": 22,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 32
+            }
+          ],
+          "excerpt": "碱溶液的pH大于7。"
+        },
+        {
+          "material": "release-21",
+          "chunk_id": 21,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 32
+            }
+          ],
+          "excerpt": "酸溶液的pH小于7。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.8917969993926818,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 5.810946000565309
+      }
+    },
+    {
+      "case_id": "distributed-22",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-22",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-22",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 3.4436289988661883,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 8.086039000772871
+      }
+    },
+    {
+      "case_id": "paraphrase-22",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-22",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "answer-22",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-23",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-23",
+          "chunk_id": 23,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 50
+            }
+          ],
+          "excerpt": "催化剂能改变反应速率，自身质量和化学性质在反应前后不变。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.7945769961661426,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 6.794245000492083
+      }
+    },
+    {
+      "case_id": "exact-23",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-23",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-23",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-23",
+          "chunk_id": 23,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 50
+            }
+          ],
+          "excerpt": "催化剂能改变反应速率，自身质量和化学性质在反应前后不变。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.405445998898358,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.120317000342766
+      }
+    },
+    {
+      "case_id": "distributed-23",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-23",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-23",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 3.084140000282787,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 11.801598000602098
+      }
+    },
+    {
+      "case_id": "paraphrase-23",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-23",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "answer-23",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-24",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-24",
+          "chunk_id": 24,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 36
+            }
+          ],
+          "excerpt": "铁生锈需要同时接触氧气和水。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.90584300091723,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 5.738113999541383
+      }
+    },
+    {
+      "case_id": "exact-24",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-24",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-24",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-24",
+          "chunk_id": 24,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 36
+            }
+          ],
+          "excerpt": "铁生锈需要同时接触氧气和水。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.37460199969064,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.770254001414287
+      }
+    },
+    {
+      "case_id": "distributed-24",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-24",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-24",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.020604002609616,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.676001999541768
+      }
+    },
+    {
+      "case_id": "paraphrase-24",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-24",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "answer-24",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-25",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-25",
+          "chunk_id": 25,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 36
+            }
+          ],
+          "excerpt": "质量守恒定律适用于化学反应。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.7494670009909896,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.542701999525889
+      }
+    },
+    {
+      "case_id": "exact-25",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-25",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-25",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-25",
+          "chunk_id": 25,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 36
+            }
+          ],
+          "excerpt": "质量守恒定律适用于化学反应。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.292126997417654,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 42.135363999477704
+      }
+    },
+    {
+      "case_id": "distributed-25",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-25",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-25",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.7053169995051576,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.734643000119831
+      }
+    },
+    {
+      "case_id": "paraphrase-25",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-25",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "answer-25",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-26",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-26",
+          "chunk_id": 26,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 35
+            }
+          ],
+          "excerpt": "三角形内角和等于180度。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.8908460006059613,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 7.602058998600114
+      }
+    },
+    {
+      "case_id": "exact-26",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-26",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-26",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-26",
+          "chunk_id": 26,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 35
+            }
+          ],
+          "excerpt": "三角形内角和等于180度。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.2637649997486733,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 5.448862000775989
+      }
+    },
+    {
+      "case_id": "distributed-26",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-26",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-26",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.3195620012993459,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 3.9585680005984614
+      }
+    },
+    {
+      "case_id": "paraphrase-26",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-26",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "answer-26",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-27",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-27",
+          "chunk_id": 27,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 36
+            }
+          ],
+          "excerpt": "平行四边形的对边平行且相等。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.5944749993650476,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.250335001415806
+      }
+    },
+    {
+      "case_id": "exact-27",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-27",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-27",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-27",
+          "chunk_id": 27,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 36
+            }
+          ],
+          "excerpt": "平行四边形的对边平行且相等。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.9311999985802686,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 6.929958999535302
+      }
+    },
+    {
+      "case_id": "distributed-27",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-27",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-27",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.221031998284161,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.00538800022332
+      }
+    },
+    {
+      "case_id": "paraphrase-27",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-27",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "answer-27",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-28",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-28",
+          "chunk_id": 28,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 35
+            }
+          ],
+          "excerpt": "一次函数的图像是一条直线。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.9011719978152541,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.7006269996927585
+      }
+    },
+    {
+      "case_id": "exact-28",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-28",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-28",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-28",
+          "chunk_id": 28,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 35
+            }
+          ],
+          "excerpt": "一次函数的图像是一条直线。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.2767709977197228,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 3.5276710004836787
+      }
+    },
+    {
+      "case_id": "distributed-28",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-28",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-28",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.145095999367186,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.452025999853504
+      }
+    },
+    {
+      "case_id": "paraphrase-28",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-28",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "answer-28",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-29",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-29",
+          "chunk_id": 29,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 36
+            }
+          ],
+          "excerpt": "圆的周长等于直径乘以圆周率。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.4866340008884436,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 5.1807869986078
+      }
+    },
+    {
+      "case_id": "exact-29",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-29",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-29",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-29",
+          "chunk_id": 29,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 36
+            }
+          ],
+          "excerpt": "圆的周长等于直径乘以圆周率。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.7683149999356829,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.552927000986529
+      }
+    },
+    {
+      "case_id": "distributed-29",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-29",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-29",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.214240001194412,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 5.041640999479569
+      }
+    },
+    {
+      "case_id": "paraphrase-29",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-29",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "answer-29",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-30",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-30",
+          "chunk_id": 30,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 38
+            }
+          ],
+          "excerpt": "平均数等于数据总和除以数据个数。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.9049890015594428,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.402079001010861
+      }
+    },
+    {
+      "case_id": "exact-30",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "exact-30",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-30",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "release-30",
+          "chunk_id": 30,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 38
+            }
+          ],
+          "excerpt": "平均数等于数据总和除以数据个数。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.1955820027651498,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 3.4995559999515535
+      }
+    },
+    {
+      "case_id": "distributed-30",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "distributed-30",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-30",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.6450479999766685,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 11.060258000725298
+      }
+    },
+    {
+      "case_id": "paraphrase-30",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "paraphrase-30",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "answer-30",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "unrelated-01",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.0340599985502195,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.540969001027406
+      }
+    },
+    {
+      "case_id": "unrelated-01",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "unrelated-01",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "unrelated-02",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.093937000609003,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.326412001319113
+      }
+    },
+    {
+      "case_id": "unrelated-02",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "unrelated-02",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "unrelated-03",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.403306001724559,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.65349700061779
+      }
+    },
+    {
+      "case_id": "unrelated-03",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "unrelated-03",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "unrelated-04",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.4573219998274,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.676562999520684
+      }
+    },
+    {
+      "case_id": "unrelated-04",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "unrelated-04",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "unrelated-05",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.0919229991704924,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.664869000407634
+      }
+    },
+    {
+      "case_id": "unrelated-05",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "unrelated-05",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "unrelated-06",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.9869369989464758,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.0075819997582585
+      }
+    },
+    {
+      "case_id": "unrelated-06",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "unrelated-06",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "unrelated-07",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.8148660001315875,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 3.7881759999436326
+      }
+    },
+    {
+      "case_id": "unrelated-07",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "unrelated-07",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "unrelated-08",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.14060799771687,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.350899998826208
+      }
+    },
+    {
+      "case_id": "unrelated-08",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "unrelated-08",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "unrelated-09",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.9442159991740482,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.137043999435264
+      }
+    },
+    {
+      "case_id": "unrelated-09",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "unrelated-09",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "unrelated-10",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.3859130014898255,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.880919999777689
+      }
+    },
+    {
+      "case_id": "unrelated-10",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "unrelated-10",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "unrelated-11",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.7871070031105774,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 3.8725110007362673
+      }
+    },
+    {
+      "case_id": "unrelated-11",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "unrelated-11",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "unrelated-12",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.9986469978903187,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.892360999292578
+      }
+    },
+    {
+      "case_id": "unrelated-12",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "unrelated-12",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "unrelated-13",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.8112099989812123,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 5.199258001084672
+      }
+    },
+    {
+      "case_id": "unrelated-13",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "unrelated-13",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "unrelated-14",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.253345001008711,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.493536000154563
+      }
+    },
+    {
+      "case_id": "unrelated-14",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "unrelated-14",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "unrelated-15",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.915364997330471,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.004861999419518
+      }
+    },
+    {
+      "case_id": "unrelated-15",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "unrelated-15",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "unrelated-16",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.7566449987498345,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 3.749666999283363
+      }
+    },
+    {
+      "case_id": "unrelated-16",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "unrelated-16",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "unrelated-17",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.229940004326636,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.1488680017209845
+      }
+    },
+    {
+      "case_id": "unrelated-17",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "unrelated-17",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "unrelated-18",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.841425999373314,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 3.7647019998985343
+      }
+    },
+    {
+      "case_id": "unrelated-18",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "unrelated-18",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "unrelated-19",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.8362369992246386,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 3.9404830004059477
+      }
+    },
+    {
+      "case_id": "unrelated-19",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "unrelated-19",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "unrelated-20",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.482972002326278,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.813138999452349
+      }
+    },
+    {
+      "case_id": "unrelated-20",
+      "mode": "vector",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "unrelated-20",
+      "mode": "hybrid",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "adversarial-01",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "adversarial-02",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "adversarial-03",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "adversarial-04",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "adversarial-05",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "adversarial-06",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "adversarial-07",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "adversarial-08",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "adversarial-09",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "adversarial-10",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "adversarial-11",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "adversarial-12",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "adversarial-13",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "adversarial-14",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "adversarial-15",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "adversarial-16",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "adversarial-17",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "adversarial-18",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "adversarial-19",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    {
+      "case_id": "adversarial-20",
+      "mode": "ask",
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    }
+  ]
+}

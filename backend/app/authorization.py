@@ -39,7 +39,7 @@ def effective_class_id(user: User) -> int:
 
 def subject_scope(user: User) -> SubjectScope | None:
     class_id = effective_class_id(user)
-    if user.role == "student" and user.is_active:
+    if user.role == "student" and user.is_active and ClassMembership.query.filter_by(user_id=user.id, class_id=class_id).one_or_none():
         ids = {subject.id for subject in ClassSubject.query.filter_by(class_id=class_id).all()}
         return SubjectScope(class_id=class_id, role=user.role, subject_ids=frozenset(ids))
     if is_teacher_member(user, class_id):

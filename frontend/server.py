@@ -8,13 +8,14 @@ from flask import Flask, Response, redirect, render_template, request
 app = Flask(__name__)
 API_INTERNAL_URL = os.getenv("API_INTERNAL_URL", "http://localhost:8080").rstrip("/")
 API_PUBLIC_URL = os.getenv("API_PUBLIC_URL", "").rstrip("/")
+API_TIMEOUT_SECONDS = int(os.getenv("API_TIMEOUT_SECONDS", "180"))
 HOP_BY_HOP_HEADERS = {"connection", "content-encoding", "content-length", "keep-alive", "proxy-authenticate", "proxy-authorization", "te", "trailer", "transfer-encoding", "upgrade"}
 
 
 def proxy_api(path: str):
     headers = {name: value for name, value in request.headers.items() if name.lower() in {"content-type", "authorization"}}
     try:
-        upstream = requests.request(request.method, f"{API_INTERNAL_URL}{path}", params=request.args, data=request.get_data(), headers=headers, timeout=15, allow_redirects=False)
+        upstream = requests.request(request.method, f"{API_INTERNAL_URL}{path}", params=request.args, data=request.get_data(), headers=headers, timeout=API_TIMEOUT_SECONDS, allow_redirects=False)
     except requests.RequestException:
         return Response("API unavailable", status=503)
     response_headers = [(name, value) for name, value in upstream.headers.items() if name.lower() not in HOP_BY_HOP_HEADERS | {"set-cookie"}]

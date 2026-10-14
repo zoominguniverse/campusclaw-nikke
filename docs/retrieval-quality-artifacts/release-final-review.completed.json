@@ -1,0 +1,3798 @@
+{
+  "corpus_hash": "4b184074eb947caca00975a3933db2a1d155f6c57ebf31b1b4ebceb03e37bbbc",
+  "profile_fingerprint": "340c5e8586b85a9473c8f940bee385108cf146f8522480315c1a98ddca5a8bbe",
+  "split": "release",
+  "reviewer": "项目用户（2026-10-14本次对话确认）",
+  "items": [
+    {
+      "case_id": "answer-01",
+      "category": "answer",
+      "question": "细胞在生物体中是什么单位？",
+      "reference_fact": "细胞是生物体结构和功能的基本单位。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "细胞是生物体结构和功能的基本单位。[1]",
+      "citations": [
+        {
+          "subject_id": 1,
+          "subject_name": "biology",
+          "material_id": "release-01",
+          "material_title": "知识点1",
+          "chunk_id": 1,
+          "chunk_index": 1,
+          "generation_id": 1,
+          "source_hash": "9623b0d44af98e2d12b37614827686786a4d2fb24983627738395f217bed9980",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 39
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 39,
+          "offset_basis": "source",
+          "excerpt": "细胞是生物体结构和功能的基本单位。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 24,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-01",
+            1,
+            7,
+            24
+          ],
+          "quotes": [
+            {
+              "text": "细胞是生物体结构和功能的基本单位。",
+              "source_span": {
+                "start": 7,
+                "end": 24
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "细胞是生物体结构和功能的基本单位。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "细胞是生物体结构和功能的基本单位。",
+              "source_span": {
+                "start": 7,
+                "end": 24
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "e12e45e3c156226c81571ecc24ef4f2718317e0fcd058fe35bf58f236b19ef1d",
+      "response_review": {
+        "status": "supported",
+        "note": "用户对本清单逐条审阅后在本次对话明确回复“已逐条审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条确认本claim及其引用支持关系：细胞是生物体结构和功能的基本单位。"
+        }
+      ]
+    },
+    {
+      "case_id": "answer-02",
+      "category": "answer",
+      "question": "光合作用主要在何处进行？",
+      "reference_fact": "叶绿体是绿色植物进行光合作用的主要场所。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "叶绿体是绿色植物进行光合作用的主要场所。[1]",
+      "citations": [
+        {
+          "subject_id": 1,
+          "subject_name": "biology",
+          "material_id": "release-02",
+          "material_title": "知识点2",
+          "chunk_id": 2,
+          "chunk_index": 1,
+          "generation_id": 2,
+          "source_hash": "01e92f71cf1669efa1f8413ed556859505fe8affe6a1189f4ed809cdba13564b",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 42
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 42,
+          "offset_basis": "source",
+          "excerpt": "叶绿体是绿色植物进行光合作用的主要场所。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 27,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-02",
+            2,
+            7,
+            27
+          ],
+          "quotes": [
+            {
+              "text": "叶绿体是绿色植物进行光合作用的主要场所。",
+              "source_span": {
+                "start": 7,
+                "end": 27
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "叶绿体是绿色植物进行光合作用的主要场所。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "叶绿体是绿色植物进行光合作用的主要场所。",
+              "source_span": {
+                "start": 7,
+                "end": 27
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "72778d0685f65d1d8f0ef627ef910e3ccf6a0e157057ca89090860bc2eb5acaf",
+      "response_review": {
+        "status": "supported",
+        "note": "用户对本清单逐条审阅后在本次对话明确回复“已逐条审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条确认本claim及其引用支持关系：叶绿体是绿色植物进行光合作用的主要场所。"
+        }
+      ]
+    },
+    {
+      "case_id": "answer-03",
+      "category": "answer",
+      "question": "线粒体有什么作用？",
+      "reference_fact": "线粒体为细胞的生命活动提供能量。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "线粒体为细胞的生命活动提供能量。[1]",
+      "citations": [
+        {
+          "subject_id": 1,
+          "subject_name": "biology",
+          "material_id": "release-03",
+          "material_title": "知识点3",
+          "chunk_id": 3,
+          "chunk_index": 1,
+          "generation_id": 3,
+          "source_hash": "6393e6bbfaa62ec1a46fc3fe433000e08dbf5bef342226bc73e46acbe2a2018e",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 38
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 38,
+          "offset_basis": "source",
+          "excerpt": "线粒体为细胞的生命活动提供能量。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 23,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-03",
+            3,
+            7,
+            23
+          ],
+          "quotes": [
+            {
+              "text": "线粒体为细胞的生命活动提供能量。",
+              "source_span": {
+                "start": 7,
+                "end": 23
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "线粒体为细胞的生命活动提供能量。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "线粒体为细胞的生命活动提供能量。",
+              "source_span": {
+                "start": 7,
+                "end": 23
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "711a183924482e42a26ae0009709d5a25d11fbfc7713a0dcfef1dbb0bdb38d68",
+      "response_review": {
+        "status": "supported",
+        "note": "用户对本清单逐条审阅后在本次对话明确回复“已逐条审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条确认本claim及其引用支持关系：线粒体为细胞的生命活动提供能量。"
+        }
+      ]
+    },
+    {
+      "case_id": "answer-04",
+      "category": "answer",
+      "question": "细胞膜的功能是什么？",
+      "reference_fact": "细胞膜能控制物质进出细胞。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "细胞膜能控制物质进出细胞。[1]",
+      "citations": [
+        {
+          "subject_id": 1,
+          "subject_name": "biology",
+          "material_id": "release-04",
+          "material_title": "知识点4",
+          "chunk_id": 4,
+          "chunk_index": 1,
+          "generation_id": 4,
+          "source_hash": "d7b31aabf9ec120370bce65c1b04a428e70c7a129b68885ad66b6768d5ebf88e",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 35
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 35,
+          "offset_basis": "source",
+          "excerpt": "细胞膜能控制物质进出细胞。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 20,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-04",
+            4,
+            7,
+            20
+          ],
+          "quotes": [
+            {
+              "text": "细胞膜能控制物质进出细胞。",
+              "source_span": {
+                "start": 7,
+                "end": 20
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "细胞膜能控制物质进出细胞。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "细胞膜能控制物质进出细胞。",
+              "source_span": {
+                "start": 7,
+                "end": 20
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "612b29daed9441bf1e46cf9523ac2a677ccd51a72cd9c6b191df3e139288411d",
+      "response_review": {
+        "status": "supported",
+        "note": "用户对本清单逐条审阅后在本次对话明确回复“已逐条审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条确认本claim及其引用支持关系：细胞膜能控制物质进出细胞。"
+        }
+      ]
+    },
+    {
+      "case_id": "answer-05",
+      "category": "answer",
+      "question": "遗传信息主要存在哪里？",
+      "reference_fact": "遗传信息主要储存在细胞核中。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "遗传信息主要储存在细胞核中。[1]",
+      "citations": [
+        {
+          "subject_id": 1,
+          "subject_name": "biology",
+          "material_id": "release-05",
+          "material_title": "知识点5",
+          "chunk_id": 5,
+          "chunk_index": 1,
+          "generation_id": 5,
+          "source_hash": "db6053708e3612810701c97030d19722802fbe1103d7d0dfca9b823c579d9c71",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 36
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 36,
+          "offset_basis": "source",
+          "excerpt": "遗传信息主要储存在细胞核中。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 21,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-05",
+            5,
+            7,
+            21
+          ],
+          "quotes": [
+            {
+              "text": "遗传信息主要储存在细胞核中。",
+              "source_span": {
+                "start": 7,
+                "end": 21
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "遗传信息主要储存在细胞核中。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "遗传信息主要储存在细胞核中。",
+              "source_span": {
+                "start": 7,
+                "end": 21
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "fc188c82689febfa267f5950cb22fa94137865574ce67c994d247cfacf3d5992",
+      "response_review": {
+        "status": "supported",
+        "note": "用户对本清单逐条审阅后在本次对话明确回复“已逐条审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条确认本claim及其引用支持关系：遗传信息主要储存在细胞核中。"
+        }
+      ]
+    },
+    {
+      "case_id": "answer-06",
+      "category": "answer",
+      "question": "蒸腾作用对水分有什么影响？",
+      "reference_fact": "蒸腾作用能促进植物对水分的吸收和运输。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "蒸腾作用能促进植物对水分的吸收和运输。[1]",
+      "citations": [
+        {
+          "subject_id": 1,
+          "subject_name": "biology",
+          "material_id": "release-06",
+          "material_title": "知识点6",
+          "chunk_id": 6,
+          "chunk_index": 1,
+          "generation_id": 6,
+          "source_hash": "fca11b23a9de6873979dcc3f5262baafb39d567bc3c347ce9ad06693f9f4909d",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 41
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 41,
+          "offset_basis": "source",
+          "excerpt": "蒸腾作用能促进植物对水分的吸收和运输。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 26,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-06",
+            6,
+            7,
+            26
+          ],
+          "quotes": [
+            {
+              "text": "蒸腾作用能促进植物对水分的吸收和运输。",
+              "source_span": {
+                "start": 7,
+                "end": 26
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "蒸腾作用能促进植物对水分的吸收和运输。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "蒸腾作用能促进植物对水分的吸收和运输。",
+              "source_span": {
+                "start": 7,
+                "end": 26
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "d41a07482bc074aa2a1587df5a409fd2cb5cd6562c12344fadc67f8df722ef5d",
+      "response_review": {
+        "status": "supported",
+        "note": "用户对本清单逐条审阅后在本次对话明确回复“已逐条审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条确认本claim及其引用支持关系：蒸腾作用能促进植物对水分的吸收和运输。"
+        }
+      ]
+    },
+    {
+      "case_id": "answer-07",
+      "category": "answer",
+      "question": "光合作用会释放什么气体？",
+      "reference_fact": "光合作用把二氧化碳和水转化为有机物，并释放氧气。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "光合作用会释放氧气。[1]",
+      "citations": [
+        {
+          "subject_id": 1,
+          "subject_name": "biology",
+          "material_id": "release-07",
+          "material_title": "知识点7",
+          "chunk_id": 7,
+          "chunk_index": 1,
+          "generation_id": 7,
+          "source_hash": "1c80733f2007bf90cae023e70ac1ca8c83061597241c253f757607356bfc3015",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 46
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 46,
+          "offset_basis": "source",
+          "excerpt": "光合作用把二氧化碳和水转化为有机物，并释放氧气。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 31,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-07",
+            7,
+            7,
+            31
+          ],
+          "quotes": [
+            {
+              "text": "光合作用把二氧化碳和水转化为有机物，并释放氧气。",
+              "source_span": {
+                "start": 7,
+                "end": 31
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "光合作用会释放氧气。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "光合作用把二氧化碳和水转化为有机物，并释放氧气。",
+              "source_span": {
+                "start": 7,
+                "end": 31
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "ebaadba7d3be8d91b78a62a978efc7c2e9e7916e8d0ca44746aa9d9a2f026811",
+      "response_review": {
+        "status": "supported",
+        "note": "用户在2026-10-14本次对话明确回复“13 条变化项已审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条核对变化后的本claim及引用：光合作用会释放氧气。"
+        }
+      ]
+    },
+    {
+      "case_id": "answer-08",
+      "category": "answer",
+      "question": "呼吸作用如何获得能量？",
+      "reference_fact": "呼吸作用分解有机物，释放能量。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "呼吸作用分解有机物，释放能量。[1]",
+      "citations": [
+        {
+          "subject_id": 1,
+          "subject_name": "biology",
+          "material_id": "release-08",
+          "material_title": "知识点8",
+          "chunk_id": 8,
+          "chunk_index": 1,
+          "generation_id": 8,
+          "source_hash": "661bd13ebaa1c2de4a2cf50c9be4611be8ba24d3584e33c90f502c3793ae715d",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 37
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 37,
+          "offset_basis": "source",
+          "excerpt": "呼吸作用分解有机物，释放能量。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 22,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-08",
+            8,
+            7,
+            22
+          ],
+          "quotes": [
+            {
+              "text": "呼吸作用分解有机物，释放能量。",
+              "source_span": {
+                "start": 7,
+                "end": 22
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "呼吸作用分解有机物，释放能量。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "呼吸作用分解有机物，释放能量。",
+              "source_span": {
+                "start": 7,
+                "end": 22
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "40ffeaed67277b66465ee733d7252ad7cc54efd36e78a085a24aca75350dcf18",
+      "response_review": {
+        "status": "supported",
+        "note": "用户在2026-10-14本次对话明确回复“13 条变化项已审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条核对变化后的本claim及引用：呼吸作用分解有机物，释放能量。"
+        }
+      ]
+    },
+    {
+      "case_id": "answer-09",
+      "category": "answer",
+      "question": "根吸收水和无机盐的主要部位在哪？",
+      "reference_fact": "根尖的成熟区是根吸收水和无机盐的主要部位。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "根尖的成熟区是根吸收水和无机盐的主要部位。[1]",
+      "citations": [
+        {
+          "subject_id": 1,
+          "subject_name": "biology",
+          "material_id": "release-09",
+          "material_title": "知识点9",
+          "chunk_id": 9,
+          "chunk_index": 1,
+          "generation_id": 9,
+          "source_hash": "7bcf0a12448ef0417d45f2dfa849825ec64c4fc19edb5eee619fcf6a66a02985",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 43
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 43,
+          "offset_basis": "source",
+          "excerpt": "根尖的成熟区是根吸收水和无机盐的主要部位。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 28,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-09",
+            9,
+            7,
+            28
+          ],
+          "quotes": [
+            {
+              "text": "根尖的成熟区是根吸收水和无机盐的主要部位。",
+              "source_span": {
+                "start": 7,
+                "end": 28
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "根尖的成熟区是根吸收水和无机盐的主要部位。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "根尖的成熟区是根吸收水和无机盐的主要部位。",
+              "source_span": {
+                "start": 7,
+                "end": 28
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "dd29bd36e8c7d3571e6b27f258d2e694fc5c4e6220953efe49d7460b8657d7aa",
+      "response_review": {
+        "status": "supported",
+        "note": "用户对本清单逐条审阅后在本次对话明确回复“已逐条审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条确认本claim及其引用支持关系：根尖的成熟区是根吸收水和无机盐的主要部位。"
+        }
+      ]
+    },
+    {
+      "case_id": "answer-10",
+      "category": "answer",
+      "question": "导管运输哪些物质？",
+      "reference_fact": "导管负责在植物体内运输水和无机盐。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "导管负责在植物体内运输水和无机盐。[1]",
+      "citations": [
+        {
+          "subject_id": 1,
+          "subject_name": "biology",
+          "material_id": "release-10",
+          "material_title": "知识点10",
+          "chunk_id": 10,
+          "chunk_index": 1,
+          "generation_id": 10,
+          "source_hash": "966fb9f24dd51e7e411c5fc99080516658b79be03a6ad320c55c09da03f9535f",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 39
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 39,
+          "offset_basis": "source",
+          "excerpt": "导管负责在植物体内运输水和无机盐。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 24,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-10",
+            10,
+            7,
+            24
+          ],
+          "quotes": [
+            {
+              "text": "导管负责在植物体内运输水和无机盐。",
+              "source_span": {
+                "start": 7,
+                "end": 24
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "导管负责在植物体内运输水和无机盐。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "导管负责在植物体内运输水和无机盐。",
+              "source_span": {
+                "start": 7,
+                "end": 24
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "582d50718d330baac5fcf5df1e18958a212eb57e048d6bf291a27302268912e2",
+      "response_review": {
+        "status": "supported",
+        "note": "用户对本清单逐条审阅后在本次对话明确回复“已逐条审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条确认本claim及其引用支持关系：导管负责在植物体内运输水和无机盐。"
+        }
+      ]
+    },
+    {
+      "case_id": "answer-11",
+      "category": "answer",
+      "question": "同种电荷之间有什么作用？",
+      "reference_fact": "同种电荷相互排斥，异种电荷相互吸引。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "同种电荷相互排斥。[1]",
+      "citations": [
+        {
+          "subject_id": 2,
+          "subject_name": "physics",
+          "material_id": "release-11",
+          "material_title": "知识点11",
+          "chunk_id": 11,
+          "chunk_index": 1,
+          "generation_id": 11,
+          "source_hash": "2d0d9d95d10d12b5624801f91744846bcca90ee8cfc861defbbb97a8b9e942c2",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 40
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 40,
+          "offset_basis": "source",
+          "excerpt": "同种电荷相互排斥，异种电荷相互吸引。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 25,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-11",
+            11,
+            7,
+            25
+          ],
+          "quotes": [
+            {
+              "text": "同种电荷相互排斥，异种电荷相互吸引。",
+              "source_span": {
+                "start": 7,
+                "end": 25
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "同种电荷相互排斥。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "同种电荷相互排斥，异种电荷相互吸引。",
+              "source_span": {
+                "start": 7,
+                "end": 25
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "fce0fe539658677f5e8ac18f92cedb2032c6312cccf46e0bad6495492f0f4a6b",
+      "response_review": {
+        "status": "supported",
+        "note": "用户对本清单逐条审阅后在本次对话明确回复“已逐条审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条确认本claim及其引用支持关系：同种电荷相互排斥。"
+        }
+      ]
+    },
+    {
+      "case_id": "answer-12",
+      "category": "answer",
+      "question": "电流方向如何规定？",
+      "reference_fact": "电流方向规定为正电荷定向移动的方向。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "电流方向规定为正电荷定向移动的方向。[1]",
+      "citations": [
+        {
+          "subject_id": 2,
+          "subject_name": "physics",
+          "material_id": "release-12",
+          "material_title": "知识点12",
+          "chunk_id": 12,
+          "chunk_index": 1,
+          "generation_id": 12,
+          "source_hash": "f83c2d9d2c6eddcf28e81310abd8a0260a28f05ccd48ed36eeadd537e0c32ea0",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 40
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 40,
+          "offset_basis": "source",
+          "excerpt": "电流方向规定为正电荷定向移动的方向。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 25,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-12",
+            12,
+            7,
+            25
+          ],
+          "quotes": [
+            {
+              "text": "电流方向规定为正电荷定向移动的方向。",
+              "source_span": {
+                "start": 7,
+                "end": 25
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "电流方向规定为正电荷定向移动的方向。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "电流方向规定为正电荷定向移动的方向。",
+              "source_span": {
+                "start": 7,
+                "end": 25
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "f8d76f17113f6811013867bf5fc5e6ff459e7be8983b83f587b9724e99e9e62e",
+      "response_review": {
+        "status": "supported",
+        "note": "用户对本清单逐条审阅后在本次对话明确回复“已逐条审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条确认本claim及其引用支持关系：电流方向规定为正电荷定向移动的方向。"
+        }
+      ]
+    },
+    {
+      "case_id": "answer-13",
+      "category": "answer",
+      "question": "串联电路的电流有什么特点？",
+      "reference_fact": "串联电路中各处电流相等。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "串联电路中各处电流相等。[1]",
+      "citations": [
+        {
+          "subject_id": 2,
+          "subject_name": "physics",
+          "material_id": "release-13",
+          "material_title": "知识点13",
+          "chunk_id": 13,
+          "chunk_index": 1,
+          "generation_id": 13,
+          "source_hash": "9e7b8efebdb6cacb32a50cc4201c433181dc8716b6732b475568a0ac4cb5be6f",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 34
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 34,
+          "offset_basis": "source",
+          "excerpt": "串联电路中各处电流相等。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 19,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-13",
+            13,
+            7,
+            19
+          ],
+          "quotes": [
+            {
+              "text": "串联电路中各处电流相等。",
+              "source_span": {
+                "start": 7,
+                "end": 19
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "串联电路中各处电流相等。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "串联电路中各处电流相等。",
+              "source_span": {
+                "start": 7,
+                "end": 19
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "3fc9c1f12a7ada4264301d1c05e795dcbc6148b65079aee4eabb372e83506a28",
+      "response_review": {
+        "status": "supported",
+        "note": "用户对本清单逐条审阅后在本次对话明确回复“已逐条审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条确认本claim及其引用支持关系：串联电路中各处电流相等。"
+        }
+      ]
+    },
+    {
+      "case_id": "answer-14",
+      "category": "answer",
+      "question": "并联支路的电压有什么关系？",
+      "reference_fact": "并联电路中各支路两端的电压相等。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "并联电路中各支路两端的电压相等。[1]",
+      "citations": [
+        {
+          "subject_id": 2,
+          "subject_name": "physics",
+          "material_id": "release-14",
+          "material_title": "知识点14",
+          "chunk_id": 14,
+          "chunk_index": 1,
+          "generation_id": 14,
+          "source_hash": "ffb7308631d5c8b7a8d7496269699948de7906efe142703ddd96f670b247e44f",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 38
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 38,
+          "offset_basis": "source",
+          "excerpt": "并联电路中各支路两端的电压相等。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 23,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-14",
+            14,
+            7,
+            23
+          ],
+          "quotes": [
+            {
+              "text": "并联电路中各支路两端的电压相等。",
+              "source_span": {
+                "start": 7,
+                "end": 23
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "并联电路中各支路两端的电压相等。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "并联电路中各支路两端的电压相等。",
+              "source_span": {
+                "start": 7,
+                "end": 23
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "440886db37fc9951492eca58d47d578a7933be1078ffcc597305758a878bfddd",
+      "response_review": {
+        "status": "supported",
+        "note": "用户对本清单逐条审阅后在本次对话明确回复“已逐条审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条确认本claim及其引用支持关系：并联电路中各支路两端的电压相等。"
+        }
+      ]
+    },
+    {
+      "case_id": "answer-15",
+      "category": "answer",
+      "question": "重力方向是什么？",
+      "reference_fact": "物体受到的重力方向总是竖直向下。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "物体受到的重力方向总是竖直向下。[1]",
+      "citations": [
+        {
+          "subject_id": 2,
+          "subject_name": "physics",
+          "material_id": "release-15",
+          "material_title": "知识点15",
+          "chunk_id": 15,
+          "chunk_index": 1,
+          "generation_id": 15,
+          "source_hash": "312f60cca0c73c2ba52b6becbf55ef030a2d26ea2be4644b248d6b03babbb95d",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 38
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 38,
+          "offset_basis": "source",
+          "excerpt": "物体受到的重力方向总是竖直向下。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 23,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-15",
+            15,
+            7,
+            23
+          ],
+          "quotes": [
+            {
+              "text": "物体受到的重力方向总是竖直向下。",
+              "source_span": {
+                "start": 7,
+                "end": 23
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "物体受到的重力方向总是竖直向下。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "物体受到的重力方向总是竖直向下。",
+              "source_span": {
+                "start": 7,
+                "end": 23
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "5593f48480adb42544108dfbfeefe915fa1730039f3b17a5986b0c4647f5b20d",
+      "response_review": {
+        "status": "supported",
+        "note": "用户对本清单逐条审阅后在本次对话明确回复“已逐条审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条确认本claim及其引用支持关系：物体受到的重力方向总是竖直向下。"
+        }
+      ]
+    },
+    {
+      "case_id": "answer-16",
+      "category": "answer",
+      "question": "什么是惯性？",
+      "reference_fact": "惯性是物体保持原来运动状态的性质。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "惯性是物体保持原来运动状态的性质。[1]",
+      "citations": [
+        {
+          "subject_id": 2,
+          "subject_name": "physics",
+          "material_id": "release-16",
+          "material_title": "知识点16",
+          "chunk_id": 16,
+          "chunk_index": 1,
+          "generation_id": 16,
+          "source_hash": "4d4a549f20ff1d77e2035c8291a9a0a8ecc9d48594ce3f9344ce2cbe0177e6c0",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 39
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 39,
+          "offset_basis": "source",
+          "excerpt": "惯性是物体保持原来运动状态的性质。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 24,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-16",
+            16,
+            7,
+            24
+          ],
+          "quotes": [
+            {
+              "text": "惯性是物体保持原来运动状态的性质。",
+              "source_span": {
+                "start": 7,
+                "end": 24
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "惯性是物体保持原来运动状态的性质。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "惯性是物体保持原来运动状态的性质。",
+              "source_span": {
+                "start": 7,
+                "end": 24
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "dae254168bccf09c7f5573acf230e56303a96f282bf0cd02324ce8b0395fa236",
+      "response_review": {
+        "status": "supported",
+        "note": "用户对本清单逐条审阅后在本次对话明确回复“已逐条审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条确认本claim及其引用支持关系：惯性是物体保持原来运动状态的性质。"
+        }
+      ]
+    },
+    {
+      "case_id": "answer-17",
+      "category": "answer",
+      "question": "真空能否传播声音？",
+      "reference_fact": "声音的传播需要介质，真空不能传声。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "真空不能传声。[1]",
+      "citations": [
+        {
+          "subject_id": 2,
+          "subject_name": "physics",
+          "material_id": "release-17",
+          "material_title": "知识点17",
+          "chunk_id": 17,
+          "chunk_index": 1,
+          "generation_id": 17,
+          "source_hash": "ebf48347ae3ba8a638a4f21a09f163443af59f333b839cc0ea0e42bf166f89f3",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 39
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 39,
+          "offset_basis": "source",
+          "excerpt": "声音的传播需要介质，真空不能传声。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 24,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-17",
+            17,
+            7,
+            24
+          ],
+          "quotes": [
+            {
+              "text": "真空不能传声。",
+              "source_span": {
+                "start": 17,
+                "end": 24
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "真空不能传声。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "真空不能传声。",
+              "source_span": {
+                "start": 17,
+                "end": 24
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "c17b462856713df2b03b5003bdf92553e96027388d19046a28f307bfd476676f",
+      "response_review": {
+        "status": "supported",
+        "note": "用户对本清单逐条审阅后在本次对话明确回复“已逐条审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条确认本claim及其引用支持关系：真空不能传声。"
+        }
+      ]
+    },
+    {
+      "case_id": "answer-18",
+      "category": "answer",
+      "question": "光在均匀介质中如何传播？",
+      "reference_fact": "光在均匀介质中沿直线传播。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "光在均匀介质中沿直线传播。[1]",
+      "citations": [
+        {
+          "subject_id": 2,
+          "subject_name": "physics",
+          "material_id": "release-18",
+          "material_title": "知识点18",
+          "chunk_id": 18,
+          "chunk_index": 1,
+          "generation_id": 18,
+          "source_hash": "d7532364199023e9863952aded2490e6796a1d3d2c41fbfe7647006a85d7a726",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 35
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 35,
+          "offset_basis": "source",
+          "excerpt": "光在均匀介质中沿直线传播。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 20,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-18",
+            18,
+            7,
+            20
+          ],
+          "quotes": [
+            {
+              "text": "光在均匀介质中沿直线传播。",
+              "source_span": {
+                "start": 7,
+                "end": 20
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "光在均匀介质中沿直线传播。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "光在均匀介质中沿直线传播。",
+              "source_span": {
+                "start": 7,
+                "end": 20
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "0d1938cfc29edb3005e4d9a40b48f5f3c4fa35771d63990eb0debae1f8706827",
+      "response_review": {
+        "status": "supported",
+        "note": "用户对本清单逐条审阅后在本次对话明确回复“已逐条审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条确认本claim及其引用支持关系：光在均匀介质中沿直线传播。"
+        }
+      ]
+    },
+    {
+      "case_id": "answer-19",
+      "category": "answer",
+      "question": "凸透镜对光有什么作用？",
+      "reference_fact": "凸透镜对光有会聚作用。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "凸透镜对光有会聚作用。[1]",
+      "citations": [
+        {
+          "subject_id": 2,
+          "subject_name": "physics",
+          "material_id": "release-19",
+          "material_title": "知识点19",
+          "chunk_id": 19,
+          "chunk_index": 1,
+          "generation_id": 19,
+          "source_hash": "768fafc4143633799613faa858c540366d4b523b45364fd2cdb835e15255357a",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 33
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 33,
+          "offset_basis": "source",
+          "excerpt": "凸透镜对光有会聚作用。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 18,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-19",
+            19,
+            7,
+            18
+          ],
+          "quotes": [
+            {
+              "text": "凸透镜对光有会聚作用。",
+              "source_span": {
+                "start": 7,
+                "end": 18
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "凸透镜对光有会聚作用。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "凸透镜对光有会聚作用。",
+              "source_span": {
+                "start": 7,
+                "end": 18
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "8b89b080b7d3fc0996cf6527064a8b3d6e168dd33e542ac1efe311ebffb2939b",
+      "response_review": {
+        "status": "supported",
+        "note": "用户对本清单逐条审阅后在本次对话明确回复“已逐条审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条确认本claim及其引用支持关系：凸透镜对光有会聚作用。"
+        }
+      ]
+    },
+    {
+      "case_id": "answer-20",
+      "category": "answer",
+      "question": "如何计算物体密度？",
+      "reference_fact": "物体的密度等于质量与体积之比。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "物体的密度等于质量与体积之比。[1]",
+      "citations": [
+        {
+          "subject_id": 2,
+          "subject_name": "physics",
+          "material_id": "release-20",
+          "material_title": "知识点20",
+          "chunk_id": 20,
+          "chunk_index": 1,
+          "generation_id": 20,
+          "source_hash": "7e9837db6f7764013a37bb9248ec72491e0b4038513af3fae438eed67c40e6f3",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 37
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 37,
+          "offset_basis": "source",
+          "excerpt": "物体的密度等于质量与体积之比。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 22,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-20",
+            20,
+            7,
+            22
+          ],
+          "quotes": [
+            {
+              "text": "物体的密度等于质量与体积之比。",
+              "source_span": {
+                "start": 7,
+                "end": 22
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "物体的密度等于质量与体积之比。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "物体的密度等于质量与体积之比。",
+              "source_span": {
+                "start": 7,
+                "end": 22
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "dd121b7a1df2091431eed4b216c5b1801e677fa8f67ee5d3b4cbe8f1daaa2c7f",
+      "response_review": {
+        "status": "supported",
+        "note": "用户对本清单逐条审阅后在本次对话明确回复“已逐条审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条确认本claim及其引用支持关系：物体的密度等于质量与体积之比。"
+        }
+      ]
+    },
+    {
+      "case_id": "answer-21",
+      "category": "answer",
+      "question": "酸溶液的pH有什么特点？",
+      "reference_fact": "酸溶液的pH小于7。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "酸溶液的pH小于7。[1]",
+      "citations": [
+        {
+          "subject_id": 3,
+          "subject_name": "chemistry",
+          "material_id": "release-21",
+          "material_title": "知识点21",
+          "chunk_id": 21,
+          "chunk_index": 1,
+          "generation_id": 21,
+          "source_hash": "f3b85e99e53fa4ad0870713958b3bc23aceb8d47dd77146764e4a69e1fe241b1",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 32
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 32,
+          "offset_basis": "source",
+          "excerpt": "酸溶液的pH小于7。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 17,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-21",
+            21,
+            7,
+            17
+          ],
+          "quotes": [
+            {
+              "text": "酸溶液的pH小于7。",
+              "source_span": {
+                "start": 7,
+                "end": 17
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "酸溶液的pH小于7。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "酸溶液的pH小于7。",
+              "source_span": {
+                "start": 7,
+                "end": 17
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "2e53699cd6a32d4cba0675975680622adeee9471035e7e30ed9d9420bf7c097b",
+      "response_review": {
+        "status": "supported",
+        "note": "用户对本清单逐条审阅后在本次对话明确回复“已逐条审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条确认本claim及其引用支持关系：酸溶液的pH小于7。"
+        }
+      ]
+    },
+    {
+      "case_id": "answer-22",
+      "category": "answer",
+      "question": "碱溶液的pH有什么特点？",
+      "reference_fact": "碱溶液的pH大于7。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "碱溶液的pH大于7。[1]",
+      "citations": [
+        {
+          "subject_id": 3,
+          "subject_name": "chemistry",
+          "material_id": "release-22",
+          "material_title": "知识点22",
+          "chunk_id": 22,
+          "chunk_index": 1,
+          "generation_id": 22,
+          "source_hash": "eba7d91ccfb6ee7a6d20f7fe2b0b2ed2a91c29aa6d84954eef334679f6f555f1",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 32
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 32,
+          "offset_basis": "source",
+          "excerpt": "碱溶液的pH大于7。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 17,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-22",
+            22,
+            7,
+            17
+          ],
+          "quotes": [
+            {
+              "text": "碱溶液的pH大于7。",
+              "source_span": {
+                "start": 7,
+                "end": 17
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "碱溶液的pH大于7。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "碱溶液的pH大于7。",
+              "source_span": {
+                "start": 7,
+                "end": 17
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "18d1aa7a2dffa25045c5422f9329eea33dd97a653160ceb0205b4c4cccc86cb7",
+      "response_review": {
+        "status": "supported",
+        "note": "用户对本清单逐条审阅后在本次对话明确回复“已逐条审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条确认本claim及其引用支持关系：碱溶液的pH大于7。"
+        }
+      ]
+    },
+    {
+      "case_id": "answer-23",
+      "category": "answer",
+      "question": "催化剂的特点是什么？",
+      "reference_fact": "催化剂能改变反应速率，自身质量和化学性质在反应前后不变。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "催化剂能改变反应速率，自身质量和化学性质在反应前后不变。[1]",
+      "citations": [
+        {
+          "subject_id": 3,
+          "subject_name": "chemistry",
+          "material_id": "release-23",
+          "material_title": "知识点23",
+          "chunk_id": 23,
+          "chunk_index": 1,
+          "generation_id": 23,
+          "source_hash": "8cfddae0fe6753f8690be3f1f46bb8781442c804695052de6d8b01c1905323b4",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 50
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 50,
+          "offset_basis": "source",
+          "excerpt": "催化剂能改变反应速率，自身质量和化学性质在反应前后不变。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 35,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-23",
+            23,
+            7,
+            35
+          ],
+          "quotes": [
+            {
+              "text": "催化剂能改变反应速率，自身质量和化学性质在反应前后不变。",
+              "source_span": {
+                "start": 7,
+                "end": 35
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "催化剂能改变反应速率，自身质量和化学性质在反应前后不变。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "催化剂能改变反应速率，自身质量和化学性质在反应前后不变。",
+              "source_span": {
+                "start": 7,
+                "end": 35
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "45fb6fed6aac0b65b41021305bf28c98cd8cd44c9e1909a47b23be0b55d786dd",
+      "response_review": {
+        "status": "supported",
+        "note": "用户对本清单逐条审阅后在本次对话明确回复“已逐条审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条确认本claim及其引用支持关系：催化剂能改变反应速率，自身质量和化学性质在反应前后不变。"
+        }
+      ]
+    },
+    {
+      "case_id": "answer-24",
+      "category": "answer",
+      "question": "铁生锈需要什么条件？",
+      "reference_fact": "铁生锈需要同时接触氧气和水。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "铁生锈需要同时接触氧气和水。[1]",
+      "citations": [
+        {
+          "subject_id": 3,
+          "subject_name": "chemistry",
+          "material_id": "release-24",
+          "material_title": "知识点24",
+          "chunk_id": 24,
+          "chunk_index": 1,
+          "generation_id": 24,
+          "source_hash": "dbd24e2f12a2ca03deda24885ca8f70aa9cdb5ca5e7b93de8003ae7783ab2105",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 36
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 36,
+          "offset_basis": "source",
+          "excerpt": "铁生锈需要同时接触氧气和水。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 21,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-24",
+            24,
+            7,
+            21
+          ],
+          "quotes": [
+            {
+              "text": "铁生锈需要同时接触氧气和水。",
+              "source_span": {
+                "start": 7,
+                "end": 21
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "铁生锈需要同时接触氧气和水。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "铁生锈需要同时接触氧气和水。",
+              "source_span": {
+                "start": 7,
+                "end": 21
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "2e377f50fe5db7507c6bfd86a98c6bb6ffc1d1ef9408a859f6ccfdb48f4a5beb",
+      "response_review": {
+        "status": "supported",
+        "note": "用户对本清单逐条审阅后在本次对话明确回复“已逐条审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条确认本claim及其引用支持关系：铁生锈需要同时接触氧气和水。"
+        }
+      ]
+    },
+    {
+      "case_id": "answer-25",
+      "category": "answer",
+      "question": "质量守恒定律适用于什么过程？",
+      "reference_fact": "质量守恒定律适用于化学反应。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "质量守恒定律适用于化学反应。[1]",
+      "citations": [
+        {
+          "subject_id": 3,
+          "subject_name": "chemistry",
+          "material_id": "release-25",
+          "material_title": "知识点25",
+          "chunk_id": 25,
+          "chunk_index": 1,
+          "generation_id": 25,
+          "source_hash": "54e9ead056919ec3e2e653aaab3fbb98af493caaf8a16d88c35795c676bac177",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 36
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 36,
+          "offset_basis": "source",
+          "excerpt": "质量守恒定律适用于化学反应。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 21,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-25",
+            25,
+            7,
+            21
+          ],
+          "quotes": [
+            {
+              "text": "质量守恒定律适用于化学反应。",
+              "source_span": {
+                "start": 7,
+                "end": 21
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "质量守恒定律适用于化学反应。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "质量守恒定律适用于化学反应。",
+              "source_span": {
+                "start": 7,
+                "end": 21
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "f9ab1cad5684835f2288793ef5c0a94336b452ffb5732aadd80a53f47fa29082",
+      "response_review": {
+        "status": "supported",
+        "note": "用户对本清单逐条审阅后在本次对话明确回复“已逐条审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条确认本claim及其引用支持关系：质量守恒定律适用于化学反应。"
+        }
+      ]
+    },
+    {
+      "case_id": "answer-26",
+      "category": "answer",
+      "question": "三角形内角和是多少？",
+      "reference_fact": "三角形内角和等于180度。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "三角形内角和等于180度。[1]",
+      "citations": [
+        {
+          "subject_id": 4,
+          "subject_name": "math",
+          "material_id": "release-26",
+          "material_title": "知识点26",
+          "chunk_id": 26,
+          "chunk_index": 1,
+          "generation_id": 26,
+          "source_hash": "0d36beea04139bd3bea85fb4222005ccce275119d19236d6b6997ccb129daf43",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 35
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 35,
+          "offset_basis": "source",
+          "excerpt": "三角形内角和等于180度。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 20,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-26",
+            26,
+            7,
+            20
+          ],
+          "quotes": [
+            {
+              "text": "三角形内角和等于180度。",
+              "source_span": {
+                "start": 7,
+                "end": 20
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "三角形内角和等于180度。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "三角形内角和等于180度。",
+              "source_span": {
+                "start": 7,
+                "end": 20
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "82d996cdda8bfd9edfd002265103e09e07f4bb3ced8a8820ff6baeb4fedb36f9",
+      "response_review": {
+        "status": "supported",
+        "note": "用户对本清单逐条审阅后在本次对话明确回复“已逐条审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条确认本claim及其引用支持关系：三角形内角和等于180度。"
+        }
+      ]
+    },
+    {
+      "case_id": "answer-27",
+      "category": "answer",
+      "question": "平行四边形的对边有什么特点？",
+      "reference_fact": "平行四边形的对边平行且相等。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "平行四边形的对边平行且相等。[1]",
+      "citations": [
+        {
+          "subject_id": 4,
+          "subject_name": "math",
+          "material_id": "release-27",
+          "material_title": "知识点27",
+          "chunk_id": 27,
+          "chunk_index": 1,
+          "generation_id": 27,
+          "source_hash": "398c97c42a0dd34cbbdc0f382081f18caaf87e0cebd969e4d89d73e2045cf5b0",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 36
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 36,
+          "offset_basis": "source",
+          "excerpt": "平行四边形的对边平行且相等。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 21,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-27",
+            27,
+            7,
+            21
+          ],
+          "quotes": [
+            {
+              "text": "平行四边形的对边平行且相等。",
+              "source_span": {
+                "start": 7,
+                "end": 21
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "平行四边形的对边平行且相等。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "平行四边形的对边平行且相等。",
+              "source_span": {
+                "start": 7,
+                "end": 21
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "c04e7e88e576074e3959e574387a50258d95012888238fecaf48d9068ec441b2",
+      "response_review": {
+        "status": "supported",
+        "note": "用户对本清单逐条审阅后在本次对话明确回复“已逐条审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条确认本claim及其引用支持关系：平行四边形的对边平行且相等。"
+        }
+      ]
+    },
+    {
+      "case_id": "answer-28",
+      "category": "answer",
+      "question": "一次函数的图像是什么？",
+      "reference_fact": "一次函数的图像是一条直线。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "一次函数的图像是一条直线。[1]",
+      "citations": [
+        {
+          "subject_id": 4,
+          "subject_name": "math",
+          "material_id": "release-28",
+          "material_title": "知识点28",
+          "chunk_id": 28,
+          "chunk_index": 1,
+          "generation_id": 28,
+          "source_hash": "c8d20a03014e073a0e4c077d2e0dd7ef60282e8a1a4734295be52052a8632af0",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 35
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 35,
+          "offset_basis": "source",
+          "excerpt": "一次函数的图像是一条直线。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 20,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-28",
+            28,
+            7,
+            20
+          ],
+          "quotes": [
+            {
+              "text": "一次函数的图像是一条直线。",
+              "source_span": {
+                "start": 7,
+                "end": 20
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "一次函数的图像是一条直线。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "一次函数的图像是一条直线。",
+              "source_span": {
+                "start": 7,
+                "end": 20
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "c73207e994f75fc5235b53f76a30a39abfbd863a314cab8dab66c2d243ff946c",
+      "response_review": {
+        "status": "supported",
+        "note": "用户对本清单逐条审阅后在本次对话明确回复“已逐条审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条确认本claim及其引用支持关系：一次函数的图像是一条直线。"
+        }
+      ]
+    },
+    {
+      "case_id": "answer-29",
+      "category": "answer",
+      "question": "如何由直径计算圆周长？",
+      "reference_fact": "圆的周长等于直径乘以圆周率。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "圆的周长等于直径乘以圆周率。[1]",
+      "citations": [
+        {
+          "subject_id": 4,
+          "subject_name": "math",
+          "material_id": "release-29",
+          "material_title": "知识点29",
+          "chunk_id": 29,
+          "chunk_index": 1,
+          "generation_id": 29,
+          "source_hash": "af5e1590e18ebc39a1e0370d909b322f1f162322e98b62d794dc00dcb235057e",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 36
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 36,
+          "offset_basis": "source",
+          "excerpt": "圆的周长等于直径乘以圆周率。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 21,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-29",
+            29,
+            7,
+            21
+          ],
+          "quotes": [
+            {
+              "text": "圆的周长等于直径乘以圆周率。",
+              "source_span": {
+                "start": 7,
+                "end": 21
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "圆的周长等于直径乘以圆周率。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "圆的周长等于直径乘以圆周率。",
+              "source_span": {
+                "start": 7,
+                "end": 21
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "addf84a392b80eb232e2cc5dc579308f7bbe64dece3934752d3a1b846c05ed4e",
+      "response_review": {
+        "status": "supported",
+        "note": "用户对本清单逐条审阅后在本次对话明确回复“已逐条审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条确认本claim及其引用支持关系：圆的周长等于直径乘以圆周率。"
+        }
+      ]
+    },
+    {
+      "case_id": "answer-30",
+      "category": "answer",
+      "question": "平均数如何计算？",
+      "reference_fact": "平均数等于数据总和除以数据个数。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "平均数等于数据总和除以数据个数。[1]",
+      "citations": [
+        {
+          "subject_id": 4,
+          "subject_name": "math",
+          "material_id": "release-30",
+          "material_title": "知识点30",
+          "chunk_id": 30,
+          "chunk_index": 1,
+          "generation_id": 30,
+          "source_hash": "7914135fa57350cce491a841d9d840fd2c21ca5875e721be241caa99899e2a7c",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 38
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 38,
+          "offset_basis": "source",
+          "excerpt": "平均数等于数据总和除以数据个数。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 23,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-30",
+            30,
+            7,
+            23
+          ],
+          "quotes": [
+            {
+              "text": "平均数等于数据总和除以数据个数。",
+              "source_span": {
+                "start": 7,
+                "end": 23
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "平均数等于数据总和除以数据个数。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "平均数等于数据总和除以数据个数。",
+              "source_span": {
+                "start": 7,
+                "end": 23
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "97fda4a37550e19c76fbe74976b6a91f9dd78b4af40cbaeb3bb327dc32901506",
+      "response_review": {
+        "status": "supported",
+        "note": "用户对本清单逐条审阅后在本次对话明确回复“已逐条审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条确认本claim及其引用支持关系：平均数等于数据总和除以数据个数。"
+        }
+      ]
+    },
+    {
+      "case_id": "adversarial-01",
+      "category": "adversarial",
+      "question": "遗传信息主要存在细胞膜吗",
+      "reference_fact": "遗传信息主要储存在细胞核中。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "遗传信息主要储存在细胞核中。[1]",
+      "citations": [
+        {
+          "subject_id": 1,
+          "subject_name": "biology",
+          "material_id": "release-05",
+          "material_title": "知识点5",
+          "chunk_id": 5,
+          "chunk_index": 1,
+          "generation_id": 5,
+          "source_hash": "db6053708e3612810701c97030d19722802fbe1103d7d0dfca9b823c579d9c71",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 36
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 36,
+          "offset_basis": "source",
+          "excerpt": "遗传信息主要储存在细胞核中。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 21,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-05",
+            5,
+            7,
+            21
+          ],
+          "quotes": [
+            {
+              "text": "遗传信息主要储存在细胞核中。",
+              "source_span": {
+                "start": 7,
+                "end": 21
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "遗传信息主要储存在细胞核中。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "遗传信息主要储存在细胞核中。",
+              "source_span": {
+                "start": 7,
+                "end": 21
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "d8958a8ef5814db086a0745659b103cce3bb9d67fca83f42b8a3dd6754deec8d",
+      "response_review": {
+        "status": "supported",
+        "note": "用户对本清单逐条审阅后在本次对话明确回复“已逐条审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条确认本claim及其引用支持关系：遗传信息主要储存在细胞核中。"
+        }
+      ]
+    },
+    {
+      "case_id": "adversarial-02",
+      "category": "adversarial",
+      "question": "线粒体主要用于光合作用吗",
+      "reference_fact": "线粒体为细胞的生命活动提供能量。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "线粒体为细胞的生命活动提供能量。[1]",
+      "citations": [
+        {
+          "subject_id": 1,
+          "subject_name": "biology",
+          "material_id": "release-03",
+          "material_title": "知识点3",
+          "chunk_id": 3,
+          "chunk_index": 1,
+          "generation_id": 3,
+          "source_hash": "6393e6bbfaa62ec1a46fc3fe433000e08dbf5bef342226bc73e46acbe2a2018e",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 38
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 38,
+          "offset_basis": "source",
+          "excerpt": "线粒体为细胞的生命活动提供能量。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 23,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-03",
+            3,
+            7,
+            23
+          ],
+          "quotes": [
+            {
+              "text": "线粒体为细胞的生命活动提供能量。",
+              "source_span": {
+                "start": 7,
+                "end": 23
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "线粒体为细胞的生命活动提供能量。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "线粒体为细胞的生命活动提供能量。",
+              "source_span": {
+                "start": 7,
+                "end": 23
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "4fac32788e4086d364aeaef218dcdd696d88b77666eb333141811cb0dbdde1bb",
+      "response_review": {
+        "status": "supported",
+        "note": "用户在2026-10-14本次对话明确回复“13 条变化项已审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条核对变化后的本claim及引用：线粒体为细胞的生命活动提供能量。"
+        }
+      ]
+    },
+    {
+      "case_id": "adversarial-03",
+      "category": "adversarial",
+      "question": "同种电荷是否相互吸引",
+      "reference_fact": "同种电荷相互排斥，异种电荷相互吸引。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "同种电荷相互排斥，异种电荷相互吸引。[1]",
+      "citations": [
+        {
+          "subject_id": 2,
+          "subject_name": "physics",
+          "material_id": "release-11",
+          "material_title": "知识点11",
+          "chunk_id": 11,
+          "chunk_index": 1,
+          "generation_id": 11,
+          "source_hash": "2d0d9d95d10d12b5624801f91744846bcca90ee8cfc861defbbb97a8b9e942c2",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 40
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 40,
+          "offset_basis": "source",
+          "excerpt": "同种电荷相互排斥，异种电荷相互吸引。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 25,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-11",
+            11,
+            7,
+            25
+          ],
+          "quotes": [
+            {
+              "text": "同种电荷相互排斥，异种电荷相互吸引。",
+              "source_span": {
+                "start": 7,
+                "end": 25
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "同种电荷相互排斥，异种电荷相互吸引。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "同种电荷相互排斥，异种电荷相互吸引。",
+              "source_span": {
+                "start": 7,
+                "end": 25
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "386e13f8ca14c27cad7317add080f52611311040970972796e7cac192b87a073",
+      "response_review": {
+        "status": "supported",
+        "note": "用户在2026-10-14本次对话明确回复“13 条变化项已审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条核对变化后的本claim及引用：同种电荷相互排斥，异种电荷相互吸引。"
+        }
+      ]
+    },
+    {
+      "case_id": "adversarial-04",
+      "category": "adversarial",
+      "question": "异种电荷是否相互排斥",
+      "reference_fact": "同种电荷相互排斥，异种电荷相互吸引。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "异种电荷相互吸引。[1]",
+      "citations": [
+        {
+          "subject_id": 2,
+          "subject_name": "physics",
+          "material_id": "release-11",
+          "material_title": "知识点11",
+          "chunk_id": 11,
+          "chunk_index": 1,
+          "generation_id": 11,
+          "source_hash": "2d0d9d95d10d12b5624801f91744846bcca90ee8cfc861defbbb97a8b9e942c2",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 40
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 40,
+          "offset_basis": "source",
+          "excerpt": "同种电荷相互排斥，异种电荷相互吸引。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 25,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-11",
+            11,
+            7,
+            25
+          ],
+          "quotes": [
+            {
+              "text": "同种电荷相互排斥，异种电荷相互吸引。",
+              "source_span": {
+                "start": 7,
+                "end": 25
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "异种电荷相互吸引。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "同种电荷相互排斥，异种电荷相互吸引。",
+              "source_span": {
+                "start": 7,
+                "end": 25
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "7d8a82ed4d4741cc7d3252909b9d3b7127b8b39f8f3b6514b540f656fabe4479",
+      "response_review": {
+        "status": "supported",
+        "note": "用户在2026-10-14本次对话明确回复“13 条变化项已审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条核对变化后的本claim及引用：异种电荷相互吸引。"
+        }
+      ]
+    },
+    {
+      "case_id": "adversarial-05",
+      "category": "adversarial",
+      "question": "真空能够传播声音吗",
+      "reference_fact": "声音的传播需要介质，真空不能传声。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "声音的传播需要介质，真空不能传声。[1]",
+      "citations": [
+        {
+          "subject_id": 2,
+          "subject_name": "physics",
+          "material_id": "release-17",
+          "material_title": "知识点17",
+          "chunk_id": 17,
+          "chunk_index": 1,
+          "generation_id": 17,
+          "source_hash": "ebf48347ae3ba8a638a4f21a09f163443af59f333b839cc0ea0e42bf166f89f3",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 39
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 39,
+          "offset_basis": "source",
+          "excerpt": "声音的传播需要介质，真空不能传声。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 24,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-17",
+            17,
+            7,
+            24
+          ],
+          "quotes": [
+            {
+              "text": "声音的传播需要介质，真空不能传声。",
+              "source_span": {
+                "start": 7,
+                "end": 24
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "声音的传播需要介质，真空不能传声。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "声音的传播需要介质，真空不能传声。",
+              "source_span": {
+                "start": 7,
+                "end": 24
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "0ceb87a581de4b4cd6f4f62ac793f02a6c9139de07224b9c1e4e12f50427c458",
+      "response_review": {
+        "status": "supported",
+        "note": "用户在2026-10-14本次对话明确回复“13 条变化项已审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条核对变化后的本claim及引用：声音的传播需要介质，真空不能传声。"
+        }
+      ]
+    },
+    {
+      "case_id": "adversarial-06",
+      "category": "adversarial",
+      "question": "重力总是水平向右吗",
+      "reference_fact": "物体受到的重力方向总是竖直向下。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "不是，物体受到的重力方向总是竖直向下。[1]",
+      "citations": [
+        {
+          "subject_id": 2,
+          "subject_name": "physics",
+          "material_id": "release-15",
+          "material_title": "知识点15",
+          "chunk_id": 15,
+          "chunk_index": 1,
+          "generation_id": 15,
+          "source_hash": "312f60cca0c73c2ba52b6becbf55ef030a2d26ea2be4644b248d6b03babbb95d",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 38
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 38,
+          "offset_basis": "source",
+          "excerpt": "物体受到的重力方向总是竖直向下。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 23,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-15",
+            15,
+            7,
+            23
+          ],
+          "quotes": [
+            {
+              "text": "物体受到的重力方向总是竖直向下。",
+              "source_span": {
+                "start": 7,
+                "end": 23
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "不是，物体受到的重力方向总是竖直向下。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "物体受到的重力方向总是竖直向下。",
+              "source_span": {
+                "start": 7,
+                "end": 23
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "12f2f3b87f9cdd29ddec881091f28eab433fe7d644708b0d7d6d974df7d4814c",
+      "response_review": {
+        "status": "supported",
+        "note": "用户在2026-10-14本次对话明确回复“13 条变化项已审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条核对变化后的本claim及引用：不是，物体受到的重力方向总是竖直向下。"
+        }
+      ]
+    },
+    {
+      "case_id": "adversarial-07",
+      "category": "adversarial",
+      "question": "酸溶液的pH大于7吗",
+      "reference_fact": "酸溶液的pH小于7。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "酸溶液的pH小于7。[1]",
+      "citations": [
+        {
+          "subject_id": 3,
+          "subject_name": "chemistry",
+          "material_id": "release-21",
+          "material_title": "知识点21",
+          "chunk_id": 21,
+          "chunk_index": 1,
+          "generation_id": 21,
+          "source_hash": "f3b85e99e53fa4ad0870713958b3bc23aceb8d47dd77146764e4a69e1fe241b1",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 32
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 32,
+          "offset_basis": "source",
+          "excerpt": "酸溶液的pH小于7。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 17,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-21",
+            21,
+            7,
+            17
+          ],
+          "quotes": [
+            {
+              "text": "酸溶液的pH小于7。",
+              "source_span": {
+                "start": 7,
+                "end": 17
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "酸溶液的pH小于7。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "酸溶液的pH小于7。",
+              "source_span": {
+                "start": 7,
+                "end": 17
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "0d097ef90621f9b1d8e1a5f944e13df977130abff2baa8dce59ebbd7d36f9336",
+      "response_review": {
+        "status": "supported",
+        "note": "用户对本清单逐条审阅后在本次对话明确回复“已逐条审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条确认本claim及其引用支持关系：酸溶液的pH小于7。"
+        }
+      ]
+    },
+    {
+      "case_id": "adversarial-08",
+      "category": "adversarial",
+      "question": "碱溶液的pH小于7吗",
+      "reference_fact": "碱溶液的pH大于7。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "碱溶液的pH大于7。[1]",
+      "citations": [
+        {
+          "subject_id": 3,
+          "subject_name": "chemistry",
+          "material_id": "release-22",
+          "material_title": "知识点22",
+          "chunk_id": 22,
+          "chunk_index": 1,
+          "generation_id": 22,
+          "source_hash": "eba7d91ccfb6ee7a6d20f7fe2b0b2ed2a91c29aa6d84954eef334679f6f555f1",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 32
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 32,
+          "offset_basis": "source",
+          "excerpt": "碱溶液的pH大于7。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 17,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-22",
+            22,
+            7,
+            17
+          ],
+          "quotes": [
+            {
+              "text": "碱溶液的pH大于7。",
+              "source_span": {
+                "start": 7,
+                "end": 17
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "碱溶液的pH大于7。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "碱溶液的pH大于7。",
+              "source_span": {
+                "start": 7,
+                "end": 17
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "13ad72d3620408e29018b311ba3443b57a796b3380d890286df21021f5fd6156",
+      "response_review": {
+        "status": "supported",
+        "note": "用户对本清单逐条审阅后在本次对话明确回复“已逐条审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条确认本claim及其引用支持关系：碱溶液的pH大于7。"
+        }
+      ]
+    },
+    {
+      "case_id": "adversarial-09",
+      "category": "adversarial",
+      "question": "三角形内角和是360度吗",
+      "reference_fact": "三角形内角和等于180度。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "三角形内角和等于180度。[1]",
+      "citations": [
+        {
+          "subject_id": 4,
+          "subject_name": "math",
+          "material_id": "release-26",
+          "material_title": "知识点26",
+          "chunk_id": 26,
+          "chunk_index": 1,
+          "generation_id": 26,
+          "source_hash": "0d36beea04139bd3bea85fb4222005ccce275119d19236d6b6997ccb129daf43",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 35
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 35,
+          "offset_basis": "source",
+          "excerpt": "三角形内角和等于180度。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 20,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-26",
+            26,
+            7,
+            20
+          ],
+          "quotes": [
+            {
+              "text": "三角形内角和等于180度。",
+              "source_span": {
+                "start": 7,
+                "end": 20
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "三角形内角和等于180度。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "三角形内角和等于180度。",
+              "source_span": {
+                "start": 7,
+                "end": 20
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "63db1ad2aca26abbd697959850051c36c1777200d18d3cb032dfbc8aa78ab886",
+      "response_review": {
+        "status": "supported",
+        "note": "用户对本清单逐条审阅后在本次对话明确回复“已逐条审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条确认本claim及其引用支持关系：三角形内角和等于180度。"
+        }
+      ]
+    },
+    {
+      "case_id": "adversarial-10",
+      "category": "adversarial",
+      "question": "凸透镜会使光发散吗",
+      "reference_fact": "凸透镜对光有会聚作用。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "凸透镜对光有会聚作用。[1]",
+      "citations": [
+        {
+          "subject_id": 2,
+          "subject_name": "physics",
+          "material_id": "release-19",
+          "material_title": "知识点19",
+          "chunk_id": 19,
+          "chunk_index": 1,
+          "generation_id": 19,
+          "source_hash": "768fafc4143633799613faa858c540366d4b523b45364fd2cdb835e15255357a",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 33
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 33,
+          "offset_basis": "source",
+          "excerpt": "凸透镜对光有会聚作用。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 18,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-19",
+            19,
+            7,
+            18
+          ],
+          "quotes": [
+            {
+              "text": "凸透镜对光有会聚作用。",
+              "source_span": {
+                "start": 7,
+                "end": 18
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "凸透镜对光有会聚作用。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "凸透镜对光有会聚作用。",
+              "source_span": {
+                "start": 7,
+                "end": 18
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "6231d36dd50e6144582392fec6b51fd5d624df75dbda079f03e1b559d3e8ce59",
+      "response_review": {
+        "status": "supported",
+        "note": "用户对本清单逐条审阅后在本次对话明确回复“已逐条审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条确认本claim及其引用支持关系：凸透镜对光有会聚作用。"
+        }
+      ]
+    },
+    {
+      "case_id": "adversarial-11",
+      "category": "adversarial",
+      "question": "惯性会随速度改变吗",
+      "reference_fact": "资料只有惯性的定义，未说明惯性与速度的关系。",
+      "expected_status": "insufficient",
+      "run_status": "ok",
+      "answer": "资料不足以回答该问题",
+      "citations": [],
+      "claims": [],
+      "result_hash": "f22379203a0e3715d0a97c046c6b0a33622532509ec4befb9e92dd18fecd368b",
+      "response_review": {
+        "status": "supported",
+        "note": "用户对本清单逐条审阅后在本次对话明确回复“已逐条审阅，全部支持”。"
+      },
+      "claim_reviews": []
+    },
+    {
+      "case_id": "adversarial-12",
+      "category": "adversarial",
+      "question": "只有氧气没有水铁必定生锈吗",
+      "reference_fact": "铁生锈需要同时接触氧气和水。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "铁生锈需要同时接触氧气和水，只有氧气没有水不能使铁必定生锈。[1]",
+      "citations": [
+        {
+          "subject_id": 3,
+          "subject_name": "chemistry",
+          "material_id": "release-24",
+          "material_title": "知识点24",
+          "chunk_id": 24,
+          "chunk_index": 1,
+          "generation_id": 24,
+          "source_hash": "dbd24e2f12a2ca03deda24885ca8f70aa9cdb5ca5e7b93de8003ae7783ab2105",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 36
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 36,
+          "offset_basis": "source",
+          "excerpt": "铁生锈需要同时接触氧气和水。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 21,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-24",
+            24,
+            7,
+            21
+          ],
+          "quotes": [
+            {
+              "text": "铁生锈需要同时接触氧气和水。",
+              "source_span": {
+                "start": 7,
+                "end": 21
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "铁生锈需要同时接触氧气和水，只有氧气没有水不能使铁必定生锈。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "铁生锈需要同时接触氧气和水。",
+              "source_span": {
+                "start": 7,
+                "end": 21
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "f61fec1dc6ce8b0569615cc316e5fb7c3e47a712723572a511293efdb793bf9b",
+      "response_review": {
+        "status": "supported",
+        "note": "用户在2026-10-14本次对话明确回复“13 条变化项已审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条核对变化后的本claim及引用：铁生锈需要同时接触氧气和水，只有氧气没有水不能使铁必定生锈。"
+        }
+      ]
+    },
+    {
+      "case_id": "adversarial-13",
+      "category": "adversarial",
+      "question": "导管主要运输糖吗",
+      "reference_fact": "导管负责在植物体内运输水和无机盐。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "导管负责在植物体内运输水和无机盐。[1]",
+      "citations": [
+        {
+          "subject_id": 1,
+          "subject_name": "biology",
+          "material_id": "release-10",
+          "material_title": "知识点10",
+          "chunk_id": 10,
+          "chunk_index": 1,
+          "generation_id": 10,
+          "source_hash": "966fb9f24dd51e7e411c5fc99080516658b79be03a6ad320c55c09da03f9535f",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 39
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 39,
+          "offset_basis": "source",
+          "excerpt": "导管负责在植物体内运输水和无机盐。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 24,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-10",
+            10,
+            7,
+            24
+          ],
+          "quotes": [
+            {
+              "text": "导管负责在植物体内运输水和无机盐。",
+              "source_span": {
+                "start": 7,
+                "end": 24
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "导管负责在植物体内运输水和无机盐。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "导管负责在植物体内运输水和无机盐。",
+              "source_span": {
+                "start": 7,
+                "end": 24
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "3481128025d2e527bf9aa7781a7723310228d80c29674fe89087cf10ef5a916a",
+      "response_review": {
+        "status": "supported",
+        "note": "用户对本清单逐条审阅后在本次对话明确回复“已逐条审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条确认本claim及其引用支持关系：导管负责在植物体内运输水和无机盐。"
+        }
+      ]
+    },
+    {
+      "case_id": "adversarial-14",
+      "category": "adversarial",
+      "question": "细胞核调节物质进出吗",
+      "reference_fact": "细胞膜能控制物质进出细胞。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "细胞膜能控制物质进出细胞。[1]",
+      "citations": [
+        {
+          "subject_id": 1,
+          "subject_name": "biology",
+          "material_id": "release-04",
+          "material_title": "知识点4",
+          "chunk_id": 4,
+          "chunk_index": 1,
+          "generation_id": 4,
+          "source_hash": "d7b31aabf9ec120370bce65c1b04a428e70c7a129b68885ad66b6768d5ebf88e",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 35
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 35,
+          "offset_basis": "source",
+          "excerpt": "细胞膜能控制物质进出细胞。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 20,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-04",
+            4,
+            7,
+            20
+          ],
+          "quotes": [
+            {
+              "text": "细胞膜能控制物质进出细胞。",
+              "source_span": {
+                "start": 7,
+                "end": 20
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "细胞膜能控制物质进出细胞。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "细胞膜能控制物质进出细胞。",
+              "source_span": {
+                "start": 7,
+                "end": 20
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "02c86e38bacbcd80fbd93b2e206c09d33fd0da8ab86986bdb324876901c018ea",
+      "response_review": {
+        "status": "supported",
+        "note": "用户对本清单逐条审阅后在本次对话明确回复“已逐条审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条确认本claim及其引用支持关系：细胞膜能控制物质进出细胞。"
+        }
+      ]
+    },
+    {
+      "case_id": "adversarial-15",
+      "category": "adversarial",
+      "question": "呼吸作用制造有机物吗",
+      "reference_fact": "呼吸作用分解有机物，释放能量。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "呼吸作用分解有机物，释放能量。[1]",
+      "citations": [
+        {
+          "subject_id": 1,
+          "subject_name": "biology",
+          "material_id": "release-08",
+          "material_title": "知识点8",
+          "chunk_id": 8,
+          "chunk_index": 1,
+          "generation_id": 8,
+          "source_hash": "661bd13ebaa1c2de4a2cf50c9be4611be8ba24d3584e33c90f502c3793ae715d",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 37
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 37,
+          "offset_basis": "source",
+          "excerpt": "呼吸作用分解有机物，释放能量。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 22,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-08",
+            8,
+            7,
+            22
+          ],
+          "quotes": [
+            {
+              "text": "呼吸作用分解有机物，释放能量。",
+              "source_span": {
+                "start": 7,
+                "end": 22
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "呼吸作用分解有机物，释放能量。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "呼吸作用分解有机物，释放能量。",
+              "source_span": {
+                "start": 7,
+                "end": 22
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "5ab626628a7e6bad3fc15fef351888bf558c2bbefa7b948a10f4baffb3567619",
+      "response_review": {
+        "status": "supported",
+        "note": "用户在2026-10-14本次对话明确回复“13 条变化项已审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条核对变化后的本claim及引用：呼吸作用分解有机物，释放能量。"
+        }
+      ]
+    },
+    {
+      "case_id": "adversarial-16",
+      "category": "adversarial",
+      "question": "串联电路各处电流不同吗",
+      "reference_fact": "串联电路中各处电流相等。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "不是，串联电路中各处电流相等。[1]",
+      "citations": [
+        {
+          "subject_id": 2,
+          "subject_name": "physics",
+          "material_id": "release-13",
+          "material_title": "知识点13",
+          "chunk_id": 13,
+          "chunk_index": 1,
+          "generation_id": 13,
+          "source_hash": "9e7b8efebdb6cacb32a50cc4201c433181dc8716b6732b475568a0ac4cb5be6f",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 34
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 34,
+          "offset_basis": "source",
+          "excerpt": "串联电路中各处电流相等。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 19,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-13",
+            13,
+            7,
+            19
+          ],
+          "quotes": [
+            {
+              "text": "串联电路中各处电流相等。",
+              "source_span": {
+                "start": 7,
+                "end": 19
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "不是，串联电路中各处电流相等。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "串联电路中各处电流相等。",
+              "source_span": {
+                "start": 7,
+                "end": 19
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "1872088b5bf2badd4754676bf655c93c18092288a9d52459d53e77bd675d2fc2",
+      "response_review": {
+        "status": "supported",
+        "note": "用户在2026-10-14本次对话明确回复“13 条变化项已审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条核对变化后的本claim及引用：不是，串联电路中各处电流相等。"
+        }
+      ]
+    },
+    {
+      "case_id": "adversarial-17",
+      "category": "adversarial",
+      "question": "并联支路电压总是不等吗",
+      "reference_fact": "并联电路中各支路两端的电压相等。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "并联电路中各支路两端的电压相等。[1]",
+      "citations": [
+        {
+          "subject_id": 2,
+          "subject_name": "physics",
+          "material_id": "release-14",
+          "material_title": "知识点14",
+          "chunk_id": 14,
+          "chunk_index": 1,
+          "generation_id": 14,
+          "source_hash": "ffb7308631d5c8b7a8d7496269699948de7906efe142703ddd96f670b247e44f",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 38
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 38,
+          "offset_basis": "source",
+          "excerpt": "并联电路中各支路两端的电压相等。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 23,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-14",
+            14,
+            7,
+            23
+          ],
+          "quotes": [
+            {
+              "text": "并联电路中各支路两端的电压相等。",
+              "source_span": {
+                "start": 7,
+                "end": 23
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "并联电路中各支路两端的电压相等。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "并联电路中各支路两端的电压相等。",
+              "source_span": {
+                "start": 7,
+                "end": 23
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "a3e115b5238f30ca89f06401c443bfeffa66f5ef02f2cfba0be3f8dac7b817dd",
+      "response_review": {
+        "status": "supported",
+        "note": "用户对本清单逐条审阅后在本次对话明确回复“已逐条审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条确认本claim及其引用支持关系：并联电路中各支路两端的电压相等。"
+        }
+      ]
+    },
+    {
+      "case_id": "adversarial-18",
+      "category": "adversarial",
+      "question": "密度是体积除以质量吗",
+      "reference_fact": "物体的密度等于质量与体积之比。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "物体的密度等于质量与体积之比。[1]",
+      "citations": [
+        {
+          "subject_id": 2,
+          "subject_name": "physics",
+          "material_id": "release-20",
+          "material_title": "知识点20",
+          "chunk_id": 20,
+          "chunk_index": 1,
+          "generation_id": 20,
+          "source_hash": "7e9837db6f7764013a37bb9248ec72491e0b4038513af3fae438eed67c40e6f3",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 37
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 37,
+          "offset_basis": "source",
+          "excerpt": "物体的密度等于质量与体积之比。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 22,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-20",
+            20,
+            7,
+            22
+          ],
+          "quotes": [
+            {
+              "text": "物体的密度等于质量与体积之比。",
+              "source_span": {
+                "start": 7,
+                "end": 22
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "物体的密度等于质量与体积之比。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "物体的密度等于质量与体积之比。",
+              "source_span": {
+                "start": 7,
+                "end": 22
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "9f6b196cd9a8076fba980ca2f4520bb57e4e8e8bd654113e0eb9d64c125e384c",
+      "response_review": {
+        "status": "supported",
+        "note": "用户在2026-10-14本次对话明确回复“13 条变化项已审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条核对变化后的本claim及引用：物体的密度等于质量与体积之比。"
+        }
+      ]
+    },
+    {
+      "case_id": "adversarial-19",
+      "category": "adversarial",
+      "question": "圆周长等于直径除以圆周率吗",
+      "reference_fact": "圆的周长等于直径乘以圆周率。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "圆的周长等于直径乘以圆周率，而非除以圆周率。[1]",
+      "citations": [
+        {
+          "subject_id": 4,
+          "subject_name": "math",
+          "material_id": "release-29",
+          "material_title": "知识点29",
+          "chunk_id": 29,
+          "chunk_index": 1,
+          "generation_id": 29,
+          "source_hash": "af5e1590e18ebc39a1e0370d909b322f1f162322e98b62d794dc00dcb235057e",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 36
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 36,
+          "offset_basis": "source",
+          "excerpt": "圆的周长等于直径乘以圆周率。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 21,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-29",
+            29,
+            7,
+            21
+          ],
+          "quotes": [
+            {
+              "text": "圆的周长等于直径乘以圆周率。",
+              "source_span": {
+                "start": 7,
+                "end": 21
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "圆的周长等于直径乘以圆周率，而非除以圆周率。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "圆的周长等于直径乘以圆周率。",
+              "source_span": {
+                "start": 7,
+                "end": 21
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "2e19b142146bdec817fe9a07d3a3c560fb7447769add85f8d57d65faee4347f0",
+      "response_review": {
+        "status": "supported",
+        "note": "用户在2026-10-14本次对话明确回复“13 条变化项已审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条核对变化后的本claim及引用：圆的周长等于直径乘以圆周率，而非除以圆周率。"
+        }
+      ]
+    },
+    {
+      "case_id": "adversarial-20",
+      "category": "adversarial",
+      "question": "平均数等于总和乘以个数吗",
+      "reference_fact": "平均数等于数据总和除以数据个数。",
+      "expected_status": "answered",
+      "run_status": "ok",
+      "answer": "不是，平均数等于数据总和除以数据个数。[1]",
+      "citations": [
+        {
+          "subject_id": 4,
+          "subject_name": "math",
+          "material_id": "release-30",
+          "material_title": "知识点30",
+          "chunk_id": 30,
+          "chunk_index": 1,
+          "generation_id": 30,
+          "source_hash": "7914135fa57350cce491a841d9d840fd2c21ca5875e721be241caa99899e2a7c",
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 38
+            }
+          ],
+          "start_offset": 0,
+          "end_offset": 38,
+          "offset_basis": "source",
+          "excerpt": "平均数等于数据总和除以数据个数。",
+          "excerpt_start_offset": 7,
+          "excerpt_end_offset": 23,
+          "excerpt_truncated": true,
+          "offset_unit": "unicode_code_point",
+          "provenance_version": "source-map-v1",
+          "evidence_key": [
+            "release-30",
+            30,
+            7,
+            23
+          ],
+          "quotes": [
+            {
+              "text": "平均数等于数据总和除以数据个数。",
+              "source_span": {
+                "start": 7,
+                "end": 23
+              }
+            }
+          ]
+        }
+      ],
+      "claims": [
+        {
+          "text": "不是，平均数等于数据总和除以数据个数。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "平均数等于数据总和除以数据个数。",
+              "source_span": {
+                "start": 7,
+                "end": 23
+              }
+            }
+          ]
+        }
+      ],
+      "result_hash": "a2c0e9835abddf4198daa197bced2f4a10f25fcbcd457e4cba6cd15fd7f5e0d5",
+      "response_review": {
+        "status": "supported",
+        "note": "用户在2026-10-14本次对话明确回复“13 条变化项已审阅，全部支持”。"
+      },
+      "claim_reviews": [
+        {
+          "status": "supported",
+          "note": "用户已逐条核对变化后的本claim及引用：不是，平均数等于数据总和除以数据个数。"
+        }
+      ]
+    }
+  ]
+}

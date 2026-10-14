@@ -107,10 +107,14 @@ LEGACY_DEMO_USERNAMES = frozenset(
 
 def initialize_database() -> None:
     _install_postgres_extensions()
+    from .retrieval_schema import prepare_legacy_tables, finish_retrieval_upgrade
+    prepare_legacy_tables()
     db.create_all()
     _upgrade_subject_schema()
     _upgrade_authorization_only_auth()
     _install_retrieval_indexes()
+    finish_retrieval_upgrade()
+    _record_schema_upgrade("20261013_retrieval_quality_contract")
     _record_schema_upgrade("20260929_traceable_retrieval")
     if current_app.config["SEED_DEMO_DATA"]:
         seed_demo_data()
@@ -119,7 +123,8 @@ def initialize_database() -> None:
     # Existing materials receive an idempotent auto-strategy generation at startup.
     from .indexing import backfill_entries
 
-    backfill_entries()
+    if current_app.config["EMBEDDING_PROVIDER"] == "deterministic" and current_app.config["EMBEDDING_DIMENSIONS"] == 64:
+        backfill_entries()
 
 
 def _add_column_if_missing(table: str, column: str, ddl: str) -> None:

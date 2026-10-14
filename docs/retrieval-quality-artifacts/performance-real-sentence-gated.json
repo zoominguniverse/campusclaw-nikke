@@ -1,0 +1,5226 @@
+{
+  "profile_fingerprint": "340c5e8586b85a9473c8f940bee385108cf146f8522480315c1a98ddca5a8bbe",
+  "processing_version": "source-map-v1;chunker-v2;jieba-0.42.1/default-dict+terms-v2",
+  "retrieval_version": "sentence-gated-v1",
+  "chat_prompt_version": "grounded-json-v2-exclusivity",
+  "reused_verified_fixture": true,
+  "active_chunks": 10000,
+  "scopes": 20,
+  "warmup_per_path": 20,
+  "measured_per_path": 100,
+  "exact_comparison_queries": 50,
+  "ann_enabled": false,
+  "recall10": 1.0,
+  "embedding_provider": "openai-compatible",
+  "embedding_model": "text-embedding-v4",
+  "embedding_revision": "local-bailian-v4-v1",
+  "chat_provider": "openai-compatible",
+  "chat_model": "deepseek-flash",
+  "dimensions": 1024,
+  "vector_threshold": 0.35,
+  "real_profile_gate": "passed",
+  "semantic_release_passed": false,
+  "hardware": {
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.41",
+    "cpu": "AMD Ryzen 7 9700X 8-Core Processor",
+    "logical_cpus": 16,
+    "memory_bytes": 7855575040
+  },
+  "extensions": {
+    "vector": "0.8.6",
+    "pg_trgm": "1.6"
+  },
+  "postgres": "16.15 (Debian 16.15-1.pgdg12+2)",
+  "stage_p95_ms": {
+    "keyword": {
+      "db": 44.25746199558489,
+      "embedding": 0.0,
+      "chat": 0.0,
+      "total": 53.24478399415966
+    },
+    "vector": {
+      "db": 26.300180012185592,
+      "embedding": 251.5723379983683,
+      "chat": 0.0,
+      "total": 296.78926099586533
+    },
+    "hybrid": {
+      "db": 68.40610699146055,
+      "embedding": 213.10460200038506,
+      "chat": 0.0,
+      "total": 301.5051519978442
+    },
+    "ask": {
+      "db": 74.51527002558578,
+      "embedding": 213.86586299922783,
+      "chat": 1237.4158390011871,
+      "total": 1434.0821650039288
+    }
+  },
+  "measurements": [
+    {
+      "mode": "keyword",
+      "scope": 0,
+      "latency_ms": {
+        "db": 37.99802698631538,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 52.23732799640857
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 1,
+      "latency_ms": {
+        "db": 40.01285300182644,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 48.88086800201563
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 2,
+      "latency_ms": {
+        "db": 49.308450004900806,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 58.19860399788013
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 3,
+      "latency_ms": {
+        "db": 43.43070400500437,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 51.71795600472251
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 4,
+      "latency_ms": {
+        "db": 38.883346009242814,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 46.884048999345396
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 5,
+      "latency_ms": {
+        "db": 40.55093599163229,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 48.70258300070418
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 6,
+      "latency_ms": {
+        "db": 39.15315899939742,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 47.20382900268305
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 7,
+      "latency_ms": {
+        "db": 42.49573601555312,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 50.53040799975861
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 8,
+      "latency_ms": {
+        "db": 40.42463500081794,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 48.70844699325971
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 9,
+      "latency_ms": {
+        "db": 37.84748899488477,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 44.87776799942367
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 10,
+      "latency_ms": {
+        "db": 44.6474510099506,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 59.250006001093425
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 11,
+      "latency_ms": {
+        "db": 36.057811994396616,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 75.68853099655826
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 12,
+      "latency_ms": {
+        "db": 36.47942699899431,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 46.94102999928873
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 13,
+      "latency_ms": {
+        "db": 37.89280199998757,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 47.21957899892004
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 14,
+      "latency_ms": {
+        "db": 38.368329012882896,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 46.900009001547005
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 15,
+      "latency_ms": {
+        "db": 39.14785698725609,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 47.29171999497339
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 16,
+      "latency_ms": {
+        "db": 35.41447799943853,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 42.652700998587534
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 17,
+      "latency_ms": {
+        "db": 36.424082005396485,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 44.091251998906955
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 18,
+      "latency_ms": {
+        "db": 35.44609199161641,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 44.13983600534266
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 19,
+      "latency_ms": {
+        "db": 34.8225259949686,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 42.2950009960914
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 0,
+      "latency_ms": {
+        "db": 39.160653002909385,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 46.663012995850295
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 1,
+      "latency_ms": {
+        "db": 39.61614998843288,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 47.36110999510856
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 2,
+      "latency_ms": {
+        "db": 39.34604099049466,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 47.20307500247145
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 3,
+      "latency_ms": {
+        "db": 38.72513899841579,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 47.6082699969993
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 4,
+      "latency_ms": {
+        "db": 39.444545000151265,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 48.69177199725527
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 5,
+      "latency_ms": {
+        "db": 38.98604402638739,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 46.62930800259346
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 6,
+      "latency_ms": {
+        "db": 37.291090993676335,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 45.00254400045378
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 7,
+      "latency_ms": {
+        "db": 37.71643999789376,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 45.11171399644809
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 8,
+      "latency_ms": {
+        "db": 39.760269995895214,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 48.10879500291776
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 9,
+      "latency_ms": {
+        "db": 40.1055080074002,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 48.1985199949122
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 10,
+      "latency_ms": {
+        "db": 41.33117699529976,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 50.719684004434384
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 11,
+      "latency_ms": {
+        "db": 43.61664499447215,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 51.89205599890556
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 12,
+      "latency_ms": {
+        "db": 41.961599003116135,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 50.24843299906934
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 13,
+      "latency_ms": {
+        "db": 46.34484300186159,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 54.871609005203936
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 14,
+      "latency_ms": {
+        "db": 43.74462299892912,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 52.133436998701654
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 15,
+      "latency_ms": {
+        "db": 41.251800997997634,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 49.87458899995545
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 16,
+      "latency_ms": {
+        "db": 44.48526500345906,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 53.24478399415966
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 17,
+      "latency_ms": {
+        "db": 39.937445006216876,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 48.37535299884621
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 18,
+      "latency_ms": {
+        "db": 40.937503006716724,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 49.49296300037531
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 19,
+      "latency_ms": {
+        "db": 41.724687012901995,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 50.02016099751927
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 0,
+      "latency_ms": {
+        "db": 38.5919640029897,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 46.94377299892949
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 1,
+      "latency_ms": {
+        "db": 39.80911599501269,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 47.778088999621104
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 2,
+      "latency_ms": {
+        "db": 37.93505300563993,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 45.93704100261675
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 3,
+      "latency_ms": {
+        "db": 38.85582200018689,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 46.29802700219443
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 4,
+      "latency_ms": {
+        "db": 37.59953399276128,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 46.703508000064176
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 5,
+      "latency_ms": {
+        "db": 42.71039098966867,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 53.212996004731394
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 6,
+      "latency_ms": {
+        "db": 39.10580999945523,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 47.309790999861434
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 7,
+      "latency_ms": {
+        "db": 40.7960969969281,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 49.73857800359838
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 8,
+      "latency_ms": {
+        "db": 38.32695699384203,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 46.778809002717026
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 9,
+      "latency_ms": {
+        "db": 38.090371002908796,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 46.15128499426646
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 10,
+      "latency_ms": {
+        "db": 41.98092300794087,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 49.98193900246406
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 11,
+      "latency_ms": {
+        "db": 39.61079698638059,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 47.09637699852465
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 12,
+      "latency_ms": {
+        "db": 46.70888300461229,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 55.02016800164711
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 13,
+      "latency_ms": {
+        "db": 40.672144990821835,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 47.75547600002028
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 14,
+      "latency_ms": {
+        "db": 41.239304016926326,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 49.26600099861389
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 15,
+      "latency_ms": {
+        "db": 42.25241200037999,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 50.3085199961788
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 16,
+      "latency_ms": {
+        "db": 41.7663339903811,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 49.18395300046541
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 17,
+      "latency_ms": {
+        "db": 42.558302004181314,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 51.235110993729904
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 18,
+      "latency_ms": {
+        "db": 39.89333698700648,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 47.12538899912033
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 19,
+      "latency_ms": {
+        "db": 41.1778869893169,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 48.86785199778387
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 0,
+      "latency_ms": {
+        "db": 38.77289201045642,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 47.08808899886208
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 1,
+      "latency_ms": {
+        "db": 37.38357899419498,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 45.04029300005641
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 2,
+      "latency_ms": {
+        "db": 39.42540200660005,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 46.68300699995598
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 3,
+      "latency_ms": {
+        "db": 38.5930549891782,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 46.55144899879815
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 4,
+      "latency_ms": {
+        "db": 38.58940199279459,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 46.08322900458006
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 5,
+      "latency_ms": {
+        "db": 38.475314002425876,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 45.80689900467405
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 6,
+      "latency_ms": {
+        "db": 37.95146999618737,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 45.483524998417124
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 7,
+      "latency_ms": {
+        "db": 37.84556299797259,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 44.949024995730724
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 8,
+      "latency_ms": {
+        "db": 39.53954899770906,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 47.094433997699525
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 9,
+      "latency_ms": {
+        "db": 37.41845999320503,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 44.61569999693893
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 10,
+      "latency_ms": {
+        "db": 42.842715010920074,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 50.76896699756617
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 11,
+      "latency_ms": {
+        "db": 40.599145999294706,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 49.05002400482772
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 12,
+      "latency_ms": {
+        "db": 41.09204398992006,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 49.29608299426036
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 13,
+      "latency_ms": {
+        "db": 39.3404379938147,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 46.82085000240477
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 14,
+      "latency_ms": {
+        "db": 43.40622799645644,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 51.415831003396306
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 15,
+      "latency_ms": {
+        "db": 42.782299999089446,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 51.03331200371031
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 16,
+      "latency_ms": {
+        "db": 43.668936006724834,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 52.1110910049174
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 17,
+      "latency_ms": {
+        "db": 41.22029500285862,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 50.59765899932245
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 18,
+      "latency_ms": {
+        "db": 42.65302001294913,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 50.86840900185052
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 19,
+      "latency_ms": {
+        "db": 41.38318799959961,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 49.30979100026889
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 0,
+      "latency_ms": {
+        "db": 44.25746199558489,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 52.48461600422161
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 1,
+      "latency_ms": {
+        "db": 41.25624499283731,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 49.53438499796903
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 2,
+      "latency_ms": {
+        "db": 41.508449998218566,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 48.712486001022626
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 3,
+      "latency_ms": {
+        "db": 43.38596800516825,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 50.77315800008364
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 4,
+      "latency_ms": {
+        "db": 41.95785900083138,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 50.35506199783413
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 5,
+      "latency_ms": {
+        "db": 42.88262000045506,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 50.76493300293805
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 6,
+      "latency_ms": {
+        "db": 39.82985000766348,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 48.11953099851962
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 7,
+      "latency_ms": {
+        "db": 41.17936800321331,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 49.1560290029156
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 8,
+      "latency_ms": {
+        "db": 39.86693000479136,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 47.599558005458675
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 9,
+      "latency_ms": {
+        "db": 40.9792469945387,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 48.67387199919904
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 10,
+      "latency_ms": {
+        "db": 37.37971499504056,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 44.83911299757892
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 11,
+      "latency_ms": {
+        "db": 37.31156900175847,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 44.744386003003456
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 12,
+      "latency_ms": {
+        "db": 36.56405601213919,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 45.65514099522261
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 13,
+      "latency_ms": {
+        "db": 37.82972200133372,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 45.66033000446623
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 14,
+      "latency_ms": {
+        "db": 39.53605300193885,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 47.48923699662555
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 15,
+      "latency_ms": {
+        "db": 39.62939199846005,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 47.90374699950917
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 16,
+      "latency_ms": {
+        "db": 37.443646004248876,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 45.32505400129594
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 17,
+      "latency_ms": {
+        "db": 37.785847001941875,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 44.96104799909517
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 18,
+      "latency_ms": {
+        "db": 39.15439499542117,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 46.75880500144558
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 19,
+      "latency_ms": {
+        "db": 39.08501499972772,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 46.75388100440614
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 0,
+      "latency_ms": {
+        "db": 22.09192799637094,
+        "embedding": 125.60235999990255,
+        "chat": 0.0,
+        "total": 168.14531099953456
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 1,
+      "latency_ms": {
+        "db": 20.78803098993376,
+        "embedding": 96.35498699935852,
+        "chat": 0.0,
+        "total": 137.4863670062041
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 2,
+      "latency_ms": {
+        "db": 21.59037101228023,
+        "embedding": 80.63931100332411,
+        "chat": 0.0,
+        "total": 122.28206000145292
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 3,
+      "latency_ms": {
+        "db": 22.680996000417508,
+        "embedding": 88.42039800219936,
+        "chat": 0.0,
+        "total": 131.91846800327767
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 4,
+      "latency_ms": {
+        "db": 21.369578993471805,
+        "embedding": 156.77390700147953,
+        "chat": 0.0,
+        "total": 201.5252299970598
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 5,
+      "latency_ms": {
+        "db": 23.90251701581292,
+        "embedding": 100.38057500059949,
+        "chat": 0.0,
+        "total": 146.56232899869792
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 6,
+      "latency_ms": {
+        "db": 22.397056018235162,
+        "embedding": 92.11552899796516,
+        "chat": 0.0,
+        "total": 135.3884519994608
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 7,
+      "latency_ms": {
+        "db": 21.586999006103724,
+        "embedding": 89.45416899950942,
+        "chat": 0.0,
+        "total": 131.1022750014672
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 8,
+      "latency_ms": {
+        "db": 22.13238699187059,
+        "embedding": 86.82774099725066,
+        "chat": 0.0,
+        "total": 128.49862599978223
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 9,
+      "latency_ms": {
+        "db": 22.274192015174776,
+        "embedding": 93.32884699688293,
+        "chat": 0.0,
+        "total": 135.16422599786893
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 10,
+      "latency_ms": {
+        "db": 22.67168799880892,
+        "embedding": 93.39681099663721,
+        "chat": 0.0,
+        "total": 136.1624710043543
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 11,
+      "latency_ms": {
+        "db": 23.14288300112821,
+        "embedding": 243.61630499333842,
+        "chat": 0.0,
+        "total": 287.47409700008575
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 12,
+      "latency_ms": {
+        "db": 25.877884982037358,
+        "embedding": 86.75622099690372,
+        "chat": 0.0,
+        "total": 136.8201300065266
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 13,
+      "latency_ms": {
+        "db": 25.058032995730173,
+        "embedding": 151.20916299929377,
+        "chat": 0.0,
+        "total": 201.03058100357885
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 14,
+      "latency_ms": {
+        "db": 24.041660013608634,
+        "embedding": 177.10838800121564,
+        "chat": 0.0,
+        "total": 225.25325400056317
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 15,
+      "latency_ms": {
+        "db": 22.91097799752606,
+        "embedding": 182.36558300122852,
+        "chat": 0.0,
+        "total": 228.36684199864976
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 16,
+      "latency_ms": {
+        "db": 22.36733301106142,
+        "embedding": 95.6555529992329,
+        "chat": 0.0,
+        "total": 137.98010400205385
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 17,
+      "latency_ms": {
+        "db": 26.40607999637723,
+        "embedding": 140.452062994882,
+        "chat": 0.0,
+        "total": 187.356501002796
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 18,
+      "latency_ms": {
+        "db": 23.69361698947614,
+        "embedding": 80.89372100221226,
+        "chat": 0.0,
+        "total": 124.33122999937041
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 19,
+      "latency_ms": {
+        "db": 23.732848996587563,
+        "embedding": 115.53106099745492,
+        "chat": 0.0,
+        "total": 160.69709099974716
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 0,
+      "latency_ms": {
+        "db": 23.375463017146103,
+        "embedding": 395.76457800285425,
+        "chat": 0.0,
+        "total": 441.80408899410395
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 1,
+      "latency_ms": {
+        "db": 24.361652998777572,
+        "embedding": 84.95297899935395,
+        "chat": 0.0,
+        "total": 130.68184700387064
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 2,
+      "latency_ms": {
+        "db": 22.42765000119107,
+        "embedding": 82.5502819934627,
+        "chat": 0.0,
+        "total": 126.26531100249849
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 3,
+      "latency_ms": {
+        "db": 22.6570550003089,
+        "embedding": 1086.2228760015569,
+        "chat": 0.0,
+        "total": 1130.9237520035822
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 4,
+      "latency_ms": {
+        "db": 28.341460987576284,
+        "embedding": 165.67362799833063,
+        "chat": 0.0,
+        "total": 215.77396700013196
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 5,
+      "latency_ms": {
+        "db": 26.300180012185592,
+        "embedding": 123.3540949979215,
+        "chat": 0.0,
+        "total": 170.61509199993452
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 6,
+      "latency_ms": {
+        "db": 26.122743991436437,
+        "embedding": 77.59575600357493,
+        "chat": 0.0,
+        "total": 124.255336006172
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 7,
+      "latency_ms": {
+        "db": 23.755027999868616,
+        "embedding": 125.20813500304939,
+        "chat": 0.0,
+        "total": 169.60014999494888
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 8,
+      "latency_ms": {
+        "db": 22.53953300532885,
+        "embedding": 174.7456839948427,
+        "chat": 0.0,
+        "total": 220.4067569982726
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 9,
+      "latency_ms": {
+        "db": 21.46677500422811,
+        "embedding": 99.30186899873661,
+        "chat": 0.0,
+        "total": 142.54008100397186
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 10,
+      "latency_ms": {
+        "db": 22.231454000575468,
+        "embedding": 88.28515200002585,
+        "chat": 0.0,
+        "total": 130.65248599741608
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 11,
+      "latency_ms": {
+        "db": 21.882644992729183,
+        "embedding": 90.59532300307183,
+        "chat": 0.0,
+        "total": 132.0509020006284
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 12,
+      "latency_ms": {
+        "db": 23.244068994245026,
+        "embedding": 106.21157400601078,
+        "chat": 0.0,
+        "total": 154.56578099838225
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 13,
+      "latency_ms": {
+        "db": 24.131441008648835,
+        "embedding": 99.0693099956843,
+        "chat": 0.0,
+        "total": 142.80738300294615
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 14,
+      "latency_ms": {
+        "db": 24.325372993189376,
+        "embedding": 87.64749500551261,
+        "chat": 0.0,
+        "total": 133.88536899583414
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 15,
+      "latency_ms": {
+        "db": 24.008321008295752,
+        "embedding": 102.16534599749139,
+        "chat": 0.0,
+        "total": 147.65997100039385
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 16,
+      "latency_ms": {
+        "db": 21.69933700497495,
+        "embedding": 82.94323100562906,
+        "chat": 0.0,
+        "total": 124.64561199885793
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 17,
+      "latency_ms": {
+        "db": 22.438895000959747,
+        "embedding": 95.12452100170776,
+        "chat": 0.0,
+        "total": 138.62802400399232
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 18,
+      "latency_ms": {
+        "db": 23.262516013346612,
+        "embedding": 94.4566499965731,
+        "chat": 0.0,
+        "total": 140.32562699867412
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 19,
+      "latency_ms": {
+        "db": 23.026505994494073,
+        "embedding": 93.6867189957411,
+        "chat": 0.0,
+        "total": 137.4981960034347
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 0,
+      "latency_ms": {
+        "db": 21.194105989707168,
+        "embedding": 84.83271599834552,
+        "chat": 0.0,
+        "total": 128.02021599782165
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 1,
+      "latency_ms": {
+        "db": 23.952204996021464,
+        "embedding": 87.01203599775909,
+        "chat": 0.0,
+        "total": 133.0498799943598
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 2,
+      "latency_ms": {
+        "db": 26.870299996517133,
+        "embedding": 91.01124700100627,
+        "chat": 0.0,
+        "total": 138.5604129973217
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 3,
+      "latency_ms": {
+        "db": 22.03524600918172,
+        "embedding": 189.0777779990458,
+        "chat": 0.0,
+        "total": 231.76322199287824
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 4,
+      "latency_ms": {
+        "db": 25.45498999825213,
+        "embedding": 89.0796349995071,
+        "chat": 0.0,
+        "total": 135.89595400117105
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 5,
+      "latency_ms": {
+        "db": 22.21768799063284,
+        "embedding": 91.32087099715136,
+        "chat": 0.0,
+        "total": 133.11277200409677
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 6,
+      "latency_ms": {
+        "db": 21.75601000635652,
+        "embedding": 95.00125799968373,
+        "chat": 0.0,
+        "total": 136.36653299909085
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 7,
+      "latency_ms": {
+        "db": 21.96428798197303,
+        "embedding": 177.4865960032912,
+        "chat": 0.0,
+        "total": 221.98021700023673
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 8,
+      "latency_ms": {
+        "db": 22.16872498684097,
+        "embedding": 91.6966520017013,
+        "chat": 0.0,
+        "total": 135.31604199670255
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 9,
+      "latency_ms": {
+        "db": 26.12326200323878,
+        "embedding": 133.71342200116487,
+        "chat": 0.0,
+        "total": 181.40738999500172
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 10,
+      "latency_ms": {
+        "db": 28.21058701374568,
+        "embedding": 100.66175399697386,
+        "chat": 0.0,
+        "total": 148.80568299849983
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 11,
+      "latency_ms": {
+        "db": 27.428195004176814,
+        "embedding": 177.8955009940546,
+        "chat": 0.0,
+        "total": 228.20383699581726
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 12,
+      "latency_ms": {
+        "db": 22.86841400928097,
+        "embedding": 86.42197999870405,
+        "chat": 0.0,
+        "total": 130.2732170006493
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 13,
+      "latency_ms": {
+        "db": 24.07317500183126,
+        "embedding": 104.70777400041698,
+        "chat": 0.0,
+        "total": 149.02978100144537
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 14,
+      "latency_ms": {
+        "db": 24.749870994128287,
+        "embedding": 85.38981300080195,
+        "chat": 0.0,
+        "total": 131.6363950027153
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 15,
+      "latency_ms": {
+        "db": 22.14977899711812,
+        "embedding": 911.2540329952026,
+        "chat": 0.0,
+        "total": 955.379229002574
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 16,
+      "latency_ms": {
+        "db": 22.40856697608251,
+        "embedding": 277.7663390006637,
+        "chat": 0.0,
+        "total": 323.031448002439
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 17,
+      "latency_ms": {
+        "db": 22.590746011701412,
+        "embedding": 86.65323699824512,
+        "chat": 0.0,
+        "total": 129.98730500112288
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 18,
+      "latency_ms": {
+        "db": 22.306850994937122,
+        "embedding": 94.53551099431934,
+        "chat": 0.0,
+        "total": 138.17292100429768
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 19,
+      "latency_ms": {
+        "db": 21.49083600670565,
+        "embedding": 87.82628399785608,
+        "chat": 0.0,
+        "total": 166.5087779983878
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 0,
+      "latency_ms": {
+        "db": 24.388075995375402,
+        "embedding": 678.4073730013915,
+        "chat": 0.0,
+        "total": 724.8079959972529
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 1,
+      "latency_ms": {
+        "db": 22.541069985891227,
+        "embedding": 147.71542599919485,
+        "chat": 0.0,
+        "total": 191.0636760003399
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 2,
+      "latency_ms": {
+        "db": 24.54934899287764,
+        "embedding": 251.5723379983683,
+        "chat": 0.0,
+        "total": 296.78926099586533
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 3,
+      "latency_ms": {
+        "db": 23.67830300499918,
+        "embedding": 134.97463199746562,
+        "chat": 0.0,
+        "total": 179.29672099853633
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 4,
+      "latency_ms": {
+        "db": 22.007407002092805,
+        "embedding": 102.36520100443158,
+        "chat": 0.0,
+        "total": 144.55754499795148
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 5,
+      "latency_ms": {
+        "db": 21.486779005499557,
+        "embedding": 81.69821099727415,
+        "chat": 0.0,
+        "total": 123.62059299630346
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 6,
+      "latency_ms": {
+        "db": 21.752710999862757,
+        "embedding": 83.06454699777532,
+        "chat": 0.0,
+        "total": 125.22048400569474
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 7,
+      "latency_ms": {
+        "db": 21.139724005479366,
+        "embedding": 175.856247995398,
+        "chat": 0.0,
+        "total": 217.16269399621524
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 8,
+      "latency_ms": {
+        "db": 22.007216997735668,
+        "embedding": 99.01668100064853,
+        "chat": 0.0,
+        "total": 143.22791500308085
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 9,
+      "latency_ms": {
+        "db": 21.99105400359258,
+        "embedding": 227.03298200212885,
+        "chat": 0.0,
+        "total": 271.0070449975319
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 10,
+      "latency_ms": {
+        "db": 24.088664991722908,
+        "embedding": 82.85309299390065,
+        "chat": 0.0,
+        "total": 127.7635040023597
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 11,
+      "latency_ms": {
+        "db": 22.379266993084457,
+        "embedding": 81.7377480052528,
+        "chat": 0.0,
+        "total": 124.6184350020485
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 12,
+      "latency_ms": {
+        "db": 25.097710997215472,
+        "embedding": 82.40329900581855,
+        "chat": 0.0,
+        "total": 128.11635100661078
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 13,
+      "latency_ms": {
+        "db": 22.59029798733536,
+        "embedding": 101.31220400216989,
+        "chat": 0.0,
+        "total": 144.3233780009905
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 14,
+      "latency_ms": {
+        "db": 22.26473100745352,
+        "embedding": 78.94407200365094,
+        "chat": 0.0,
+        "total": 121.05111699929694
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 15,
+      "latency_ms": {
+        "db": 21.641815001203213,
+        "embedding": 102.60295199987013,
+        "chat": 0.0,
+        "total": 144.1819250030676
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 16,
+      "latency_ms": {
+        "db": 23.840454989112914,
+        "embedding": 90.13709699502215,
+        "chat": 0.0,
+        "total": 137.13460800499888
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 17,
+      "latency_ms": {
+        "db": 22.240480000618845,
+        "embedding": 84.83774699561764,
+        "chat": 0.0,
+        "total": 127.21951900311979
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 18,
+      "latency_ms": {
+        "db": 23.595131999172736,
+        "embedding": 139.29824200022267,
+        "chat": 0.0,
+        "total": 183.6008620011853
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 19,
+      "latency_ms": {
+        "db": 22.34998799394816,
+        "embedding": 119.38054100028239,
+        "chat": 0.0,
+        "total": 161.6409990019747
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 0,
+      "latency_ms": {
+        "db": 21.55804799258476,
+        "embedding": 83.1822199979797,
+        "chat": 0.0,
+        "total": 126.14213400229346
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 1,
+      "latency_ms": {
+        "db": 22.71710899367463,
+        "embedding": 192.93193399789743,
+        "chat": 0.0,
+        "total": 237.31211099948268
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 2,
+      "latency_ms": {
+        "db": 22.105937998276204,
+        "embedding": 89.53211700281827,
+        "chat": 0.0,
+        "total": 132.73339299485087
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 3,
+      "latency_ms": {
+        "db": 21.74783499503974,
+        "embedding": 83.99854799790774,
+        "chat": 0.0,
+        "total": 126.60249899636256
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 4,
+      "latency_ms": {
+        "db": 23.307203999138437,
+        "embedding": 84.605867996288,
+        "chat": 0.0,
+        "total": 129.72366400208557
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 5,
+      "latency_ms": {
+        "db": 22.2261970047839,
+        "embedding": 114.22349899658002,
+        "chat": 0.0,
+        "total": 157.74416400381597
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 6,
+      "latency_ms": {
+        "db": 24.007384992728475,
+        "embedding": 93.69466600037413,
+        "chat": 0.0,
+        "total": 139.36900399858132
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 7,
+      "latency_ms": {
+        "db": 21.09327400830807,
+        "embedding": 90.91652899951441,
+        "chat": 0.0,
+        "total": 132.42340500437422
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 8,
+      "latency_ms": {
+        "db": 24.05456898850389,
+        "embedding": 124.05244399997173,
+        "chat": 0.0,
+        "total": 170.5155259987805
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 9,
+      "latency_ms": {
+        "db": 22.624359997280408,
+        "embedding": 140.3785450020223,
+        "chat": 0.0,
+        "total": 185.72276999475434
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 10,
+      "latency_ms": {
+        "db": 23.05382100166753,
+        "embedding": 113.27872399851913,
+        "chat": 0.0,
+        "total": 157.40719199675368
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 11,
+      "latency_ms": {
+        "db": 22.154885999043472,
+        "embedding": 97.6391069998499,
+        "chat": 0.0,
+        "total": 139.14594200468855
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 12,
+      "latency_ms": {
+        "db": 21.229879013844766,
+        "embedding": 90.54854700661963,
+        "chat": 0.0,
+        "total": 131.18616300198482
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 13,
+      "latency_ms": {
+        "db": 21.97063099447405,
+        "embedding": 90.07310799643165,
+        "chat": 0.0,
+        "total": 133.11615400016308
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 14,
+      "latency_ms": {
+        "db": 22.447191004175693,
+        "embedding": 72.63722499919822,
+        "chat": 0.0,
+        "total": 115.40571500518126
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 15,
+      "latency_ms": {
+        "db": 23.58315699530067,
+        "embedding": 77.918506001879,
+        "chat": 0.0,
+        "total": 122.60919700202066
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 16,
+      "latency_ms": {
+        "db": 23.467156002880074,
+        "embedding": 95.16090500255814,
+        "chat": 0.0,
+        "total": 139.8158309966675
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 17,
+      "latency_ms": {
+        "db": 23.224731005029753,
+        "embedding": 83.30807900347281,
+        "chat": 0.0,
+        "total": 127.2418779990403
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 18,
+      "latency_ms": {
+        "db": 21.327338021364994,
+        "embedding": 86.43810400099028,
+        "chat": 0.0,
+        "total": 128.04941700596828
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 19,
+      "latency_ms": {
+        "db": 21.421168006781954,
+        "embedding": 80.62767700175755,
+        "chat": 0.0,
+        "total": 122.2813119966304
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 0,
+      "latency_ms": {
+        "db": 59.05893999442924,
+        "embedding": 92.78828899550717,
+        "chat": 0.0,
+        "total": 177.80447300174274
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 1,
+      "latency_ms": {
+        "db": 57.64347100921441,
+        "embedding": 142.93341399752535,
+        "chat": 0.0,
+        "total": 227.4076920002699
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 2,
+      "latency_ms": {
+        "db": 60.94751699856715,
+        "embedding": 112.5656899966998,
+        "chat": 0.0,
+        "total": 199.7170600006939
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 3,
+      "latency_ms": {
+        "db": 57.522108996636234,
+        "embedding": 91.38829800212989,
+        "chat": 0.0,
+        "total": 174.15268000331707
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 4,
+      "latency_ms": {
+        "db": 60.269129993685056,
+        "embedding": 89.3327089943341,
+        "chat": 0.0,
+        "total": 174.20147800294217
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 5,
+      "latency_ms": {
+        "db": 60.96517600235529,
+        "embedding": 79.66234399646055,
+        "chat": 0.0,
+        "total": 168.0093949980801
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 6,
+      "latency_ms": {
+        "db": 58.903009005007334,
+        "embedding": 86.45602799515473,
+        "chat": 0.0,
+        "total": 172.2120830017957
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 7,
+      "latency_ms": {
+        "db": 57.94515600427985,
+        "embedding": 78.24923400039552,
+        "chat": 0.0,
+        "total": 161.91213399724802
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 8,
+      "latency_ms": {
+        "db": 57.04297299234895,
+        "embedding": 83.53072699537734,
+        "chat": 0.0,
+        "total": 164.57334000006085
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 9,
+      "latency_ms": {
+        "db": 57.30015099106822,
+        "embedding": 105.70213799655903,
+        "chat": 0.0,
+        "total": 188.98825399810448
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 10,
+      "latency_ms": {
+        "db": 66.56194499373669,
+        "embedding": 101.51881600177148,
+        "chat": 0.0,
+        "total": 198.31738599896198
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 11,
+      "latency_ms": {
+        "db": 63.987891997385304,
+        "embedding": 96.76398500596406,
+        "chat": 0.0,
+        "total": 185.94357899564784
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 12,
+      "latency_ms": {
+        "db": 60.94525799562689,
+        "embedding": 88.10972000355832,
+        "chat": 0.0,
+        "total": 173.36382500070613
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 13,
+      "latency_ms": {
+        "db": 62.321084005816374,
+        "embedding": 213.10460200038506,
+        "chat": 0.0,
+        "total": 301.5051519978442
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 14,
+      "latency_ms": {
+        "db": 59.39231301454129,
+        "embedding": 87.25858600519132,
+        "chat": 0.0,
+        "total": 172.27391299820738
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 15,
+      "latency_ms": {
+        "db": 62.065697988145985,
+        "embedding": 83.79439699638169,
+        "chat": 0.0,
+        "total": 173.84545999811962
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 16,
+      "latency_ms": {
+        "db": 61.33911100914702,
+        "embedding": 171.30960799840977,
+        "chat": 0.0,
+        "total": 259.49938999838196
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 17,
+      "latency_ms": {
+        "db": 61.22887600940885,
+        "embedding": 92.76534999662545,
+        "chat": 0.0,
+        "total": 178.7633679996361
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 18,
+      "latency_ms": {
+        "db": 60.401316011848394,
+        "embedding": 113.51037699932931,
+        "chat": 0.0,
+        "total": 197.68216900411062
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 19,
+      "latency_ms": {
+        "db": 60.42790901119588,
+        "embedding": 116.86600500252098,
+        "chat": 0.0,
+        "total": 205.7393540017074
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 0,
+      "latency_ms": {
+        "db": 60.58118099463172,
+        "embedding": 120.49509400094394,
+        "chat": 0.0,
+        "total": 206.28956600558013
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 1,
+      "latency_ms": {
+        "db": 58.46225100685842,
+        "embedding": 158.19563400145853,
+        "chat": 0.0,
+        "total": 241.71464599930914
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 2,
+      "latency_ms": {
+        "db": 57.24390501563903,
+        "embedding": 86.64953600236913,
+        "chat": 0.0,
+        "total": 167.96277999674203
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 3,
+      "latency_ms": {
+        "db": 58.71551599557279,
+        "embedding": 93.82716700201854,
+        "chat": 0.0,
+        "total": 177.7976269950159
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 4,
+      "latency_ms": {
+        "db": 57.77079501422122,
+        "embedding": 85.27129799767863,
+        "chat": 0.0,
+        "total": 169.40511699795024
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 5,
+      "latency_ms": {
+        "db": 62.570968009822536,
+        "embedding": 93.9370330015663,
+        "chat": 0.0,
+        "total": 184.31221799983177
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 6,
+      "latency_ms": {
+        "db": 59.965973981888965,
+        "embedding": 80.12444099585991,
+        "chat": 0.0,
+        "total": 204.67696499690646
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 7,
+      "latency_ms": {
+        "db": 58.12299399985932,
+        "embedding": 88.06314400135307,
+        "chat": 0.0,
+        "total": 170.3881560024456
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 8,
+      "latency_ms": {
+        "db": 59.53980999765918,
+        "embedding": 143.70516799681354,
+        "chat": 0.0,
+        "total": 228.40624100354034
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 9,
+      "latency_ms": {
+        "db": 57.84049899375532,
+        "embedding": 125.22458099556388,
+        "chat": 0.0,
+        "total": 208.66306699463166
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 10,
+      "latency_ms": {
+        "db": 59.66847099625738,
+        "embedding": 78.34144299704349,
+        "chat": 0.0,
+        "total": 164.03892100061057
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 11,
+      "latency_ms": {
+        "db": 60.267337001278065,
+        "embedding": 107.79476899915608,
+        "chat": 0.0,
+        "total": 191.71405899396632
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 12,
+      "latency_ms": {
+        "db": 59.99257900111843,
+        "embedding": 126.07285800186219,
+        "chat": 0.0,
+        "total": 212.46949899796164
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 13,
+      "latency_ms": {
+        "db": 59.779023002192844,
+        "embedding": 105.24041199823841,
+        "chat": 0.0,
+        "total": 191.97584300127346
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 14,
+      "latency_ms": {
+        "db": 57.84734099870548,
+        "embedding": 90.9199309971882,
+        "chat": 0.0,
+        "total": 174.8363189981319
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 15,
+      "latency_ms": {
+        "db": 72.43787701008841,
+        "embedding": 83.56391800043639,
+        "chat": 0.0,
+        "total": 189.6539759982261
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 16,
+      "latency_ms": {
+        "db": 64.02309800614603,
+        "embedding": 87.57996100030141,
+        "chat": 0.0,
+        "total": 179.11345299944514
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 17,
+      "latency_ms": {
+        "db": 64.04453500726959,
+        "embedding": 83.9060719954432,
+        "chat": 0.0,
+        "total": 173.4788409958128
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 18,
+      "latency_ms": {
+        "db": 60.69329599995399,
+        "embedding": 80.49299199774396,
+        "chat": 0.0,
+        "total": 169.72053900099127
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 19,
+      "latency_ms": {
+        "db": 68.24258300184738,
+        "embedding": 100.75606000464177,
+        "chat": 0.0,
+        "total": 195.90379299916094
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 0,
+      "latency_ms": {
+        "db": 60.776389997045044,
+        "embedding": 90.85428300022613,
+        "chat": 0.0,
+        "total": 176.70003400417045
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 1,
+      "latency_ms": {
+        "db": 59.35989600402536,
+        "embedding": 85.75716199993622,
+        "chat": 0.0,
+        "total": 172.8421329971752
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 2,
+      "latency_ms": {
+        "db": 61.268740995728876,
+        "embedding": 78.88029600144364,
+        "chat": 0.0,
+        "total": 166.20676700404147
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 3,
+      "latency_ms": {
+        "db": 58.35448700963752,
+        "embedding": 89.2146620026324,
+        "chat": 0.0,
+        "total": 172.23341299541062
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 4,
+      "latency_ms": {
+        "db": 58.87416900077369,
+        "embedding": 98.7849559969618,
+        "chat": 0.0,
+        "total": 183.1088559993077
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 5,
+      "latency_ms": {
+        "db": 59.79800200293539,
+        "embedding": 101.88369300158229,
+        "chat": 0.0,
+        "total": 185.39017799776047
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 6,
+      "latency_ms": {
+        "db": 63.07855200429913,
+        "embedding": 532.694443994842,
+        "chat": 0.0,
+        "total": 621.5782509971177
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 7,
+      "latency_ms": {
+        "db": 65.4058670043014,
+        "embedding": 77.66991900280118,
+        "chat": 0.0,
+        "total": 166.93733199645067
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 8,
+      "latency_ms": {
+        "db": 64.40900801680982,
+        "embedding": 90.92521900311112,
+        "chat": 0.0,
+        "total": 180.05374600033974
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 9,
+      "latency_ms": {
+        "db": 74.1852800201741,
+        "embedding": 86.45860599790467,
+        "chat": 0.0,
+        "total": 192.27811800374184
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 10,
+      "latency_ms": {
+        "db": 70.92794198979391,
+        "embedding": 84.92939699499402,
+        "chat": 0.0,
+        "total": 189.4556340048439
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 11,
+      "latency_ms": {
+        "db": 68.40610699146055,
+        "embedding": 90.92636500281515,
+        "chat": 0.0,
+        "total": 185.87612300325418
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 12,
+      "latency_ms": {
+        "db": 64.48855300550349,
+        "embedding": 90.6196270007058,
+        "chat": 0.0,
+        "total": 180.08145200292347
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 13,
+      "latency_ms": {
+        "db": 66.91622799553443,
+        "embedding": 91.1473849992035,
+        "chat": 0.0,
+        "total": 183.57445500441827
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 14,
+      "latency_ms": {
+        "db": 62.47493300907081,
+        "embedding": 90.60261500417255,
+        "chat": 0.0,
+        "total": 178.05245899944566
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 15,
+      "latency_ms": {
+        "db": 65.27464000100736,
+        "embedding": 86.8906789983157,
+        "chat": 0.0,
+        "total": 176.89760699431645
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 16,
+      "latency_ms": {
+        "db": 65.12085498252418,
+        "embedding": 98.07000999717275,
+        "chat": 0.0,
+        "total": 190.34070099587552
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 17,
+      "latency_ms": {
+        "db": 60.1608819924877,
+        "embedding": 79.36167000298155,
+        "chat": 0.0,
+        "total": 170.45286999928067
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 18,
+      "latency_ms": {
+        "db": 59.564819996012375,
+        "embedding": 146.40672999667004,
+        "chat": 0.0,
+        "total": 232.38919100549538
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 19,
+      "latency_ms": {
+        "db": 60.13486001029378,
+        "embedding": 93.41528899676632,
+        "chat": 0.0,
+        "total": 178.83807200269075
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 0,
+      "latency_ms": {
+        "db": 72.2603360118228,
+        "embedding": 87.25342099933187,
+        "chat": 0.0,
+        "total": 193.93818599928636
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 1,
+      "latency_ms": {
+        "db": 57.719509008165915,
+        "embedding": 116.04167000041343,
+        "chat": 0.0,
+        "total": 201.60688999749254
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 2,
+      "latency_ms": {
+        "db": 58.57935000676662,
+        "embedding": 354.0965790016344,
+        "chat": 0.0,
+        "total": 437.6257119947695
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 3,
+      "latency_ms": {
+        "db": 56.90987800335279,
+        "embedding": 439.5274900016375,
+        "chat": 0.0,
+        "total": 522.2647039990989
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 4,
+      "latency_ms": {
+        "db": 58.051389023603406,
+        "embedding": 84.57253700180445,
+        "chat": 0.0,
+        "total": 166.54919400025392
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 5,
+      "latency_ms": {
+        "db": 60.77530600305181,
+        "embedding": 89.30106500338297,
+        "chat": 0.0,
+        "total": 175.4043980035931
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 6,
+      "latency_ms": {
+        "db": 58.75979499251116,
+        "embedding": 86.34754899685504,
+        "chat": 0.0,
+        "total": 169.31480400671717
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 7,
+      "latency_ms": {
+        "db": 58.75193700194359,
+        "embedding": 262.00663299823646,
+        "chat": 0.0,
+        "total": 344.42873100488214
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 8,
+      "latency_ms": {
+        "db": 58.5014769967529,
+        "embedding": 80.61415800329996,
+        "chat": 0.0,
+        "total": 164.11945800064132
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 9,
+      "latency_ms": {
+        "db": 59.56958299066173,
+        "embedding": 79.96634300070582,
+        "chat": 0.0,
+        "total": 165.21641600411385
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 10,
+      "latency_ms": {
+        "db": 59.07054999261163,
+        "embedding": 114.66697700234363,
+        "chat": 0.0,
+        "total": 197.66797200281871
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 11,
+      "latency_ms": {
+        "db": 59.520703012822196,
+        "embedding": 81.94324299984146,
+        "chat": 0.0,
+        "total": 165.0265490025049
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 12,
+      "latency_ms": {
+        "db": 60.90585800120607,
+        "embedding": 84.90102599898819,
+        "chat": 0.0,
+        "total": 170.00667699903715
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 13,
+      "latency_ms": {
+        "db": 64.8867150011938,
+        "embedding": 91.76732399646426,
+        "chat": 0.0,
+        "total": 181.176691003202
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 14,
+      "latency_ms": {
+        "db": 67.41545699333074,
+        "embedding": 147.05664399662055,
+        "chat": 0.0,
+        "total": 240.44748400046956
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 15,
+      "latency_ms": {
+        "db": 66.15739699191181,
+        "embedding": 107.87524700572249,
+        "chat": 0.0,
+        "total": 199.2661420008517
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 16,
+      "latency_ms": {
+        "db": 64.17468200379517,
+        "embedding": 95.27504399738973,
+        "chat": 0.0,
+        "total": 184.0134020021651
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 17,
+      "latency_ms": {
+        "db": 65.2185340077267,
+        "embedding": 153.00505699997302,
+        "chat": 0.0,
+        "total": 242.45609400531976
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 18,
+      "latency_ms": {
+        "db": 62.04022299061762,
+        "embedding": 141.93700600299053,
+        "chat": 0.0,
+        "total": 230.75637799774995
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 19,
+      "latency_ms": {
+        "db": 60.83154901716625,
+        "embedding": 81.32582800317323,
+        "chat": 0.0,
+        "total": 168.89215300034266
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 0,
+      "latency_ms": {
+        "db": 60.810857998149004,
+        "embedding": 91.39365400187671,
+        "chat": 0.0,
+        "total": 180.92836999858264
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 1,
+      "latency_ms": {
+        "db": 61.20870098675368,
+        "embedding": 97.28893300052732,
+        "chat": 0.0,
+        "total": 184.39188900083536
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 2,
+      "latency_ms": {
+        "db": 60.62821499654092,
+        "embedding": 84.46638799796347,
+        "chat": 0.0,
+        "total": 169.97892599465558
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 3,
+      "latency_ms": {
+        "db": 59.94117899535922,
+        "embedding": 101.37947800103575,
+        "chat": 0.0,
+        "total": 186.52404699969338
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 4,
+      "latency_ms": {
+        "db": 68.13942300505005,
+        "embedding": 81.73977899423335,
+        "chat": 0.0,
+        "total": 173.87966300157132
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 5,
+      "latency_ms": {
+        "db": 69.25136099016527,
+        "embedding": 391.5071219962556,
+        "chat": 0.0,
+        "total": 484.7535460066865
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 6,
+      "latency_ms": {
+        "db": 60.773908997362014,
+        "embedding": 84.8234479999519,
+        "chat": 0.0,
+        "total": 173.58075399533845
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 7,
+      "latency_ms": {
+        "db": 61.73435699020047,
+        "embedding": 79.28912300121738,
+        "chat": 0.0,
+        "total": 166.12709699984407
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 8,
+      "latency_ms": {
+        "db": 60.982798007898964,
+        "embedding": 78.53896800224902,
+        "chat": 0.0,
+        "total": 164.78905899566598
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 9,
+      "latency_ms": {
+        "db": 62.936942995293066,
+        "embedding": 90.36826500232564,
+        "chat": 0.0,
+        "total": 181.8197929969756
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 10,
+      "latency_ms": {
+        "db": 56.27372200251557,
+        "embedding": 89.63765499356668,
+        "chat": 0.0,
+        "total": 170.9157560035237
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 11,
+      "latency_ms": {
+        "db": 55.61389699141728,
+        "embedding": 87.71012399665779,
+        "chat": 0.0,
+        "total": 171.79775499971583
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 12,
+      "latency_ms": {
+        "db": 56.92070899385726,
+        "embedding": 138.2854830008,
+        "chat": 0.0,
+        "total": 221.89717100263806
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 13,
+      "latency_ms": {
+        "db": 57.100152982457075,
+        "embedding": 80.69485500163864,
+        "chat": 0.0,
+        "total": 201.1460680005257
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 14,
+      "latency_ms": {
+        "db": 57.768942999246065,
+        "embedding": 81.13496699661482,
+        "chat": 0.0,
+        "total": 166.10038499493385
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 15,
+      "latency_ms": {
+        "db": 55.85859099664958,
+        "embedding": 91.88773700589081,
+        "chat": 0.0,
+        "total": 175.23501899995608
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 16,
+      "latency_ms": {
+        "db": 59.52610899839783,
+        "embedding": 77.41624499612954,
+        "chat": 0.0,
+        "total": 161.19445399817778
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 17,
+      "latency_ms": {
+        "db": 66.15111997962231,
+        "embedding": 82.9725369985681,
+        "chat": 0.0,
+        "total": 181.53329600318102
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 18,
+      "latency_ms": {
+        "db": 63.84130400692811,
+        "embedding": 87.77442899736343,
+        "chat": 0.0,
+        "total": 179.48739699932048
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 19,
+      "latency_ms": {
+        "db": 58.22595999779878,
+        "embedding": 92.49851600179682,
+        "chat": 0.0,
+        "total": 177.8675169989583
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 0,
+      "latency_ms": {
+        "db": 69.48655200540088,
+        "embedding": 117.2387170008733,
+        "chat": 967.5941989989951,
+        "total": 1183.3052539950586
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 1,
+      "latency_ms": {
+        "db": 64.08096197264967,
+        "embedding": 88.02470500086201,
+        "chat": 862.7344050037209,
+        "total": 1046.675970996148
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 2,
+      "latency_ms": {
+        "db": 64.59931498829974,
+        "embedding": 87.36689100624062,
+        "chat": 1081.6731289960444,
+        "total": 1263.132523999957
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 3,
+      "latency_ms": {
+        "db": 69.84053700580262,
+        "embedding": 140.42535800399492,
+        "chat": 803.4194930005469,
+        "total": 1045.0908940038062
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 4,
+      "latency_ms": {
+        "db": 72.3055310008931,
+        "embedding": 94.85976900032256,
+        "chat": 717.748697999923,
+        "total": 916.940427996451
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 5,
+      "latency_ms": {
+        "db": 68.50155902793631,
+        "embedding": 91.4260080025997,
+        "chat": 632.3199370017392,
+        "total": 824.3760959958308
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 6,
+      "latency_ms": {
+        "db": 70.41308895713883,
+        "embedding": 131.85434299521148,
+        "chat": 1004.9953999987338,
+        "total": 1236.3746449991595
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 7,
+      "latency_ms": {
+        "db": 73.41088399698492,
+        "embedding": 94.07304799970007,
+        "chat": 1104.8127670001122,
+        "total": 1308.6210929977824
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 8,
+      "latency_ms": {
+        "db": 68.34254700515885,
+        "embedding": 84.73647299979348,
+        "chat": 738.5791449996759,
+        "total": 923.4369069963577
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 9,
+      "latency_ms": {
+        "db": 64.45159898430575,
+        "embedding": 134.22042899765074,
+        "chat": 858.5280129991588,
+        "total": 1092.347615995095
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 10,
+      "latency_ms": {
+        "db": 75.0039190024836,
+        "embedding": 85.70939000492217,
+        "chat": 930.0912609978695,
+        "total": 1126.0004630021285
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 11,
+      "latency_ms": {
+        "db": 72.93148198368726,
+        "embedding": 86.28632600448327,
+        "chat": 945.4254320007749,
+        "total": 1139.2096290001064
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 12,
+      "latency_ms": {
+        "db": 81.83588199608494,
+        "embedding": 94.08545999758644,
+        "chat": 767.1241560019553,
+        "total": 979.7847089939751
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 13,
+      "latency_ms": {
+        "db": 64.77045698557049,
+        "embedding": 117.27922299905913,
+        "chat": 719.2947639996419,
+        "total": 931.1471159962821
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 14,
+      "latency_ms": {
+        "db": 69.98554500751197,
+        "embedding": 226.33704399777343,
+        "chat": 729.3689220023225,
+        "total": 1056.0256450044108
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 15,
+      "latency_ms": {
+        "db": 68.01030899805482,
+        "embedding": 120.48752400005469,
+        "chat": 1105.4410409997217,
+        "total": 1323.6764340035734
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 16,
+      "latency_ms": {
+        "db": 63.59375901229214,
+        "embedding": 193.69798400293803,
+        "chat": 976.2803960038582,
+        "total": 1261.5386540055624
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 17,
+      "latency_ms": {
+        "db": 101.01488900545519,
+        "embedding": 133.49046499934047,
+        "chat": 546.2615329961409,
+        "total": 818.3527619985398
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 18,
+      "latency_ms": {
+        "db": 72.13355001294985,
+        "embedding": 213.86586299922783,
+        "chat": 929.8692610027501,
+        "total": 1244.6049929931178
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 19,
+      "latency_ms": {
+        "db": 70.6556280129007,
+        "embedding": 123.70024400297552,
+        "chat": 951.1050669971155,
+        "total": 1186.5755670005456
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 0,
+      "latency_ms": {
+        "db": 68.51379599538632,
+        "embedding": 95.00226599629968,
+        "chat": 583.5516899969662,
+        "total": 778.5003660028451
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 1,
+      "latency_ms": {
+        "db": 64.44533298781607,
+        "embedding": 85.43070300220279,
+        "chat": 1104.217077998328,
+        "total": 1283.8482850056607
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 2,
+      "latency_ms": {
+        "db": 74.51527002558578,
+        "embedding": 105.11037700052839,
+        "chat": 839.3765630025882,
+        "total": 1052.4227249989053
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 3,
+      "latency_ms": {
+        "db": 65.92802900559036,
+        "embedding": 95.57779599708738,
+        "chat": 794.4814389993553,
+        "total": 988.0817070006742
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 4,
+      "latency_ms": {
+        "db": 74.01629599189619,
+        "embedding": 151.0214080044534,
+        "chat": 1076.1136740038637,
+        "total": 1332.273439002165
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 5,
+      "latency_ms": {
+        "db": 66.89283501327736,
+        "embedding": 92.32630400219932,
+        "chat": 526.5249029980623,
+        "total": 715.7414030007203
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 6,
+      "latency_ms": {
+        "db": 70.84783496975433,
+        "embedding": 75.05975700041745,
+        "chat": 599.584498006152,
+        "total": 780.291776995
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 7,
+      "latency_ms": {
+        "db": 68.99934100511018,
+        "embedding": 120.30137499823468,
+        "chat": 975.4835979983909,
+        "total": 1200.4460710013518
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 8,
+      "latency_ms": {
+        "db": 66.92830200336175,
+        "embedding": 153.25436599960085,
+        "chat": 813.3724689978408,
+        "total": 1063.7111899995944
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 9,
+      "latency_ms": {
+        "db": 66.38050699257292,
+        "embedding": 84.26440600305796,
+        "chat": 1245.500429002277,
+        "total": 1428.1691369978944
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 10,
+      "latency_ms": {
+        "db": 74.5972969889408,
+        "embedding": 117.33914999786066,
+        "chat": 741.1256170016713,
+        "total": 970.4782410044572
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 11,
+      "latency_ms": {
+        "db": 71.67836500593694,
+        "embedding": 87.0528329978697,
+        "chat": 1088.6774309983593,
+        "total": 1277.6441240057466
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 12,
+      "latency_ms": {
+        "db": 70.08724401384825,
+        "embedding": 85.53997000126401,
+        "chat": 654.2281610018108,
+        "total": 841.0314920038218
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 13,
+      "latency_ms": {
+        "db": 70.22926698118681,
+        "embedding": 117.60247399797663,
+        "chat": 825.2778649984975,
+        "total": 1042.838651999773
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 14,
+      "latency_ms": {
+        "db": 70.20366898359498,
+        "embedding": 196.97533499856945,
+        "chat": 738.687449003919,
+        "total": 1036.0953850031365
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 15,
+      "latency_ms": {
+        "db": 71.24998001381755,
+        "embedding": 85.39688699966064,
+        "chat": 890.1352729953942,
+        "total": 1078.2121720039868
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 16,
+      "latency_ms": {
+        "db": 71.46736400318332,
+        "embedding": 110.43077099748189,
+        "chat": 978.9332650034339,
+        "total": 1194.2153310010326
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 17,
+      "latency_ms": {
+        "db": 66.10123999416828,
+        "embedding": 76.61784900119528,
+        "chat": 627.3446749983123,
+        "total": 799.0367120000883
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 18,
+      "latency_ms": {
+        "db": 72.66436499776319,
+        "embedding": 89.56430399848614,
+        "chat": 1237.4158390011871,
+        "total": 1434.0821650039288
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 19,
+      "latency_ms": {
+        "db": 63.79238599038217,
+        "embedding": 91.11494100216078,
+        "chat": 1212.130371000967,
+        "total": 1397.8069989971118
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 0,
+      "latency_ms": {
+        "db": 63.437620010518,
+        "embedding": 84.9046359944623,
+        "chat": 1018.4404359970358,
+        "total": 1242.483103997074
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 1,
+      "latency_ms": {
+        "db": 62.11660598637536,
+        "embedding": 151.3597960001789,
+        "chat": 910.6517269974574,
+        "total": 1153.7016350048361
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 2,
+      "latency_ms": {
+        "db": 63.17000199487666,
+        "embedding": 82.84813899808796,
+        "chat": 828.485696001735,
+        "total": 1004.6881829985068
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 3,
+      "latency_ms": {
+        "db": 63.44161900051404,
+        "embedding": 85.03902800293872,
+        "chat": 871.8569100019522,
+        "total": 1050.5406570009654
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 4,
+      "latency_ms": {
+        "db": 69.14721301291138,
+        "embedding": 83.01759100140771,
+        "chat": 1139.621286005422,
+        "total": 1321.3669609976932
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 5,
+      "latency_ms": {
+        "db": 63.84336402697954,
+        "embedding": 100.82621600304265,
+        "chat": 1088.827070001571,
+        "total": 1285.0504480011296
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 6,
+      "latency_ms": {
+        "db": 66.62991900520865,
+        "embedding": 103.0564399989089,
+        "chat": 1041.207892994862,
+        "total": 1240.1962619987899
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 7,
+      "latency_ms": {
+        "db": 66.35311101126717,
+        "embedding": 89.24077600386227,
+        "chat": 1165.8213760019862,
+        "total": 1354.4335049955407
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 8,
+      "latency_ms": {
+        "db": 65.60628298029769,
+        "embedding": 84.82174799428321,
+        "chat": 868.6029579985188,
+        "total": 1050.0277259998256
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 9,
+      "latency_ms": {
+        "db": 64.33985201147152,
+        "embedding": 90.970617995481,
+        "chat": 885.6118080002489,
+        "total": 1069.7693350011832
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 10,
+      "latency_ms": {
+        "db": 67.14175701199565,
+        "embedding": 108.27503699692897,
+        "chat": 901.6892490035389,
+        "total": 1107.0708890038077
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 11,
+      "latency_ms": {
+        "db": 70.62654400215251,
+        "embedding": 930.5397229982191,
+        "chat": 1032.1215410003788,
+        "total": 2064.734829000372
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 12,
+      "latency_ms": {
+        "db": 72.08244698267663,
+        "embedding": 84.6620339943911,
+        "chat": 1005.1821369997924,
+        "total": 1194.5850210031494
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 13,
+      "latency_ms": {
+        "db": 66.96172299416503,
+        "embedding": 84.99994200246874,
+        "chat": 1105.7115299990983,
+        "total": 1288.8543059962103
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 14,
+      "latency_ms": {
+        "db": 74.07673499255907,
+        "embedding": 89.3509319939767,
+        "chat": 867.4500330016599,
+        "total": 1062.5238510037889
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 15,
+      "latency_ms": {
+        "db": 66.17740001820493,
+        "embedding": 90.58719799941173,
+        "chat": 841.2794120013132,
+        "total": 1027.5216040026862
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 16,
+      "latency_ms": {
+        "db": 66.94229100685334,
+        "embedding": 144.37652099877596,
+        "chat": 788.141844997881,
+        "total": 1028.263935004361
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 17,
+      "latency_ms": {
+        "db": 70.08034499449423,
+        "embedding": 97.00383400195278,
+        "chat": 902.5550070000463,
+        "total": 1102.35697600001
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 18,
+      "latency_ms": {
+        "db": 65.18218401470222,
+        "embedding": 129.3207960043219,
+        "chat": 912.496448996535,
+        "total": 1137.124019995099
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 19,
+      "latency_ms": {
+        "db": 66.90766199608333,
+        "embedding": 90.93846299947472,
+        "chat": 634.214300000167,
+        "total": 821.2982839977485
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 0,
+      "latency_ms": {
+        "db": 64.87139001546893,
+        "embedding": 136.7747340045753,
+        "chat": 661.3516659999732,
+        "total": 895.2873180023744
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 1,
+      "latency_ms": {
+        "db": 65.00305599183775,
+        "embedding": 93.23100700567011,
+        "chat": 828.5511590001988,
+        "total": 1018.5283370010438
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 2,
+      "latency_ms": {
+        "db": 73.66682402789593,
+        "embedding": 99.04845500568626,
+        "chat": 835.5552370048827,
+        "total": 1049.5694500059471
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 3,
+      "latency_ms": {
+        "db": 64.16462999914074,
+        "embedding": 82.93935599795077,
+        "chat": 538.0119470064528,
+        "total": 717.8659760029404
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 4,
+      "latency_ms": {
+        "db": 74.19850101723569,
+        "embedding": 87.24269900267245,
+        "chat": 587.4445350054884,
+        "total": 784.8868859946379
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 5,
+      "latency_ms": {
+        "db": 62.87163298839005,
+        "embedding": 140.4656660015462,
+        "chat": 567.6372520028963,
+        "total": 799.8811479992582
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 6,
+      "latency_ms": {
+        "db": 66.56845399993472,
+        "embedding": 87.26363800087711,
+        "chat": 681.2580069963587,
+        "total": 864.6204549950198
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 7,
+      "latency_ms": {
+        "db": 68.10785699053667,
+        "embedding": 83.32542899734108,
+        "chat": 936.0475930006942,
+        "total": 1116.2533759998041
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 8,
+      "latency_ms": {
+        "db": 70.88558701070724,
+        "embedding": 120.55990299995756,
+        "chat": 920.6739260043832,
+        "total": 1146.3485740023316
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 9,
+      "latency_ms": {
+        "db": 63.42424799368018,
+        "embedding": 86.32380799826933,
+        "chat": 777.1470180014148,
+        "total": 956.0151820041938
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 10,
+      "latency_ms": {
+        "db": 67.70668599347118,
+        "embedding": 83.23611700325273,
+        "chat": 765.7576419951511,
+        "total": 950.6916679965798
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 11,
+      "latency_ms": {
+        "db": 67.91417799831834,
+        "embedding": 265.40029199532,
+        "chat": 904.9128020051285,
+        "total": 1270.3850560064893
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 12,
+      "latency_ms": {
+        "db": 68.59521598380525,
+        "embedding": 93.51577399502276,
+        "chat": 658.7277660000836,
+        "total": 853.104022993648
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 13,
+      "latency_ms": {
+        "db": 67.64916300744517,
+        "embedding": 78.32854700245662,
+        "chat": 912.941900001897,
+        "total": 1091.1486210025032
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 14,
+      "latency_ms": {
+        "db": 65.82192499627126,
+        "embedding": 96.69184799713548,
+        "chat": 695.0223320018267,
+        "total": 890.7933240043349
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 15,
+      "latency_ms": {
+        "db": 67.07173497852637,
+        "embedding": 248.98763000237523,
+        "chat": 835.348487002193,
+        "total": 1179.7184970055241
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 16,
+      "latency_ms": {
+        "db": 65.3785440226784,
+        "embedding": 80.63219399627997,
+        "chat": 755.500719002157,
+        "total": 931.3214249996236
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 17,
+      "latency_ms": {
+        "db": 69.3746089891647,
+        "embedding": 86.10705099999905,
+        "chat": 847.0633040051325,
+        "total": 1032.5634079999872
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 18,
+      "latency_ms": {
+        "db": 66.55059901822824,
+        "embedding": 94.06383599707624,
+        "chat": 721.6000780026661,
+        "total": 911.6736299984041
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 19,
+      "latency_ms": {
+        "db": 67.14394000300672,
+        "embedding": 79.13173300039489,
+        "chat": 976.2473579976358,
+        "total": 1150.9077810042072
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 0,
+      "latency_ms": {
+        "db": 71.98351201805053,
+        "embedding": 101.33338699961314,
+        "chat": 525.3349659978994,
+        "total": 729.9340260069584
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 1,
+      "latency_ms": {
+        "db": 71.00665999314515,
+        "embedding": 92.88181200099643,
+        "chat": 703.7004390003858,
+        "total": 900.2051220013527
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 2,
+      "latency_ms": {
+        "db": 64.95916799758561,
+        "embedding": 92.70095599640626,
+        "chat": 721.8973209965043,
+        "total": 911.8773190057254
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 3,
+      "latency_ms": {
+        "db": 65.58919499366311,
+        "embedding": 111.41161699924851,
+        "chat": 990.806038993469,
+        "total": 1196.0123789976933
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 4,
+      "latency_ms": {
+        "db": 67.5199289835291,
+        "embedding": 92.65702700213296,
+        "chat": 935.1885919968481,
+        "total": 1125.4786120043718
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 5,
+      "latency_ms": {
+        "db": 69.9974069793825,
+        "embedding": 93.49503799603553,
+        "chat": 1458.795144004398,
+        "total": 1656.0604569967836
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 6,
+      "latency_ms": {
+        "db": 73.07024300826015,
+        "embedding": 83.23493799980497,
+        "chat": 519.6153319993755,
+        "total": 703.5774649993982
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 7,
+      "latency_ms": {
+        "db": 73.52520698623266,
+        "embedding": 85.73519300261978,
+        "chat": 1119.8606710022432,
+        "total": 1308.8720040032058
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 8,
+      "latency_ms": {
+        "db": 67.76983099553036,
+        "embedding": 85.45840200531529,
+        "chat": 1043.5451160010416,
+        "total": 1225.5744130015955
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 9,
+      "latency_ms": {
+        "db": 66.57672501023626,
+        "embedding": 82.63057600561297,
+        "chat": 1160.8942329985439,
+        "total": 1342.4614289979218
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 10,
+      "latency_ms": {
+        "db": 64.05834300676361,
+        "embedding": 183.78438000218011,
+        "chat": 866.293589999259,
+        "total": 1146.4421960045001
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 11,
+      "latency_ms": {
+        "db": 62.88785298966104,
+        "embedding": 102.27578900230583,
+        "chat": 840.2119910024339,
+        "total": 1039.3157849975978
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 12,
+      "latency_ms": {
+        "db": 61.68606899882434,
+        "embedding": 94.99514100025408,
+        "chat": 880.432658996142,
+        "total": 1066.5521329938201
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 13,
+      "latency_ms": {
+        "db": 60.78114999399986,
+        "embedding": 181.0738610001863,
+        "chat": 1003.2810580014484,
+        "total": 1276.9945309992181
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 14,
+      "latency_ms": {
+        "db": 60.48196999472566,
+        "embedding": 99.49458899791352,
+        "chat": 938.9903880000929,
+        "total": 1127.8952270004083
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 15,
+      "latency_ms": {
+        "db": 62.872309012163896,
+        "embedding": 188.06476399913663,
+        "chat": 1903.1905790034216,
+        "total": 2184.8142390008434
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 16,
+      "latency_ms": {
+        "db": 67.85240598401288,
+        "embedding": 205.4246819971013,
+        "chat": 1367.1267380050267,
+        "total": 1670.0239030033117
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 17,
+      "latency_ms": {
+        "db": 69.66729700070573,
+        "embedding": 95.22886799823027,
+        "chat": 1173.1950149987824,
+        "total": 1372.5818710008753
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 18,
+      "latency_ms": {
+        "db": 74.6861379884649,
+        "embedding": 86.76054600073257,
+        "chat": 879.4633970028372,
+        "total": 1074.93382699613
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 19,
+      "latency_ms": {
+        "db": 59.98456303495914,
+        "embedding": 242.33414600166725,
+        "chat": 1244.8599890049081,
+        "total": 1579.0316950005945
+      }
+    }
+  ],
+  "exact_comparisons": [
+    {
+      "scope": 0,
+      "query_number": 20,
+      "recall10": 1.0
+    },
+    {
+      "scope": 1,
+      "query_number": 21,
+      "recall10": 1.0
+    },
+    {
+      "scope": 2,
+      "query_number": 22,
+      "recall10": 1.0
+    },
+    {
+      "scope": 3,
+      "query_number": 23,
+      "recall10": 1.0
+    },
+    {
+      "scope": 4,
+      "query_number": 24,
+      "recall10": 1.0
+    },
+    {
+      "scope": 5,
+      "query_number": 25,
+      "recall10": 1.0
+    },
+    {
+      "scope": 6,
+      "query_number": 26,
+      "recall10": 1.0
+    },
+    {
+      "scope": 7,
+      "query_number": 27,
+      "recall10": 1.0
+    },
+    {
+      "scope": 8,
+      "query_number": 28,
+      "recall10": 1.0
+    },
+    {
+      "scope": 9,
+      "query_number": 29,
+      "recall10": 1.0
+    },
+    {
+      "scope": 10,
+      "query_number": 30,
+      "recall10": 1.0
+    },
+    {
+      "scope": 11,
+      "query_number": 31,
+      "recall10": 1.0
+    },
+    {
+      "scope": 12,
+      "query_number": 32,
+      "recall10": 1.0
+    },
+    {
+      "scope": 13,
+      "query_number": 33,
+      "recall10": 1.0
+    },
+    {
+      "scope": 14,
+      "query_number": 34,
+      "recall10": 1.0
+    },
+    {
+      "scope": 15,
+      "query_number": 35,
+      "recall10": 1.0
+    },
+    {
+      "scope": 16,
+      "query_number": 36,
+      "recall10": 1.0
+    },
+    {
+      "scope": 17,
+      "query_number": 37,
+      "recall10": 1.0
+    },
+    {
+      "scope": 18,
+      "query_number": 38,
+      "recall10": 1.0
+    },
+    {
+      "scope": 19,
+      "query_number": 39,
+      "recall10": 1.0
+    },
+    {
+      "scope": 0,
+      "query_number": 40,
+      "recall10": 1.0
+    },
+    {
+      "scope": 1,
+      "query_number": 41,
+      "recall10": 1.0
+    },
+    {
+      "scope": 2,
+      "query_number": 42,
+      "recall10": 1.0
+    },
+    {
+      "scope": 3,
+      "query_number": 43,
+      "recall10": 1.0
+    },
+    {
+      "scope": 4,
+      "query_number": 44,
+      "recall10": 1.0
+    },
+    {
+      "scope": 5,
+      "query_number": 45,
+      "recall10": 1.0
+    },
+    {
+      "scope": 6,
+      "query_number": 46,
+      "recall10": 1.0
+    },
+    {
+      "scope": 7,
+      "query_number": 47,
+      "recall10": 1.0
+    },
+    {
+      "scope": 8,
+      "query_number": 48,
+      "recall10": 1.0
+    },
+    {
+      "scope": 9,
+      "query_number": 49,
+      "recall10": 1.0
+    },
+    {
+      "scope": 10,
+      "query_number": 50,
+      "recall10": 1.0
+    },
+    {
+      "scope": 11,
+      "query_number": 51,
+      "recall10": 1.0
+    },
+    {
+      "scope": 12,
+      "query_number": 52,
+      "recall10": 1.0
+    },
+    {
+      "scope": 13,
+      "query_number": 53,
+      "recall10": 1.0
+    },
+    {
+      "scope": 14,
+      "query_number": 54,
+      "recall10": 1.0
+    },
+    {
+      "scope": 15,
+      "query_number": 55,
+      "recall10": 1.0
+    },
+    {
+      "scope": 16,
+      "query_number": 56,
+      "recall10": 1.0
+    },
+    {
+      "scope": 17,
+      "query_number": 57,
+      "recall10": 1.0
+    },
+    {
+      "scope": 18,
+      "query_number": 58,
+      "recall10": 1.0
+    },
+    {
+      "scope": 19,
+      "query_number": 59,
+      "recall10": 1.0
+    },
+    {
+      "scope": 0,
+      "query_number": 60,
+      "recall10": 1.0
+    },
+    {
+      "scope": 1,
+      "query_number": 61,
+      "recall10": 1.0
+    },
+    {
+      "scope": 2,
+      "query_number": 62,
+      "recall10": 1.0
+    },
+    {
+      "scope": 3,
+      "query_number": 63,
+      "recall10": 1.0
+    },
+    {
+      "scope": 4,
+      "query_number": 64,
+      "recall10": 1.0
+    },
+    {
+      "scope": 5,
+      "query_number": 65,
+      "recall10": 1.0
+    },
+    {
+      "scope": 6,
+      "query_number": 66,
+      "recall10": 1.0
+    },
+    {
+      "scope": 7,
+      "query_number": 67,
+      "recall10": 1.0
+    },
+    {
+      "scope": 8,
+      "query_number": 68,
+      "recall10": 1.0
+    },
+    {
+      "scope": 9,
+      "query_number": 69,
+      "recall10": 1.0
+    }
+  ],
+  "plans": {
+    "keyword": [
+      {
+        "Plan": {
+          "Node Type": "Limit",
+          "Parallel Aware": false,
+          "Async Capable": false,
+          "Startup Cost": 24.63,
+          "Total Cost": 24.63,
+          "Plan Rows": 1,
+          "Plan Width": 749,
+          "Actual Startup Time": 32.753,
+          "Actual Total Time": 32.764,
+          "Actual Rows": 100,
+          "Actual Loops": 1,
+          "Shared Hit Blocks": 558,
+          "Shared Read Blocks": 4,
+          "Shared Dirtied Blocks": 0,
+          "Shared Written Blocks": 0,
+          "Local Hit Blocks": 0,
+          "Local Read Blocks": 0,
+          "Local Dirtied Blocks": 0,
+          "Local Written Blocks": 0,
+          "Temp Read Blocks": 0,
+          "Temp Written Blocks": 0,
+          "Plans": [
+            {
+              "Node Type": "Sort",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Async Capable": false,
+              "Startup Cost": 24.63,
+              "Total Cost": 24.63,
+              "Plan Rows": 1,
+              "Plan Width": 749,
+              "Actual Startup Time": 32.751,
+              "Actual Total Time": 32.756,
+              "Actual Rows": 100,
+              "Actual Loops": 1,
+              "Sort Key": [
+                "((knowledge_chunks.chunk_text ~~* '%范围0性能片0细胞结构功能单位背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背。%'::text)) DESC",
+                "(((((((((((0 + CASE WHEN ((to_tsvector('simple'::regconfig, knowledge_chunks.lexical_terms) @@ '''范围'''::tsquery) OR (((knowledge_chunks.provenance_version)::text = 'legacy'::text) AND (knowledge_chunks.chunk_text ~~* '%范围%'::text))) THEN 1 ELSE 0 END) + CASE WHEN ((to_tsvector('simple'::regconfig, knowledge_chunks.lexical_terms) @@ '''0'''::tsquery) OR (((knowledge_chunks.provenance_version)::text = 'legacy'::text) AND (knowledge_chunks.chunk_text ~~* '%0%'::text))) THEN 1 ELSE 0 END) + CASE WHEN ((to_tsvector('simple'::regconfig, knowledge_chunks.lexical_terms) @@ '''性能'''::tsquery) OR (((knowledge_chunks.provenance_version)::text = 'legacy'::text) AND (knowledge_chunks.chunk_text ~~* '%性能%'::text))) THEN 1 ELSE 0 END) + CASE WHEN ((to_tsvector('simple'::regconfig, knowledge_chunks.lexical_terms) @@ '''片'''::tsquery) OR (((knowledge_chunks.provenance_version)::text = 'legacy'::text) AND (knowledge_chunks.chunk_text ~~* '%片%'::text))) THEN 1 ELSE 0 END) + CASE WHEN ((to_tsvector('simple'::regconfig, knowledge_chunks.lexical_terms) @@ '''细胞'''::tsquery) OR (((knowledge_chunks.provenance_version)::text = 'legacy'::text) AND (knowledge_chunks.chunk_text ~~* '%细胞%'::text))) THEN 1 ELSE 0 END) + CASE WHEN ((to_tsvector('simple'::regconfig, knowledge_chunks.lexical_terms) @@ '''结构'''::tsquery) OR (((knowledge_chunks.provenance_version)::text = 'legacy'::text) AND (knowledge_chunks.chunk_text ~~* '%结构%'::text))) THEN 1 ELSE 0 END) + CASE WHEN ((to_tsvector('simple'::regconfig, knowledge_chunks.lexical_terms) @@ '''功能'''::tsquery) OR (((knowledge_chunks.provenance_version)::text = 'legacy'::text) AND (knowledge_chunks.chunk_text ~~* '%功能%'::text))) THEN 1 ELSE 0 END) + CASE WHEN ((to_tsvector('simple'::regconfig, knowledge_chunks.lexical_terms) @@ '''单位'''::tsquery) OR (((knowledge_chunks.provenance_version)::text = 'legacy'::text) AND (knowledge_chunks.chunk_text ~~* '%单位%'::text))) THEN 1 ELSE 0 END) + CASE WHEN ((to_tsvector('simple'::regconfig, knowledge_chunks.lexical_terms) @@ '''背景'''::tsquery) OR (((knowledge_chunks.provenance_version)::text = 'legacy'::text) AND (knowledge_chunks.chunk_text ~~* '%背景%'::text))) THEN 1 ELSE 0 END) + CASE WHEN ((to_tsvector('simple'::regconfig, knowledge_chunks.lexical_terms) @@ '''背'''::tsquery) OR (((knowledge_chunks.provenance_version)::text = 'legacy'::text) AND (knowledge_chunks.chunk_text ~~* '%背%'::text))) THEN 1 ELSE 0 END)) DESC",
+                "(ts_rank_cd(to_tsvector('simple'::regconfig, knowledge_chunks.lexical_terms), '''范围'' | ''0'' | ''性能'' | ''片'' | ''细胞'' | ''结构'' | ''功能'' | ''单位'' | ''背景'' | ''背'''::tsquery)) DESC",
+                "knowledge_chunks.id"
+              ],
+              "Sort Method": "top-N heapsort",
+              "Sort Space Used": 216,
+              "Sort Space Type": "Memory",
+              "Shared Hit Blocks": 558,
+              "Shared Read Blocks": 4,
+              "Shared Dirtied Blocks": 0,
+              "Shared Written Blocks": 0,
+              "Local Hit Blocks": 0,
+              "Local Read Blocks": 0,
+              "Local Dirtied Blocks": 0,
+              "Local Written Blocks": 0,
+              "Temp Read Blocks": 0,
+              "Temp Written Blocks": 0,
+              "Plans": [
+                {
+                  "Node Type": "Nested Loop",
+                  "Parent Relationship": "Outer",
+                  "Parallel Aware": false,
+                  "Async Capable": false,
+                  "Join Type": "Inner",
+                  "Startup Cost": 8.72,
+                  "Total Cost": 24.62,
+                  "Plan Rows": 1,
+                  "Plan Width": 749,
+                  "Actual Startup Time": 0.57,
+                  "Actual Total Time": 31.91,
+                  "Actual Rows": 500,
+                  "Actual Loops": 1,
+                  "Inner Unique": true,
+                  "Join Filter": "((materials.id)::text = (knowledge_chunks.material_id)::text)",
+                  "Rows Removed by Join Filter": 0,
+                  "Shared Hit Blocks": 547,
+                  "Shared Read Blocks": 4,
+                  "Shared Dirtied Blocks": 0,
+                  "Shared Written Blocks": 0,
+                  "Local Hit Blocks": 0,
+                  "Local Read Blocks": 0,
+                  "Local Dirtied Blocks": 0,
+                  "Local Written Blocks": 0,
+                  "Temp Read Blocks": 0,
+                  "Temp Written Blocks": 0,
+                  "Plans": [
+                    {
+                      "Node Type": "Nested Loop",
+                      "Parent Relationship": "Outer",
+                      "Parallel Aware": false,
+                      "Async Capable": false,
+                      "Join Type": "Inner",
+                      "Startup Cost": 8.72,
+                      "Total Cost": 20.45,
+                      "Plan Rows": 1,
+                      "Plan Width": 677,
+                      "Actual Startup Time": 0.183,
+                      "Actual Total Time": 14.894,
+                      "Actual Rows": 500,
+                      "Actual Loops": 1,
+                      "Inner Unique": false,
+                      "Join Filter": "((knowledge_entries.id = knowledge_chunks.knowledge_entry_id) AND ((knowledge_entries.material_id)::text = (knowledge_chunks.material_id)::text))",
+                      "Rows Removed by Join Filter": 0,
+                      "Shared Hit Blocks": 47,
+                      "Shared Read Blocks": 4,
+                      "Shared Dirtied Blocks": 0,
+                      "Shared Written Blocks": 0,
+                      "Local Hit Blocks": 0,
+                      "Local Read Blocks": 0,
+                      "Local Dirtied Blocks": 0,
+                      "Local Written Blocks": 0,
+                      "Temp Read Blocks": 0,
+                      "Temp Written Blocks": 0,
+                      "Plans": [
+                        {
+                          "Node Type": "Nested Loop",
+                          "Parent Relationship": "Outer",
+                          "Parallel Aware": false,
+                          "Async Capable": false,
+                          "Join Type": "Inner",
+                          "Startup Cost": 0.0,
+                          "Total Cost": 4.8,
+                          "Plan Rows": 1,
+                          "Plan Width": 53,
+                          "Actual Startup Time": 0.016,
+                          "Actual Total Time": 0.036,
+                          "Actual Rows": 1,
+                          "Actual Loops": 1,
+                          "Inner Unique": false,
+                          "Join Filter": "(knowledge_index_generations.knowledge_entry_id = knowledge_entries.id)",
+                          "Rows Removed by Join Filter": 19,
+                          "Shared Hit Blocks": 4,
+                          "Shared Read Blocks": 0,
+                          "Shared Dirtied Blocks": 0,
+                          "Shared Written Blocks": 0,
+                          "Local Hit Blocks": 0,
+                          "Local Read Blocks": 0,
+                          "Local Dirtied Blocks": 0,
+                          "Local Written Blocks": 0,
+                          "Temp Read Blocks": 0,
+                          "Temp Written Blocks": 0,
+                          "Plans": [
+                            {
+                              "Node Type": "Seq Scan",
+                              "Parent Relationship": "Outer",
+                              "Parallel Aware": false,
+                              "Async Capable": false,
+                              "Relation Name": "knowledge_entries",
+                              "Alias": "knowledge_entries",
+                              "Startup Cost": 0.0,
+                              "Total Cost": 1.3,
+                              "Plan Rows": 1,
+                              "Plan Width": 45,
+                              "Actual Startup Time": 0.008,
+                              "Actual Total Time": 0.01,
+                              "Actual Rows": 1,
+                              "Actual Loops": 1,
+                              "Filter": "((subject_id = 1) AND (class_id = 1))",
+                              "Rows Removed by Filter": 19,
+                              "Shared Hit Blocks": 1,
+                              "Shared Read Blocks": 0,
+                              "Shared Dirtied Blocks": 0,
+                              "Shared Written Blocks": 0,
+                              "Local Hit Blocks": 0,
+                              "Local Read Blocks": 0,
+                              "Local Dirtied Blocks": 0,
+                              "Local Written Blocks": 0,
+                              "Temp Read Blocks": 0,
+                              "Temp Written Blocks": 0
+                            },
+                            {
+                              "Node Type": "Seq Scan",
+                              "Parent Relationship": "Inner",
+                              "Parallel Aware": false,
+                              "Async Capable": false,
+                              "Relation Name": "knowledge_index_generations",
+                              "Alias": "knowledge_index_generations",
+                              "Startup Cost": 0.0,
+                              "Total Cost": 3.25,
+                              "Plan Rows": 20,
+                              "Plan Width": 8,
+                              "Actual Startup Time": 0.004,
+                              "Actual Total Time": 0.02,
+                              "Actual Rows": 20,
+                              "Actual Loops": 1,
+                              "Filter": "((is_current IS TRUE) AND ((status)::text = 'ready'::text))",
+                              "Rows Removed by Filter": 0,
+                              "Shared Hit Blocks": 3,
+                              "Shared Read Blocks": 0,
+                              "Shared Dirtied Blocks": 0,
+                              "Shared Written Blocks": 0,
+                              "Local Hit Blocks": 0,
+                              "Local Read Blocks": 0,
+                              "Local Dirtied Blocks": 0,
+                              "Local Written Blocks": 0,
+                              "Temp Read Blocks": 0,
+                              "Temp Written Blocks": 0
+                            }
+                          ]
+                        },
+                        {
+                          "Node Type": "Bitmap Heap Scan",
+                          "Parent Relationship": "Inner",
+                          "Parallel Aware": false,
+                          "Async Capable": false,
+                          "Relation Name": "knowledge_chunks",
+                          "Alias": "knowledge_chunks",
+                          "Startup Cost": 8.72,
+                          "Total Cost": 15.63,
+                          "Plan Rows": 1,
+                          "Plan Width": 636,
+                          "Actual Startup Time": 0.162,
+                          "Actual Total Time": 14.751,
+                          "Actual Rows": 500,
+                          "Actual Loops": 1,
+                          "Recheck Cond": "((knowledge_entry_id = knowledge_index_generations.knowledge_entry_id) AND (knowledge_index_generations.id = generation_id) AND (class_id = 1) AND (subject_id = 1) AND ((index_status)::text = 'ready'::text))",
+                          "Rows Removed by Index Recheck": 0,
+                          "Filter": "(((searchable_active IS TRUE) OR ((provenance_version)::text = 'legacy'::text)) AND ((chunk_text ~~* '%范围0性能片0细胞结构功能单位背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背。%'::text) OR (to_tsvector('simple'::regconfig, lexical_terms) @@ '''范围'' | ''0'' | ''性能'' | ''片'' | ''细胞'' | ''结构'' | ''功能'' | ''单位'' | ''背景'' | ''背'''::tsquery) OR (((provenance_version)::text = 'legacy'::text) AND ((chunk_text ~~* '%范围%'::text) OR (chunk_text ~~* '%0%'::text) OR (chunk_text ~~* '%性能%'::text) OR (chunk_text ~~* '%片%'::text) OR (chunk_text ~~* '%细胞%'::text) OR (chunk_text ~~* '%结构%'::text) OR (chunk_text ~~* '%功能%'::text) OR (chunk_text ~~* '%单位%'::text) OR (chunk_text ~~* '%背景%'::text) OR (chunk_text ~~* '%背%'::text)))) AND ((chunk_text ~~* '%范围0性能片0细胞结构功能单位背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背。%'::text) OR (((((((((((0 + CASE WHEN ((to_tsvector('simple'::regconfig, lexical_terms) @@ '''范围'''::tsquery) OR (((provenance_version)::text = 'legacy'::text) AND (chunk_text ~~* '%范围%'::text))) THEN 1 ELSE 0 END) + CASE WHEN ((to_tsvector('simple'::regconfig, lexical_terms) @@ '''0'''::tsquery) OR (((provenance_version)::text = 'legacy'::text) AND (chunk_text ~~* '%0%'::text))) THEN 1 ELSE 0 END) + CASE WHEN ((to_tsvector('simple'::regconfig, lexical_terms) @@ '''性能'''::tsquery) OR (((provenance_version)::text = 'legacy'::text) AND (chunk_text ~~* '%性能%'::text))) THEN 1 ELSE 0 END) + CASE WHEN ((to_tsvector('simple'::regconfig, lexical_terms) @@ '''片'''::tsquery) OR (((provenance_version)::text = 'legacy'::text) AND (chunk_text ~~* '%片%'::text))) THEN 1 ELSE 0 END) + CASE WHEN ((to_tsvector('simple'::regconfig, lexical_terms) @@ '''细胞'''::tsquery) OR (((provenance_version)::text = 'legacy'::text) AND (chunk_text ~~* '%细胞%'::text))) THEN 1 ELSE 0 END) + CASE WHEN ((to_tsvector('simple'::regconfig, lexical_terms) @@ '''结构'''::tsquery) OR (((provenance_version)::text = 'legacy'::text) AND (chunk_text ~~* '%结构%'::text))) THEN 1 ELSE 0 END) + CASE WHEN ((to_tsvector('simple'::regconfig, lexical_terms) @@ '''功能'''::tsquery) OR (((provenance_version)::text = 'legacy'::text) AND (chunk_text ~~* '%功能%'::text))) THEN 1 ELSE 0 END) + CASE WHEN ((to_tsvector('simple'::regconfig, lexical_terms) @@ '''单位'''::tsquery) OR (((provenance_version)::text = 'legacy'::text) AND (chunk_text ~~* '%单位%'::text))) THEN 1 ELSE 0 END) + CASE WHEN ((to_tsvector('simple'::regconfig, lexical_terms) @@ '''背景'''::tsquery) OR (((provenance_version)::text = 'legacy'::text) AND (chunk_text ~~* '%背景%'::text))) THEN 1 ELSE 0 END) + CASE WHEN ((to_tsvector('simple'::regconfig, lexical_terms) @@ '''背'''::tsquery) OR (((provenance_version)::text = 'legacy'::text) AND (chunk_text ~~* '%背%'::text))) THEN 1 ELSE 0 END) >= 6)))",
+                          "Rows Removed by Filter": 0,
+                          "Exact Heap Blocks": 42,
+                          "Lossy Heap Blocks": 0,
+                          "Shared Hit Blocks": 43,
+                          "Shared Read Blocks": 4,
+                          "Shared Dirtied Blocks": 0,
+                          "Shared Written Blocks": 0,
+                          "Local Hit Blocks": 0,
+                          "Local Read Blocks": 0,
+                          "Local Dirtied Blocks": 0,
+                          "Local Written Blocks": 0,
+                          "Temp Read Blocks": 0,
+                          "Temp Written Blocks": 0,
+                          "Plans": [
+                            {
+                              "Node Type": "BitmapAnd",
+                              "Parent Relationship": "Outer",
+                              "Parallel Aware": false,
+                              "Async Capable": false,
+                              "Startup Cost": 8.72,
+                              "Total Cost": 8.72,
+                              "Plan Rows": 1,
+                              "Plan Width": 0,
+                              "Actual Startup Time": 0.122,
+                              "Actual Total Time": 0.124,
+                              "Actual Rows": 0,
+                              "Actual Loops": 1,
+                              "Shared Hit Blocks": 1,
+                              "Shared Read Blocks": 4,
+                              "Shared Dirtied Blocks": 0,
+                              "Shared Written Blocks": 0,
+                              "Local Hit Blocks": 0,
+                              "Local Read Blocks": 0,
+                              "Local Dirtied Blocks": 0,
+                              "Local Written Blocks": 0,
+                              "Temp Read Blocks": 0,
+                              "Temp Written Blocks": 0,
+                              "Plans": [
+                                {
+                                  "Node Type": "Bitmap Index Scan",
+                                  "Parent Relationship": "Member",
+                                  "Parallel Aware": false,
+                                  "Async Capable": false,
+                                  "Index Name": "ix_chunks_entry_current",
+                                  "Startup Cost": 0.0,
+                                  "Total Cost": 3.94,
+                                  "Plan Rows": 25,
+                                  "Plan Width": 0,
+                                  "Actual Startup Time": 0.056,
+                                  "Actual Total Time": 0.056,
+                                  "Actual Rows": 500,
+                                  "Actual Loops": 1,
+                                  "Index Cond": "((knowledge_entry_id = knowledge_index_generations.knowledge_entry_id) AND (generation_id = knowledge_index_generations.id))",
+                                  "Shared Hit Blocks": 1,
+                                  "Shared Read Blocks": 2,
+                                  "Shared Dirtied Blocks": 0,
+                                  "Shared Written Blocks": 0,
+                                  "Local Hit Blocks": 0,
+                                  "Local Read Blocks": 0,
+                                  "Local Dirtied Blocks": 0,
+                                  "Local Written Blocks": 0,
+                                  "Temp Read Blocks": 0,
+                                  "Temp Written Blocks": 0
+                                },
+                                {
+                                  "Node Type": "Bitmap Index Scan",
+                                  "Parent Relationship": "Member",
+                                  "Parallel Aware": false,
+                                  "Async Capable": false,
+                                  "Index Name": "ix_chunks_class_subject_status_ready",
+                                  "Startup Cost": 0.0,
+                                  "Total Cost": 4.54,
+                                  "Plan Rows": 25,
+                                  "Plan Width": 0,
+                                  "Actual Startup Time": 0.06,
+                                  "Actual Total Time": 0.06,
+                                  "Actual Rows": 500,
+                                  "Actual Loops": 1,
+                                  "Index Cond": "((class_id = 1) AND (subject_id = 1))",
+                                  "Shared Hit Blocks": 0,
+                                  "Shared Read Blocks": 2,
+                                  "Shared Dirtied Blocks": 0,
+                                  "Shared Written Blocks": 0,
+                                  "Local Hit Blocks": 0,
+                                  "Local Read Blocks": 0,
+                                  "Local Dirtied Blocks": 0,
+                                  "Local Written Blocks": 0,
+                                  "Temp Read Blocks": 0,
+                                  "Temp Written Blocks": 0
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Node Type": "Seq Scan",
+                      "Parent Relationship": "Inner",
+                      "Parallel Aware": false,
+                      "Async Capable": false,
+                      "Relation Name": "materials",
+                      "Alias": "materials",
+                      "Startup Cost": 0.0,
+                      "Total Cost": 1.3,
+                      "Plan Rows": 1,
+                      "Plan Width": 104,
+                      "Actual Startup Time": 0.001,
+                      "Actual Total Time": 0.001,
+                      "Actual Rows": 1,
+                      "Actual Loops": 500,
+                      "Filter": "((subject_id = 1) AND (class_id = 1))",
+                      "Rows Removed by Filter": 0,
+                      "Shared Hit Blocks": 500,
+                      "Shared Read Blocks": 0,
+                      "Shared Dirtied Blocks": 0,
+                      "Shared Written Blocks": 0,
+                      "Local Hit Blocks": 0,
+                      "Local Read Blocks": 0,
+                      "Local Dirtied Blocks": 0,
+                      "Local Written Blocks": 0,
+                      "Temp Read Blocks": 0,
+                      "Temp Written Blocks": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "Planning": {
+          "Shared Hit Blocks": 792,
+          "Shared Read Blocks": 86,
+          "Shared Dirtied Blocks": 0,
+          "Shared Written Blocks": 0,
+          "Local Hit Blocks": 0,
+          "Local Read Blocks": 0,
+          "Local Dirtied Blocks": 0,
+          "Local Written Blocks": 0,
+          "Temp Read Blocks": 0,
+          "Temp Written Blocks": 0
+        },
+        "Planning Time": 5.821,
+        "Triggers": [],
+        "Execution Time": 32.958
+      }
+    ],
+    "vector": [
+      {
+        "Plan": {
+          "Node Type": "Limit",
+          "Parallel Aware": false,
+          "Async Capable": false,
+          "Startup Cost": 26.98,
+          "Total Cost": 26.98,
+          "Plan Rows": 1,
+          "Plan Width": 748,
+          "Actual Startup Time": 7.368,
+          "Actual Total Time": 7.384,
+          "Actual Rows": 100,
+          "Actual Loops": 1,
+          "Shared Hit Blocks": 9879,
+          "Shared Read Blocks": 222,
+          "Shared Dirtied Blocks": 0,
+          "Shared Written Blocks": 0,
+          "Local Hit Blocks": 0,
+          "Local Read Blocks": 0,
+          "Local Dirtied Blocks": 0,
+          "Local Written Blocks": 0,
+          "Temp Read Blocks": 0,
+          "Temp Written Blocks": 0,
+          "Plans": [
+            {
+              "Node Type": "Sort",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Async Capable": false,
+              "Startup Cost": 26.98,
+              "Total Cost": 26.98,
+              "Plan Rows": 1,
+              "Plan Width": 748,
+              "Actual Startup Time": 7.367,
+              "Actual Total Time": 7.378,
+              "Actual Rows": 100,
+              "Actual Loops": 1,
+              "Sort Key": [
+                "((knowledge_embeddings.embedding <=> '[-0.010991812,-0.05229413,-0.014944651,-0.011032312,0.008132482,-0.012344525,0.029208897,0.021368017,-0.039722804,0.06314824,-0.027459279,-0.02078481,0.014288545,-0.017204575,0.048956897,0.004527946,0.015292955,-0.12143643,0.043967247,-0.04131042,0.015106653,0.006613717,0.03751958,0.047887687,-0.026114665,-0.0038232387,-0.025887862,-0.0042606434,0.033955544,-0.053687345,0.06525426,-0.040079206,-0.010360005,0.0042849435,0.001579516,0.056538574,-0.008132482,-0.028091084,0.010181803,0.0032683832,-0.00051638024,-0.04056521,-6.480065e-05,-0.0071280724,-0.03735758,-0.046591673,0.0020503332,-0.010546307,0.0017445552,-0.008185133,0.048179287,-0.014401946,-0.011753219,0.03541356,0.03069931,-0.02363604,0.040792014,0.03162272,-0.0014063767,0.011542617,0.016621368,0.04555486,-0.0060791117,-0.02175682,-0.030877514,-0.024219245,-0.008229683,-0.045004055,0.019667,-0.040792014,-0.02760508,-0.012522727,0.049766906,0.02459185,-0.033923145,0.008019081,-0.02572586,-0.017172175,-0.03719558,-0.0032137076,0.014215644,-0.035089556,-0.010400506,-0.026244266,0.05508056,0.068559095,-0.026503468,-0.027507879,0.03651517,-0.018711189,-0.01785258,-0.0153982565,0.019359196,-0.043902446,-0.01777158,0.052196927,0.025191255,0.016070563,0.018937992,0.018905591,-0.01276573,0.031509317,-0.10549547,-0.05222933,0.03269193,-0.0005204303,-0.03489515,-0.023409238,-0.025401857,0.009647198,0.019829001,0.013259835,-0.019958602,-0.0073346244,0.011477816,0.022129424,-0.017285576,0.011210513,-0.007180723,0.032999735,-0.019991003,-0.009201693,0.004471245,-0.0063342643,-0.011267214,-0.008496986,-0.01187472,-0.0033817843,0.026341466,0.037065975,-0.061787426,0.028722892,0.028366487,-0.03758438,0.06324544,0.020412207,-0.028998293,0.039334,-0.04860049,-0.015754659,-0.09039692,-0.004212043,0.012279725,0.024721451,-0.04218523,0.014150843,0.009574297,-0.0492161,-0.013608138,-0.018889392,0.0295815,-0.010449106,-0.03862119,0.01280623,-0.008958691,-0.011639818,0.035996765,0.029743502,0.010497706,0.024284046,-0.050026108,0.013276035,0.025401857,-0.039917205,0.02070381,-0.06408785,-0.07115112,0.013689139,0.03719558,-0.043675642,0.005613357,0.033955544,-0.0031387818,-0.082685634,-0.020023404,-0.00122615,-0.011113313,-0.00022578979,-0.045068856,-0.0393988,0.071734324,0.026195666,0.076594375,0.04237963,0.039269198,-0.0113077145,0.048114486,-0.007006571,0.031169116,0.0297273,-0.019504998,0.068364695,-0.022939432,0.04325444,-0.022080824,0.00090771547,0.0008980966,-0.009776799,0.07354874,0.007229323,-0.025547659,-0.027831882,0.033307537,0.009396095,-0.01090271,0.02575826,-0.027426878,-0.015098553,0.02754028,0.013251734,-0.020104405,0.005836109,-0.002371299,-0.009574297,0.046948075,-0.009574297,-0.0143695455,-0.039917205,-0.00038880395,0.039366398,0.032124925,0.018338585,-0.036191165,0.024575649,0.00886149,-0.014758349,0.039560802,-0.016127264,0.0056984075,0.025401857,0.034571152,-0.012668529,-0.053914145,0.011421116,0.024818651,-0.023085235,-0.0030982813,0.035640363,0.004005491,0.021076413,0.045943666,0.011032312,-0.019342996,0.029127896,-0.014256145,-0.033987943,-0.025207456,-0.042800833,-0.0010044102,-0.022453427,-0.045814063,0.0017486052,0.0050666016,0.007124022,0.025207456,0.05009091,-0.030099904,0.01676717,0.046818476,0.03246513,-0.011623618,-0.0023996492,0.0002057927,-0.015268655,-0.028965894,0.010157503,-0.023441637,0.033177935,0.003762488,-0.020088203,-0.016297365,0.023036633,0.013024932,0.0040824413,-0.026373867,0.016208265,-0.06123662,0.00882909,0.0144991465,-0.012976332,-0.0023166235,0.001934907,-0.0075290264,-0.015033753,-0.009776799,0.023490239,-0.012304025,0.0009254344,0.019861402,0.007111872,0.0052650534,0.029954104,-0.020363607,0.06771669,0.0118990205,-0.029160295,0.007678878,-0.019667,-0.0075654765,-0.0002089568,-0.06518946,-0.008415985,0.010457206,-0.0042606434,0.018451987,-0.029824503,-0.0029889303,-0.098821,-0.000547768,-0.08650888,-0.010376205,-0.060588613,0.015414456,-0.062565036,0.024818651,0.0071645225,0.00086822757,0.0058766096,0.02083341,0.028026285,-0.016127264,-0.06366664,-0.05125732,0.018322386,0.023214836,0.03147692,-0.021967422,0.016038163,-0.020574208,-0.07102152,-0.026195666,0.0025859512,-0.019099994,-0.010376205,0.039366398,0.004345694,-0.028172085,0.008359285,-0.010659708,0.0016949421,0.056862578,0.020590408,-0.046688873,0.014580147,-0.0012271624,-0.0005664995,-0.014709749,0.05326614,-0.042055625,-0.026033664,-0.041861225,0.033032134,0.011234814,0.039917205,0.008043381,0.005313654,-0.024284046,0.0086589875,-0.047920085,-0.017820181,0.022242825,-0.06473586,-0.0297273,0.028074885,0.03144452,-0.049928907,0.012757629,-0.0083754845,-0.009088292,0.024186846,0.059811007,-0.039560802,-0.022048423,-0.004734498,0.06437945,-0.0043051937,-0.025466658,0.0037078126,0.008383585,0.0008034269,0.072252735,0.020995412,0.012336425,-0.012287824,-0.016078662,-0.014612548,0.010935111,0.03356674,0.0005649807,-0.0003756413,0.010238504,-0.005998111,0.0068000187,0.0021120964,-0.0058644596,0.04824409,0.025077853,0.0031975075,0.016345965,-0.025823062,0.04814689,-0.007865179,-0.054529753,0.013583838,0.059325002,-0.0010732609,0.042962834,0.0019298446,-0.021983624,0.020509407,-0.030278107,-0.038297188,0.042574033,0.007496626,-0.05154892,-0.0068688695,-0.038297188,-0.012239224,-0.024219245,-0.0099469,-0.017447576,0.028431289,-0.056668174,0.018484388,-0.011639818,0.14515348,-0.043934844,0.012376925,0.013251734,-0.005641707,-0.054756556,-0.018856991,-0.045943666,0.009428496,0.0392368,0.002024008,0.019974802,0.035996765,-0.02666547,0.010287104,-0.0003480504,0.024818651,-0.0065732165,-0.009930701,0.028431289,-0.008634687,0.006103412,0.0059130597,0.012725229,0.018937992,0.00694177,-0.035802364,0.008407885,0.007808479,-0.012911531,-0.06217623,0.03531636,0.029273696,-0.035348758,0.03648277,0.020217804,0.038750794,-0.046850875,-0.0071280724,-0.010027901,0.039982006,0.020671409,0.020331206,0.023279635,0.031817123,0.017560977,0.054140948,-0.022080824,-0.07575197,0.020347407,0.022372426,-0.0014549772,0.045749262,-0.0030820812,0.08488886,0.02561246,0.008642788,-0.025547659,0.023830442,-0.056473773,-0.009242194,-0.060783017,0.033955544,0.0197642,0.025952663,0.01585186,0.011996222,-0.035737563,0.007205023,-0.03259473,0.0006039624,0.025547659,-0.05047971,-0.013381336,-0.029921703,-0.03256233,0.028139684,0.0038009635,-0.02663307,0.0049694004,-0.00047613296,0.0019835075,-0.02277743,0.015155254,0.0025090005,-0.076205574,-0.022259025,0.029127896,0.0074277753,0.002577851,0.025936462,0.0011137613,-0.0196994,0.015633158,0.017236974,0.00061864377,0.019164795,0.031185316,-0.024041044,-0.028965894,-0.0066866176,-0.023441637,-0.02172442,0.01676717,-0.021837821,0.040630013,-0.026260465,-0.03460355,0.031914324,0.014329045,0.021465218,-0.017188374,0.03235173,-0.0008555712,0.047790483,0.004653497,0.027459279,-0.03055351,-0.008185133,0.023798041,-0.055858165,0.03638557,0.011947621,-0.0030294308,0.0014914277,0.06104222,0.008488886,-0.018905591,0.019342996,0.023182435,-0.012109622,0.034571152,0.023279635,0.031266317,-0.011153813,0.023409238,-0.061366223,-0.0021141213,0.02668167,-0.023846641,-0.046624072,-0.01864639,0.023409238,-0.049540102,-0.013024932,-0.007079472,0.035834763,-0.009266494,0.0016281165,0.039074797,-0.021643419,-0.02162722,-0.0063464143,0.08923051,0.04804969,-0.027329678,-0.03748718,-0.062079027,0.024300246,-0.02768608,-0.00010004867,0.021141214,-0.026714072,0.0053541544,-0.040792014,0.055922966,0.028722892,-0.030099904,-0.0085293865,0.02353884,0.025450459,-0.023085235,0.059713807,0.0046939976,-0.022421027,0.01472595,-0.008448386,-0.0036997125,0.0099955015,0.009622898,0.0060264613,0.04059761,-0.0014428272,0.008391685,-0.009290794,0.02851229,0.014118443,0.019278195,-0.0034060846,-0.058871396,0.0005670058,0.005823959,0.019585999,0.03748718,0.0085293865,-0.019537399,0.012320225,-0.01785258,-0.035348758,0.025272256,0.0017172174,0.034182347,-0.013429936,-0.05508056,-0.012198724,-0.0027317526,0.008047432,-0.0144991465,-0.0012666504,0.03163892,-0.029063094,-0.07024391,0.009622898,-0.039820004,0.031136716,-0.032124925,0.043934844,0.0002065521,-0.013429936,-0.028965894,-0.0057794084,0.007610027,-0.034311946,0.00050929264,0.013956442,0.036061566,0.046818476,0.009452796,0.10264424,0.021270815,0.039301597,-0.06551346,0.021076413,0.012976332,0.009622898,-0.041213218,0.008748089,0.019035192,-0.025482858,0.07063272,-0.011672218,-0.03356674,0.0016625419,0.012968231,0.037875984,-0.042606432,-0.00043740444,0.006042661,0.011251014,-0.012935831,0.035867162,0.023490239,0.024446048,0.015163354,0.035737563,-0.0131869335,-0.042703632,-0.013316535,0.005738908,-0.02656827,-0.02468905,-0.0593574,0.019294396,0.07730719,0.0495077,-0.021449018,-0.048956897,0.0015643283,0.029856903,0.013429936,0.007411575,-0.05650617,0.046753675,0.06444425,0.042800833,-0.029144095,0.017010173,-0.05640897,-0.024575649,-0.0033311588,-0.031881925,-0.0017931557,-0.003762488,-0.0026851771,0.006135812,0.015463057,-0.033339936,0.006625867,-0.04814689,-0.020898212,0.007111872,-0.0006226938,0.0030395559,0.019116193,0.0077477284,0.050123308,-0.014968951,0.020493207,-0.0015704035,-0.030747911,-0.0017192424,0.05213213,-0.0072536236,-0.036223568,0.029289898,-0.015033753,-0.0787976,-0.00046474222,0.039496,-0.010554407,0.026503468,0.019067593,-0.008650888,-0.03147692,-0.008010982,-0.01773918,-0.029257497,0.041861225,-0.03056971,0.07361355,0.0121825235,0.010343805,-0.03758438,-0.009161193,0.019974802,-0.01678337,-0.00789353,-0.021254616,-0.018419586,-0.021206016,0.0295005,0.03165512,-0.00062826264,-0.0072657736,-0.016005762,-0.044032045,-0.052747734,-0.0011674244,0.0075614266,-0.038685992,-0.0026851771,-0.033793543,0.010505807,0.021400416,0.031800922,-0.021951223,0.010538206,0.005520206,0.02272883,-0.039269198,0.021416618,-0.028155886,-0.036353167,-0.01765818,0.01864639,-0.057089377,0.014207544,-0.07264154,-0.024851052,0.021319415,0.016483666,0.048470892,-0.007229323,-0.0198452,-0.043999646,0.03160652,0.016750969,-0.0077801286,-0.05446495,-0.031023314,0.01279003,0.04244443,0.0694663,0.038199987,0.028107285,-0.005815859,0.024300246,-0.016313566,-0.022242825,0.07801999,-0.018144185,-0.03434435,0.0129034305,-0.017269375,-0.03134732,-0.013583838,-0.038005587,0.044777256,0.0004029791,0.0496697,-0.016256865,-0.019926202,-0.013259835,0.0076343273,-0.014385746,0.016507966,0.048956897,0.0072090733,-0.01083791,0.04166682,-0.022955632,-4.2240663e-05,0.013446136,0.0047952486,0.0028856543,0.03249753,0.020963013,-0.027507879,0.0010276979,-0.03259473,-0.020574208,0.031363517,-0.032951135,-0.014580147,-0.045911264,-0.017123574,0.0026406269,0.020120604,0.02373324,0.010578707,-0.011680318,-0.021189814,-0.06473586,0.048114486,0.008391685,0.007188823,-0.0044064447,-0.017317975,0.01770678,0.031898122,0.023652239,0.032821532,0.017042574,-0.01183422,0.031055715,0.004872199,-0.04241203,-0.03654757,-0.016451268,-0.042088028,0.028026285,0.02870669,-0.018095583,0.02467285,-0.09415536,-0.0058725597,0.10290344,-0.01686437,0.012012422,-0.04727208,-0.031979125,-0.043772843,-0.02075241,-0.049993705,-0.06463865,-0.028074885,-0.03424715,0.022518229,0.011510217,0.030148506,0.0011016112,-0.06107462,-0.0023591488,-0.021918822,0.022955632,0.04244443,0.007533076,0.027248677,0.02762128,-0.008343085,-0.012628028,-0.0027398528,0.022161825,-0.03137972,0.025061654,0.025142655,-0.017123574,0.06107462,0.046688873,-0.023798041,0.028820092,0.022923233,-0.018532988,-0.0058685094,-0.01383494,-0.017058773,0.013178834,0.01185042,-0.017496178,0.00692962,-0.01879219,-0.015001352,-0.035283957,0.014555847,-0.00494105,-0.0026426518,0.019602198,0.055631362,-0.03159032,0.026017463,-0.047110077,-0.014134644,0.0066987677,7.929221e-05,0.017398976,0.0493781,0.0114616165,-0.028107285,0.026908472,0.0005011926,-0.02760508,-0.0076343273,-0.03262713,-0.009533796,0.022761231,-0.023652239,0.039560802,-0.013600037,-0.009355594,0.019278195,0.012952032,0.026082264,-0.01582756,-0.0043294937,-0.015422557,-0.02666547,0.0030314557,0.03845919,-0.024413647,0.011145713,0.013462337,0.035154358,0.036223568,-0.024964454,0.020039603,0.030861313,0.075622365,0.04153722,0.011251014,-0.008205383,-0.045814063,-0.012101523,0.055696163,0.005625507,0.013033032,-0.0027864282,0.019116193,-0.015066152,-0.06250023,0.009541897,0.005086852,-0.024413647,-0.020104405,0.14333905,-0.018144185,-0.08955451,-0.0074804258,0.003248133,0.0028775542,-0.016094863,-0.038070384,0.00057156204,-0.02459185,-0.02353884,0.017042574,-0.03133112,0.01178562,0.015884262,0.023393037,-0.0107164085,0.007626227,0.036353167,-0.0077355783,0.05035011,-0.011988121,0.024413647,0.021837821,-0.004515796,-0.0089667905,0.02647107,0.04150482,-0.009072092,0.0098092,-0.01184232,-0.029856903,0.028334087,-0.051095318,-0.001037823,0.011291514,0.018208984,-0.047822885,-0.00015668596,-0.0035741613,-0.068559095,-0.061657824,-0.019278195,0.0026953022,-0.014053643,-0.000664713]'::vector))",
+                "knowledge_chunks.id"
+              ],
+              "Sort Method": "top-N heapsort",
+              "Sort Space Used": 195,
+              "Sort Space Type": "Memory",
+              "Shared Hit Blocks": 9879,
+              "Shared Read Blocks": 222,
+              "Shared Dirtied Blocks": 0,
+              "Shared Written Blocks": 0,
+              "Local Hit Blocks": 0,
+              "Local Read Blocks": 0,
+              "Local Dirtied Blocks": 0,
+              "Local Written Blocks": 0,
+              "Temp Read Blocks": 0,
+              "Temp Written Blocks": 0,
+              "Plans": [
+                {
+                  "Node Type": "Nested Loop",
+                  "Parent Relationship": "Outer",
+                  "Parallel Aware": false,
+                  "Async Capable": false,
+                  "Join Type": "Inner",
+                  "Startup Cost": 9.58,
+                  "Total Cost": 26.97,
+                  "Plan Rows": 1,
+                  "Plan Width": 748,
+                  "Actual Startup Time": 0.202,
+                  "Actual Total Time": 6.882,
+                  "Actual Rows": 500,
+                  "Actual Loops": 1,
+                  "Inner Unique": true,
+                  "Join Filter": "(knowledge_embeddings.chunk_id = knowledge_chunks.id)",
+                  "Rows Removed by Join Filter": 0,
+                  "Shared Hit Blocks": 9876,
+                  "Shared Read Blocks": 222,
+                  "Shared Dirtied Blocks": 0,
+                  "Shared Written Blocks": 0,
+                  "Local Hit Blocks": 0,
+                  "Local Read Blocks": 0,
+                  "Local Dirtied Blocks": 0,
+                  "Local Written Blocks": 0,
+                  "Temp Read Blocks": 0,
+                  "Temp Written Blocks": 0,
+                  "Plans": [
+                    {
+                      "Node Type": "Nested Loop",
+                      "Parent Relationship": "Outer",
+                      "Parallel Aware": false,
+                      "Async Capable": false,
+                      "Join Type": "Inner",
+                      "Startup Cost": 9.3,
+                      "Total Cost": 26.54,
+                      "Plan Rows": 1,
+                      "Plan Width": 744,
+                      "Actual Startup Time": 0.119,
+                      "Actual Total Time": 3.973,
+                      "Actual Rows": 500,
+                      "Actual Loops": 1,
+                      "Inner Unique": true,
+                      "Join Filter": "((materials.id)::text = (knowledge_chunks.material_id)::text)",
+                      "Rows Removed by Join Filter": 0,
+                      "Shared Hit Blocks": 5020,
+                      "Shared Read Blocks": 221,
+                      "Shared Dirtied Blocks": 0,
+                      "Shared Written Blocks": 0,
+                      "Local Hit Blocks": 0,
+                      "Local Read Blocks": 0,
+                      "Local Dirtied Blocks": 0,
+                      "Local Written Blocks": 0,
+                      "Temp Read Blocks": 0,
+                      "Temp Written Blocks": 0,
+                      "Plans": [
+                        {
+                          "Node Type": "Nested Loop",
+                          "Parent Relationship": "Outer",
+                          "Parallel Aware": false,
+                          "Async Capable": false,
+                          "Join Type": "Semi",
+                          "Startup Cost": 9.3,
+                          "Total Cost": 25.23,
+                          "Plan Rows": 1,
+                          "Plan Width": 681,
+                          "Actual Startup Time": 0.117,
+                          "Actual Total Time": 3.566,
+                          "Actual Rows": 500,
+                          "Actual Loops": 1,
+                          "Inner Unique": false,
+                          "Shared Hit Blocks": 4520,
+                          "Shared Read Blocks": 221,
+                          "Shared Dirtied Blocks": 0,
+                          "Shared Written Blocks": 0,
+                          "Local Hit Blocks": 0,
+                          "Local Read Blocks": 0,
+                          "Local Dirtied Blocks": 0,
+                          "Local Written Blocks": 0,
+                          "Temp Read Blocks": 0,
+                          "Temp Written Blocks": 0,
+                          "Plans": [
+                            {
+                              "Node Type": "Nested Loop",
+                              "Parent Relationship": "Outer",
+                              "Parallel Aware": false,
+                              "Async Capable": false,
+                              "Join Type": "Inner",
+                              "Startup Cost": 8.73,
+                              "Total Cost": 17.62,
+                              "Plan Rows": 1,
+                              "Plan Width": 681,
+                              "Actual Startup Time": 0.039,
+                              "Actual Total Time": 0.326,
+                              "Actual Rows": 500,
+                              "Actual Loops": 1,
+                              "Inner Unique": false,
+                              "Join Filter": "((knowledge_entries.id = knowledge_chunks.knowledge_entry_id) AND ((knowledge_entries.material_id)::text = (knowledge_chunks.material_id)::text))",
+                              "Rows Removed by Join Filter": 0,
+                              "Shared Hit Blocks": 51,
+                              "Shared Read Blocks": 0,
+                              "Shared Dirtied Blocks": 0,
+                              "Shared Written Blocks": 0,
+                              "Local Hit Blocks": 0,
+                              "Local Read Blocks": 0,
+                              "Local Dirtied Blocks": 0,
+                              "Local Written Blocks": 0,
+                              "Temp Read Blocks": 0,
+                              "Temp Written Blocks": 0,
+                              "Plans": [
+                                {
+                                  "Node Type": "Nested Loop",
+                                  "Parent Relationship": "Outer",
+                                  "Parallel Aware": false,
+                                  "Async Capable": false,
+                                  "Join Type": "Inner",
+                                  "Startup Cost": 0.0,
+                                  "Total Cost": 4.85,
+                                  "Plan Rows": 1,
+                                  "Plan Width": 53,
+                                  "Actual Startup Time": 0.006,
+                                  "Actual Total Time": 0.014,
+                                  "Actual Rows": 1,
+                                  "Actual Loops": 1,
+                                  "Inner Unique": false,
+                                  "Join Filter": "(knowledge_index_generations.knowledge_entry_id = knowledge_entries.id)",
+                                  "Rows Removed by Join Filter": 19,
+                                  "Shared Hit Blocks": 4,
+                                  "Shared Read Blocks": 0,
+                                  "Shared Dirtied Blocks": 0,
+                                  "Shared Written Blocks": 0,
+                                  "Local Hit Blocks": 0,
+                                  "Local Read Blocks": 0,
+                                  "Local Dirtied Blocks": 0,
+                                  "Local Written Blocks": 0,
+                                  "Temp Read Blocks": 0,
+                                  "Temp Written Blocks": 0,
+                                  "Plans": [
+                                    {
+                                      "Node Type": "Seq Scan",
+                                      "Parent Relationship": "Outer",
+                                      "Parallel Aware": false,
+                                      "Async Capable": false,
+                                      "Relation Name": "knowledge_entries",
+                                      "Alias": "knowledge_entries",
+                                      "Startup Cost": 0.0,
+                                      "Total Cost": 1.3,
+                                      "Plan Rows": 1,
+                                      "Plan Width": 45,
+                                      "Actual Startup Time": 0.004,
+                                      "Actual Total Time": 0.005,
+                                      "Actual Rows": 1,
+                                      "Actual Loops": 1,
+                                      "Filter": "((subject_id = 1) AND (class_id = 1))",
+                                      "Rows Removed by Filter": 19,
+                                      "Shared Hit Blocks": 1,
+                                      "Shared Read Blocks": 0,
+                                      "Shared Dirtied Blocks": 0,
+                                      "Shared Written Blocks": 0,
+                                      "Local Hit Blocks": 0,
+                                      "Local Read Blocks": 0,
+                                      "Local Dirtied Blocks": 0,
+                                      "Local Written Blocks": 0,
+                                      "Temp Read Blocks": 0,
+                                      "Temp Written Blocks": 0
+                                    },
+                                    {
+                                      "Node Type": "Seq Scan",
+                                      "Parent Relationship": "Inner",
+                                      "Parallel Aware": false,
+                                      "Async Capable": false,
+                                      "Relation Name": "knowledge_index_generations",
+                                      "Alias": "knowledge_index_generations",
+                                      "Startup Cost": 0.0,
+                                      "Total Cost": 3.3,
+                                      "Plan Rows": 20,
+                                      "Plan Width": 8,
+                                      "Actual Startup Time": 0.002,
+                                      "Actual Total Time": 0.007,
+                                      "Actual Rows": 20,
+                                      "Actual Loops": 1,
+                                      "Filter": "((is_current IS TRUE) AND (profile_id = 1) AND ((status)::text = 'ready'::text))",
+                                      "Rows Removed by Filter": 0,
+                                      "Shared Hit Blocks": 3,
+                                      "Shared Read Blocks": 0,
+                                      "Shared Dirtied Blocks": 0,
+                                      "Shared Written Blocks": 0,
+                                      "Local Hit Blocks": 0,
+                                      "Local Read Blocks": 0,
+                                      "Local Dirtied Blocks": 0,
+                                      "Local Written Blocks": 0,
+                                      "Temp Read Blocks": 0,
+                                      "Temp Written Blocks": 0
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Node Type": "Bitmap Heap Scan",
+                                  "Parent Relationship": "Inner",
+                                  "Parallel Aware": false,
+                                  "Async Capable": false,
+                                  "Relation Name": "knowledge_chunks",
+                                  "Alias": "knowledge_chunks",
+                                  "Startup Cost": 8.73,
+                                  "Total Cost": 12.75,
+                                  "Plan Rows": 1,
+                                  "Plan Width": 636,
+                                  "Actual Startup Time": 0.031,
+                                  "Actual Total Time": 0.247,
+                                  "Actual Rows": 500,
+                                  "Actual Loops": 1,
+                                  "Recheck Cond": "((knowledge_entry_id = knowledge_index_generations.knowledge_entry_id) AND (knowledge_index_generations.id = generation_id) AND (class_id = 1) AND (subject_id = 1) AND ((index_status)::text = 'ready'::text))",
+                                  "Rows Removed by Index Recheck": 0,
+                                  "Filter": "((searchable_active IS TRUE) OR ((provenance_version)::text = 'legacy'::text))",
+                                  "Rows Removed by Filter": 0,
+                                  "Exact Heap Blocks": 42,
+                                  "Lossy Heap Blocks": 0,
+                                  "Shared Hit Blocks": 47,
+                                  "Shared Read Blocks": 0,
+                                  "Shared Dirtied Blocks": 0,
+                                  "Shared Written Blocks": 0,
+                                  "Local Hit Blocks": 0,
+                                  "Local Read Blocks": 0,
+                                  "Local Dirtied Blocks": 0,
+                                  "Local Written Blocks": 0,
+                                  "Temp Read Blocks": 0,
+                                  "Temp Written Blocks": 0,
+                                  "Plans": [
+                                    {
+                                      "Node Type": "BitmapAnd",
+                                      "Parent Relationship": "Outer",
+                                      "Parallel Aware": false,
+                                      "Async Capable": false,
+                                      "Startup Cost": 8.73,
+                                      "Total Cost": 8.73,
+                                      "Plan Rows": 1,
+                                      "Plan Width": 0,
+                                      "Actual Startup Time": 0.025,
+                                      "Actual Total Time": 0.025,
+                                      "Actual Rows": 0,
+                                      "Actual Loops": 1,
+                                      "Shared Hit Blocks": 5,
+                                      "Shared Read Blocks": 0,
+                                      "Shared Dirtied Blocks": 0,
+                                      "Shared Written Blocks": 0,
+                                      "Local Hit Blocks": 0,
+                                      "Local Read Blocks": 0,
+                                      "Local Dirtied Blocks": 0,
+                                      "Local Written Blocks": 0,
+                                      "Temp Read Blocks": 0,
+                                      "Temp Written Blocks": 0,
+                                      "Plans": [
+                                        {
+                                          "Node Type": "Bitmap Index Scan",
+                                          "Parent Relationship": "Member",
+                                          "Parallel Aware": false,
+                                          "Async Capable": false,
+                                          "Index Name": "ix_chunks_entry_current",
+                                          "Startup Cost": 0.0,
+                                          "Total Cost": 3.94,
+                                          "Plan Rows": 25,
+                                          "Plan Width": 0,
+                                          "Actual Startup Time": 0.013,
+                                          "Actual Total Time": 0.014,
+                                          "Actual Rows": 500,
+                                          "Actual Loops": 1,
+                                          "Index Cond": "((knowledge_entry_id = knowledge_index_generations.knowledge_entry_id) AND (generation_id = knowledge_index_generations.id))",
+                                          "Shared Hit Blocks": 3,
+                                          "Shared Read Blocks": 0,
+                                          "Shared Dirtied Blocks": 0,
+                                          "Shared Written Blocks": 0,
+                                          "Local Hit Blocks": 0,
+                                          "Local Read Blocks": 0,
+                                          "Local Dirtied Blocks": 0,
+                                          "Local Written Blocks": 0,
+                                          "Temp Read Blocks": 0,
+                                          "Temp Written Blocks": 0
+                                        },
+                                        {
+                                          "Node Type": "Bitmap Index Scan",
+                                          "Parent Relationship": "Member",
+                                          "Parallel Aware": false,
+                                          "Async Capable": false,
+                                          "Index Name": "ix_chunks_class_subject_status_ready",
+                                          "Startup Cost": 0.0,
+                                          "Total Cost": 4.54,
+                                          "Plan Rows": 25,
+                                          "Plan Width": 0,
+                                          "Actual Startup Time": 0.009,
+                                          "Actual Total Time": 0.009,
+                                          "Actual Rows": 500,
+                                          "Actual Loops": 1,
+                                          "Index Cond": "((class_id = 1) AND (subject_id = 1))",
+                                          "Shared Hit Blocks": 2,
+                                          "Shared Read Blocks": 0,
+                                          "Shared Dirtied Blocks": 0,
+                                          "Shared Written Blocks": 0,
+                                          "Local Hit Blocks": 0,
+                                          "Local Read Blocks": 0,
+                                          "Local Dirtied Blocks": 0,
+                                          "Local Written Blocks": 0,
+                                          "Temp Read Blocks": 0,
+                                          "Temp Written Blocks": 0
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "Node Type": "Nested Loop",
+                              "Parent Relationship": "Inner",
+                              "Parallel Aware": false,
+                              "Async Capable": false,
+                              "Join Type": "Inner",
+                              "Startup Cost": 0.57,
+                              "Total Cost": 7.6,
+                              "Plan Rows": 1,
+                              "Plan Width": 8,
+                              "Actual Startup Time": 0.006,
+                              "Actual Total Time": 0.006,
+                              "Actual Rows": 1,
+                              "Actual Loops": 500,
+                              "Inner Unique": true,
+                              "Shared Hit Blocks": 4469,
+                              "Shared Read Blocks": 221,
+                              "Shared Dirtied Blocks": 0,
+                              "Shared Written Blocks": 0,
+                              "Local Hit Blocks": 0,
+                              "Local Read Blocks": 0,
+                              "Local Dirtied Blocks": 0,
+                              "Local Written Blocks": 0,
+                              "Temp Read Blocks": 0,
+                              "Temp Written Blocks": 0,
+                              "Plans": [
+                                {
+                                  "Node Type": "Index Scan",
+                                  "Parent Relationship": "Outer",
+                                  "Parallel Aware": false,
+                                  "Async Capable": false,
+                                  "Scan Direction": "Forward",
+                                  "Index Name": "ix_knowledge_chunk_sentences_chunk_id",
+                                  "Relation Name": "knowledge_chunk_sentences",
+                                  "Alias": "knowledge_chunk_sentences",
+                                  "Startup Cost": 0.29,
+                                  "Total Cost": 7.18,
+                                  "Plan Rows": 1,
+                                  "Plan Width": 12,
+                                  "Actual Startup Time": 0.001,
+                                  "Actual Total Time": 0.001,
+                                  "Actual Rows": 1,
+                                  "Actual Loops": 500,
+                                  "Index Cond": "(chunk_id = knowledge_chunks.id)",
+                                  "Rows Removed by Index Recheck": 0,
+                                  "Filter": "(knowledge_chunks.generation_id = generation_id)",
+                                  "Rows Removed by Filter": 0,
+                                  "Shared Hit Blocks": 1500,
+                                  "Shared Read Blocks": 0,
+                                  "Shared Dirtied Blocks": 0,
+                                  "Shared Written Blocks": 0,
+                                  "Local Hit Blocks": 0,
+                                  "Local Read Blocks": 0,
+                                  "Local Dirtied Blocks": 0,
+                                  "Local Written Blocks": 0,
+                                  "Temp Read Blocks": 0,
+                                  "Temp Written Blocks": 0
+                                },
+                                {
+                                  "Node Type": "Index Scan",
+                                  "Parent Relationship": "Inner",
+                                  "Parallel Aware": false,
+                                  "Async Capable": false,
+                                  "Scan Direction": "Forward",
+                                  "Index Name": "uq_sentence_profile",
+                                  "Relation Name": "knowledge_sentence_embeddings",
+                                  "Alias": "knowledge_sentence_embeddings",
+                                  "Startup Cost": 0.29,
+                                  "Total Cost": 0.41,
+                                  "Plan Rows": 1,
+                                  "Plan Width": 4,
+                                  "Actual Startup Time": 0.005,
+                                  "Actual Total Time": 0.005,
+                                  "Actual Rows": 1,
+                                  "Actual Loops": 500,
+                                  "Index Cond": "((sentence_id = knowledge_chunk_sentences.id) AND (profile_id = 1))",
+                                  "Rows Removed by Index Recheck": 0,
+                                  "Filter": "((is_active IS TRUE) AND ((state)::text = 'ready'::text) AND (dimensions = 1024) AND ((embedding <=> '[-0.010991812,-0.05229413,-0.014944651,-0.011032312,0.008132482,-0.012344525,0.029208897,0.021368017,-0.039722804,0.06314824,-0.027459279,-0.02078481,0.014288545,-0.017204575,0.048956897,0.004527946,0.015292955,-0.12143643,0.043967247,-0.04131042,0.015106653,0.006613717,0.03751958,0.047887687,-0.026114665,-0.0038232387,-0.025887862,-0.0042606434,0.033955544,-0.053687345,0.06525426,-0.040079206,-0.010360005,0.0042849435,0.001579516,0.056538574,-0.008132482,-0.028091084,0.010181803,0.0032683832,-0.00051638024,-0.04056521,-6.480065e-05,-0.0071280724,-0.03735758,-0.046591673,0.0020503332,-0.010546307,0.0017445552,-0.008185133,0.048179287,-0.014401946,-0.011753219,0.03541356,0.03069931,-0.02363604,0.040792014,0.03162272,-0.0014063767,0.011542617,0.016621368,0.04555486,-0.0060791117,-0.02175682,-0.030877514,-0.024219245,-0.008229683,-0.045004055,0.019667,-0.040792014,-0.02760508,-0.012522727,0.049766906,0.02459185,-0.033923145,0.008019081,-0.02572586,-0.017172175,-0.03719558,-0.0032137076,0.014215644,-0.035089556,-0.010400506,-0.026244266,0.05508056,0.068559095,-0.026503468,-0.027507879,0.03651517,-0.018711189,-0.01785258,-0.0153982565,0.019359196,-0.043902446,-0.01777158,0.052196927,0.025191255,0.016070563,0.018937992,0.018905591,-0.01276573,0.031509317,-0.10549547,-0.05222933,0.03269193,-0.0005204303,-0.03489515,-0.023409238,-0.025401857,0.009647198,0.019829001,0.013259835,-0.019958602,-0.0073346244,0.011477816,0.022129424,-0.017285576,0.011210513,-0.007180723,0.032999735,-0.019991003,-0.009201693,0.004471245,-0.0063342643,-0.011267214,-0.008496986,-0.01187472,-0.0033817843,0.026341466,0.037065975,-0.061787426,0.028722892,0.028366487,-0.03758438,0.06324544,0.020412207,-0.028998293,0.039334,-0.04860049,-0.015754659,-0.09039692,-0.004212043,0.012279725,0.024721451,-0.04218523,0.014150843,0.009574297,-0.0492161,-0.013608138,-0.018889392,0.0295815,-0.010449106,-0.03862119,0.01280623,-0.008958691,-0.011639818,0.035996765,0.029743502,0.010497706,0.024284046,-0.050026108,0.013276035,0.025401857,-0.039917205,0.02070381,-0.06408785,-0.07115112,0.013689139,0.03719558,-0.043675642,0.005613357,0.033955544,-0.0031387818,-0.082685634,-0.020023404,-0.00122615,-0.011113313,-0.00022578979,-0.045068856,-0.0393988,0.071734324,0.026195666,0.076594375,0.04237963,0.039269198,-0.0113077145,0.048114486,-0.007006571,0.031169116,0.0297273,-0.019504998,0.068364695,-0.022939432,0.04325444,-0.022080824,0.00090771547,0.0008980966,-0.009776799,0.07354874,0.007229323,-0.025547659,-0.027831882,0.033307537,0.009396095,-0.01090271,0.02575826,-0.027426878,-0.015098553,0.02754028,0.013251734,-0.020104405,0.005836109,-0.002371299,-0.009574297,0.046948075,-0.009574297,-0.0143695455,-0.039917205,-0.00038880395,0.039366398,0.032124925,0.018338585,-0.036191165,0.024575649,0.00886149,-0.014758349,0.039560802,-0.016127264,0.0056984075,0.025401857,0.034571152,-0.012668529,-0.053914145,0.011421116,0.024818651,-0.023085235,-0.0030982813,0.035640363,0.004005491,0.021076413,0.045943666,0.011032312,-0.019342996,0.029127896,-0.014256145,-0.033987943,-0.025207456,-0.042800833,-0.0010044102,-0.022453427,-0.045814063,0.0017486052,0.0050666016,0.007124022,0.025207456,0.05009091,-0.030099904,0.01676717,0.046818476,0.03246513,-0.011623618,-0.0023996492,0.0002057927,-0.015268655,-0.028965894,0.010157503,-0.023441637,0.033177935,0.003762488,-0.020088203,-0.016297365,0.023036633,0.013024932,0.0040824413,-0.026373867,0.016208265,-0.06123662,0.00882909,0.0144991465,-0.012976332,-0.0023166235,0.001934907,-0.0075290264,-0.015033753,-0.009776799,0.023490239,-0.012304025,0.0009254344,0.019861402,0.007111872,0.0052650534,0.029954104,-0.020363607,0.06771669,0.0118990205,-0.029160295,0.007678878,-0.019667,-0.0075654765,-0.0002089568,-0.06518946,-0.008415985,0.010457206,-0.0042606434,0.018451987,-0.029824503,-0.0029889303,-0.098821,-0.000547768,-0.08650888,-0.010376205,-0.060588613,0.015414456,-0.062565036,0.024818651,0.0071645225,0.00086822757,0.0058766096,0.02083341,0.028026285,-0.016127264,-0.06366664,-0.05125732,0.018322386,0.023214836,0.03147692,-0.021967422,0.016038163,-0.020574208,-0.07102152,-0.026195666,0.0025859512,-0.019099994,-0.010376205,0.039366398,0.004345694,-0.028172085,0.008359285,-0.010659708,0.0016949421,0.056862578,0.020590408,-0.046688873,0.014580147,-0.0012271624,-0.0005664995,-0.014709749,0.05326614,-0.042055625,-0.026033664,-0.041861225,0.033032134,0.011234814,0.039917205,0.008043381,0.005313654,-0.024284046,0.0086589875,-0.047920085,-0.017820181,0.022242825,-0.06473586,-0.0297273,0.028074885,0.03144452,-0.049928907,0.012757629,-0.0083754845,-0.009088292,0.024186846,0.059811007,-0.039560802,-0.022048423,-0.004734498,0.06437945,-0.0043051937,-0.025466658,0.0037078126,0.008383585,0.0008034269,0.072252735,0.020995412,0.012336425,-0.012287824,-0.016078662,-0.014612548,0.010935111,0.03356674,0.0005649807,-0.0003756413,0.010238504,-0.005998111,0.0068000187,0.0021120964,-0.0058644596,0.04824409,0.025077853,0.0031975075,0.016345965,-0.025823062,0.04814689,-0.007865179,-0.054529753,0.013583838,0.059325002,-0.0010732609,0.042962834,0.0019298446,-0.021983624,0.020509407,-0.030278107,-0.038297188,0.042574033,0.007496626,-0.05154892,-0.0068688695,-0.038297188,-0.012239224,-0.024219245,-0.0099469,-0.017447576,0.028431289,-0.056668174,0.018484388,-0.011639818,0.14515348,-0.043934844,0.012376925,0.013251734,-0.005641707,-0.054756556,-0.018856991,-0.045943666,0.009428496,0.0392368,0.002024008,0.019974802,0.035996765,-0.02666547,0.010287104,-0.0003480504,0.024818651,-0.0065732165,-0.009930701,0.028431289,-0.008634687,0.006103412,0.0059130597,0.012725229,0.018937992,0.00694177,-0.035802364,0.008407885,0.007808479,-0.012911531,-0.06217623,0.03531636,0.029273696,-0.035348758,0.03648277,0.020217804,0.038750794,-0.046850875,-0.0071280724,-0.010027901,0.039982006,0.020671409,0.020331206,0.023279635,0.031817123,0.017560977,0.054140948,-0.022080824,-0.07575197,0.020347407,0.022372426,-0.0014549772,0.045749262,-0.0030820812,0.08488886,0.02561246,0.008642788,-0.025547659,0.023830442,-0.056473773,-0.009242194,-0.060783017,0.033955544,0.0197642,0.025952663,0.01585186,0.011996222,-0.035737563,0.007205023,-0.03259473,0.0006039624,0.025547659,-0.05047971,-0.013381336,-0.029921703,-0.03256233,0.028139684,0.0038009635,-0.02663307,0.0049694004,-0.00047613296,0.0019835075,-0.02277743,0.015155254,0.0025090005,-0.076205574,-0.022259025,0.029127896,0.0074277753,0.002577851,0.025936462,0.0011137613,-0.0196994,0.015633158,0.017236974,0.00061864377,0.019164795,0.031185316,-0.024041044,-0.028965894,-0.0066866176,-0.023441637,-0.02172442,0.01676717,-0.021837821,0.040630013,-0.026260465,-0.03460355,0.031914324,0.014329045,0.021465218,-0.017188374,0.03235173,-0.0008555712,0.047790483,0.004653497,0.027459279,-0.03055351,-0.008185133,0.023798041,-0.055858165,0.03638557,0.011947621,-0.0030294308,0.0014914277,0.06104222,0.008488886,-0.018905591,0.019342996,0.023182435,-0.012109622,0.034571152,0.023279635,0.031266317,-0.011153813,0.023409238,-0.061366223,-0.0021141213,0.02668167,-0.023846641,-0.046624072,-0.01864639,0.023409238,-0.049540102,-0.013024932,-0.007079472,0.035834763,-0.009266494,0.0016281165,0.039074797,-0.021643419,-0.02162722,-0.0063464143,0.08923051,0.04804969,-0.027329678,-0.03748718,-0.062079027,0.024300246,-0.02768608,-0.00010004867,0.021141214,-0.026714072,0.0053541544,-0.040792014,0.055922966,0.028722892,-0.030099904,-0.0085293865,0.02353884,0.025450459,-0.023085235,0.059713807,0.0046939976,-0.022421027,0.01472595,-0.008448386,-0.0036997125,0.0099955015,0.009622898,0.0060264613,0.04059761,-0.0014428272,0.008391685,-0.009290794,0.02851229,0.014118443,0.019278195,-0.0034060846,-0.058871396,0.0005670058,0.005823959,0.019585999,0.03748718,0.0085293865,-0.019537399,0.012320225,-0.01785258,-0.035348758,0.025272256,0.0017172174,0.034182347,-0.013429936,-0.05508056,-0.012198724,-0.0027317526,0.008047432,-0.0144991465,-0.0012666504,0.03163892,-0.029063094,-0.07024391,0.009622898,-0.039820004,0.031136716,-0.032124925,0.043934844,0.0002065521,-0.013429936,-0.028965894,-0.0057794084,0.007610027,-0.034311946,0.00050929264,0.013956442,0.036061566,0.046818476,0.009452796,0.10264424,0.021270815,0.039301597,-0.06551346,0.021076413,0.012976332,0.009622898,-0.041213218,0.008748089,0.019035192,-0.025482858,0.07063272,-0.011672218,-0.03356674,0.0016625419,0.012968231,0.037875984,-0.042606432,-0.00043740444,0.006042661,0.011251014,-0.012935831,0.035867162,0.023490239,0.024446048,0.015163354,0.035737563,-0.0131869335,-0.042703632,-0.013316535,0.005738908,-0.02656827,-0.02468905,-0.0593574,0.019294396,0.07730719,0.0495077,-0.021449018,-0.048956897,0.0015643283,0.029856903,0.013429936,0.007411575,-0.05650617,0.046753675,0.06444425,0.042800833,-0.029144095,0.017010173,-0.05640897,-0.024575649,-0.0033311588,-0.031881925,-0.0017931557,-0.003762488,-0.0026851771,0.006135812,0.015463057,-0.033339936,0.006625867,-0.04814689,-0.020898212,0.007111872,-0.0006226938,0.0030395559,0.019116193,0.0077477284,0.050123308,-0.014968951,0.020493207,-0.0015704035,-0.030747911,-0.0017192424,0.05213213,-0.0072536236,-0.036223568,0.029289898,-0.015033753,-0.0787976,-0.00046474222,0.039496,-0.010554407,0.026503468,0.019067593,-0.008650888,-0.03147692,-0.008010982,-0.01773918,-0.029257497,0.041861225,-0.03056971,0.07361355,0.0121825235,0.010343805,-0.03758438,-0.009161193,0.019974802,-0.01678337,-0.00789353,-0.021254616,-0.018419586,-0.021206016,0.0295005,0.03165512,-0.00062826264,-0.0072657736,-0.016005762,-0.044032045,-0.052747734,-0.0011674244,0.0075614266,-0.038685992,-0.0026851771,-0.033793543,0.010505807,0.021400416,0.031800922,-0.021951223,0.010538206,0.005520206,0.02272883,-0.039269198,0.021416618,-0.028155886,-0.036353167,-0.01765818,0.01864639,-0.057089377,0.014207544,-0.07264154,-0.024851052,0.021319415,0.016483666,0.048470892,-0.007229323,-0.0198452,-0.043999646,0.03160652,0.016750969,-0.0077801286,-0.05446495,-0.031023314,0.01279003,0.04244443,0.0694663,0.038199987,0.028107285,-0.005815859,0.024300246,-0.016313566,-0.022242825,0.07801999,-0.018144185,-0.03434435,0.0129034305,-0.017269375,-0.03134732,-0.013583838,-0.038005587,0.044777256,0.0004029791,0.0496697,-0.016256865,-0.019926202,-0.013259835,0.0076343273,-0.014385746,0.016507966,0.048956897,0.0072090733,-0.01083791,0.04166682,-0.022955632,-4.2240663e-05,0.013446136,0.0047952486,0.0028856543,0.03249753,0.020963013,-0.027507879,0.0010276979,-0.03259473,-0.020574208,0.031363517,-0.032951135,-0.014580147,-0.045911264,-0.017123574,0.0026406269,0.020120604,0.02373324,0.010578707,-0.011680318,-0.021189814,-0.06473586,0.048114486,0.008391685,0.007188823,-0.0044064447,-0.017317975,0.01770678,0.031898122,0.023652239,0.032821532,0.017042574,-0.01183422,0.031055715,0.004872199,-0.04241203,-0.03654757,-0.016451268,-0.042088028,0.028026285,0.02870669,-0.018095583,0.02467285,-0.09415536,-0.0058725597,0.10290344,-0.01686437,0.012012422,-0.04727208,-0.031979125,-0.043772843,-0.02075241,-0.049993705,-0.06463865,-0.028074885,-0.03424715,0.022518229,0.011510217,0.030148506,0.0011016112,-0.06107462,-0.0023591488,-0.021918822,0.022955632,0.04244443,0.007533076,0.027248677,0.02762128,-0.008343085,-0.012628028,-0.0027398528,0.022161825,-0.03137972,0.025061654,0.025142655,-0.017123574,0.06107462,0.046688873,-0.023798041,0.028820092,0.022923233,-0.018532988,-0.0058685094,-0.01383494,-0.017058773,0.013178834,0.01185042,-0.017496178,0.00692962,-0.01879219,-0.015001352,-0.035283957,0.014555847,-0.00494105,-0.0026426518,0.019602198,0.055631362,-0.03159032,0.026017463,-0.047110077,-0.014134644,0.0066987677,7.929221e-05,0.017398976,0.0493781,0.0114616165,-0.028107285,0.026908472,0.0005011926,-0.02760508,-0.0076343273,-0.03262713,-0.009533796,0.022761231,-0.023652239,0.039560802,-0.013600037,-0.009355594,0.019278195,0.012952032,0.026082264,-0.01582756,-0.0043294937,-0.015422557,-0.02666547,0.0030314557,0.03845919,-0.024413647,0.011145713,0.013462337,0.035154358,0.036223568,-0.024964454,0.020039603,0.030861313,0.075622365,0.04153722,0.011251014,-0.008205383,-0.045814063,-0.012101523,0.055696163,0.005625507,0.013033032,-0.0027864282,0.019116193,-0.015066152,-0.06250023,0.009541897,0.005086852,-0.024413647,-0.020104405,0.14333905,-0.018144185,-0.08955451,-0.0074804258,0.003248133,0.0028775542,-0.016094863,-0.038070384,0.00057156204,-0.02459185,-0.02353884,0.017042574,-0.03133112,0.01178562,0.015884262,0.023393037,-0.0107164085,0.007626227,0.036353167,-0.0077355783,0.05035011,-0.011988121,0.024413647,0.021837821,-0.004515796,-0.0089667905,0.02647107,0.04150482,-0.009072092,0.0098092,-0.01184232,-0.029856903,0.028334087,-0.051095318,-0.001037823,0.011291514,0.018208984,-0.047822885,-0.00015668596,-0.0035741613,-0.068559095,-0.061657824,-0.019278195,0.0026953022,-0.014053643,-0.000664713]'::vector) <= '0.65'::double precision))",
+                                  "Rows Removed by Filter": 0,
+                                  "Shared Hit Blocks": 2969,
+                                  "Shared Read Blocks": 221,
+                                  "Shared Dirtied Blocks": 0,
+                                  "Shared Written Blocks": 0,
+                                  "Local Hit Blocks": 0,
+                                  "Local Read Blocks": 0,
+                                  "Local Dirtied Blocks": 0,
+                                  "Local Written Blocks": 0,
+                                  "Temp Read Blocks": 0,
+                                  "Temp Written Blocks": 0
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Node Type": "Seq Scan",
+                          "Parent Relationship": "Inner",
+                          "Parallel Aware": false,
+                          "Async Capable": false,
+                          "Relation Name": "materials",
+                          "Alias": "materials",
+                          "Startup Cost": 0.0,
+                          "Total Cost": 1.3,
+                          "Plan Rows": 1,
+                          "Plan Width": 104,
+                          "Actual Startup Time": 0.0,
+                          "Actual Total Time": 0.0,
+                          "Actual Rows": 1,
+                          "Actual Loops": 500,
+                          "Filter": "((subject_id = 1) AND (class_id = 1))",
+                          "Rows Removed by Filter": 0,
+                          "Shared Hit Blocks": 500,
+                          "Shared Read Blocks": 0,
+                          "Shared Dirtied Blocks": 0,
+                          "Shared Written Blocks": 0,
+                          "Local Hit Blocks": 0,
+                          "Local Read Blocks": 0,
+                          "Local Dirtied Blocks": 0,
+                          "Local Written Blocks": 0,
+                          "Temp Read Blocks": 0,
+                          "Temp Written Blocks": 0
+                        }
+                      ]
+                    },
+                    {
+                      "Node Type": "Index Scan",
+                      "Parent Relationship": "Inner",
+                      "Parallel Aware": false,
+                      "Async Capable": false,
+                      "Scan Direction": "Forward",
+                      "Index Name": "uq_chunk_profile",
+                      "Relation Name": "knowledge_embeddings",
+                      "Alias": "knowledge_embeddings",
+                      "Startup Cost": 0.29,
+                      "Total Cost": 0.41,
+                      "Plan Rows": 1,
+                      "Plan Width": 22,
+                      "Actual Startup Time": 0.004,
+                      "Actual Total Time": 0.004,
+                      "Actual Rows": 1,
+                      "Actual Loops": 500,
+                      "Index Cond": "((chunk_id = knowledge_chunk_sentences.chunk_id) AND (profile_id = 1))",
+                      "Rows Removed by Index Recheck": 0,
+                      "Filter": "((is_active IS TRUE) AND ((state)::text = 'ready'::text) AND (dimensions = 1024) AND ((embedding <=> '[-0.010991812,-0.05229413,-0.014944651,-0.011032312,0.008132482,-0.012344525,0.029208897,0.021368017,-0.039722804,0.06314824,-0.027459279,-0.02078481,0.014288545,-0.017204575,0.048956897,0.004527946,0.015292955,-0.12143643,0.043967247,-0.04131042,0.015106653,0.006613717,0.03751958,0.047887687,-0.026114665,-0.0038232387,-0.025887862,-0.0042606434,0.033955544,-0.053687345,0.06525426,-0.040079206,-0.010360005,0.0042849435,0.001579516,0.056538574,-0.008132482,-0.028091084,0.010181803,0.0032683832,-0.00051638024,-0.04056521,-6.480065e-05,-0.0071280724,-0.03735758,-0.046591673,0.0020503332,-0.010546307,0.0017445552,-0.008185133,0.048179287,-0.014401946,-0.011753219,0.03541356,0.03069931,-0.02363604,0.040792014,0.03162272,-0.0014063767,0.011542617,0.016621368,0.04555486,-0.0060791117,-0.02175682,-0.030877514,-0.024219245,-0.008229683,-0.045004055,0.019667,-0.040792014,-0.02760508,-0.012522727,0.049766906,0.02459185,-0.033923145,0.008019081,-0.02572586,-0.017172175,-0.03719558,-0.0032137076,0.014215644,-0.035089556,-0.010400506,-0.026244266,0.05508056,0.068559095,-0.026503468,-0.027507879,0.03651517,-0.018711189,-0.01785258,-0.0153982565,0.019359196,-0.043902446,-0.01777158,0.052196927,0.025191255,0.016070563,0.018937992,0.018905591,-0.01276573,0.031509317,-0.10549547,-0.05222933,0.03269193,-0.0005204303,-0.03489515,-0.023409238,-0.025401857,0.009647198,0.019829001,0.013259835,-0.019958602,-0.0073346244,0.011477816,0.022129424,-0.017285576,0.011210513,-0.007180723,0.032999735,-0.019991003,-0.009201693,0.004471245,-0.0063342643,-0.011267214,-0.008496986,-0.01187472,-0.0033817843,0.026341466,0.037065975,-0.061787426,0.028722892,0.028366487,-0.03758438,0.06324544,0.020412207,-0.028998293,0.039334,-0.04860049,-0.015754659,-0.09039692,-0.004212043,0.012279725,0.024721451,-0.04218523,0.014150843,0.009574297,-0.0492161,-0.013608138,-0.018889392,0.0295815,-0.010449106,-0.03862119,0.01280623,-0.008958691,-0.011639818,0.035996765,0.029743502,0.010497706,0.024284046,-0.050026108,0.013276035,0.025401857,-0.039917205,0.02070381,-0.06408785,-0.07115112,0.013689139,0.03719558,-0.043675642,0.005613357,0.033955544,-0.0031387818,-0.082685634,-0.020023404,-0.00122615,-0.011113313,-0.00022578979,-0.045068856,-0.0393988,0.071734324,0.026195666,0.076594375,0.04237963,0.039269198,-0.0113077145,0.048114486,-0.007006571,0.031169116,0.0297273,-0.019504998,0.068364695,-0.022939432,0.04325444,-0.022080824,0.00090771547,0.0008980966,-0.009776799,0.07354874,0.007229323,-0.025547659,-0.027831882,0.033307537,0.009396095,-0.01090271,0.02575826,-0.027426878,-0.015098553,0.02754028,0.013251734,-0.020104405,0.005836109,-0.002371299,-0.009574297,0.046948075,-0.009574297,-0.0143695455,-0.039917205,-0.00038880395,0.039366398,0.032124925,0.018338585,-0.036191165,0.024575649,0.00886149,-0.014758349,0.039560802,-0.016127264,0.0056984075,0.025401857,0.034571152,-0.012668529,-0.053914145,0.011421116,0.024818651,-0.023085235,-0.0030982813,0.035640363,0.004005491,0.021076413,0.045943666,0.011032312,-0.019342996,0.029127896,-0.014256145,-0.033987943,-0.025207456,-0.042800833,-0.0010044102,-0.022453427,-0.045814063,0.0017486052,0.0050666016,0.007124022,0.025207456,0.05009091,-0.030099904,0.01676717,0.046818476,0.03246513,-0.011623618,-0.0023996492,0.0002057927,-0.015268655,-0.028965894,0.010157503,-0.023441637,0.033177935,0.003762488,-0.020088203,-0.016297365,0.023036633,0.013024932,0.0040824413,-0.026373867,0.016208265,-0.06123662,0.00882909,0.0144991465,-0.012976332,-0.0023166235,0.001934907,-0.0075290264,-0.015033753,-0.009776799,0.023490239,-0.012304025,0.0009254344,0.019861402,0.007111872,0.0052650534,0.029954104,-0.020363607,0.06771669,0.0118990205,-0.029160295,0.007678878,-0.019667,-0.0075654765,-0.0002089568,-0.06518946,-0.008415985,0.010457206,-0.0042606434,0.018451987,-0.029824503,-0.0029889303,-0.098821,-0.000547768,-0.08650888,-0.010376205,-0.060588613,0.015414456,-0.062565036,0.024818651,0.0071645225,0.00086822757,0.0058766096,0.02083341,0.028026285,-0.016127264,-0.06366664,-0.05125732,0.018322386,0.023214836,0.03147692,-0.021967422,0.016038163,-0.020574208,-0.07102152,-0.026195666,0.0025859512,-0.019099994,-0.010376205,0.039366398,0.004345694,-0.028172085,0.008359285,-0.010659708,0.0016949421,0.056862578,0.020590408,-0.046688873,0.014580147,-0.0012271624,-0.0005664995,-0.014709749,0.05326614,-0.042055625,-0.026033664,-0.041861225,0.033032134,0.011234814,0.039917205,0.008043381,0.005313654,-0.024284046,0.0086589875,-0.047920085,-0.017820181,0.022242825,-0.06473586,-0.0297273,0.028074885,0.03144452,-0.049928907,0.012757629,-0.0083754845,-0.009088292,0.024186846,0.059811007,-0.039560802,-0.022048423,-0.004734498,0.06437945,-0.0043051937,-0.025466658,0.0037078126,0.008383585,0.0008034269,0.072252735,0.020995412,0.012336425,-0.012287824,-0.016078662,-0.014612548,0.010935111,0.03356674,0.0005649807,-0.0003756413,0.010238504,-0.005998111,0.0068000187,0.0021120964,-0.0058644596,0.04824409,0.025077853,0.0031975075,0.016345965,-0.025823062,0.04814689,-0.007865179,-0.054529753,0.013583838,0.059325002,-0.0010732609,0.042962834,0.0019298446,-0.021983624,0.020509407,-0.030278107,-0.038297188,0.042574033,0.007496626,-0.05154892,-0.0068688695,-0.038297188,-0.012239224,-0.024219245,-0.0099469,-0.017447576,0.028431289,-0.056668174,0.018484388,-0.011639818,0.14515348,-0.043934844,0.012376925,0.013251734,-0.005641707,-0.054756556,-0.018856991,-0.045943666,0.009428496,0.0392368,0.002024008,0.019974802,0.035996765,-0.02666547,0.010287104,-0.0003480504,0.024818651,-0.0065732165,-0.009930701,0.028431289,-0.008634687,0.006103412,0.0059130597,0.012725229,0.018937992,0.00694177,-0.035802364,0.008407885,0.007808479,-0.012911531,-0.06217623,0.03531636,0.029273696,-0.035348758,0.03648277,0.020217804,0.038750794,-0.046850875,-0.0071280724,-0.010027901,0.039982006,0.020671409,0.020331206,0.023279635,0.031817123,0.017560977,0.054140948,-0.022080824,-0.07575197,0.020347407,0.022372426,-0.0014549772,0.045749262,-0.0030820812,0.08488886,0.02561246,0.008642788,-0.025547659,0.023830442,-0.056473773,-0.009242194,-0.060783017,0.033955544,0.0197642,0.025952663,0.01585186,0.011996222,-0.035737563,0.007205023,-0.03259473,0.0006039624,0.025547659,-0.05047971,-0.013381336,-0.029921703,-0.03256233,0.028139684,0.0038009635,-0.02663307,0.0049694004,-0.00047613296,0.0019835075,-0.02277743,0.015155254,0.0025090005,-0.076205574,-0.022259025,0.029127896,0.0074277753,0.002577851,0.025936462,0.0011137613,-0.0196994,0.015633158,0.017236974,0.00061864377,0.019164795,0.031185316,-0.024041044,-0.028965894,-0.0066866176,-0.023441637,-0.02172442,0.01676717,-0.021837821,0.040630013,-0.026260465,-0.03460355,0.031914324,0.014329045,0.021465218,-0.017188374,0.03235173,-0.0008555712,0.047790483,0.004653497,0.027459279,-0.03055351,-0.008185133,0.023798041,-0.055858165,0.03638557,0.011947621,-0.0030294308,0.0014914277,0.06104222,0.008488886,-0.018905591,0.019342996,0.023182435,-0.012109622,0.034571152,0.023279635,0.031266317,-0.011153813,0.023409238,-0.061366223,-0.0021141213,0.02668167,-0.023846641,-0.046624072,-0.01864639,0.023409238,-0.049540102,-0.013024932,-0.007079472,0.035834763,-0.009266494,0.0016281165,0.039074797,-0.021643419,-0.02162722,-0.0063464143,0.08923051,0.04804969,-0.027329678,-0.03748718,-0.062079027,0.024300246,-0.02768608,-0.00010004867,0.021141214,-0.026714072,0.0053541544,-0.040792014,0.055922966,0.028722892,-0.030099904,-0.0085293865,0.02353884,0.025450459,-0.023085235,0.059713807,0.0046939976,-0.022421027,0.01472595,-0.008448386,-0.0036997125,0.0099955015,0.009622898,0.0060264613,0.04059761,-0.0014428272,0.008391685,-0.009290794,0.02851229,0.014118443,0.019278195,-0.0034060846,-0.058871396,0.0005670058,0.005823959,0.019585999,0.03748718,0.0085293865,-0.019537399,0.012320225,-0.01785258,-0.035348758,0.025272256,0.0017172174,0.034182347,-0.013429936,-0.05508056,-0.012198724,-0.0027317526,0.008047432,-0.0144991465,-0.0012666504,0.03163892,-0.029063094,-0.07024391,0.009622898,-0.039820004,0.031136716,-0.032124925,0.043934844,0.0002065521,-0.013429936,-0.028965894,-0.0057794084,0.007610027,-0.034311946,0.00050929264,0.013956442,0.036061566,0.046818476,0.009452796,0.10264424,0.021270815,0.039301597,-0.06551346,0.021076413,0.012976332,0.009622898,-0.041213218,0.008748089,0.019035192,-0.025482858,0.07063272,-0.011672218,-0.03356674,0.0016625419,0.012968231,0.037875984,-0.042606432,-0.00043740444,0.006042661,0.011251014,-0.012935831,0.035867162,0.023490239,0.024446048,0.015163354,0.035737563,-0.0131869335,-0.042703632,-0.013316535,0.005738908,-0.02656827,-0.02468905,-0.0593574,0.019294396,0.07730719,0.0495077,-0.021449018,-0.048956897,0.0015643283,0.029856903,0.013429936,0.007411575,-0.05650617,0.046753675,0.06444425,0.042800833,-0.029144095,0.017010173,-0.05640897,-0.024575649,-0.0033311588,-0.031881925,-0.0017931557,-0.003762488,-0.0026851771,0.006135812,0.015463057,-0.033339936,0.006625867,-0.04814689,-0.020898212,0.007111872,-0.0006226938,0.0030395559,0.019116193,0.0077477284,0.050123308,-0.014968951,0.020493207,-0.0015704035,-0.030747911,-0.0017192424,0.05213213,-0.0072536236,-0.036223568,0.029289898,-0.015033753,-0.0787976,-0.00046474222,0.039496,-0.010554407,0.026503468,0.019067593,-0.008650888,-0.03147692,-0.008010982,-0.01773918,-0.029257497,0.041861225,-0.03056971,0.07361355,0.0121825235,0.010343805,-0.03758438,-0.009161193,0.019974802,-0.01678337,-0.00789353,-0.021254616,-0.018419586,-0.021206016,0.0295005,0.03165512,-0.00062826264,-0.0072657736,-0.016005762,-0.044032045,-0.052747734,-0.0011674244,0.0075614266,-0.038685992,-0.0026851771,-0.033793543,0.010505807,0.021400416,0.031800922,-0.021951223,0.010538206,0.005520206,0.02272883,-0.039269198,0.021416618,-0.028155886,-0.036353167,-0.01765818,0.01864639,-0.057089377,0.014207544,-0.07264154,-0.024851052,0.021319415,0.016483666,0.048470892,-0.007229323,-0.0198452,-0.043999646,0.03160652,0.016750969,-0.0077801286,-0.05446495,-0.031023314,0.01279003,0.04244443,0.0694663,0.038199987,0.028107285,-0.005815859,0.024300246,-0.016313566,-0.022242825,0.07801999,-0.018144185,-0.03434435,0.0129034305,-0.017269375,-0.03134732,-0.013583838,-0.038005587,0.044777256,0.0004029791,0.0496697,-0.016256865,-0.019926202,-0.013259835,0.0076343273,-0.014385746,0.016507966,0.048956897,0.0072090733,-0.01083791,0.04166682,-0.022955632,-4.2240663e-05,0.013446136,0.0047952486,0.0028856543,0.03249753,0.020963013,-0.027507879,0.0010276979,-0.03259473,-0.020574208,0.031363517,-0.032951135,-0.014580147,-0.045911264,-0.017123574,0.0026406269,0.020120604,0.02373324,0.010578707,-0.011680318,-0.021189814,-0.06473586,0.048114486,0.008391685,0.007188823,-0.0044064447,-0.017317975,0.01770678,0.031898122,0.023652239,0.032821532,0.017042574,-0.01183422,0.031055715,0.004872199,-0.04241203,-0.03654757,-0.016451268,-0.042088028,0.028026285,0.02870669,-0.018095583,0.02467285,-0.09415536,-0.0058725597,0.10290344,-0.01686437,0.012012422,-0.04727208,-0.031979125,-0.043772843,-0.02075241,-0.049993705,-0.06463865,-0.028074885,-0.03424715,0.022518229,0.011510217,0.030148506,0.0011016112,-0.06107462,-0.0023591488,-0.021918822,0.022955632,0.04244443,0.007533076,0.027248677,0.02762128,-0.008343085,-0.012628028,-0.0027398528,0.022161825,-0.03137972,0.025061654,0.025142655,-0.017123574,0.06107462,0.046688873,-0.023798041,0.028820092,0.022923233,-0.018532988,-0.0058685094,-0.01383494,-0.017058773,0.013178834,0.01185042,-0.017496178,0.00692962,-0.01879219,-0.015001352,-0.035283957,0.014555847,-0.00494105,-0.0026426518,0.019602198,0.055631362,-0.03159032,0.026017463,-0.047110077,-0.014134644,0.0066987677,7.929221e-05,0.017398976,0.0493781,0.0114616165,-0.028107285,0.026908472,0.0005011926,-0.02760508,-0.0076343273,-0.03262713,-0.009533796,0.022761231,-0.023652239,0.039560802,-0.013600037,-0.009355594,0.019278195,0.012952032,0.026082264,-0.01582756,-0.0043294937,-0.015422557,-0.02666547,0.0030314557,0.03845919,-0.024413647,0.011145713,0.013462337,0.035154358,0.036223568,-0.024964454,0.020039603,0.030861313,0.075622365,0.04153722,0.011251014,-0.008205383,-0.045814063,-0.012101523,0.055696163,0.005625507,0.013033032,-0.0027864282,0.019116193,-0.015066152,-0.06250023,0.009541897,0.005086852,-0.024413647,-0.020104405,0.14333905,-0.018144185,-0.08955451,-0.0074804258,0.003248133,0.0028775542,-0.016094863,-0.038070384,0.00057156204,-0.02459185,-0.02353884,0.017042574,-0.03133112,0.01178562,0.015884262,0.023393037,-0.0107164085,0.007626227,0.036353167,-0.0077355783,0.05035011,-0.011988121,0.024413647,0.021837821,-0.004515796,-0.0089667905,0.02647107,0.04150482,-0.009072092,0.0098092,-0.01184232,-0.029856903,0.028334087,-0.051095318,-0.001037823,0.011291514,0.018208984,-0.047822885,-0.00015668596,-0.0035741613,-0.068559095,-0.061657824,-0.019278195,0.0026953022,-0.014053643,-0.000664713]'::vector) <= '0.65'::double precision))",
+                      "Rows Removed by Filter": 0,
+                      "Shared Hit Blocks": 3189,
+                      "Shared Read Blocks": 1,
+                      "Shared Dirtied Blocks": 0,
+                      "Shared Written Blocks": 0,
+                      "Local Hit Blocks": 0,
+                      "Local Read Blocks": 0,
+                      "Local Dirtied Blocks": 0,
+                      "Local Written Blocks": 0,
+                      "Temp Read Blocks": 0,
+                      "Temp Written Blocks": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "Planning": {
+          "Shared Hit Blocks": 303,
+          "Shared Read Blocks": 17,
+          "Shared Dirtied Blocks": 0,
+          "Shared Written Blocks": 0,
+          "Local Hit Blocks": 0,
+          "Local Read Blocks": 0,
+          "Local Dirtied Blocks": 0,
+          "Local Written Blocks": 0,
+          "Temp Read Blocks": 0,
+          "Temp Written Blocks": 0
+        },
+        "Planning Time": 4.163,
+        "Triggers": [],
+        "Execution Time": 7.539
+      }
+    ]
+  }
+}

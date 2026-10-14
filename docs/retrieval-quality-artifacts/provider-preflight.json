@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "provider": "deterministic",
+    "model": "campusclaw-deterministic",
+    "revision": "sha256-demo-v1",
+    "dimensions": 64,
+    "processing_version": "source-map-v1;chunker-v2;jieba-0.42.1/default-dict+terms-v2",
+    "fingerprint": "93a61e494055dd956a003109bb9b215031372bab1704bd607bdc6ef4a4d98274",
+    "chat_provider": "deterministic",
+    "chat_model": "campusclaw-deterministic",
+    "hardware": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.41",
+    "embedding_endpoint_host": null,
+    "chat_endpoint_host": null
+  },
+  "checks": {
+    "embedding": {
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    },
+    "chat": {
+      "status": "incomplete",
+      "reason": "real_provider_required"
+    }
+  },
+  "provider_contract_passed": false,
+  "semantic_release_passed": false
+}

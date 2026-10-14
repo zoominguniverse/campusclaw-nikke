@@ -1,0 +1,42 @@
+# Independent UI fixture. No production volumes or real providers.
+services:
+  browser-postgres:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_DB: quality_browser
+      POSTGRES_USER: quality_browser
+      POSTGRES_PASSWORD: disposable-browser-only
+    tmpfs: [/var/lib/postgresql/data]
+    healthcheck:
+      test: [CMD-SHELL, pg_isready -U quality_browser -d quality_browser]
+      interval: 2s
+      timeout: 5s
+      retries: 30
+  browser-api:
+    build: ./backend
+    entrypoint: [python, -m, evaluation.browser_fixture]
+    environment:
+      SECRET_KEY: disposable-browser-server-secret
+      AUTH_TOKEN_SECRET: disposable-browser-token-secret
+      DATABASE_URL: postgresql+psycopg://quality_browser:disposable-browser-only@browser-postgres:5432/quality_browser
+      QUALITY_DISPOSABLE_DATABASE: "true"
+      EMBEDDING_PROVIDER: deterministic
+      EMBEDDING_DIMENSIONS: "64"
+      CHAT_PROVIDER: deterministic
+      UPLOAD_DIR: /tmp/browser-uploads
+      TRUSTED_ORIGINS: http://localhost:5175
+    depends_on:
+      browser-postgres: {condition: service_healthy}
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/health')"]
+      interval: 3s
+      timeout: 5s
+      retries: 30
+  browser-web:
+    build: ./frontend
+    environment:
+      API_INTERNAL_URL: http://browser-api:8080
+      API_PUBLIC_URL: ""
+    ports: ["127.0.0.1:5175:5173"]
+    depends_on:
+      browser-api: {condition: service_healthy}

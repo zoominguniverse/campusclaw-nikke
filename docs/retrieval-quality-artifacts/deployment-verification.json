@@ -1,0 +1,46 @@
+{
+  "status": "passed",
+  "entries_rebuilt": 4,
+  "failed": 0,
+  "source_hashes_unchanged": true,
+  "physical_files_unchanged": 5,
+  "old_vector_records_unchanged": 31,
+  "previous_generations": {
+    "8": 47,
+    "9": 48,
+    "10": 49,
+    "42": 50
+  },
+  "current_generations": {
+    "8": 51,
+    "9": 52,
+    "10": 53,
+    "42": 54
+  },
+  "backup_directory": ".retrieval-backups\\20261014-final-deploy",
+  "semantic_acceptance_report": "release-acceptance.json",
+  "runtime": {
+    "health": "ok",
+    "semantic_release": true,
+    "embedding_model": "text-embedding-v4",
+    "dimensions": 1024,
+    "chat_model": "deepseek-flash",
+    "profile_fingerprint": "340c5e8586b85a9473c8f940bee385108cf146f8522480315c1a98ddca5a8bbe",
+    "incompatible_entries": 0
+  },
+  "web_url": "http://localhost:5174/materials",
+  "browser": {
+    "mixed_paraphrase_hits": 1,
+    "excerpt": "1 班数学示例材料内容",
+    "source_interval": [
+      0,
+      11
+    ],
+    "safe_dom_highlight": true,
+    "preview_scripts": 0,
+    "question": "这份数学示例材料属于哪个班级？",
+    "answer": "这份数学示例材料属于1班。[1]",
+    "citation_opens_highlighted_source": true,
+    "screenshot": "primary-real-answer-citation.jpg"
+  }
+}

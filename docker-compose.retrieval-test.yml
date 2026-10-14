@@ -1,0 +1,36 @@
+# Disposable, isolated PostgreSQL: no production .env, ports or data volumes.
+services:
+  quality-postgres:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_DB: quality_test
+      POSTGRES_USER: quality_test
+      POSTGRES_PASSWORD: disposable-test-only
+    tmpfs:
+      - /var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U quality_test -d quality_test"]
+      interval: 2s
+      timeout: 5s
+      retries: 30
+  quality-tests:
+    build: ./backend
+    volumes:
+      - ./.env.example:/.env.example:ro
+      - ./README.md:/README.md:ro
+      - ./docs/retrieval-quality-artifacts:/quality-results
+    entrypoint: ["python", "-m", "pytest"]
+    command: ["tests", "-q", "-p", "no:cacheprovider"]
+    environment:
+      SECRET_KEY: disposable-quality-server-secret
+      AUTH_TOKEN_SECRET: disposable-quality-token-secret
+      DATABASE_URL: postgresql+psycopg://quality_test:disposable-test-only@quality-postgres:5432/quality_test
+      POSTGRES_INTEGRATION_URL: postgresql+psycopg://quality_test:disposable-test-only@quality-postgres:5432/quality_test
+      QUALITY_DISPOSABLE_DATABASE: "true"
+      EMBEDDING_PROVIDER: deterministic
+      EMBEDDING_DIMENSIONS: "64"
+      CHAT_PROVIDER: deterministic
+      UPLOAD_DIR: /tmp/quality-uploads
+    depends_on:
+      quality-postgres:
+        condition: service_healthy

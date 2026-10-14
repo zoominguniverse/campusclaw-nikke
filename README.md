@@ -2,12 +2,12 @@
 
 价值：为教师和学生提供按班级隔离的教学材料知识库入口。  
 场景：教师上传 `.txt` 或 `.md` 材料后，本班师生可在材料列表中看到记录，跨班访问与学生上传均由服务端拒绝。  
-非目标：本项目不实现检索问答、对话助手、作业提交/批改、SSO 或生产级高可用。
+范围：实现材料管理、可追溯检索和简短证据问答；暂不实现通用对话助手、作业提交/批改、SSO 或生产级高可用。
 
 ## Docker Compose 启动
 
 1. 复制配置：`Copy-Item .env.example .env`（PowerShell）或 `cp .env.example .env`。
-2. 在 `.env` 中填入彼此不同的强随机 `SECRET_KEY` 和 `AUTH_TOKEN_SECRET`、数据库密码和六个演示账号密码；如需演示教务处、班主任和第二位 A 班任课教师，再设置三个可选 `DEMO_*` 管理账号密码。
+2. 在 `.env` 中填入彼此不同的强随机 `SECRET_KEY` 和 `AUTH_TOKEN_SECRET`、数据库密码，以及 `DEMO_ACCOUNT_PASSWORDS` JSON 中每个固定演示用户名的私有密码。数据库连接中的密码须与 `POSTGRES_PASSWORD` 一致。
 3. 执行：`docker compose up --build`。
 
 服务端口：
@@ -18,7 +18,7 @@
 
 健康检查无需登录：`curl http://localhost:5173/health`，预期返回 `{"status":"ok"}`。API 与 PostgreSQL 仅在 Compose 内部网络可访问，浏览器请求通过 Web 的同源 `/api` 路径代理。
 
-开发种子数据由 `SEED_DEMO_DATA=true` 启用：A 班为数学教师 `teacher_a` 和学生 `student_a1`、`student_a2`，B 班为英语教师 `teacher_b` 和学生 `student_b1`、`student_b2`。设置可选密码后还会创建教务处 `super_admin`、A 班班主任 `class_admin_a` 和语文教师 `teacher_a2`。所有密码只从 `.env` 中读取；生产或非演示环境应设置 `SEED_DEMO_DATA=false`。
+开发种子数据由 `SEED_DEMO_DATA=true` 启用，登录名采用姓名拼音。示例：教务处 `zhangruoxi`，1班班主任 `liuyifei`，数学教师 `linzimo`、语文教师 `wangyuxin`，学生 `zhouchengxi`。完整用户名在 `.env.example` 的 `DEMO_ACCOUNT_PASSWORDS` 中，实际密码只从忽略的 `.env` 读取；生产或非演示环境设置 `SEED_DEMO_DATA=false`。
 
 ## 学科文件夹与权限
 
@@ -54,4 +54,35 @@ PostgreSQL 数据和上传文件使用 Docker named volumes。停止后使用 `d
 
 切分策略为 `auto`（默认，约 800 字/80 字重叠）、`custom`（100–2000 字、0–50% 重叠，支持 URL/邮箱/连续空白预处理）和 `hierarchy`（保留 Markdown `#` 至 `###` 标题）。重建索引通过新的 generation 完成后才替换旧 generation，避免检索到混合版本。
 
-本地演示默认使用只在服务端运行的 `deterministic` 嵌入与对话提供方。部署真实模型时设置 `EMBEDDING_PROVIDER=openai-compatible`、`EMBEDDING_API_URL`、`EMBEDDING_API_KEY`、`EMBEDDING_MODEL` 以及同类 `CHAT_*` 配置；密钥不得设置给前端容器。`EMBEDDING_DIMENSIONS` 必须与模型输出一致。对于已有材料，运行 `docker compose exec api python backfill_indexes.py` 可按默认策略补齐索引；该操作可重复执行且不会删除原始材料。
+默认 `deterministic` 仅供演示，不代表语义改写检索已达标。真实服务配置在服务端 `.env`：`EMBEDDING_PROVIDER=openai-compatible`、API URL/key/model、明确的 `EMBEDDING_REVISION` 和实际输出维度，以及 `CHAT_*`。问答模型与向量模型分别配置。向量以独立 profile 存储，支持多种维度共存；旧64维列与旧generation保留，不能直接改维度或混用同维度不同模型。
+
+DeepSeek 官方问答示例（模型标识参考[官方发布说明](https://api-docs.deepseek.com/zh-cn/news/news260910/)）：
+
+```dotenv
+CHAT_PROVIDER=openai-compatible
+CHAT_API_URL=https://api.deepseek.com
+CHAT_API_KEY=replace-with-your-private-deepseek-key
+CHAT_MODEL=deepseek-flash
+CHAT_TIMEOUT_SECONDS=60
+SEMANTIC_RELEASE=false
+```
+
+此配置只接入问答，`EMBEDDING_*` 需要独立的 embedding 服务。先使用已有数据库配置，切勿把聊天模型名填到 embedding 配置。保存后 `docker compose up -d --build api web`；密钥不传给前端、不写入文档/报告。
+
+已有材料重建前先执行 `docker compose exec api python retrieval_admin.py backfill --dry-run`，再执行 `docker compose exec api python retrieval_admin.py backfill --limit 100`，按返回cursor继续 `--after <cursor>`；新一轮可从0重新扫描失败项。同策略retry保存完整options；force/profile/恢复命令见[索引操作说明](docs/retrieval-indexing-operations.md)。旧custom参数未知时需显式选择设置。
+
+默认检索卡片只展示最多160字符原文摘录，可展开完整证据并定位原文；回答正文最多200字符，引用由服务端校验生成。保存成功与索引成功分别显示；无证据、资料不足、需重建、模型不可用和引用校验失败有独立状态，详见[证据与问答契约](docs/retrieval-evidence-and-answer.md)。
+
+`SEMANTIC_RELEASE=false` 保持关闭，直到真实profile的开发集校准、发布保留集、问答人工审阅、权限、浏览器、性能和升级回滚演练全部通过。启用需提供服务端可读取且匹配profile/chat模型的 `SEMANTIC_ACCEPTANCE_REPORT`。当前进度和证据见[验收状态](docs/retrieval-quality-status.md)，不得把demo或skip计为真实质量通过。
+
+## 隔离验收
+
+硅基流动/BGE-M3、百炼和DeepSeek的配置示例及接入顺序见[真实服务配置](docs/retrieval-provider-setup.md)。
+
+```powershell
+docker compose -p campusclaw-quality -f docker-compose.retrieval-test.yml run --build --rm quality-tests
+docker compose -p campusclaw-quality -f docker-compose.retrieval-test.yml run --rm -e QUALITY_PERFORMANCE=true quality-tests tests/test_retrieval_performance.py -q
+docker compose -p campusclaw-quality-browser -f docker-compose.retrieval-browser.yml up -d --build
+```
+
+测试数据库仅使用独立 `quality_*` PostgreSQL/tmpfs，不连接当前开发库；浏览器环境为 `http://localhost:5175/login`，使用可控演示服务，测试凭据见测试fixture。报告保存在 `docs/retrieval-quality-artifacts`，2026-10-14 已通过真实语义门槛、50 条人工审阅和真实性能/回滚验收，OpenSpec 44/44 完成。主项目运行于 http://localhost:5174，已切换百炼 1024 维 + DeepSeek，并在备份后重建全部 4 条既有材料。见[最终报告](docs/retrieval-quality-artifacts/release-acceptance.md)。详见[评测步骤](docs/retrieval-quality-evaluation.md)和[迁移/回滚](docs/retrieval-quality-migration.md)。

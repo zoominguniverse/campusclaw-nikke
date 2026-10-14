@@ -1,0 +1,3868 @@
+{
+  "metadata": {
+    "embedding_provider": "openai-compatible",
+    "embedding_model": "text-embedding-v4",
+    "embedding_revision": "local-bailian-v4-v1",
+    "dimensions": 1024,
+    "chat_provider": "openai-compatible",
+    "chat_model": "deepseek-flash",
+    "hardware": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.41",
+    "structural_browser_performance_gates": "incomplete",
+    "profile_fingerprint": "340c5e8586b85a9473c8f940bee385108cf146f8522480315c1a98ddca5a8bbe",
+    "processing_version": "source-map-v1;chunker-v2;jieba-0.42.1/default-dict+terms-v2",
+    "vector_threshold": 0.35,
+    "corpus_hash": "8cd2d8afa01810796bff6c1f154654d332c7d43f223767c5b51e1e70e1075d5c",
+    "retrieval_version": "sentence-gated-v1",
+    "chat_prompt_version": "grounded-json-v2-exclusivity"
+  },
+  "results": [
+    {
+      "case_id": "dev-exact-01",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-01",
+          "chunk_id": 31,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "水沸腾时温度保持不变。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 5.852597998455167,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 399.48583699879237
+      }
+    },
+    {
+      "case_id": "dev-exact-01",
+      "mode": "vector",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-01",
+          "chunk_id": 31,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "水沸腾时温度保持不变。"
+        },
+        {
+          "material": "dev-04",
+          "chunk_id": 34,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 12
+            }
+          ],
+          "excerpt": "种子萌发需要适宜的温度。"
+        },
+        {
+          "material": "dev-06",
+          "chunk_id": 36,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 15
+            }
+          ],
+          "excerpt": "二氧化碳能使澄清石灰水变浑浊。"
+        },
+        {
+          "material": "dev-07",
+          "chunk_id": 37,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 10
+            }
+          ],
+          "excerpt": "平面镜成等大的虚像。"
+        },
+        {
+          "material": "dev-03",
+          "chunk_id": 33,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "力可以改变物体的形状。"
+        },
+        {
+          "material": "dev-08",
+          "chunk_id": 38,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 14
+            }
+          ],
+          "excerpt": "骨骼肌收缩能牵动骨产生运动。"
+        },
+        {
+          "material": "dev-02",
+          "chunk_id": 32,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 8
+            }
+          ],
+          "excerpt": "淀粉遇碘液变蓝。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 11.35045500996057,
+        "embedding": 85.74372799921548,
+        "chat": 0.0,
+        "total": 111.72836599871516
+      }
+    },
+    {
+      "case_id": "dev-exact-01",
+      "mode": "hybrid",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-01",
+          "chunk_id": 31,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "水沸腾时温度保持不变。"
+        },
+        {
+          "material": "dev-04",
+          "chunk_id": 34,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 12
+            }
+          ],
+          "excerpt": "种子萌发需要适宜的温度。"
+        },
+        {
+          "material": "dev-06",
+          "chunk_id": 36,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 15
+            }
+          ],
+          "excerpt": "二氧化碳能使澄清石灰水变浑浊。"
+        },
+        {
+          "material": "dev-07",
+          "chunk_id": 37,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 10
+            }
+          ],
+          "excerpt": "平面镜成等大的虚像。"
+        },
+        {
+          "material": "dev-03",
+          "chunk_id": 33,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "力可以改变物体的形状。"
+        },
+        {
+          "material": "dev-08",
+          "chunk_id": 38,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 14
+            }
+          ],
+          "excerpt": "骨骼肌收缩能牵动骨产生运动。"
+        },
+        {
+          "material": "dev-02",
+          "chunk_id": 32,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 8
+            }
+          ],
+          "excerpt": "淀粉遇碘液变蓝。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 10.056352999527007,
+        "embedding": 94.70537799643353,
+        "chat": 0.0,
+        "total": 114.56024000653997
+      }
+    },
+    {
+      "case_id": "dev-distributed-01",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-01",
+          "chunk_id": 31,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "水沸腾时温度保持不变。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.573738995124586,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 8.313368998642545
+      }
+    },
+    {
+      "case_id": "dev-distributed-01",
+      "mode": "vector",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-01",
+          "chunk_id": 31,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "水沸腾时温度保持不变。"
+        },
+        {
+          "material": "dev-04",
+          "chunk_id": 34,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 12
+            }
+          ],
+          "excerpt": "种子萌发需要适宜的温度。"
+        },
+        {
+          "material": "dev-06",
+          "chunk_id": 36,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 15
+            }
+          ],
+          "excerpt": "二氧化碳能使澄清石灰水变浑浊。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 8.318380001583137,
+        "embedding": 96.14383000007365,
+        "chat": 0.0,
+        "total": 110.86989799514413
+      }
+    },
+    {
+      "case_id": "dev-distributed-01",
+      "mode": "hybrid",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-01",
+          "chunk_id": 31,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "水沸腾时温度保持不变。"
+        },
+        {
+          "material": "dev-04",
+          "chunk_id": 34,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 12
+            }
+          ],
+          "excerpt": "种子萌发需要适宜的温度。"
+        },
+        {
+          "material": "dev-06",
+          "chunk_id": 36,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 15
+            }
+          ],
+          "excerpt": "二氧化碳能使澄清石灰水变浑浊。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 10.496797993255313,
+        "embedding": 98.44875300041167,
+        "chat": 0.0,
+        "total": 117.11304500204278
+      }
+    },
+    {
+      "case_id": "dev-paraphrase-01",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 3.0629360117018223,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 9.769842996320222
+      }
+    },
+    {
+      "case_id": "dev-paraphrase-01",
+      "mode": "vector",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-01",
+          "chunk_id": 31,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "水沸腾时温度保持不变。"
+        },
+        {
+          "material": "dev-04",
+          "chunk_id": 34,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 12
+            }
+          ],
+          "excerpt": "种子萌发需要适宜的温度。"
+        },
+        {
+          "material": "dev-06",
+          "chunk_id": 36,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 15
+            }
+          ],
+          "excerpt": "二氧化碳能使澄清石灰水变浑浊。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 7.1968799966271035,
+        "embedding": 192.22282299597282,
+        "chat": 0.0,
+        "total": 206.25776900124038
+      }
+    },
+    {
+      "case_id": "dev-paraphrase-01",
+      "mode": "hybrid",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-01",
+          "chunk_id": 31,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "水沸腾时温度保持不变。"
+        },
+        {
+          "material": "dev-04",
+          "chunk_id": 34,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 12
+            }
+          ],
+          "excerpt": "种子萌发需要适宜的温度。"
+        },
+        {
+          "material": "dev-06",
+          "chunk_id": 36,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 15
+            }
+          ],
+          "excerpt": "二氧化碳能使澄清石灰水变浑浊。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 10.301046000677161,
+        "embedding": 89.56799700536067,
+        "chat": 0.0,
+        "total": 108.25414899591124
+      }
+    },
+    {
+      "case_id": "dev-exact-02",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-02",
+          "chunk_id": 32,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 8
+            }
+          ],
+          "excerpt": "淀粉遇碘液变蓝。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 3.5607170066214167,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 12.442031998944003
+      }
+    },
+    {
+      "case_id": "dev-exact-02",
+      "mode": "vector",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-02",
+          "chunk_id": 32,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 8
+            }
+          ],
+          "excerpt": "淀粉遇碘液变蓝。"
+        },
+        {
+          "material": "dev-06",
+          "chunk_id": 36,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 15
+            }
+          ],
+          "excerpt": "二氧化碳能使澄清石灰水变浑浊。"
+        },
+        {
+          "material": "dev-01",
+          "chunk_id": 31,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "水沸腾时温度保持不变。"
+        },
+        {
+          "material": "dev-03",
+          "chunk_id": 33,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "力可以改变物体的形状。"
+        },
+        {
+          "material": "dev-04",
+          "chunk_id": 34,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 12
+            }
+          ],
+          "excerpt": "种子萌发需要适宜的温度。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 7.015194001724012,
+        "embedding": 111.44474799948512,
+        "chat": 0.0,
+        "total": 125.0935659991228
+      }
+    },
+    {
+      "case_id": "dev-exact-02",
+      "mode": "hybrid",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-02",
+          "chunk_id": 32,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 8
+            }
+          ],
+          "excerpt": "淀粉遇碘液变蓝。"
+        },
+        {
+          "material": "dev-06",
+          "chunk_id": 36,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 15
+            }
+          ],
+          "excerpt": "二氧化碳能使澄清石灰水变浑浊。"
+        },
+        {
+          "material": "dev-01",
+          "chunk_id": 31,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "水沸腾时温度保持不变。"
+        },
+        {
+          "material": "dev-03",
+          "chunk_id": 33,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "力可以改变物体的形状。"
+        },
+        {
+          "material": "dev-04",
+          "chunk_id": 34,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 12
+            }
+          ],
+          "excerpt": "种子萌发需要适宜的温度。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 13.235970000096131,
+        "embedding": 84.71724200353492,
+        "chat": 0.0,
+        "total": 107.21063700475497
+      }
+    },
+    {
+      "case_id": "dev-distributed-02",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-02",
+          "chunk_id": 32,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 8
+            }
+          ],
+          "excerpt": "淀粉遇碘液变蓝。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.89467101538321,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 9.397583999088965
+      }
+    },
+    {
+      "case_id": "dev-distributed-02",
+      "mode": "vector",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-02",
+          "chunk_id": 32,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 8
+            }
+          ],
+          "excerpt": "淀粉遇碘液变蓝。"
+        },
+        {
+          "material": "dev-06",
+          "chunk_id": 36,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 15
+            }
+          ],
+          "excerpt": "二氧化碳能使澄清石灰水变浑浊。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 7.13325400283793,
+        "embedding": 82.06307500222465,
+        "chat": 0.0,
+        "total": 95.16706300200894
+      }
+    },
+    {
+      "case_id": "dev-distributed-02",
+      "mode": "hybrid",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-02",
+          "chunk_id": 32,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 8
+            }
+          ],
+          "excerpt": "淀粉遇碘液变蓝。"
+        },
+        {
+          "material": "dev-06",
+          "chunk_id": 36,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 15
+            }
+          ],
+          "excerpt": "二氧化碳能使澄清石灰水变浑浊。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 8.696514989424031,
+        "embedding": 92.05389599810587,
+        "chat": 0.0,
+        "total": 108.74198800593149
+      }
+    },
+    {
+      "case_id": "dev-paraphrase-02",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.978363001602702,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 10.563980998995248
+      }
+    },
+    {
+      "case_id": "dev-paraphrase-02",
+      "mode": "vector",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-02",
+          "chunk_id": 32,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 8
+            }
+          ],
+          "excerpt": "淀粉遇碘液变蓝。"
+        },
+        {
+          "material": "dev-06",
+          "chunk_id": 36,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 15
+            }
+          ],
+          "excerpt": "二氧化碳能使澄清石灰水变浑浊。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 8.695631004229654,
+        "embedding": 83.49409999937052,
+        "chat": 0.0,
+        "total": 98.97578199888812
+      }
+    },
+    {
+      "case_id": "dev-paraphrase-02",
+      "mode": "hybrid",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-02",
+          "chunk_id": 32,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 8
+            }
+          ],
+          "excerpt": "淀粉遇碘液变蓝。"
+        },
+        {
+          "material": "dev-06",
+          "chunk_id": 36,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 15
+            }
+          ],
+          "excerpt": "二氧化碳能使澄清石灰水变浑浊。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 5.380889000662137,
+        "embedding": 102.61995100154309,
+        "chat": 0.0,
+        "total": 115.77230800321558
+      }
+    },
+    {
+      "case_id": "dev-exact-03",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-03",
+          "chunk_id": 33,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "力可以改变物体的形状。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.567278999777045,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 8.276029999251477
+      }
+    },
+    {
+      "case_id": "dev-exact-03",
+      "mode": "vector",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-03",
+          "chunk_id": 33,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "力可以改变物体的形状。"
+        },
+        {
+          "material": "dev-08",
+          "chunk_id": 38,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 14
+            }
+          ],
+          "excerpt": "骨骼肌收缩能牵动骨产生运动。"
+        },
+        {
+          "material": "dev-05",
+          "chunk_id": 35,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 12
+            }
+          ],
+          "excerpt": "长方形的四个角都是直角。"
+        },
+        {
+          "material": "dev-06",
+          "chunk_id": 36,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 15
+            }
+          ],
+          "excerpt": "二氧化碳能使澄清石灰水变浑浊。"
+        },
+        {
+          "material": "dev-01",
+          "chunk_id": 31,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "水沸腾时温度保持不变。"
+        },
+        {
+          "material": "dev-04",
+          "chunk_id": 34,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 12
+            }
+          ],
+          "excerpt": "种子萌发需要适宜的温度。"
+        },
+        {
+          "material": "dev-02",
+          "chunk_id": 32,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 8
+            }
+          ],
+          "excerpt": "淀粉遇碘液变蓝。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 3.987517011410091,
+        "embedding": 341.4709420030704,
+        "chat": 0.0,
+        "total": 352.8716090004309
+      }
+    },
+    {
+      "case_id": "dev-exact-03",
+      "mode": "hybrid",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-03",
+          "chunk_id": 33,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "力可以改变物体的形状。"
+        },
+        {
+          "material": "dev-08",
+          "chunk_id": 38,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 14
+            }
+          ],
+          "excerpt": "骨骼肌收缩能牵动骨产生运动。"
+        },
+        {
+          "material": "dev-05",
+          "chunk_id": 35,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 12
+            }
+          ],
+          "excerpt": "长方形的四个角都是直角。"
+        },
+        {
+          "material": "dev-06",
+          "chunk_id": 36,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 15
+            }
+          ],
+          "excerpt": "二氧化碳能使澄清石灰水变浑浊。"
+        },
+        {
+          "material": "dev-01",
+          "chunk_id": 31,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "水沸腾时温度保持不变。"
+        },
+        {
+          "material": "dev-04",
+          "chunk_id": 34,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 12
+            }
+          ],
+          "excerpt": "种子萌发需要适宜的温度。"
+        },
+        {
+          "material": "dev-02",
+          "chunk_id": 32,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 8
+            }
+          ],
+          "excerpt": "淀粉遇碘液变蓝。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 5.840203004481737,
+        "embedding": 85.92212799703702,
+        "chat": 0.0,
+        "total": 101.34390199527843
+      }
+    },
+    {
+      "case_id": "dev-distributed-03",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-03",
+          "chunk_id": 33,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "力可以改变物体的形状。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.9416510005830787,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 5.793604999780655
+      }
+    },
+    {
+      "case_id": "dev-distributed-03",
+      "mode": "vector",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-03",
+          "chunk_id": 33,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "力可以改变物体的形状。"
+        },
+        {
+          "material": "dev-05",
+          "chunk_id": 35,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 12
+            }
+          ],
+          "excerpt": "长方形的四个角都是直角。"
+        },
+        {
+          "material": "dev-08",
+          "chunk_id": 38,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 14
+            }
+          ],
+          "excerpt": "骨骼肌收缩能牵动骨产生运动。"
+        },
+        {
+          "material": "dev-01",
+          "chunk_id": 31,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "水沸腾时温度保持不变。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 4.331980991992168,
+        "embedding": 99.6058019954944,
+        "chat": 0.0,
+        "total": 111.64919600560097
+      }
+    },
+    {
+      "case_id": "dev-distributed-03",
+      "mode": "hybrid",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-03",
+          "chunk_id": 33,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "力可以改变物体的形状。"
+        },
+        {
+          "material": "dev-05",
+          "chunk_id": 35,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 12
+            }
+          ],
+          "excerpt": "长方形的四个角都是直角。"
+        },
+        {
+          "material": "dev-08",
+          "chunk_id": 38,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 14
+            }
+          ],
+          "excerpt": "骨骼肌收缩能牵动骨产生运动。"
+        },
+        {
+          "material": "dev-01",
+          "chunk_id": 31,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "水沸腾时温度保持不变。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 5.526963002921548,
+        "embedding": 98.43673000432318,
+        "chat": 0.0,
+        "total": 112.4694919999456
+      }
+    },
+    {
+      "case_id": "dev-paraphrase-03",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.85031500243349,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 9.866020998742897
+      }
+    },
+    {
+      "case_id": "dev-paraphrase-03",
+      "mode": "vector",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-03",
+          "chunk_id": 33,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "力可以改变物体的形状。"
+        },
+        {
+          "material": "dev-08",
+          "chunk_id": 38,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 14
+            }
+          ],
+          "excerpt": "骨骼肌收缩能牵动骨产生运动。"
+        },
+        {
+          "material": "dev-06",
+          "chunk_id": 36,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 15
+            }
+          ],
+          "excerpt": "二氧化碳能使澄清石灰水变浑浊。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 3.763025000807829,
+        "embedding": 81.43390499753878,
+        "chat": 0.0,
+        "total": 91.68221399886534
+      }
+    },
+    {
+      "case_id": "dev-paraphrase-03",
+      "mode": "hybrid",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-03",
+          "chunk_id": 33,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "力可以改变物体的形状。"
+        },
+        {
+          "material": "dev-08",
+          "chunk_id": 38,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 14
+            }
+          ],
+          "excerpt": "骨骼肌收缩能牵动骨产生运动。"
+        },
+        {
+          "material": "dev-06",
+          "chunk_id": 36,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 15
+            }
+          ],
+          "excerpt": "二氧化碳能使澄清石灰水变浑浊。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 6.124574021669105,
+        "embedding": 82.24104200053262,
+        "chat": 0.0,
+        "total": 96.37893100443762
+      }
+    },
+    {
+      "case_id": "dev-exact-04",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-04",
+          "chunk_id": 34,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 12
+            }
+          ],
+          "excerpt": "种子萌发需要适宜的温度。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.284210997459013,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.994162998627871
+      }
+    },
+    {
+      "case_id": "dev-exact-04",
+      "mode": "vector",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-04",
+          "chunk_id": 34,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 12
+            }
+          ],
+          "excerpt": "种子萌发需要适宜的温度。"
+        },
+        {
+          "material": "dev-01",
+          "chunk_id": 31,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "水沸腾时温度保持不变。"
+        },
+        {
+          "material": "dev-08",
+          "chunk_id": 38,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 14
+            }
+          ],
+          "excerpt": "骨骼肌收缩能牵动骨产生运动。"
+        },
+        {
+          "material": "dev-03",
+          "chunk_id": 33,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "力可以改变物体的形状。"
+        },
+        {
+          "material": "dev-06",
+          "chunk_id": 36,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 15
+            }
+          ],
+          "excerpt": "二氧化碳能使澄清石灰水变浑浊。"
+        },
+        {
+          "material": "dev-02",
+          "chunk_id": 32,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 8
+            }
+          ],
+          "excerpt": "淀粉遇碘液变蓝。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 4.024799993203487,
+        "embedding": 111.33346499991603,
+        "chat": 0.0,
+        "total": 122.36892199871363
+      }
+    },
+    {
+      "case_id": "dev-exact-04",
+      "mode": "hybrid",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-04",
+          "chunk_id": 34,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 12
+            }
+          ],
+          "excerpt": "种子萌发需要适宜的温度。"
+        },
+        {
+          "material": "dev-01",
+          "chunk_id": 31,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "水沸腾时温度保持不变。"
+        },
+        {
+          "material": "dev-08",
+          "chunk_id": 38,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 14
+            }
+          ],
+          "excerpt": "骨骼肌收缩能牵动骨产生运动。"
+        },
+        {
+          "material": "dev-03",
+          "chunk_id": 33,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "力可以改变物体的形状。"
+        },
+        {
+          "material": "dev-06",
+          "chunk_id": 36,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 15
+            }
+          ],
+          "excerpt": "二氧化碳能使澄清石灰水变浑浊。"
+        },
+        {
+          "material": "dev-02",
+          "chunk_id": 32,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 8
+            }
+          ],
+          "excerpt": "淀粉遇碘液变蓝。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 5.321438002283685,
+        "embedding": 77.0121850000578,
+        "chat": 0.0,
+        "total": 91.00653399946168
+      }
+    },
+    {
+      "case_id": "dev-distributed-04",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-04",
+          "chunk_id": 34,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 12
+            }
+          ],
+          "excerpt": "种子萌发需要适宜的温度。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.156884002033621,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.699001998233143
+      }
+    },
+    {
+      "case_id": "dev-distributed-04",
+      "mode": "vector",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-04",
+          "chunk_id": 34,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 12
+            }
+          ],
+          "excerpt": "种子萌发需要适宜的温度。"
+        },
+        {
+          "material": "dev-01",
+          "chunk_id": 31,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "水沸腾时温度保持不变。"
+        },
+        {
+          "material": "dev-02",
+          "chunk_id": 32,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 8
+            }
+          ],
+          "excerpt": "淀粉遇碘液变蓝。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 3.632567990280222,
+        "embedding": 84.37741499801632,
+        "chat": 0.0,
+        "total": 94.95941000204766
+      }
+    },
+    {
+      "case_id": "dev-distributed-04",
+      "mode": "hybrid",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-04",
+          "chunk_id": 34,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 12
+            }
+          ],
+          "excerpt": "种子萌发需要适宜的温度。"
+        },
+        {
+          "material": "dev-01",
+          "chunk_id": 31,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "水沸腾时温度保持不变。"
+        },
+        {
+          "material": "dev-02",
+          "chunk_id": 32,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 8
+            }
+          ],
+          "excerpt": "淀粉遇碘液变蓝。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 5.055010988144204,
+        "embedding": 93.67988300073193,
+        "chat": 0.0,
+        "total": 106.84945700631943
+      }
+    },
+    {
+      "case_id": "dev-paraphrase-04",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.435206995869521,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 5.310581000230741
+      }
+    },
+    {
+      "case_id": "dev-paraphrase-04",
+      "mode": "vector",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-04",
+          "chunk_id": 34,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 12
+            }
+          ],
+          "excerpt": "种子萌发需要适宜的温度。"
+        },
+        {
+          "material": "dev-01",
+          "chunk_id": 31,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "水沸腾时温度保持不变。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 3.4341360005782917,
+        "embedding": 345.3359640043345,
+        "chat": 0.0,
+        "total": 354.84642699884716
+      }
+    },
+    {
+      "case_id": "dev-paraphrase-04",
+      "mode": "hybrid",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-04",
+          "chunk_id": 34,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 12
+            }
+          ],
+          "excerpt": "种子萌发需要适宜的温度。"
+        },
+        {
+          "material": "dev-01",
+          "chunk_id": 31,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "水沸腾时温度保持不变。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 5.997036998451222,
+        "embedding": 124.09881899657194,
+        "chat": 0.0,
+        "total": 138.1054960002075
+      }
+    },
+    {
+      "case_id": "dev-exact-05",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-05",
+          "chunk_id": 35,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 12
+            }
+          ],
+          "excerpt": "长方形的四个角都是直角。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.903752996644471,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 6.293837999692187
+      }
+    },
+    {
+      "case_id": "dev-exact-05",
+      "mode": "vector",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-05",
+          "chunk_id": 35,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 12
+            }
+          ],
+          "excerpt": "长方形的四个角都是直角。"
+        },
+        {
+          "material": "dev-03",
+          "chunk_id": 33,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "力可以改变物体的形状。"
+        },
+        {
+          "material": "dev-07",
+          "chunk_id": 37,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 10
+            }
+          ],
+          "excerpt": "平面镜成等大的虚像。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 3.3379600063199177,
+        "embedding": 88.16179700079374,
+        "chat": 0.0,
+        "total": 97.74978199857287
+      }
+    },
+    {
+      "case_id": "dev-exact-05",
+      "mode": "hybrid",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-05",
+          "chunk_id": 35,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 12
+            }
+          ],
+          "excerpt": "长方形的四个角都是直角。"
+        },
+        {
+          "material": "dev-03",
+          "chunk_id": 33,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "力可以改变物体的形状。"
+        },
+        {
+          "material": "dev-07",
+          "chunk_id": 37,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 10
+            }
+          ],
+          "excerpt": "平面镜成等大的虚像。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 5.746806004026439,
+        "embedding": 130.37758899736218,
+        "chat": 0.0,
+        "total": 145.04643400141504
+      }
+    },
+    {
+      "case_id": "dev-distributed-05",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-05",
+          "chunk_id": 35,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 12
+            }
+          ],
+          "excerpt": "长方形的四个角都是直角。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.4533769974368624,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 8.146283995301928
+      }
+    },
+    {
+      "case_id": "dev-distributed-05",
+      "mode": "vector",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-05",
+          "chunk_id": 35,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 12
+            }
+          ],
+          "excerpt": "长方形的四个角都是直角。"
+        },
+        {
+          "material": "dev-03",
+          "chunk_id": 33,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "力可以改变物体的形状。"
+        },
+        {
+          "material": "dev-07",
+          "chunk_id": 37,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 10
+            }
+          ],
+          "excerpt": "平面镜成等大的虚像。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 4.07032499788329,
+        "embedding": 80.74684900202556,
+        "chat": 0.0,
+        "total": 92.45045499847038
+      }
+    },
+    {
+      "case_id": "dev-distributed-05",
+      "mode": "hybrid",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-05",
+          "chunk_id": 35,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 12
+            }
+          ],
+          "excerpt": "长方形的四个角都是直角。"
+        },
+        {
+          "material": "dev-03",
+          "chunk_id": 33,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "力可以改变物体的形状。"
+        },
+        {
+          "material": "dev-07",
+          "chunk_id": 37,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 10
+            }
+          ],
+          "excerpt": "平面镜成等大的虚像。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 4.779788010637276,
+        "embedding": 90.85732299718075,
+        "chat": 0.0,
+        "total": 104.09608900226885
+      }
+    },
+    {
+      "case_id": "dev-paraphrase-05",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.3879110085545108,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 7.882240999606438
+      }
+    },
+    {
+      "case_id": "dev-paraphrase-05",
+      "mode": "vector",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-05",
+          "chunk_id": 35,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 12
+            }
+          ],
+          "excerpt": "长方形的四个角都是直角。"
+        },
+        {
+          "material": "dev-03",
+          "chunk_id": 33,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "力可以改变物体的形状。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 3.1964579902705736,
+        "embedding": 91.67651800089516,
+        "chat": 0.0,
+        "total": 101.04542000044603
+      }
+    },
+    {
+      "case_id": "dev-paraphrase-05",
+      "mode": "hybrid",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-05",
+          "chunk_id": 35,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 12
+            }
+          ],
+          "excerpt": "长方形的四个角都是直角。"
+        },
+        {
+          "material": "dev-03",
+          "chunk_id": 33,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "力可以改变物体的形状。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 4.941129001963418,
+        "embedding": 112.87700200045947,
+        "chat": 0.0,
+        "total": 125.70195899752434
+      }
+    },
+    {
+      "case_id": "dev-exact-06",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-06",
+          "chunk_id": 36,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 15
+            }
+          ],
+          "excerpt": "二氧化碳能使澄清石灰水变浑浊。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.88384901068639,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 6.522440002299845
+      }
+    },
+    {
+      "case_id": "dev-exact-06",
+      "mode": "vector",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-06",
+          "chunk_id": 36,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 15
+            }
+          ],
+          "excerpt": "二氧化碳能使澄清石灰水变浑浊。"
+        },
+        {
+          "material": "dev-02",
+          "chunk_id": 32,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 8
+            }
+          ],
+          "excerpt": "淀粉遇碘液变蓝。"
+        },
+        {
+          "material": "dev-03",
+          "chunk_id": 33,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "力可以改变物体的形状。"
+        },
+        {
+          "material": "dev-01",
+          "chunk_id": 31,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "水沸腾时温度保持不变。"
+        },
+        {
+          "material": "dev-04",
+          "chunk_id": 34,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 12
+            }
+          ],
+          "excerpt": "种子萌发需要适宜的温度。"
+        },
+        {
+          "material": "dev-08",
+          "chunk_id": 38,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 14
+            }
+          ],
+          "excerpt": "骨骼肌收缩能牵动骨产生运动。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 4.155146001721732,
+        "embedding": 89.52506099740276,
+        "chat": 0.0,
+        "total": 101.40224199858494
+      }
+    },
+    {
+      "case_id": "dev-exact-06",
+      "mode": "hybrid",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-06",
+          "chunk_id": 36,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 15
+            }
+          ],
+          "excerpt": "二氧化碳能使澄清石灰水变浑浊。"
+        },
+        {
+          "material": "dev-02",
+          "chunk_id": 32,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 8
+            }
+          ],
+          "excerpt": "淀粉遇碘液变蓝。"
+        },
+        {
+          "material": "dev-03",
+          "chunk_id": 33,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "力可以改变物体的形状。"
+        },
+        {
+          "material": "dev-01",
+          "chunk_id": 31,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "水沸腾时温度保持不变。"
+        },
+        {
+          "material": "dev-04",
+          "chunk_id": 34,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 12
+            }
+          ],
+          "excerpt": "种子萌发需要适宜的温度。"
+        },
+        {
+          "material": "dev-08",
+          "chunk_id": 38,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 14
+            }
+          ],
+          "excerpt": "骨骼肌收缩能牵动骨产生运动。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 6.071005009289365,
+        "embedding": 89.99944799870718,
+        "chat": 0.0,
+        "total": 106.13587100669974
+      }
+    },
+    {
+      "case_id": "dev-distributed-06",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-06",
+          "chunk_id": 36,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 15
+            }
+          ],
+          "excerpt": "二氧化碳能使澄清石灰水变浑浊。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.987559997360222,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 5.02051500370726
+      }
+    },
+    {
+      "case_id": "dev-distributed-06",
+      "mode": "vector",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-06",
+          "chunk_id": 36,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 15
+            }
+          ],
+          "excerpt": "二氧化碳能使澄清石灰水变浑浊。"
+        },
+        {
+          "material": "dev-02",
+          "chunk_id": 32,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 8
+            }
+          ],
+          "excerpt": "淀粉遇碘液变蓝。"
+        },
+        {
+          "material": "dev-01",
+          "chunk_id": 31,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "水沸腾时温度保持不变。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 3.105914976913482,
+        "embedding": 86.46809500351083,
+        "chat": 0.0,
+        "total": 98.26138499920489
+      }
+    },
+    {
+      "case_id": "dev-distributed-06",
+      "mode": "hybrid",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-06",
+          "chunk_id": 36,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 15
+            }
+          ],
+          "excerpt": "二氧化碳能使澄清石灰水变浑浊。"
+        },
+        {
+          "material": "dev-02",
+          "chunk_id": 32,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 8
+            }
+          ],
+          "excerpt": "淀粉遇碘液变蓝。"
+        },
+        {
+          "material": "dev-01",
+          "chunk_id": 31,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "水沸腾时温度保持不变。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 4.591362994688097,
+        "embedding": 86.23558999533998,
+        "chat": 0.0,
+        "total": 98.52990900253644
+      }
+    },
+    {
+      "case_id": "dev-paraphrase-06",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 3.298864990938455,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 6.150339999294374
+      }
+    },
+    {
+      "case_id": "dev-paraphrase-06",
+      "mode": "vector",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-06",
+          "chunk_id": 36,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 15
+            }
+          ],
+          "excerpt": "二氧化碳能使澄清石灰水变浑浊。"
+        },
+        {
+          "material": "dev-02",
+          "chunk_id": 32,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 8
+            }
+          ],
+          "excerpt": "淀粉遇碘液变蓝。"
+        },
+        {
+          "material": "dev-01",
+          "chunk_id": 31,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "水沸腾时温度保持不变。"
+        },
+        {
+          "material": "dev-03",
+          "chunk_id": 33,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "力可以改变物体的形状。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 3.856332004943397,
+        "embedding": 112.89684799703537,
+        "chat": 0.0,
+        "total": 123.55744699743809
+      }
+    },
+    {
+      "case_id": "dev-paraphrase-06",
+      "mode": "hybrid",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-06",
+          "chunk_id": 36,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 15
+            }
+          ],
+          "excerpt": "二氧化碳能使澄清石灰水变浑浊。"
+        },
+        {
+          "material": "dev-02",
+          "chunk_id": 32,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 8
+            }
+          ],
+          "excerpt": "淀粉遇碘液变蓝。"
+        },
+        {
+          "material": "dev-01",
+          "chunk_id": 31,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "水沸腾时温度保持不变。"
+        },
+        {
+          "material": "dev-03",
+          "chunk_id": 33,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "力可以改变物体的形状。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 5.858316995727364,
+        "embedding": 120.2001640049275,
+        "chat": 0.0,
+        "total": 134.4721900022705
+      }
+    },
+    {
+      "case_id": "dev-exact-07",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-07",
+          "chunk_id": 37,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 10
+            }
+          ],
+          "excerpt": "平面镜成等大的虚像。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.4495550023857504,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 5.499756000062916
+      }
+    },
+    {
+      "case_id": "dev-exact-07",
+      "mode": "vector",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-07",
+          "chunk_id": 37,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 10
+            }
+          ],
+          "excerpt": "平面镜成等大的虚像。"
+        },
+        {
+          "material": "dev-01",
+          "chunk_id": 31,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "水沸腾时温度保持不变。"
+        },
+        {
+          "material": "dev-05",
+          "chunk_id": 35,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 12
+            }
+          ],
+          "excerpt": "长方形的四个角都是直角。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 3.0072090012254193,
+        "embedding": 134.3585479989997,
+        "chat": 0.0,
+        "total": 143.6654609933612
+      }
+    },
+    {
+      "case_id": "dev-exact-07",
+      "mode": "hybrid",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-07",
+          "chunk_id": 37,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 10
+            }
+          ],
+          "excerpt": "平面镜成等大的虚像。"
+        },
+        {
+          "material": "dev-01",
+          "chunk_id": 31,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "水沸腾时温度保持不变。"
+        },
+        {
+          "material": "dev-05",
+          "chunk_id": 35,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 12
+            }
+          ],
+          "excerpt": "长方形的四个角都是直角。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 7.961893003084697,
+        "embedding": 83.53897799679544,
+        "chat": 0.0,
+        "total": 101.1680730007356
+      }
+    },
+    {
+      "case_id": "dev-distributed-07",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-07",
+          "chunk_id": 37,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 10
+            }
+          ],
+          "excerpt": "平面镜成等大的虚像。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 3.610603991546668,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 7.114194995665457
+      }
+    },
+    {
+      "case_id": "dev-distributed-07",
+      "mode": "vector",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-07",
+          "chunk_id": 37,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 10
+            }
+          ],
+          "excerpt": "平面镜成等大的虚像。"
+        },
+        {
+          "material": "dev-01",
+          "chunk_id": 31,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "水沸腾时温度保持不变。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 4.953870993631426,
+        "embedding": 87.96880400041118,
+        "chat": 0.0,
+        "total": 102.86080300284084
+      }
+    },
+    {
+      "case_id": "dev-distributed-07",
+      "mode": "hybrid",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-07",
+          "chunk_id": 37,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 10
+            }
+          ],
+          "excerpt": "平面镜成等大的虚像。"
+        },
+        {
+          "material": "dev-01",
+          "chunk_id": 31,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "水沸腾时温度保持不变。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 5.217900994466618,
+        "embedding": 237.0354490049067,
+        "chat": 0.0,
+        "total": 251.09935100044822
+      }
+    },
+    {
+      "case_id": "dev-paraphrase-07",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.5706250016810372,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 5.687764998583589
+      }
+    },
+    {
+      "case_id": "dev-paraphrase-07",
+      "mode": "vector",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-07",
+          "chunk_id": 37,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 10
+            }
+          ],
+          "excerpt": "平面镜成等大的虚像。"
+        },
+        {
+          "material": "dev-01",
+          "chunk_id": 31,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "水沸腾时温度保持不变。"
+        },
+        {
+          "material": "dev-03",
+          "chunk_id": 33,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "力可以改变物体的形状。"
+        },
+        {
+          "material": "dev-05",
+          "chunk_id": 35,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 12
+            }
+          ],
+          "excerpt": "长方形的四个角都是直角。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 3.899114999512676,
+        "embedding": 121.48927899397677,
+        "chat": 0.0,
+        "total": 132.49359199835453
+      }
+    },
+    {
+      "case_id": "dev-paraphrase-07",
+      "mode": "hybrid",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-07",
+          "chunk_id": 37,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 10
+            }
+          ],
+          "excerpt": "平面镜成等大的虚像。"
+        },
+        {
+          "material": "dev-01",
+          "chunk_id": 31,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "水沸腾时温度保持不变。"
+        },
+        {
+          "material": "dev-03",
+          "chunk_id": 33,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "力可以改变物体的形状。"
+        },
+        {
+          "material": "dev-05",
+          "chunk_id": 35,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 12
+            }
+          ],
+          "excerpt": "长方形的四个角都是直角。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 5.692445003660396,
+        "embedding": 90.18660499714315,
+        "chat": 0.0,
+        "total": 105.04080800455995
+      }
+    },
+    {
+      "case_id": "dev-exact-08",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-08",
+          "chunk_id": 38,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 14
+            }
+          ],
+          "excerpt": "骨骼肌收缩能牵动骨产生运动。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.3509990132879466,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 5.345151999790687
+      }
+    },
+    {
+      "case_id": "dev-exact-08",
+      "mode": "vector",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-08",
+          "chunk_id": 38,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 14
+            }
+          ],
+          "excerpt": "骨骼肌收缩能牵动骨产生运动。"
+        },
+        {
+          "material": "dev-03",
+          "chunk_id": 33,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "力可以改变物体的形状。"
+        },
+        {
+          "material": "dev-04",
+          "chunk_id": 34,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 12
+            }
+          ],
+          "excerpt": "种子萌发需要适宜的温度。"
+        },
+        {
+          "material": "dev-01",
+          "chunk_id": 31,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "水沸腾时温度保持不变。"
+        },
+        {
+          "material": "dev-06",
+          "chunk_id": 36,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 15
+            }
+          ],
+          "excerpt": "二氧化碳能使澄清石灰水变浑浊。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 3.858220996335149,
+        "embedding": 92.4363509984687,
+        "chat": 0.0,
+        "total": 102.85116399609251
+      }
+    },
+    {
+      "case_id": "dev-exact-08",
+      "mode": "hybrid",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-08",
+          "chunk_id": 38,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 14
+            }
+          ],
+          "excerpt": "骨骼肌收缩能牵动骨产生运动。"
+        },
+        {
+          "material": "dev-03",
+          "chunk_id": 33,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "力可以改变物体的形状。"
+        },
+        {
+          "material": "dev-04",
+          "chunk_id": 34,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 12
+            }
+          ],
+          "excerpt": "种子萌发需要适宜的温度。"
+        },
+        {
+          "material": "dev-01",
+          "chunk_id": 31,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "水沸腾时温度保持不变。"
+        },
+        {
+          "material": "dev-06",
+          "chunk_id": 36,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 15
+            }
+          ],
+          "excerpt": "二氧化碳能使澄清石灰水变浑浊。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 5.4701020126231015,
+        "embedding": 88.85027599899331,
+        "chat": 0.0,
+        "total": 103.63512000185438
+      }
+    },
+    {
+      "case_id": "dev-distributed-08",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-08",
+          "chunk_id": 38,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 14
+            }
+          ],
+          "excerpt": "骨骼肌收缩能牵动骨产生运动。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.3224650067277253,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 5.3809310047654435
+      }
+    },
+    {
+      "case_id": "dev-distributed-08",
+      "mode": "vector",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-08",
+          "chunk_id": 38,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 14
+            }
+          ],
+          "excerpt": "骨骼肌收缩能牵动骨产生运动。"
+        },
+        {
+          "material": "dev-03",
+          "chunk_id": 33,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "力可以改变物体的形状。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 3.41000498883659,
+        "embedding": 110.16619599831756,
+        "chat": 0.0,
+        "total": 120.50040600297507
+      }
+    },
+    {
+      "case_id": "dev-distributed-08",
+      "mode": "hybrid",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-08",
+          "chunk_id": 38,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 14
+            }
+          ],
+          "excerpt": "骨骼肌收缩能牵动骨产生运动。"
+        },
+        {
+          "material": "dev-03",
+          "chunk_id": 33,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "力可以改变物体的形状。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 4.19795199559303,
+        "embedding": 88.47600299486658,
+        "chat": 0.0,
+        "total": 100.24505799810868
+      }
+    },
+    {
+      "case_id": "dev-paraphrase-08",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.86569999641506,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.344665998360142
+      }
+    },
+    {
+      "case_id": "dev-paraphrase-08",
+      "mode": "vector",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-08",
+          "chunk_id": 38,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 14
+            }
+          ],
+          "excerpt": "骨骼肌收缩能牵动骨产生运动。"
+        },
+        {
+          "material": "dev-03",
+          "chunk_id": 33,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "力可以改变物体的形状。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.9535150024457835,
+        "embedding": 84.31225000094855,
+        "chat": 0.0,
+        "total": 93.45396800199524
+      }
+    },
+    {
+      "case_id": "dev-paraphrase-08",
+      "mode": "hybrid",
+      "status": "ok",
+      "hits": [
+        {
+          "material": "dev-08",
+          "chunk_id": 38,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 14
+            }
+          ],
+          "excerpt": "骨骼肌收缩能牵动骨产生运动。"
+        },
+        {
+          "material": "dev-03",
+          "chunk_id": 33,
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11
+            }
+          ],
+          "excerpt": "力可以改变物体的形状。"
+        }
+      ],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 4.648326976166572,
+        "embedding": 91.15144099632744,
+        "chat": 0.0,
+        "total": 103.94093999639153
+      }
+    },
+    {
+      "case_id": "dev-unrelated-01",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.797919991076924,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.112386995984707
+      }
+    },
+    {
+      "case_id": "dev-unrelated-01",
+      "mode": "vector",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 3.393990991753526,
+        "embedding": 106.87404400232481,
+        "chat": 0.0,
+        "total": 116.30760699335951
+      }
+    },
+    {
+      "case_id": "dev-unrelated-01",
+      "mode": "hybrid",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 3.6859680112684146,
+        "embedding": 78.77020200248808,
+        "chat": 0.0,
+        "total": 90.42063899687491
+      }
+    },
+    {
+      "case_id": "dev-unrelated-02",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.3476170099456795,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.976925003575161
+      }
+    },
+    {
+      "case_id": "dev-unrelated-02",
+      "mode": "vector",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.9138729951228015,
+        "embedding": 86.14461999968626,
+        "chat": 0.0,
+        "total": 94.5684460020857
+      }
+    },
+    {
+      "case_id": "dev-unrelated-02",
+      "mode": "hybrid",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 4.469522995350417,
+        "embedding": 87.66989099967759,
+        "chat": 0.0,
+        "total": 98.89365299750352
+      }
+    },
+    {
+      "case_id": "dev-unrelated-03",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.000079010031186,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 6.265381998673547
+      }
+    },
+    {
+      "case_id": "dev-unrelated-03",
+      "mode": "vector",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 3.1901050024316646,
+        "embedding": 81.66853099828586,
+        "chat": 0.0,
+        "total": 90.94438300235197
+      }
+    },
+    {
+      "case_id": "dev-unrelated-03",
+      "mode": "hybrid",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 4.250249010510743,
+        "embedding": 110.6802130016149,
+        "chat": 0.0,
+        "total": 122.19214499782538
+      }
+    },
+    {
+      "case_id": "dev-unrelated-04",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.112398018653039,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.990777000784874
+      }
+    },
+    {
+      "case_id": "dev-unrelated-04",
+      "mode": "vector",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 3.0751899976166897,
+        "embedding": 110.77615900285309,
+        "chat": 0.0,
+        "total": 120.08127399894875
+      }
+    },
+    {
+      "case_id": "dev-unrelated-04",
+      "mode": "hybrid",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 4.179657997156028,
+        "embedding": 97.99049200228183,
+        "chat": 0.0,
+        "total": 109.68064200278604
+      }
+    },
+    {
+      "case_id": "dev-unrelated-05",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.1004880109103397,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.408904998854268
+      }
+    },
+    {
+      "case_id": "dev-unrelated-05",
+      "mode": "vector",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.7486109975143336,
+        "embedding": 123.72262000280898,
+        "chat": 0.0,
+        "total": 132.35026899928926
+      }
+    },
+    {
+      "case_id": "dev-unrelated-05",
+      "mode": "hybrid",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 4.406756008393131,
+        "embedding": 96.61369200330228,
+        "chat": 0.0,
+        "total": 107.94128099951195
+      }
+    },
+    {
+      "case_id": "dev-unrelated-06",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.7162710064440034,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.020018001028802
+      }
+    },
+    {
+      "case_id": "dev-unrelated-06",
+      "mode": "vector",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.6384699958725832,
+        "embedding": 94.86000500328373,
+        "chat": 0.0,
+        "total": 102.64144599932479
+      }
+    },
+    {
+      "case_id": "dev-unrelated-06",
+      "mode": "hybrid",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 4.268750002665911,
+        "embedding": 136.65646300069056,
+        "chat": 0.0,
+        "total": 147.58840600552503
+      }
+    },
+    {
+      "case_id": "dev-unrelated-07",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.9428419982432388,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.839503999392036
+      }
+    },
+    {
+      "case_id": "dev-unrelated-07",
+      "mode": "vector",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.6245319968438707,
+        "embedding": 138.87017899833154,
+        "chat": 0.0,
+        "total": 147.11405800335342
+      }
+    },
+    {
+      "case_id": "dev-unrelated-07",
+      "mode": "hybrid",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 4.006469003797974,
+        "embedding": 202.9202530029579,
+        "chat": 0.0,
+        "total": 215.431066993915
+      }
+    },
+    {
+      "case_id": "dev-unrelated-08",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.7272220065933652,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.11111499852268
+      }
+    },
+    {
+      "case_id": "dev-unrelated-08",
+      "mode": "vector",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.7426689994172193,
+        "embedding": 164.77565999957733,
+        "chat": 0.0,
+        "total": 172.85349799931282
+      }
+    },
+    {
+      "case_id": "dev-unrelated-08",
+      "mode": "hybrid",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 4.191610001726076,
+        "embedding": 77.36766200105194,
+        "chat": 0.0,
+        "total": 89.55677599442424
+      }
+    },
+    {
+      "case_id": "dev-unrelated-09",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.9215709980926476,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.826399999728892
+      }
+    },
+    {
+      "case_id": "dev-unrelated-09",
+      "mode": "vector",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.5116530086961575,
+        "embedding": 107.98344299837481,
+        "chat": 0.0,
+        "total": 116.02875500102527
+      }
+    },
+    {
+      "case_id": "dev-unrelated-09",
+      "mode": "hybrid",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 3.101315007370431,
+        "embedding": 88.33395200053928,
+        "chat": 0.0,
+        "total": 98.0593130007037
+      }
+    },
+    {
+      "case_id": "dev-unrelated-10",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.26284400903387,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 3.453151999565307
+      }
+    },
+    {
+      "case_id": "dev-unrelated-10",
+      "mode": "vector",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.5967350011342205,
+        "embedding": 76.26825199986342,
+        "chat": 0.0,
+        "total": 84.49210500111803
+      }
+    },
+    {
+      "case_id": "dev-unrelated-10",
+      "mode": "hybrid",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 3.333328990265727,
+        "embedding": 81.41232699563261,
+        "chat": 0.0,
+        "total": 92.39986899774522
+      }
+    },
+    {
+      "case_id": "dev-unrelated-11",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.2209319975227118,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 3.4616470002220012
+      }
+    },
+    {
+      "case_id": "dev-unrelated-11",
+      "mode": "vector",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.8035479990649037,
+        "embedding": 129.6785180020379,
+        "chat": 0.0,
+        "total": 138.22716400318313
+      }
+    },
+    {
+      "case_id": "dev-unrelated-11",
+      "mode": "hybrid",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 3.2940239980234765,
+        "embedding": 89.06321100221248,
+        "chat": 0.0,
+        "total": 99.14916600246215
+      }
+    },
+    {
+      "case_id": "dev-unrelated-12",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.234632007253822,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 3.627208003308624
+      }
+    },
+    {
+      "case_id": "dev-unrelated-12",
+      "mode": "vector",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.6342330093029886,
+        "embedding": 332.4166139937006,
+        "chat": 0.0,
+        "total": 342.5028050041874
+      }
+    },
+    {
+      "case_id": "dev-unrelated-12",
+      "mode": "hybrid",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 3.500304985209368,
+        "embedding": 96.0822730048676,
+        "chat": 0.0,
+        "total": 107.38114300329471
+      }
+    },
+    {
+      "case_id": "dev-unrelated-13",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.3036960081080906,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 3.931033999833744
+      }
+    },
+    {
+      "case_id": "dev-unrelated-13",
+      "mode": "vector",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.9665760084753856,
+        "embedding": 81.30896700458834,
+        "chat": 0.0,
+        "total": 89.97870899474947
+      }
+    },
+    {
+      "case_id": "dev-unrelated-13",
+      "mode": "hybrid",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 3.196583013050258,
+        "embedding": 150.92433399695437,
+        "chat": 0.0,
+        "total": 162.21940399555024
+      }
+    },
+    {
+      "case_id": "dev-unrelated-14",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 42.085416011104826,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 45.48763200000394
+      }
+    },
+    {
+      "case_id": "dev-unrelated-14",
+      "mode": "vector",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 3.156144986860454,
+        "embedding": 273.9455299961264,
+        "chat": 0.0,
+        "total": 283.83520200441126
+      }
+    },
+    {
+      "case_id": "dev-unrelated-14",
+      "mode": "hybrid",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 3.516464013955556,
+        "embedding": 81.23100900411373,
+        "chat": 0.0,
+        "total": 91.63118900323752
+      }
+    },
+    {
+      "case_id": "dev-unrelated-15",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.2935199920320883,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 3.928778998670168
+      }
+    },
+    {
+      "case_id": "dev-unrelated-15",
+      "mode": "vector",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 3.658399000414647,
+        "embedding": 97.84748300444335,
+        "chat": 0.0,
+        "total": 109.30544500297401
+      }
+    },
+    {
+      "case_id": "dev-unrelated-15",
+      "mode": "hybrid",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 3.605600017181132,
+        "embedding": 320.371221001551,
+        "chat": 0.0,
+        "total": 332.70859800541075
+      }
+    },
+    {
+      "case_id": "dev-unrelated-16",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.2410689814714715,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 3.6121719967923127
+      }
+    },
+    {
+      "case_id": "dev-unrelated-16",
+      "mode": "vector",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 3.0635350121883675,
+        "embedding": 96.30496199679328,
+        "chat": 0.0,
+        "total": 105.35241999605205
+      }
+    },
+    {
+      "case_id": "dev-unrelated-16",
+      "mode": "hybrid",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 3.1949260010151193,
+        "embedding": 86.85465600137832,
+        "chat": 0.0,
+        "total": 96.90830799809191
+      }
+    },
+    {
+      "case_id": "dev-unrelated-17",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.3324740139069036,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 3.8106240026536398
+      }
+    },
+    {
+      "case_id": "dev-unrelated-17",
+      "mode": "vector",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.9850379869458266,
+        "embedding": 89.01092799351318,
+        "chat": 0.0,
+        "total": 98.29567099950509
+      }
+    },
+    {
+      "case_id": "dev-unrelated-17",
+      "mode": "hybrid",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 3.4352460061199963,
+        "embedding": 145.69630000187317,
+        "chat": 0.0,
+        "total": 156.59513299760874
+      }
+    },
+    {
+      "case_id": "dev-unrelated-18",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.4687310031149536,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 4.365713000879623
+      }
+    },
+    {
+      "case_id": "dev-unrelated-18",
+      "mode": "vector",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.9128720052540302,
+        "embedding": 121.28749600378796,
+        "chat": 0.0,
+        "total": 130.00863200431922
+      }
+    },
+    {
+      "case_id": "dev-unrelated-18",
+      "mode": "hybrid",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 3.401138987101149,
+        "embedding": 140.17672200134257,
+        "chat": 0.0,
+        "total": 151.06122300494462
+      }
+    },
+    {
+      "case_id": "dev-unrelated-19",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.147727005649358,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 5.287685002258513
+      }
+    },
+    {
+      "case_id": "dev-unrelated-19",
+      "mode": "vector",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 2.959965990157798,
+        "embedding": 120.79548499605153,
+        "chat": 0.0,
+        "total": 131.44060400372837
+      }
+    },
+    {
+      "case_id": "dev-unrelated-19",
+      "mode": "hybrid",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 3.3796999996411614,
+        "embedding": 91.83564900013153,
+        "chat": 0.0,
+        "total": 102.42090500105405
+      }
+    },
+    {
+      "case_id": "dev-unrelated-20",
+      "mode": "keyword",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 1.2004399977740832,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 3.589997999370098
+      }
+    },
+    {
+      "case_id": "dev-unrelated-20",
+      "mode": "vector",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 3.6031089912285097,
+        "embedding": 103.02054299972951,
+        "chat": 0.0,
+        "total": 114.12232099974062
+      }
+    },
+    {
+      "case_id": "dev-unrelated-20",
+      "mode": "hybrid",
+      "status": "ok",
+      "hits": [],
+      "chat_calls": 0,
+      "latency_ms": {
+        "db": 4.325673988205381,
+        "embedding": 90.17300399864325,
+        "chat": 0.0,
+        "total": 103.72886100230971
+      }
+    }
+  ]
+}

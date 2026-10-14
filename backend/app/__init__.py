@@ -6,7 +6,7 @@ from flask import Flask, jsonify, request
 from sqlalchemy import text
 
 from .auth import auth_bp
-from .config import Config, validate_auth_config
+from .config import Config, validate_auth_config, validate_retrieval_config
 from .database import db, initialize_database
 from .materials import materials_bp
 from .knowledge import knowledge_bp
@@ -19,8 +19,7 @@ def create_app(test_config: dict | None = None) -> Flask:
     if test_config:
         app.config.update(test_config)
     validate_auth_config(app.config)
-    if app.config["EMBEDDING_DIMENSIONS"] != 64:
-        raise RuntimeError("EMBEDDING_DIMENSIONS must match the PostgreSQL VECTOR(64) schema")
+    validate_retrieval_config(app.config)
 
     Path(app.config["UPLOAD_DIR"]).mkdir(parents=True, exist_ok=True)
     Path(app.config["UPLOAD_DIR"], ".tmp").mkdir(parents=True, exist_ok=True)

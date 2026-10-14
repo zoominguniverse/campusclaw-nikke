@@ -35,12 +35,20 @@ services:
       EMBEDDING_API_KEY: ${EMBEDDING_API_KEY:-}
       EMBEDDING_MODEL: ${EMBEDDING_MODEL:-campusclaw-deterministic}
       EMBEDDING_DIMENSIONS: ${EMBEDDING_DIMENSIONS:-64}
+      EMBEDDING_REVISION: ${EMBEDDING_REVISION:-}
+      EMBEDDING_BATCH_SIZE: ${EMBEDDING_BATCH_SIZE:-32}
+      EMBEDDING_TIMEOUT_SECONDS: ${EMBEDDING_TIMEOUT_SECONDS:-30}
+      VECTOR_THRESHOLD: ${VECTOR_THRESHOLD:-0.35}
       CHAT_PROVIDER: ${CHAT_PROVIDER:-deterministic}
       CHAT_API_URL: ${CHAT_API_URL:-}
       CHAT_API_KEY: ${CHAT_API_KEY:-}
       CHAT_MODEL: ${CHAT_MODEL:-campusclaw-deterministic}
+      CHAT_TIMEOUT_SECONDS: ${CHAT_TIMEOUT_SECONDS:-60}
+      SEMANTIC_RELEASE: ${SEMANTIC_RELEASE:-false}
+      SEMANTIC_ACCEPTANCE_REPORT: ${SEMANTIC_ACCEPTANCE_REPORT:-}
     volumes:
       - uploads_data:/app/uploads
+      - ./docs/retrieval-quality-artifacts/release-acceptance.json:/app/acceptance/release-acceptance.json:ro
     depends_on:
       postgres:
         condition: service_healthy

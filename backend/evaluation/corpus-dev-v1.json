@@ -1,0 +1,5707 @@
+{
+  "version": "1.0.1-dev-negatives-v1",
+  "offset_unit": "unicode_code_point",
+  "materials": [
+    {
+      "id": "release-01",
+      "class": "A",
+      "subject": "biology",
+      "title": "知识点1",
+      "text": "学习资料。\n\n细胞是生物体结构和功能的基本单位。\n请结合实验观察理解以上知识。",
+      "split": "release"
+    },
+    {
+      "id": "release-02",
+      "class": "A",
+      "subject": "biology",
+      "title": "知识点2",
+      "text": "学习资料。\n\n叶绿体是绿色植物进行光合作用的主要场所。\n请结合实验观察理解以上知识。",
+      "split": "release"
+    },
+    {
+      "id": "release-03",
+      "class": "A",
+      "subject": "biology",
+      "title": "知识点3",
+      "text": "学习资料。\n\n线粒体为细胞的生命活动提供能量。\n请结合实验观察理解以上知识。",
+      "split": "release"
+    },
+    {
+      "id": "release-04",
+      "class": "A",
+      "subject": "biology",
+      "title": "知识点4",
+      "text": "学习资料。\n\n细胞膜能控制物质进出细胞。\n请结合实验观察理解以上知识。",
+      "split": "release"
+    },
+    {
+      "id": "release-05",
+      "class": "A",
+      "subject": "biology",
+      "title": "知识点5",
+      "text": "学习资料。\n\n遗传信息主要储存在细胞核中。\n请结合实验观察理解以上知识。",
+      "split": "release"
+    },
+    {
+      "id": "release-06",
+      "class": "A",
+      "subject": "biology",
+      "title": "知识点6",
+      "text": "学习资料。\n\n蒸腾作用能促进植物对水分的吸收和运输。\n请结合实验观察理解以上知识。",
+      "split": "release"
+    },
+    {
+      "id": "release-07",
+      "class": "A",
+      "subject": "biology",
+      "title": "知识点7",
+      "text": "学习资料。\n\n光合作用把二氧化碳和水转化为有机物，并释放氧气。\n请结合实验观察理解以上知识。",
+      "split": "release"
+    },
+    {
+      "id": "release-08",
+      "class": "A",
+      "subject": "biology",
+      "title": "知识点8",
+      "text": "学习资料。\n\n呼吸作用分解有机物，释放能量。\n请结合实验观察理解以上知识。",
+      "split": "release"
+    },
+    {
+      "id": "release-09",
+      "class": "A",
+      "subject": "biology",
+      "title": "知识点9",
+      "text": "学习资料。\n\n根尖的成熟区是根吸收水和无机盐的主要部位。\n请结合实验观察理解以上知识。",
+      "split": "release"
+    },
+    {
+      "id": "release-10",
+      "class": "A",
+      "subject": "biology",
+      "title": "知识点10",
+      "text": "学习资料。\n\n导管负责在植物体内运输水和无机盐。\n请结合实验观察理解以上知识。",
+      "split": "release"
+    },
+    {
+      "id": "release-11",
+      "class": "A",
+      "subject": "physics",
+      "title": "知识点11",
+      "text": "学习资料。\n\n同种电荷相互排斥，异种电荷相互吸引。\n请结合实验观察理解以上知识。",
+      "split": "release"
+    },
+    {
+      "id": "release-12",
+      "class": "A",
+      "subject": "physics",
+      "title": "知识点12",
+      "text": "学习资料。\n\n电流方向规定为正电荷定向移动的方向。\n请结合实验观察理解以上知识。",
+      "split": "release"
+    },
+    {
+      "id": "release-13",
+      "class": "A",
+      "subject": "physics",
+      "title": "知识点13",
+      "text": "学习资料。\n\n串联电路中各处电流相等。\n请结合实验观察理解以上知识。",
+      "split": "release"
+    },
+    {
+      "id": "release-14",
+      "class": "A",
+      "subject": "physics",
+      "title": "知识点14",
+      "text": "学习资料。\n\n并联电路中各支路两端的电压相等。\n请结合实验观察理解以上知识。",
+      "split": "release"
+    },
+    {
+      "id": "release-15",
+      "class": "A",
+      "subject": "physics",
+      "title": "知识点15",
+      "text": "学习资料。\n\n物体受到的重力方向总是竖直向下。\n请结合实验观察理解以上知识。",
+      "split": "release"
+    },
+    {
+      "id": "release-16",
+      "class": "A",
+      "subject": "physics",
+      "title": "知识点16",
+      "text": "学习资料。\n\n惯性是物体保持原来运动状态的性质。\n请结合实验观察理解以上知识。",
+      "split": "release"
+    },
+    {
+      "id": "release-17",
+      "class": "A",
+      "subject": "physics",
+      "title": "知识点17",
+      "text": "学习资料。\n\n声音的传播需要介质，真空不能传声。\n请结合实验观察理解以上知识。",
+      "split": "release"
+    },
+    {
+      "id": "release-18",
+      "class": "A",
+      "subject": "physics",
+      "title": "知识点18",
+      "text": "学习资料。\n\n光在均匀介质中沿直线传播。\n请结合实验观察理解以上知识。",
+      "split": "release"
+    },
+    {
+      "id": "release-19",
+      "class": "A",
+      "subject": "physics",
+      "title": "知识点19",
+      "text": "学习资料。\n\n凸透镜对光有会聚作用。\n请结合实验观察理解以上知识。",
+      "split": "release"
+    },
+    {
+      "id": "release-20",
+      "class": "A",
+      "subject": "physics",
+      "title": "知识点20",
+      "text": "学习资料。\n\n物体的密度等于质量与体积之比。\n请结合实验观察理解以上知识。",
+      "split": "release"
+    },
+    {
+      "id": "release-21",
+      "class": "A",
+      "subject": "chemistry",
+      "title": "知识点21",
+      "text": "学习资料。\n\n酸溶液的pH小于7。\n请结合实验观察理解以上知识。",
+      "split": "release"
+    },
+    {
+      "id": "release-22",
+      "class": "A",
+      "subject": "chemistry",
+      "title": "知识点22",
+      "text": "学习资料。\n\n碱溶液的pH大于7。\n请结合实验观察理解以上知识。",
+      "split": "release"
+    },
+    {
+      "id": "release-23",
+      "class": "A",
+      "subject": "chemistry",
+      "title": "知识点23",
+      "text": "学习资料。\n\n催化剂能改变反应速率，自身质量和化学性质在反应前后不变。\n请结合实验观察理解以上知识。",
+      "split": "release"
+    },
+    {
+      "id": "release-24",
+      "class": "A",
+      "subject": "chemistry",
+      "title": "知识点24",
+      "text": "学习资料。\n\n铁生锈需要同时接触氧气和水。\n请结合实验观察理解以上知识。",
+      "split": "release"
+    },
+    {
+      "id": "release-25",
+      "class": "A",
+      "subject": "chemistry",
+      "title": "知识点25",
+      "text": "学习资料。\n\n质量守恒定律适用于化学反应。\n请结合实验观察理解以上知识。",
+      "split": "release"
+    },
+    {
+      "id": "release-26",
+      "class": "A",
+      "subject": "math",
+      "title": "知识点26",
+      "text": "学习资料。\n\n三角形内角和等于180度。\n请结合实验观察理解以上知识。",
+      "split": "release"
+    },
+    {
+      "id": "release-27",
+      "class": "A",
+      "subject": "math",
+      "title": "知识点27",
+      "text": "学习资料。\n\n平行四边形的对边平行且相等。\n请结合实验观察理解以上知识。",
+      "split": "release"
+    },
+    {
+      "id": "release-28",
+      "class": "A",
+      "subject": "math",
+      "title": "知识点28",
+      "text": "学习资料。\n\n一次函数的图像是一条直线。\n请结合实验观察理解以上知识。",
+      "split": "release"
+    },
+    {
+      "id": "release-29",
+      "class": "A",
+      "subject": "math",
+      "title": "知识点29",
+      "text": "学习资料。\n\n圆的周长等于直径乘以圆周率。\n请结合实验观察理解以上知识。",
+      "split": "release"
+    },
+    {
+      "id": "release-30",
+      "class": "A",
+      "subject": "math",
+      "title": "知识点30",
+      "text": "学习资料。\n\n平均数等于数据总和除以数据个数。\n请结合实验观察理解以上知识。",
+      "split": "release"
+    },
+    {
+      "id": "dev-01",
+      "class": "D",
+      "subject": "science",
+      "title": "dev-01",
+      "text": "水沸腾时温度保持不变。",
+      "split": "dev"
+    },
+    {
+      "id": "dev-02",
+      "class": "D",
+      "subject": "science",
+      "title": "dev-02",
+      "text": "淀粉遇碘液变蓝。",
+      "split": "dev"
+    },
+    {
+      "id": "dev-03",
+      "class": "D",
+      "subject": "science",
+      "title": "dev-03",
+      "text": "力可以改变物体的形状。",
+      "split": "dev"
+    },
+    {
+      "id": "dev-04",
+      "class": "D",
+      "subject": "science",
+      "title": "dev-04",
+      "text": "种子萌发需要适宜的温度。",
+      "split": "dev"
+    },
+    {
+      "id": "dev-05",
+      "class": "D",
+      "subject": "science",
+      "title": "dev-05",
+      "text": "长方形的四个角都是直角。",
+      "split": "dev"
+    },
+    {
+      "id": "dev-06",
+      "class": "D",
+      "subject": "science",
+      "title": "dev-06",
+      "text": "二氧化碳能使澄清石灰水变浑浊。",
+      "split": "dev"
+    },
+    {
+      "id": "dev-07",
+      "class": "D",
+      "subject": "science",
+      "title": "dev-07",
+      "text": "平面镜成等大的虚像。",
+      "split": "dev"
+    },
+    {
+      "id": "dev-08",
+      "class": "D",
+      "subject": "science",
+      "title": "dev-08",
+      "text": "骨骼肌收缩能牵动骨产生运动。",
+      "split": "dev"
+    }
+  ],
+  "cases": [
+    {
+      "id": "exact-01",
+      "split": "release",
+      "category": "exact",
+      "query": "细胞是生物体结构和功能的基本单位。",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-01",
+          "start": 7,
+          "end": 24,
+          "quote": "细胞是生物体结构和功能的基本单位。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "细胞是生物体结构和功能的基本单位。"
+    },
+    {
+      "id": "distributed-01",
+      "split": "release",
+      "category": "distributed",
+      "query": "结构 功能 基本单位",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-01",
+          "start": 7,
+          "end": 24,
+          "quote": "细胞是生物体结构和功能的基本单位。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "细胞是生物体结构和功能的基本单位。"
+    },
+    {
+      "id": "paraphrase-01",
+      "split": "release",
+      "category": "paraphrase",
+      "query": "生物身体最基础的构成和运作单元是什么",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-01",
+          "start": 7,
+          "end": 24,
+          "quote": "细胞是生物体结构和功能的基本单位。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "细胞是生物体结构和功能的基本单位。"
+    },
+    {
+      "id": "answer-01",
+      "split": "release",
+      "category": "answer",
+      "query": "细胞在生物体中是什么单位？",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-01",
+          "start": 7,
+          "end": 24,
+          "quote": "细胞是生物体结构和功能的基本单位。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "细胞是生物体结构和功能的基本单位。"
+    },
+    {
+      "id": "paraphrase-31",
+      "split": "release",
+      "category": "paraphrase",
+      "query": "活物结构和生命功能的最小基础是什么",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-01",
+          "start": 7,
+          "end": 24,
+          "quote": "细胞是生物体结构和功能的基本单位。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "细胞是生物体结构和功能的基本单位。"
+    },
+    {
+      "id": "exact-02",
+      "split": "release",
+      "category": "exact",
+      "query": "叶绿体是绿色植物进行光合作用的主要场所。",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-02",
+          "start": 7,
+          "end": 27,
+          "quote": "叶绿体是绿色植物进行光合作用的主要场所。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "叶绿体是绿色植物进行光合作用的主要场所。"
+    },
+    {
+      "id": "distributed-02",
+      "split": "release",
+      "category": "distributed",
+      "query": "绿色植物 光合作用 场所",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-02",
+          "start": 7,
+          "end": 27,
+          "quote": "叶绿体是绿色植物进行光合作用的主要场所。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "叶绿体是绿色植物进行光合作用的主要场所。"
+    },
+    {
+      "id": "paraphrase-02",
+      "split": "release",
+      "category": "paraphrase",
+      "query": "植物靠阳光制造养料主要在哪个细胞器完成",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-02",
+          "start": 7,
+          "end": 27,
+          "quote": "叶绿体是绿色植物进行光合作用的主要场所。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "叶绿体是绿色植物进行光合作用的主要场所。"
+    },
+    {
+      "id": "answer-02",
+      "split": "release",
+      "category": "answer",
+      "query": "光合作用主要在何处进行？",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-02",
+          "start": 7,
+          "end": 27,
+          "quote": "叶绿体是绿色植物进行光合作用的主要场所。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "叶绿体是绿色植物进行光合作用的主要场所。"
+    },
+    {
+      "id": "paraphrase-32",
+      "split": "release",
+      "category": "paraphrase",
+      "query": "叶绿体与植物利用日光合成养分有何关系",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-02",
+          "start": 7,
+          "end": 27,
+          "quote": "叶绿体是绿色植物进行光合作用的主要场所。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "叶绿体是绿色植物进行光合作用的主要场所。"
+    },
+    {
+      "id": "exact-03",
+      "split": "release",
+      "category": "exact",
+      "query": "线粒体为细胞的生命活动提供能量。",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-03",
+          "start": 7,
+          "end": 23,
+          "quote": "线粒体为细胞的生命活动提供能量。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "线粒体为细胞的生命活动提供能量。"
+    },
+    {
+      "id": "distributed-03",
+      "split": "release",
+      "category": "distributed",
+      "query": "线粒体 生命活动 能量",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-03",
+          "start": 7,
+          "end": 23,
+          "quote": "线粒体为细胞的生命活动提供能量。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "线粒体为细胞的生命活动提供能量。"
+    },
+    {
+      "id": "paraphrase-03",
+      "split": "release",
+      "category": "paraphrase",
+      "query": "细胞靠哪种细胞器获得活动所需动力",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-03",
+          "start": 7,
+          "end": 23,
+          "quote": "线粒体为细胞的生命活动提供能量。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "线粒体为细胞的生命活动提供能量。"
+    },
+    {
+      "id": "answer-03",
+      "split": "release",
+      "category": "answer",
+      "query": "线粒体有什么作用？",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-03",
+          "start": 7,
+          "end": 23,
+          "quote": "线粒体为细胞的生命活动提供能量。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "线粒体为细胞的生命活动提供能量。"
+    },
+    {
+      "id": "paraphrase-33",
+      "split": "release",
+      "category": "paraphrase",
+      "query": "生命活动的动力由线粒体如何供给",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-03",
+          "start": 7,
+          "end": 23,
+          "quote": "线粒体为细胞的生命活动提供能量。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "线粒体为细胞的生命活动提供能量。"
+    },
+    {
+      "id": "exact-04",
+      "split": "release",
+      "category": "exact",
+      "query": "细胞膜能控制物质进出细胞。",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-04",
+          "start": 7,
+          "end": 20,
+          "quote": "细胞膜能控制物质进出细胞。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "细胞膜能控制物质进出细胞。"
+    },
+    {
+      "id": "distributed-04",
+      "split": "release",
+      "category": "distributed",
+      "query": "细胞膜 控制 进出",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-04",
+          "start": 7,
+          "end": 20,
+          "quote": "细胞膜能控制物质进出细胞。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "细胞膜能控制物质进出细胞。"
+    },
+    {
+      "id": "paraphrase-04",
+      "split": "release",
+      "category": "paraphrase",
+      "query": "细胞边界上哪一层负责调节物质出入",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-04",
+          "start": 7,
+          "end": 20,
+          "quote": "细胞膜能控制物质进出细胞。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "细胞膜能控制物质进出细胞。"
+    },
+    {
+      "id": "answer-04",
+      "split": "release",
+      "category": "answer",
+      "query": "细胞膜的功能是什么？",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-04",
+          "start": 7,
+          "end": 20,
+          "quote": "细胞膜能控制物质进出细胞。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "细胞膜能控制物质进出细胞。"
+    },
+    {
+      "id": "paraphrase-34",
+      "split": "release",
+      "category": "paraphrase",
+      "query": "物质能否进入细胞由哪层结构管控",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-04",
+          "start": 7,
+          "end": 20,
+          "quote": "细胞膜能控制物质进出细胞。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "细胞膜能控制物质进出细胞。"
+    },
+    {
+      "id": "exact-05",
+      "split": "release",
+      "category": "exact",
+      "query": "遗传信息主要储存在细胞核中。",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-05",
+          "start": 7,
+          "end": 21,
+          "quote": "遗传信息主要储存在细胞核中。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "遗传信息主要储存在细胞核中。"
+    },
+    {
+      "id": "distributed-05",
+      "split": "release",
+      "category": "distributed",
+      "query": "遗传信息 储存 细胞核",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-05",
+          "start": 7,
+          "end": 21,
+          "quote": "遗传信息主要储存在细胞核中。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "遗传信息主要储存在细胞核中。"
+    },
+    {
+      "id": "paraphrase-05",
+      "split": "release",
+      "category": "paraphrase",
+      "query": "细胞的遗传资料主要存放在哪个部位",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-05",
+          "start": 7,
+          "end": 21,
+          "quote": "遗传信息主要储存在细胞核中。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "遗传信息主要储存在细胞核中。"
+    },
+    {
+      "id": "answer-05",
+      "split": "release",
+      "category": "answer",
+      "query": "遗传信息主要存在哪里？",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-05",
+          "start": 7,
+          "end": 21,
+          "quote": "遗传信息主要储存在细胞核中。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "遗传信息主要储存在细胞核中。"
+    },
+    {
+      "id": "paraphrase-35",
+      "split": "release",
+      "category": "paraphrase",
+      "query": "遗传指令在细胞哪里集中保存",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-05",
+          "start": 7,
+          "end": 21,
+          "quote": "遗传信息主要储存在细胞核中。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "遗传信息主要储存在细胞核中。"
+    },
+    {
+      "id": "exact-06",
+      "split": "release",
+      "category": "exact",
+      "query": "蒸腾作用能促进植物对水分的吸收和运输。",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-06",
+          "start": 7,
+          "end": 26,
+          "quote": "蒸腾作用能促进植物对水分的吸收和运输。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "蒸腾作用能促进植物对水分的吸收和运输。"
+    },
+    {
+      "id": "distributed-06",
+      "split": "release",
+      "category": "distributed",
+      "query": "蒸腾作用 水分 运输",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-06",
+          "start": 7,
+          "end": 26,
+          "quote": "蒸腾作用能促进植物对水分的吸收和运输。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "蒸腾作用能促进植物对水分的吸收和运输。"
+    },
+    {
+      "id": "paraphrase-06",
+      "split": "release",
+      "category": "paraphrase",
+      "query": "植物散失水汽如何影响吸水和水在体内的移动",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-06",
+          "start": 7,
+          "end": 26,
+          "quote": "蒸腾作用能促进植物对水分的吸收和运输。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "蒸腾作用能促进植物对水分的吸收和运输。"
+    },
+    {
+      "id": "answer-06",
+      "split": "release",
+      "category": "answer",
+      "query": "蒸腾作用对水分有什么影响？",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-06",
+          "start": 7,
+          "end": 26,
+          "quote": "蒸腾作用能促进植物对水分的吸收和运输。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "蒸腾作用能促进植物对水分的吸收和运输。"
+    },
+    {
+      "id": "paraphrase-36",
+      "split": "release",
+      "category": "paraphrase",
+      "query": "植物把水分变成水汽散发对水的输送有何帮助",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-06",
+          "start": 7,
+          "end": 26,
+          "quote": "蒸腾作用能促进植物对水分的吸收和运输。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "蒸腾作用能促进植物对水分的吸收和运输。"
+    },
+    {
+      "id": "exact-07",
+      "split": "release",
+      "category": "exact",
+      "query": "光合作用把二氧化碳和水转化为有机物，并释放氧气。",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-07",
+          "start": 7,
+          "end": 31,
+          "quote": "光合作用把二氧化碳和水转化为有机物，并释放氧气。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "光合作用把二氧化碳和水转化为有机物，并释放氧气。"
+    },
+    {
+      "id": "distributed-07",
+      "split": "release",
+      "category": "distributed",
+      "query": "二氧化碳 有机物 氧气",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-07",
+          "start": 7,
+          "end": 31,
+          "quote": "光合作用把二氧化碳和水转化为有机物，并释放氧气。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "光合作用把二氧化碳和水转化为有机物，并释放氧气。"
+    },
+    {
+      "id": "paraphrase-07",
+      "split": "release",
+      "category": "paraphrase",
+      "query": "植物利用光时消耗哪些原料产出哪些物质",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-07",
+          "start": 7,
+          "end": 31,
+          "quote": "光合作用把二氧化碳和水转化为有机物，并释放氧气。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "光合作用把二氧化碳和水转化为有机物，并释放氧气。"
+    },
+    {
+      "id": "answer-07",
+      "split": "release",
+      "category": "answer",
+      "query": "光合作用会释放什么气体？",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-07",
+          "start": 7,
+          "end": 31,
+          "quote": "光合作用把二氧化碳和水转化为有机物，并释放氧气。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "光合作用把二氧化碳和水转化为有机物，并释放氧气。"
+    },
+    {
+      "id": "paraphrase-37",
+      "split": "release",
+      "category": "paraphrase",
+      "query": "植物造有机物时会把什么气体放出来",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-07",
+          "start": 7,
+          "end": 31,
+          "quote": "光合作用把二氧化碳和水转化为有机物，并释放氧气。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "光合作用把二氧化碳和水转化为有机物，并释放氧气。"
+    },
+    {
+      "id": "exact-08",
+      "split": "release",
+      "category": "exact",
+      "query": "呼吸作用分解有机物，释放能量。",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-08",
+          "start": 7,
+          "end": 22,
+          "quote": "呼吸作用分解有机物，释放能量。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "呼吸作用分解有机物，释放能量。"
+    },
+    {
+      "id": "distributed-08",
+      "split": "release",
+      "category": "distributed",
+      "query": "呼吸作用 有机物 能量",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-08",
+          "start": 7,
+          "end": 22,
+          "quote": "呼吸作用分解有机物，释放能量。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "呼吸作用分解有机物，释放能量。"
+    },
+    {
+      "id": "paraphrase-08",
+      "split": "release",
+      "category": "paraphrase",
+      "query": "生物通过哪种过程拆解养料获得动力",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-08",
+          "start": 7,
+          "end": 22,
+          "quote": "呼吸作用分解有机物，释放能量。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "呼吸作用分解有机物，释放能量。"
+    },
+    {
+      "id": "answer-08",
+      "split": "release",
+      "category": "answer",
+      "query": "呼吸作用如何获得能量？",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-08",
+          "start": 7,
+          "end": 22,
+          "quote": "呼吸作用分解有机物，释放能量。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "呼吸作用分解有机物，释放能量。"
+    },
+    {
+      "id": "paraphrase-38",
+      "split": "release",
+      "category": "paraphrase",
+      "query": "把储存的有机养料分解来供能称为什么",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-08",
+          "start": 7,
+          "end": 22,
+          "quote": "呼吸作用分解有机物，释放能量。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "呼吸作用分解有机物，释放能量。"
+    },
+    {
+      "id": "exact-09",
+      "split": "release",
+      "category": "exact",
+      "query": "根尖的成熟区是根吸收水和无机盐的主要部位。",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-09",
+          "start": 7,
+          "end": 28,
+          "quote": "根尖的成熟区是根吸收水和无机盐的主要部位。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "根尖的成熟区是根吸收水和无机盐的主要部位。"
+    },
+    {
+      "id": "distributed-09",
+      "split": "release",
+      "category": "distributed",
+      "query": "根尖 吸收 无机盐",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-09",
+          "start": 7,
+          "end": 28,
+          "quote": "根尖的成熟区是根吸收水和无机盐的主要部位。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "根尖的成熟区是根吸收水和无机盐的主要部位。"
+    },
+    {
+      "id": "paraphrase-09",
+      "split": "release",
+      "category": "paraphrase",
+      "query": "植物根部哪个区域主要负责摄取水及矿质",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-09",
+          "start": 7,
+          "end": 28,
+          "quote": "根尖的成熟区是根吸收水和无机盐的主要部位。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "根尖的成熟区是根吸收水和无机盐的主要部位。"
+    },
+    {
+      "id": "answer-09",
+      "split": "release",
+      "category": "answer",
+      "query": "根吸收水和无机盐的主要部位在哪？",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-09",
+          "start": 7,
+          "end": 28,
+          "quote": "根尖的成熟区是根吸收水和无机盐的主要部位。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "根尖的成熟区是根吸收水和无机盐的主要部位。"
+    },
+    {
+      "id": "paraphrase-39",
+      "split": "release",
+      "category": "paraphrase",
+      "query": "根上主要吸取矿质和水的地方叫什么",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-09",
+          "start": 7,
+          "end": 28,
+          "quote": "根尖的成熟区是根吸收水和无机盐的主要部位。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "根尖的成熟区是根吸收水和无机盐的主要部位。"
+    },
+    {
+      "id": "exact-10",
+      "split": "release",
+      "category": "exact",
+      "query": "导管负责在植物体内运输水和无机盐。",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-10",
+          "start": 7,
+          "end": 24,
+          "quote": "导管负责在植物体内运输水和无机盐。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "导管负责在植物体内运输水和无机盐。"
+    },
+    {
+      "id": "distributed-10",
+      "split": "release",
+      "category": "distributed",
+      "query": "导管 植物体 运输",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-10",
+          "start": 7,
+          "end": 24,
+          "quote": "导管负责在植物体内运输水和无机盐。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "导管负责在植物体内运输水和无机盐。"
+    },
+    {
+      "id": "paraphrase-10",
+      "split": "release",
+      "category": "paraphrase",
+      "query": "植物体内水和矿质经哪种管道输送",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-10",
+          "start": 7,
+          "end": 24,
+          "quote": "导管负责在植物体内运输水和无机盐。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "导管负责在植物体内运输水和无机盐。"
+    },
+    {
+      "id": "answer-10",
+      "split": "release",
+      "category": "answer",
+      "query": "导管运输哪些物质？",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-10",
+          "start": 7,
+          "end": 24,
+          "quote": "导管负责在植物体内运输水和无机盐。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "导管负责在植物体内运输水和无机盐。"
+    },
+    {
+      "id": "paraphrase-40",
+      "split": "release",
+      "category": "paraphrase",
+      "query": "水和矿质在植物内部的输送通路叫什么",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-10",
+          "start": 7,
+          "end": 24,
+          "quote": "导管负责在植物体内运输水和无机盐。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "导管负责在植物体内运输水和无机盐。"
+    },
+    {
+      "id": "exact-11",
+      "split": "release",
+      "category": "exact",
+      "query": "同种电荷相互排斥，异种电荷相互吸引。",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "physics"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-11",
+          "start": 7,
+          "end": 25,
+          "quote": "同种电荷相互排斥，异种电荷相互吸引。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "同种电荷相互排斥，异种电荷相互吸引。"
+    },
+    {
+      "id": "distributed-11",
+      "split": "release",
+      "category": "distributed",
+      "query": "同种电荷 排斥 异种电荷",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "physics"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-11",
+          "start": 7,
+          "end": 25,
+          "quote": "同种电荷相互排斥，异种电荷相互吸引。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "同种电荷相互排斥，异种电荷相互吸引。"
+    },
+    {
+      "id": "paraphrase-11",
+      "split": "release",
+      "category": "paraphrase",
+      "query": "两个带相同电性的物体靠近后会怎样",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "physics"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-11",
+          "start": 7,
+          "end": 25,
+          "quote": "同种电荷相互排斥，异种电荷相互吸引。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "同种电荷相互排斥，异种电荷相互吸引。"
+    },
+    {
+      "id": "answer-11",
+      "split": "release",
+      "category": "answer",
+      "query": "同种电荷之间有什么作用？",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "physics"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-11",
+          "start": 7,
+          "end": 25,
+          "quote": "同种电荷相互排斥，异种电荷相互吸引。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "同种电荷相互排斥，异种电荷相互吸引。"
+    },
+    {
+      "id": "exact-12",
+      "split": "release",
+      "category": "exact",
+      "query": "电流方向规定为正电荷定向移动的方向。",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "physics"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-12",
+          "start": 7,
+          "end": 25,
+          "quote": "电流方向规定为正电荷定向移动的方向。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "电流方向规定为正电荷定向移动的方向。"
+    },
+    {
+      "id": "distributed-12",
+      "split": "release",
+      "category": "distributed",
+      "query": "电流方向 正电荷 定向移动",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "physics"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-12",
+          "start": 7,
+          "end": 25,
+          "quote": "电流方向规定为正电荷定向移动的方向。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "电流方向规定为正电荷定向移动的方向。"
+    },
+    {
+      "id": "paraphrase-12",
+      "split": "release",
+      "category": "paraphrase",
+      "query": "约定的电流朝向以哪种电荷的运动为准",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "physics"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-12",
+          "start": 7,
+          "end": 25,
+          "quote": "电流方向规定为正电荷定向移动的方向。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "电流方向规定为正电荷定向移动的方向。"
+    },
+    {
+      "id": "answer-12",
+      "split": "release",
+      "category": "answer",
+      "query": "电流方向如何规定？",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "physics"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-12",
+          "start": 7,
+          "end": 25,
+          "quote": "电流方向规定为正电荷定向移动的方向。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "电流方向规定为正电荷定向移动的方向。"
+    },
+    {
+      "id": "exact-13",
+      "split": "release",
+      "category": "exact",
+      "query": "串联电路中各处电流相等。",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "physics"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-13",
+          "start": 7,
+          "end": 19,
+          "quote": "串联电路中各处电流相等。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "串联电路中各处电流相等。"
+    },
+    {
+      "id": "distributed-13",
+      "split": "release",
+      "category": "distributed",
+      "query": "串联电路 各处 电流",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "physics"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-13",
+          "start": 7,
+          "end": 19,
+          "quote": "串联电路中各处电流相等。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "串联电路中各处电流相等。"
+    },
+    {
+      "id": "paraphrase-13",
+      "split": "release",
+      "category": "paraphrase",
+      "query": "串接元件的线路各位置流过的电流是否一样",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "physics"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-13",
+          "start": 7,
+          "end": 19,
+          "quote": "串联电路中各处电流相等。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "串联电路中各处电流相等。"
+    },
+    {
+      "id": "answer-13",
+      "split": "release",
+      "category": "answer",
+      "query": "串联电路的电流有什么特点？",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "physics"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-13",
+          "start": 7,
+          "end": 19,
+          "quote": "串联电路中各处电流相等。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "串联电路中各处电流相等。"
+    },
+    {
+      "id": "exact-14",
+      "split": "release",
+      "category": "exact",
+      "query": "并联电路中各支路两端的电压相等。",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "physics"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-14",
+          "start": 7,
+          "end": 23,
+          "quote": "并联电路中各支路两端的电压相等。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "并联电路中各支路两端的电压相等。"
+    },
+    {
+      "id": "distributed-14",
+      "split": "release",
+      "category": "distributed",
+      "query": "并联电路 支路 电压",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "physics"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-14",
+          "start": 7,
+          "end": 23,
+          "quote": "并联电路中各支路两端的电压相等。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "并联电路中各支路两端的电压相等。"
+    },
+    {
+      "id": "paraphrase-14",
+      "split": "release",
+      "category": "paraphrase",
+      "query": "并接的各分支两端电势差有何关系",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "physics"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-14",
+          "start": 7,
+          "end": 23,
+          "quote": "并联电路中各支路两端的电压相等。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "并联电路中各支路两端的电压相等。"
+    },
+    {
+      "id": "answer-14",
+      "split": "release",
+      "category": "answer",
+      "query": "并联支路的电压有什么关系？",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "physics"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-14",
+          "start": 7,
+          "end": 23,
+          "quote": "并联电路中各支路两端的电压相等。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "并联电路中各支路两端的电压相等。"
+    },
+    {
+      "id": "exact-15",
+      "split": "release",
+      "category": "exact",
+      "query": "物体受到的重力方向总是竖直向下。",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "physics"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-15",
+          "start": 7,
+          "end": 23,
+          "quote": "物体受到的重力方向总是竖直向下。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "物体受到的重力方向总是竖直向下。"
+    },
+    {
+      "id": "distributed-15",
+      "split": "release",
+      "category": "distributed",
+      "query": "重力 方向 竖直",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "physics"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-15",
+          "start": 7,
+          "end": 23,
+          "quote": "物体受到的重力方向总是竖直向下。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "物体受到的重力方向总是竖直向下。"
+    },
+    {
+      "id": "paraphrase-15",
+      "split": "release",
+      "category": "paraphrase",
+      "query": "地球对物体的吸引力朝哪个方向",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "physics"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-15",
+          "start": 7,
+          "end": 23,
+          "quote": "物体受到的重力方向总是竖直向下。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "物体受到的重力方向总是竖直向下。"
+    },
+    {
+      "id": "answer-15",
+      "split": "release",
+      "category": "answer",
+      "query": "重力方向是什么？",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "physics"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-15",
+          "start": 7,
+          "end": 23,
+          "quote": "物体受到的重力方向总是竖直向下。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "物体受到的重力方向总是竖直向下。"
+    },
+    {
+      "id": "exact-16",
+      "split": "release",
+      "category": "exact",
+      "query": "惯性是物体保持原来运动状态的性质。",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "physics"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-16",
+          "start": 7,
+          "end": 24,
+          "quote": "惯性是物体保持原来运动状态的性质。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "惯性是物体保持原来运动状态的性质。"
+    },
+    {
+      "id": "distributed-16",
+      "split": "release",
+      "category": "distributed",
+      "query": "惯性 运动状态 性质",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "physics"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-16",
+          "start": 7,
+          "end": 24,
+          "quote": "惯性是物体保持原来运动状态的性质。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "惯性是物体保持原来运动状态的性质。"
+    },
+    {
+      "id": "paraphrase-16",
+      "split": "release",
+      "category": "paraphrase",
+      "query": "物体维持原有静止或运动状态的特性叫什么",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "physics"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-16",
+          "start": 7,
+          "end": 24,
+          "quote": "惯性是物体保持原来运动状态的性质。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "惯性是物体保持原来运动状态的性质。"
+    },
+    {
+      "id": "answer-16",
+      "split": "release",
+      "category": "answer",
+      "query": "什么是惯性？",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "physics"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-16",
+          "start": 7,
+          "end": 24,
+          "quote": "惯性是物体保持原来运动状态的性质。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "惯性是物体保持原来运动状态的性质。"
+    },
+    {
+      "id": "exact-17",
+      "split": "release",
+      "category": "exact",
+      "query": "声音的传播需要介质，真空不能传声。",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "physics"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-17",
+          "start": 7,
+          "end": 24,
+          "quote": "声音的传播需要介质，真空不能传声。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "声音的传播需要介质，真空不能传声。"
+    },
+    {
+      "id": "distributed-17",
+      "split": "release",
+      "category": "distributed",
+      "query": "声音 介质 真空",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "physics"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-17",
+          "start": 7,
+          "end": 24,
+          "quote": "声音的传播需要介质，真空不能传声。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "声音的传播需要介质，真空不能传声。"
+    },
+    {
+      "id": "paraphrase-17",
+      "split": "release",
+      "category": "paraphrase",
+      "query": "没有任何物质的空间里能否听到传来的声音",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "physics"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-17",
+          "start": 7,
+          "end": 24,
+          "quote": "声音的传播需要介质，真空不能传声。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "声音的传播需要介质，真空不能传声。"
+    },
+    {
+      "id": "answer-17",
+      "split": "release",
+      "category": "answer",
+      "query": "真空能否传播声音？",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "physics"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-17",
+          "start": 7,
+          "end": 24,
+          "quote": "声音的传播需要介质，真空不能传声。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "声音的传播需要介质，真空不能传声。"
+    },
+    {
+      "id": "exact-18",
+      "split": "release",
+      "category": "exact",
+      "query": "光在均匀介质中沿直线传播。",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "physics"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-18",
+          "start": 7,
+          "end": 20,
+          "quote": "光在均匀介质中沿直线传播。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "光在均匀介质中沿直线传播。"
+    },
+    {
+      "id": "distributed-18",
+      "split": "release",
+      "category": "distributed",
+      "query": "光 均匀介质 直线",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "physics"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-18",
+          "start": 7,
+          "end": 20,
+          "quote": "光在均匀介质中沿直线传播。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "光在均匀介质中沿直线传播。"
+    },
+    {
+      "id": "paraphrase-18",
+      "split": "release",
+      "category": "paraphrase",
+      "query": "光线在性质一致的物质中走什么路径",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "physics"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-18",
+          "start": 7,
+          "end": 20,
+          "quote": "光在均匀介质中沿直线传播。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "光在均匀介质中沿直线传播。"
+    },
+    {
+      "id": "answer-18",
+      "split": "release",
+      "category": "answer",
+      "query": "光在均匀介质中如何传播？",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "physics"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-18",
+          "start": 7,
+          "end": 20,
+          "quote": "光在均匀介质中沿直线传播。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "光在均匀介质中沿直线传播。"
+    },
+    {
+      "id": "exact-19",
+      "split": "release",
+      "category": "exact",
+      "query": "凸透镜对光有会聚作用。",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "physics"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-19",
+          "start": 7,
+          "end": 18,
+          "quote": "凸透镜对光有会聚作用。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "凸透镜对光有会聚作用。"
+    },
+    {
+      "id": "distributed-19",
+      "split": "release",
+      "category": "distributed",
+      "query": "凸透镜 光 会聚",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "physics"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-19",
+          "start": 7,
+          "end": 18,
+          "quote": "凸透镜对光有会聚作用。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "凸透镜对光有会聚作用。"
+    },
+    {
+      "id": "paraphrase-19",
+      "split": "release",
+      "category": "paraphrase",
+      "query": "凸形镜片会使平行光束聚拢还是散开",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "physics"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-19",
+          "start": 7,
+          "end": 18,
+          "quote": "凸透镜对光有会聚作用。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "凸透镜对光有会聚作用。"
+    },
+    {
+      "id": "answer-19",
+      "split": "release",
+      "category": "answer",
+      "query": "凸透镜对光有什么作用？",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "physics"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-19",
+          "start": 7,
+          "end": 18,
+          "quote": "凸透镜对光有会聚作用。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "凸透镜对光有会聚作用。"
+    },
+    {
+      "id": "exact-20",
+      "split": "release",
+      "category": "exact",
+      "query": "物体的密度等于质量与体积之比。",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "physics"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-20",
+          "start": 7,
+          "end": 22,
+          "quote": "物体的密度等于质量与体积之比。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "物体的密度等于质量与体积之比。"
+    },
+    {
+      "id": "distributed-20",
+      "split": "release",
+      "category": "distributed",
+      "query": "密度 质量 体积",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "physics"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-20",
+          "start": 7,
+          "end": 22,
+          "quote": "物体的密度等于质量与体积之比。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "物体的密度等于质量与体积之比。"
+    },
+    {
+      "id": "paraphrase-20",
+      "split": "release",
+      "category": "paraphrase",
+      "query": "用质量除以所占空间得到什么物理量",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "physics"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-20",
+          "start": 7,
+          "end": 22,
+          "quote": "物体的密度等于质量与体积之比。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "物体的密度等于质量与体积之比。"
+    },
+    {
+      "id": "answer-20",
+      "split": "release",
+      "category": "answer",
+      "query": "如何计算物体密度？",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "physics"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-20",
+          "start": 7,
+          "end": 22,
+          "quote": "物体的密度等于质量与体积之比。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "物体的密度等于质量与体积之比。"
+    },
+    {
+      "id": "exact-21",
+      "split": "release",
+      "category": "exact",
+      "query": "酸溶液的pH小于7。",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "chemistry"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-21",
+          "start": 7,
+          "end": 17,
+          "quote": "酸溶液的pH小于7。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "酸溶液的pH小于7。"
+    },
+    {
+      "id": "distributed-21",
+      "split": "release",
+      "category": "distributed",
+      "query": "酸溶液 pH 7",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "chemistry"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-21",
+          "start": 7,
+          "end": 17,
+          "quote": "酸溶液的pH小于7。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "酸溶液的pH小于7。"
+    },
+    {
+      "id": "paraphrase-21",
+      "split": "release",
+      "category": "paraphrase",
+      "query": "酸性液体的酸碱度数值位于七的哪一侧",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "chemistry"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-21",
+          "start": 7,
+          "end": 17,
+          "quote": "酸溶液的pH小于7。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "酸溶液的pH小于7。"
+    },
+    {
+      "id": "answer-21",
+      "split": "release",
+      "category": "answer",
+      "query": "酸溶液的pH有什么特点？",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "chemistry"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-21",
+          "start": 7,
+          "end": 17,
+          "quote": "酸溶液的pH小于7。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "酸溶液的pH小于7。"
+    },
+    {
+      "id": "exact-22",
+      "split": "release",
+      "category": "exact",
+      "query": "碱溶液的pH大于7。",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "chemistry"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-22",
+          "start": 7,
+          "end": 17,
+          "quote": "碱溶液的pH大于7。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "碱溶液的pH大于7。"
+    },
+    {
+      "id": "distributed-22",
+      "split": "release",
+      "category": "distributed",
+      "query": "碱溶液 pH 7",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "chemistry"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-22",
+          "start": 7,
+          "end": 17,
+          "quote": "碱溶液的pH大于7。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "碱溶液的pH大于7。"
+    },
+    {
+      "id": "paraphrase-22",
+      "split": "release",
+      "category": "paraphrase",
+      "query": "碱性液体的酸碱度数值比七高还是低",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "chemistry"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-22",
+          "start": 7,
+          "end": 17,
+          "quote": "碱溶液的pH大于7。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "碱溶液的pH大于7。"
+    },
+    {
+      "id": "answer-22",
+      "split": "release",
+      "category": "answer",
+      "query": "碱溶液的pH有什么特点？",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "chemistry"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-22",
+          "start": 7,
+          "end": 17,
+          "quote": "碱溶液的pH大于7。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "碱溶液的pH大于7。"
+    },
+    {
+      "id": "exact-23",
+      "split": "release",
+      "category": "exact",
+      "query": "催化剂能改变反应速率，自身质量和化学性质在反应前后不变。",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "chemistry"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-23",
+          "start": 7,
+          "end": 35,
+          "quote": "催化剂能改变反应速率，自身质量和化学性质在反应前后不变。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "催化剂能改变反应速率，自身质量和化学性质在反应前后不变。"
+    },
+    {
+      "id": "distributed-23",
+      "split": "release",
+      "category": "distributed",
+      "query": "催化剂 速率 质量",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "chemistry"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-23",
+          "start": 7,
+          "end": 35,
+          "quote": "催化剂能改变反应速率，自身质量和化学性质在反应前后不变。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "催化剂能改变反应速率，自身质量和化学性质在反应前后不变。"
+    },
+    {
+      "id": "paraphrase-23",
+      "split": "release",
+      "category": "paraphrase",
+      "query": "促进或减慢化学过程但反应前后自身质量不变的物质叫什么",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "chemistry"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-23",
+          "start": 7,
+          "end": 35,
+          "quote": "催化剂能改变反应速率，自身质量和化学性质在反应前后不变。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "催化剂能改变反应速率，自身质量和化学性质在反应前后不变。"
+    },
+    {
+      "id": "answer-23",
+      "split": "release",
+      "category": "answer",
+      "query": "催化剂的特点是什么？",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "chemistry"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-23",
+          "start": 7,
+          "end": 35,
+          "quote": "催化剂能改变反应速率，自身质量和化学性质在反应前后不变。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "催化剂能改变反应速率，自身质量和化学性质在反应前后不变。"
+    },
+    {
+      "id": "exact-24",
+      "split": "release",
+      "category": "exact",
+      "query": "铁生锈需要同时接触氧气和水。",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "chemistry"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-24",
+          "start": 7,
+          "end": 21,
+          "quote": "铁生锈需要同时接触氧气和水。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "铁生锈需要同时接触氧气和水。"
+    },
+    {
+      "id": "distributed-24",
+      "split": "release",
+      "category": "distributed",
+      "query": "铁 生锈 氧气 水",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "chemistry"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-24",
+          "start": 7,
+          "end": 21,
+          "quote": "铁生锈需要同时接触氧气和水。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "铁生锈需要同时接触氧气和水。"
+    },
+    {
+      "id": "paraphrase-24",
+      "split": "release",
+      "category": "paraphrase",
+      "query": "铁发生锈蚀须具备哪两个共同条件",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "chemistry"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-24",
+          "start": 7,
+          "end": 21,
+          "quote": "铁生锈需要同时接触氧气和水。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "铁生锈需要同时接触氧气和水。"
+    },
+    {
+      "id": "answer-24",
+      "split": "release",
+      "category": "answer",
+      "query": "铁生锈需要什么条件？",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "chemistry"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-24",
+          "start": 7,
+          "end": 21,
+          "quote": "铁生锈需要同时接触氧气和水。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "铁生锈需要同时接触氧气和水。"
+    },
+    {
+      "id": "exact-25",
+      "split": "release",
+      "category": "exact",
+      "query": "质量守恒定律适用于化学反应。",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "chemistry"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-25",
+          "start": 7,
+          "end": 21,
+          "quote": "质量守恒定律适用于化学反应。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "质量守恒定律适用于化学反应。"
+    },
+    {
+      "id": "distributed-25",
+      "split": "release",
+      "category": "distributed",
+      "query": "质量守恒 化学反应",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "chemistry"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-25",
+          "start": 7,
+          "end": 21,
+          "quote": "质量守恒定律适用于化学反应。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "质量守恒定律适用于化学反应。"
+    },
+    {
+      "id": "paraphrase-25",
+      "split": "release",
+      "category": "paraphrase",
+      "query": "化学变化前后反应物与生成物总质量遵循什么规律",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "chemistry"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-25",
+          "start": 7,
+          "end": 21,
+          "quote": "质量守恒定律适用于化学反应。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "质量守恒定律适用于化学反应。"
+    },
+    {
+      "id": "answer-25",
+      "split": "release",
+      "category": "answer",
+      "query": "质量守恒定律适用于什么过程？",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "chemistry"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-25",
+          "start": 7,
+          "end": 21,
+          "quote": "质量守恒定律适用于化学反应。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "质量守恒定律适用于化学反应。"
+    },
+    {
+      "id": "exact-26",
+      "split": "release",
+      "category": "exact",
+      "query": "三角形内角和等于180度。",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "math"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-26",
+          "start": 7,
+          "end": 20,
+          "quote": "三角形内角和等于180度。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "三角形内角和等于180度。"
+    },
+    {
+      "id": "distributed-26",
+      "split": "release",
+      "category": "distributed",
+      "query": "三角形 内角 180",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "math"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-26",
+          "start": 7,
+          "end": 20,
+          "quote": "三角形内角和等于180度。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "三角形内角和等于180度。"
+    },
+    {
+      "id": "paraphrase-26",
+      "split": "release",
+      "category": "paraphrase",
+      "query": "三角形三个内部角加起来是多少",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "math"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-26",
+          "start": 7,
+          "end": 20,
+          "quote": "三角形内角和等于180度。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "三角形内角和等于180度。"
+    },
+    {
+      "id": "answer-26",
+      "split": "release",
+      "category": "answer",
+      "query": "三角形内角和是多少？",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "math"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-26",
+          "start": 7,
+          "end": 20,
+          "quote": "三角形内角和等于180度。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "三角形内角和等于180度。"
+    },
+    {
+      "id": "exact-27",
+      "split": "release",
+      "category": "exact",
+      "query": "平行四边形的对边平行且相等。",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "math"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-27",
+          "start": 7,
+          "end": 21,
+          "quote": "平行四边形的对边平行且相等。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "平行四边形的对边平行且相等。"
+    },
+    {
+      "id": "distributed-27",
+      "split": "release",
+      "category": "distributed",
+      "query": "平行四边形 对边 相等",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "math"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-27",
+          "start": 7,
+          "end": 21,
+          "quote": "平行四边形的对边平行且相等。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "平行四边形的对边平行且相等。"
+    },
+    {
+      "id": "paraphrase-27",
+      "split": "release",
+      "category": "paraphrase",
+      "query": "平行四边形相对的两条边有何位置和长度关系",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "math"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-27",
+          "start": 7,
+          "end": 21,
+          "quote": "平行四边形的对边平行且相等。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "平行四边形的对边平行且相等。"
+    },
+    {
+      "id": "answer-27",
+      "split": "release",
+      "category": "answer",
+      "query": "平行四边形的对边有什么特点？",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "math"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-27",
+          "start": 7,
+          "end": 21,
+          "quote": "平行四边形的对边平行且相等。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "平行四边形的对边平行且相等。"
+    },
+    {
+      "id": "exact-28",
+      "split": "release",
+      "category": "exact",
+      "query": "一次函数的图像是一条直线。",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "math"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-28",
+          "start": 7,
+          "end": 20,
+          "quote": "一次函数的图像是一条直线。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "一次函数的图像是一条直线。"
+    },
+    {
+      "id": "distributed-28",
+      "split": "release",
+      "category": "distributed",
+      "query": "一次函数 图像 直线",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "math"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-28",
+          "start": 7,
+          "end": 20,
+          "quote": "一次函数的图像是一条直线。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "一次函数的图像是一条直线。"
+    },
+    {
+      "id": "paraphrase-28",
+      "split": "release",
+      "category": "paraphrase",
+      "query": "一元一次函数画在坐标系里是什么形状",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "math"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-28",
+          "start": 7,
+          "end": 20,
+          "quote": "一次函数的图像是一条直线。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "一次函数的图像是一条直线。"
+    },
+    {
+      "id": "answer-28",
+      "split": "release",
+      "category": "answer",
+      "query": "一次函数的图像是什么？",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "math"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-28",
+          "start": 7,
+          "end": 20,
+          "quote": "一次函数的图像是一条直线。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "一次函数的图像是一条直线。"
+    },
+    {
+      "id": "exact-29",
+      "split": "release",
+      "category": "exact",
+      "query": "圆的周长等于直径乘以圆周率。",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "math"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-29",
+          "start": 7,
+          "end": 21,
+          "quote": "圆的周长等于直径乘以圆周率。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "圆的周长等于直径乘以圆周率。"
+    },
+    {
+      "id": "distributed-29",
+      "split": "release",
+      "category": "distributed",
+      "query": "圆 周长 直径 圆周率",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "math"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-29",
+          "start": 7,
+          "end": 21,
+          "quote": "圆的周长等于直径乘以圆周率。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "圆的周长等于直径乘以圆周率。"
+    },
+    {
+      "id": "paraphrase-29",
+      "split": "release",
+      "category": "paraphrase",
+      "query": "已知圆的直径应怎样求它边界的长度",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "math"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-29",
+          "start": 7,
+          "end": 21,
+          "quote": "圆的周长等于直径乘以圆周率。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "圆的周长等于直径乘以圆周率。"
+    },
+    {
+      "id": "answer-29",
+      "split": "release",
+      "category": "answer",
+      "query": "如何由直径计算圆周长？",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "math"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-29",
+          "start": 7,
+          "end": 21,
+          "quote": "圆的周长等于直径乘以圆周率。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "圆的周长等于直径乘以圆周率。"
+    },
+    {
+      "id": "exact-30",
+      "split": "release",
+      "category": "exact",
+      "query": "平均数等于数据总和除以数据个数。",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "math"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-30",
+          "start": 7,
+          "end": 23,
+          "quote": "平均数等于数据总和除以数据个数。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "平均数等于数据总和除以数据个数。"
+    },
+    {
+      "id": "distributed-30",
+      "split": "release",
+      "category": "distributed",
+      "query": "平均数 总和 个数",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "math"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-30",
+          "start": 7,
+          "end": 23,
+          "quote": "平均数等于数据总和除以数据个数。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "平均数等于数据总和除以数据个数。"
+    },
+    {
+      "id": "paraphrase-30",
+      "split": "release",
+      "category": "paraphrase",
+      "query": "把一组数加起来再按数量均分得到什么统计量",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "math"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-30",
+          "start": 7,
+          "end": 23,
+          "quote": "平均数等于数据总和除以数据个数。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "平均数等于数据总和除以数据个数。"
+    },
+    {
+      "id": "answer-30",
+      "split": "release",
+      "category": "answer",
+      "query": "平均数如何计算？",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "math"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-30",
+          "start": 7,
+          "end": 23,
+          "quote": "平均数等于数据总和除以数据个数。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "平均数等于数据总和除以数据个数。"
+    },
+    {
+      "id": "unrelated-01",
+      "split": "release",
+      "category": "unrelated",
+      "query": "火星移民基地如何供暖",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology",
+          "physics",
+          "chemistry",
+          "math"
+        ]
+      },
+      "labels": [],
+      "review_required": false,
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": ""
+    },
+    {
+      "id": "unrelated-02",
+      "split": "release",
+      "category": "unrelated",
+      "query": "股票明天会涨吗",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology",
+          "physics",
+          "chemistry",
+          "math"
+        ]
+      },
+      "labels": [],
+      "review_required": false,
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": ""
+    },
+    {
+      "id": "unrelated-03",
+      "split": "release",
+      "category": "unrelated",
+      "query": "给我一份旅行行程",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology",
+          "physics",
+          "chemistry",
+          "math"
+        ]
+      },
+      "labels": [],
+      "review_required": false,
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": ""
+    },
+    {
+      "id": "unrelated-04",
+      "split": "release",
+      "category": "unrelated",
+      "query": "贝多芬第九交响曲的指挥是谁",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology",
+          "physics",
+          "chemistry",
+          "math"
+        ]
+      },
+      "labels": [],
+      "review_required": false,
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": ""
+    },
+    {
+      "id": "unrelated-05",
+      "split": "release",
+      "category": "unrelated",
+      "query": "云计算集群怎样自动扩容",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology",
+          "physics",
+          "chemistry",
+          "math"
+        ]
+      },
+      "labels": [],
+      "review_required": false,
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": ""
+    },
+    {
+      "id": "unrelated-06",
+      "split": "release",
+      "category": "unrelated",
+      "query": "护照到期如何换发",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology",
+          "physics",
+          "chemistry",
+          "math"
+        ]
+      },
+      "labels": [],
+      "review_required": false,
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": ""
+    },
+    {
+      "id": "unrelated-07",
+      "split": "release",
+      "category": "unrelated",
+      "query": "烤面包的配方有哪些",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology",
+          "physics",
+          "chemistry",
+          "math"
+        ]
+      },
+      "labels": [],
+      "review_required": false,
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": ""
+    },
+    {
+      "id": "unrelated-08",
+      "split": "release",
+      "category": "unrelated",
+      "query": "区块链共识协议如何工作",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology",
+          "physics",
+          "chemistry",
+          "math"
+        ]
+      },
+      "labels": [],
+      "review_required": false,
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": ""
+    },
+    {
+      "id": "unrelated-09",
+      "split": "release",
+      "category": "unrelated",
+      "query": "台风下周在哪里登陆",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology",
+          "physics",
+          "chemistry",
+          "math"
+        ]
+      },
+      "labels": [],
+      "review_required": false,
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": ""
+    },
+    {
+      "id": "unrelated-10",
+      "split": "release",
+      "category": "unrelated",
+      "query": "给猫取一个名字",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology",
+          "physics",
+          "chemistry",
+          "math"
+        ]
+      },
+      "labels": [],
+      "review_required": false,
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": ""
+    },
+    {
+      "id": "unrelated-11",
+      "split": "release",
+      "category": "unrelated",
+      "query": "编写快速排序程序",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology",
+          "physics",
+          "chemistry",
+          "math"
+        ]
+      },
+      "labels": [],
+      "review_required": false,
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": ""
+    },
+    {
+      "id": "unrelated-12",
+      "split": "release",
+      "category": "unrelated",
+      "query": "电影票什么时候预售",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology",
+          "physics",
+          "chemistry",
+          "math"
+        ]
+      },
+      "labels": [],
+      "review_required": false,
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": ""
+    },
+    {
+      "id": "unrelated-13",
+      "split": "release",
+      "category": "unrelated",
+      "query": "查询航班实时延误",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology",
+          "physics",
+          "chemistry",
+          "math"
+        ]
+      },
+      "labels": [],
+      "review_required": false,
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": ""
+    },
+    {
+      "id": "unrelated-14",
+      "split": "release",
+      "category": "unrelated",
+      "query": "帮我设计咖啡店标志",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology",
+          "physics",
+          "chemistry",
+          "math"
+        ]
+      },
+      "labels": [],
+      "review_required": false,
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": ""
+    },
+    {
+      "id": "unrelated-15",
+      "split": "release",
+      "category": "unrelated",
+      "query": "海底电缆是谁铺设的",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology",
+          "physics",
+          "chemistry",
+          "math"
+        ]
+      },
+      "labels": [],
+      "review_required": false,
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": ""
+    },
+    {
+      "id": "unrelated-16",
+      "split": "release",
+      "category": "unrelated",
+      "query": "解释国际贸易关税",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology",
+          "physics",
+          "chemistry",
+          "math"
+        ]
+      },
+      "labels": [],
+      "review_required": false,
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": ""
+    },
+    {
+      "id": "unrelated-17",
+      "split": "release",
+      "category": "unrelated",
+      "query": "推荐一款跑鞋",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology",
+          "physics",
+          "chemistry",
+          "math"
+        ]
+      },
+      "labels": [],
+      "review_required": false,
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": ""
+    },
+    {
+      "id": "unrelated-18",
+      "split": "release",
+      "category": "unrelated",
+      "query": "今天的新闻头条",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology",
+          "physics",
+          "chemistry",
+          "math"
+        ]
+      },
+      "labels": [],
+      "review_required": false,
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": ""
+    },
+    {
+      "id": "unrelated-19",
+      "split": "release",
+      "category": "unrelated",
+      "query": "书法作品怎样装裱",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology",
+          "physics",
+          "chemistry",
+          "math"
+        ]
+      },
+      "labels": [],
+      "review_required": false,
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": ""
+    },
+    {
+      "id": "unrelated-20",
+      "split": "release",
+      "category": "unrelated",
+      "query": "量子纠缠实验如何搭建",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology",
+          "physics",
+          "chemistry",
+          "math"
+        ]
+      },
+      "labels": [],
+      "review_required": false,
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": ""
+    },
+    {
+      "id": "adversarial-01",
+      "split": "release",
+      "category": "adversarial",
+      "query": "遗传信息主要存在细胞膜吗",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology",
+          "physics",
+          "chemistry",
+          "math"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-05",
+          "start": 7,
+          "end": 21,
+          "quote": "遗传信息主要储存在细胞核中。"
+        }
+      ],
+      "review_required": true,
+      "reference_fact": "遗传信息主要储存在细胞核中。",
+      "can_answer": true,
+      "expected_status": "answered"
+    },
+    {
+      "id": "adversarial-02",
+      "split": "release",
+      "category": "adversarial",
+      "query": "线粒体主要用于光合作用吗",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology",
+          "physics",
+          "chemistry",
+          "math"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-03",
+          "start": 7,
+          "end": 23,
+          "quote": "线粒体为细胞的生命活动提供能量。"
+        }
+      ],
+      "review_required": true,
+      "reference_fact": "线粒体为细胞的生命活动提供能量。",
+      "can_answer": true,
+      "expected_status": "answered"
+    },
+    {
+      "id": "adversarial-03",
+      "split": "release",
+      "category": "adversarial",
+      "query": "同种电荷是否相互吸引",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology",
+          "physics",
+          "chemistry",
+          "math"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-11",
+          "start": 7,
+          "end": 25,
+          "quote": "同种电荷相互排斥，异种电荷相互吸引。"
+        }
+      ],
+      "review_required": true,
+      "reference_fact": "同种电荷相互排斥，异种电荷相互吸引。",
+      "can_answer": true,
+      "expected_status": "answered"
+    },
+    {
+      "id": "adversarial-04",
+      "split": "release",
+      "category": "adversarial",
+      "query": "异种电荷是否相互排斥",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology",
+          "physics",
+          "chemistry",
+          "math"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-11",
+          "start": 7,
+          "end": 25,
+          "quote": "同种电荷相互排斥，异种电荷相互吸引。"
+        }
+      ],
+      "review_required": true,
+      "reference_fact": "同种电荷相互排斥，异种电荷相互吸引。",
+      "can_answer": true,
+      "expected_status": "answered"
+    },
+    {
+      "id": "adversarial-05",
+      "split": "release",
+      "category": "adversarial",
+      "query": "真空能够传播声音吗",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology",
+          "physics",
+          "chemistry",
+          "math"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-17",
+          "start": 7,
+          "end": 24,
+          "quote": "声音的传播需要介质，真空不能传声。"
+        }
+      ],
+      "review_required": true,
+      "reference_fact": "声音的传播需要介质，真空不能传声。",
+      "can_answer": true,
+      "expected_status": "answered"
+    },
+    {
+      "id": "adversarial-06",
+      "split": "release",
+      "category": "adversarial",
+      "query": "重力总是水平向右吗",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology",
+          "physics",
+          "chemistry",
+          "math"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-15",
+          "start": 7,
+          "end": 23,
+          "quote": "物体受到的重力方向总是竖直向下。"
+        }
+      ],
+      "review_required": true,
+      "reference_fact": "物体受到的重力方向总是竖直向下。",
+      "can_answer": true,
+      "expected_status": "answered"
+    },
+    {
+      "id": "adversarial-07",
+      "split": "release",
+      "category": "adversarial",
+      "query": "酸溶液的pH大于7吗",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology",
+          "physics",
+          "chemistry",
+          "math"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-21",
+          "start": 7,
+          "end": 17,
+          "quote": "酸溶液的pH小于7。"
+        }
+      ],
+      "review_required": true,
+      "reference_fact": "酸溶液的pH小于7。",
+      "can_answer": true,
+      "expected_status": "answered"
+    },
+    {
+      "id": "adversarial-08",
+      "split": "release",
+      "category": "adversarial",
+      "query": "碱溶液的pH小于7吗",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology",
+          "physics",
+          "chemistry",
+          "math"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-22",
+          "start": 7,
+          "end": 17,
+          "quote": "碱溶液的pH大于7。"
+        }
+      ],
+      "review_required": true,
+      "reference_fact": "碱溶液的pH大于7。",
+      "can_answer": true,
+      "expected_status": "answered"
+    },
+    {
+      "id": "adversarial-09",
+      "split": "release",
+      "category": "adversarial",
+      "query": "三角形内角和是360度吗",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology",
+          "physics",
+          "chemistry",
+          "math"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-26",
+          "start": 7,
+          "end": 20,
+          "quote": "三角形内角和等于180度。"
+        }
+      ],
+      "review_required": true,
+      "reference_fact": "三角形内角和等于180度。",
+      "can_answer": true,
+      "expected_status": "answered"
+    },
+    {
+      "id": "adversarial-10",
+      "split": "release",
+      "category": "adversarial",
+      "query": "凸透镜会使光发散吗",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology",
+          "physics",
+          "chemistry",
+          "math"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-19",
+          "start": 7,
+          "end": 18,
+          "quote": "凸透镜对光有会聚作用。"
+        }
+      ],
+      "review_required": true,
+      "reference_fact": "凸透镜对光有会聚作用。",
+      "can_answer": true,
+      "expected_status": "answered"
+    },
+    {
+      "id": "adversarial-11",
+      "split": "release",
+      "category": "adversarial",
+      "query": "惯性会随速度改变吗",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology",
+          "physics",
+          "chemistry",
+          "math"
+        ]
+      },
+      "labels": [],
+      "review_required": true,
+      "reference_fact": "资料只有惯性的定义，未说明惯性与速度的关系。",
+      "can_answer": false,
+      "expected_status": "insufficient"
+    },
+    {
+      "id": "adversarial-12",
+      "split": "release",
+      "category": "adversarial",
+      "query": "只有氧气没有水铁必定生锈吗",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology",
+          "physics",
+          "chemistry",
+          "math"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-24",
+          "start": 7,
+          "end": 21,
+          "quote": "铁生锈需要同时接触氧气和水。"
+        }
+      ],
+      "review_required": true,
+      "reference_fact": "铁生锈需要同时接触氧气和水。",
+      "can_answer": true,
+      "expected_status": "answered"
+    },
+    {
+      "id": "adversarial-13",
+      "split": "release",
+      "category": "adversarial",
+      "query": "导管主要运输糖吗",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology",
+          "physics",
+          "chemistry",
+          "math"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-10",
+          "start": 7,
+          "end": 24,
+          "quote": "导管负责在植物体内运输水和无机盐。"
+        }
+      ],
+      "review_required": true,
+      "reference_fact": "导管负责在植物体内运输水和无机盐。",
+      "can_answer": true,
+      "expected_status": "answered"
+    },
+    {
+      "id": "adversarial-14",
+      "split": "release",
+      "category": "adversarial",
+      "query": "细胞核调节物质进出吗",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology",
+          "physics",
+          "chemistry",
+          "math"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-04",
+          "start": 7,
+          "end": 20,
+          "quote": "细胞膜能控制物质进出细胞。"
+        }
+      ],
+      "review_required": true,
+      "reference_fact": "细胞膜能控制物质进出细胞。",
+      "can_answer": true,
+      "expected_status": "answered"
+    },
+    {
+      "id": "adversarial-15",
+      "split": "release",
+      "category": "adversarial",
+      "query": "呼吸作用制造有机物吗",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology",
+          "physics",
+          "chemistry",
+          "math"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-08",
+          "start": 7,
+          "end": 22,
+          "quote": "呼吸作用分解有机物，释放能量。"
+        }
+      ],
+      "review_required": true,
+      "reference_fact": "呼吸作用分解有机物，释放能量。",
+      "can_answer": true,
+      "expected_status": "answered"
+    },
+    {
+      "id": "adversarial-16",
+      "split": "release",
+      "category": "adversarial",
+      "query": "串联电路各处电流不同吗",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology",
+          "physics",
+          "chemistry",
+          "math"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-13",
+          "start": 7,
+          "end": 19,
+          "quote": "串联电路中各处电流相等。"
+        }
+      ],
+      "review_required": true,
+      "reference_fact": "串联电路中各处电流相等。",
+      "can_answer": true,
+      "expected_status": "answered"
+    },
+    {
+      "id": "adversarial-17",
+      "split": "release",
+      "category": "adversarial",
+      "query": "并联支路电压总是不等吗",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology",
+          "physics",
+          "chemistry",
+          "math"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-14",
+          "start": 7,
+          "end": 23,
+          "quote": "并联电路中各支路两端的电压相等。"
+        }
+      ],
+      "review_required": true,
+      "reference_fact": "并联电路中各支路两端的电压相等。",
+      "can_answer": true,
+      "expected_status": "answered"
+    },
+    {
+      "id": "adversarial-18",
+      "split": "release",
+      "category": "adversarial",
+      "query": "密度是体积除以质量吗",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology",
+          "physics",
+          "chemistry",
+          "math"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-20",
+          "start": 7,
+          "end": 22,
+          "quote": "物体的密度等于质量与体积之比。"
+        }
+      ],
+      "review_required": true,
+      "reference_fact": "物体的密度等于质量与体积之比。",
+      "can_answer": true,
+      "expected_status": "answered"
+    },
+    {
+      "id": "adversarial-19",
+      "split": "release",
+      "category": "adversarial",
+      "query": "圆周长等于直径除以圆周率吗",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology",
+          "physics",
+          "chemistry",
+          "math"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-29",
+          "start": 7,
+          "end": 21,
+          "quote": "圆的周长等于直径乘以圆周率。"
+        }
+      ],
+      "review_required": true,
+      "reference_fact": "圆的周长等于直径乘以圆周率。",
+      "can_answer": true,
+      "expected_status": "answered"
+    },
+    {
+      "id": "adversarial-20",
+      "split": "release",
+      "category": "adversarial",
+      "query": "平均数等于总和乘以个数吗",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "biology",
+          "physics",
+          "chemistry",
+          "math"
+        ]
+      },
+      "labels": [
+        {
+          "material": "release-30",
+          "start": 7,
+          "end": 23,
+          "quote": "平均数等于数据总和除以数据个数。"
+        }
+      ],
+      "review_required": true,
+      "reference_fact": "平均数等于数据总和除以数据个数。",
+      "can_answer": true,
+      "expected_status": "answered"
+    },
+    {
+      "id": "permission-01",
+      "split": "release",
+      "category": "permission",
+      "query": "细胞是生物体结构和功能的基本单位。",
+      "scope": {
+        "class": "B",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "actor_role": "student",
+      "labels": [],
+      "denied_materials": [
+        "release-01"
+      ],
+      "paths": [
+        "keyword",
+        "vector",
+        "hybrid",
+        "ask",
+        "detail",
+        "preview",
+        "retry"
+      ],
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": ""
+    },
+    {
+      "id": "permission-02",
+      "split": "release",
+      "category": "permission",
+      "query": "叶绿体是绿色植物进行光合作用的主要场所。",
+      "scope": {
+        "class": "B",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "actor_role": "student",
+      "labels": [],
+      "denied_materials": [
+        "release-02"
+      ],
+      "paths": [
+        "keyword",
+        "vector",
+        "hybrid",
+        "ask",
+        "detail",
+        "preview",
+        "retry"
+      ],
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": ""
+    },
+    {
+      "id": "permission-03",
+      "split": "release",
+      "category": "permission",
+      "query": "线粒体为细胞的生命活动提供能量。",
+      "scope": {
+        "class": "B",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "actor_role": "student",
+      "labels": [],
+      "denied_materials": [
+        "release-03"
+      ],
+      "paths": [
+        "keyword",
+        "vector",
+        "hybrid",
+        "ask",
+        "detail",
+        "preview",
+        "retry"
+      ],
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": ""
+    },
+    {
+      "id": "permission-04",
+      "split": "release",
+      "category": "permission",
+      "query": "细胞膜能控制物质进出细胞。",
+      "scope": {
+        "class": "B",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "actor_role": "student",
+      "labels": [],
+      "denied_materials": [
+        "release-04"
+      ],
+      "paths": [
+        "keyword",
+        "vector",
+        "hybrid",
+        "ask",
+        "detail",
+        "preview",
+        "retry"
+      ],
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": ""
+    },
+    {
+      "id": "permission-05",
+      "split": "release",
+      "category": "permission",
+      "query": "遗传信息主要储存在细胞核中。",
+      "scope": {
+        "class": "B",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "actor_role": "student",
+      "labels": [],
+      "denied_materials": [
+        "release-05"
+      ],
+      "paths": [
+        "keyword",
+        "vector",
+        "hybrid",
+        "ask",
+        "detail",
+        "preview",
+        "retry"
+      ],
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": ""
+    },
+    {
+      "id": "permission-06",
+      "split": "release",
+      "category": "permission",
+      "query": "蒸腾作用能促进植物对水分的吸收和运输。",
+      "scope": {
+        "class": "B",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "actor_role": "student",
+      "labels": [],
+      "denied_materials": [
+        "release-06"
+      ],
+      "paths": [
+        "keyword",
+        "vector",
+        "hybrid",
+        "ask",
+        "detail",
+        "preview",
+        "retry"
+      ],
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": ""
+    },
+    {
+      "id": "permission-07",
+      "split": "release",
+      "category": "permission",
+      "query": "光合作用把二氧化碳和水转化为有机物，并释放氧气。",
+      "scope": {
+        "class": "B",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "actor_role": "student",
+      "labels": [],
+      "denied_materials": [
+        "release-07"
+      ],
+      "paths": [
+        "keyword",
+        "vector",
+        "hybrid",
+        "ask",
+        "detail",
+        "preview",
+        "retry"
+      ],
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": ""
+    },
+    {
+      "id": "permission-08",
+      "split": "release",
+      "category": "permission",
+      "query": "呼吸作用分解有机物，释放能量。",
+      "scope": {
+        "class": "B",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "actor_role": "student",
+      "labels": [],
+      "denied_materials": [
+        "release-08"
+      ],
+      "paths": [
+        "keyword",
+        "vector",
+        "hybrid",
+        "ask",
+        "detail",
+        "preview",
+        "retry"
+      ],
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": ""
+    },
+    {
+      "id": "permission-09",
+      "split": "release",
+      "category": "permission",
+      "query": "根尖的成熟区是根吸收水和无机盐的主要部位。",
+      "scope": {
+        "class": "B",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "actor_role": "student",
+      "labels": [],
+      "denied_materials": [
+        "release-09"
+      ],
+      "paths": [
+        "keyword",
+        "vector",
+        "hybrid",
+        "ask",
+        "detail",
+        "preview",
+        "retry"
+      ],
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": ""
+    },
+    {
+      "id": "permission-10",
+      "split": "release",
+      "category": "permission",
+      "query": "导管负责在植物体内运输水和无机盐。",
+      "scope": {
+        "class": "B",
+        "subjects": [
+          "biology"
+        ]
+      },
+      "actor_role": "student",
+      "labels": [],
+      "denied_materials": [
+        "release-10"
+      ],
+      "paths": [
+        "keyword",
+        "vector",
+        "hybrid",
+        "ask",
+        "detail",
+        "preview",
+        "retry"
+      ],
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": ""
+    },
+    {
+      "id": "permission-11",
+      "split": "release",
+      "category": "permission",
+      "query": "同种电荷相互排斥，异种电荷相互吸引。",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "math"
+        ]
+      },
+      "actor_role": "teacher",
+      "labels": [],
+      "denied_materials": [
+        "release-11"
+      ],
+      "paths": [
+        "keyword",
+        "vector",
+        "hybrid",
+        "ask",
+        "detail",
+        "preview",
+        "retry"
+      ],
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": ""
+    },
+    {
+      "id": "permission-12",
+      "split": "release",
+      "category": "permission",
+      "query": "电流方向规定为正电荷定向移动的方向。",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "math"
+        ]
+      },
+      "actor_role": "teacher",
+      "labels": [],
+      "denied_materials": [
+        "release-12"
+      ],
+      "paths": [
+        "keyword",
+        "vector",
+        "hybrid",
+        "ask",
+        "detail",
+        "preview",
+        "retry"
+      ],
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": ""
+    },
+    {
+      "id": "permission-13",
+      "split": "release",
+      "category": "permission",
+      "query": "串联电路中各处电流相等。",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "math"
+        ]
+      },
+      "actor_role": "teacher",
+      "labels": [],
+      "denied_materials": [
+        "release-13"
+      ],
+      "paths": [
+        "keyword",
+        "vector",
+        "hybrid",
+        "ask",
+        "detail",
+        "preview",
+        "retry"
+      ],
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": ""
+    },
+    {
+      "id": "permission-14",
+      "split": "release",
+      "category": "permission",
+      "query": "并联电路中各支路两端的电压相等。",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "math"
+        ]
+      },
+      "actor_role": "teacher",
+      "labels": [],
+      "denied_materials": [
+        "release-14"
+      ],
+      "paths": [
+        "keyword",
+        "vector",
+        "hybrid",
+        "ask",
+        "detail",
+        "preview",
+        "retry"
+      ],
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": ""
+    },
+    {
+      "id": "permission-15",
+      "split": "release",
+      "category": "permission",
+      "query": "物体受到的重力方向总是竖直向下。",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "math"
+        ]
+      },
+      "actor_role": "teacher",
+      "labels": [],
+      "denied_materials": [
+        "release-15"
+      ],
+      "paths": [
+        "keyword",
+        "vector",
+        "hybrid",
+        "ask",
+        "detail",
+        "preview",
+        "retry"
+      ],
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": ""
+    },
+    {
+      "id": "permission-16",
+      "split": "release",
+      "category": "permission",
+      "query": "惯性是物体保持原来运动状态的性质。",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "math"
+        ]
+      },
+      "actor_role": "teacher",
+      "labels": [],
+      "denied_materials": [
+        "release-16"
+      ],
+      "paths": [
+        "keyword",
+        "vector",
+        "hybrid",
+        "ask",
+        "detail",
+        "preview",
+        "retry"
+      ],
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": ""
+    },
+    {
+      "id": "permission-17",
+      "split": "release",
+      "category": "permission",
+      "query": "声音的传播需要介质，真空不能传声。",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "math"
+        ]
+      },
+      "actor_role": "teacher",
+      "labels": [],
+      "denied_materials": [
+        "release-17"
+      ],
+      "paths": [
+        "keyword",
+        "vector",
+        "hybrid",
+        "ask",
+        "detail",
+        "preview",
+        "retry"
+      ],
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": ""
+    },
+    {
+      "id": "permission-18",
+      "split": "release",
+      "category": "permission",
+      "query": "光在均匀介质中沿直线传播。",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "math"
+        ]
+      },
+      "actor_role": "teacher",
+      "labels": [],
+      "denied_materials": [
+        "release-18"
+      ],
+      "paths": [
+        "keyword",
+        "vector",
+        "hybrid",
+        "ask",
+        "detail",
+        "preview",
+        "retry"
+      ],
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": ""
+    },
+    {
+      "id": "permission-19",
+      "split": "release",
+      "category": "permission",
+      "query": "凸透镜对光有会聚作用。",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "math"
+        ]
+      },
+      "actor_role": "teacher",
+      "labels": [],
+      "denied_materials": [
+        "release-19"
+      ],
+      "paths": [
+        "keyword",
+        "vector",
+        "hybrid",
+        "ask",
+        "detail",
+        "preview",
+        "retry"
+      ],
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": ""
+    },
+    {
+      "id": "permission-20",
+      "split": "release",
+      "category": "permission",
+      "query": "物体的密度等于质量与体积之比。",
+      "scope": {
+        "class": "A",
+        "subjects": [
+          "math"
+        ]
+      },
+      "actor_role": "teacher",
+      "labels": [],
+      "denied_materials": [
+        "release-20"
+      ],
+      "paths": [
+        "keyword",
+        "vector",
+        "hybrid",
+        "ask",
+        "detail",
+        "preview",
+        "retry"
+      ],
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": ""
+    },
+    {
+      "id": "dev-exact-01",
+      "category": "exact",
+      "split": "dev",
+      "query": "水沸腾时温度保持不变。",
+      "scope": {
+        "class": "D",
+        "subjects": [
+          "science"
+        ]
+      },
+      "labels": [
+        {
+          "material": "dev-01",
+          "start": 0,
+          "end": 11,
+          "quote": "水沸腾时温度保持不变。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "水沸腾时温度保持不变。"
+    },
+    {
+      "id": "dev-distributed-01",
+      "category": "distributed",
+      "split": "dev",
+      "query": "水 沸腾 温度",
+      "scope": {
+        "class": "D",
+        "subjects": [
+          "science"
+        ]
+      },
+      "labels": [
+        {
+          "material": "dev-01",
+          "start": 0,
+          "end": 11,
+          "quote": "水沸腾时温度保持不变。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "水沸腾时温度保持不变。"
+    },
+    {
+      "id": "dev-paraphrase-01",
+      "category": "paraphrase",
+      "split": "dev",
+      "query": "水烧开之后继续加热温度会怎样",
+      "scope": {
+        "class": "D",
+        "subjects": [
+          "science"
+        ]
+      },
+      "labels": [
+        {
+          "material": "dev-01",
+          "start": 0,
+          "end": 11,
+          "quote": "水沸腾时温度保持不变。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "水沸腾时温度保持不变。"
+    },
+    {
+      "id": "dev-exact-02",
+      "category": "exact",
+      "split": "dev",
+      "query": "淀粉遇碘液变蓝。",
+      "scope": {
+        "class": "D",
+        "subjects": [
+          "science"
+        ]
+      },
+      "labels": [
+        {
+          "material": "dev-02",
+          "start": 0,
+          "end": 8,
+          "quote": "淀粉遇碘液变蓝。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "淀粉遇碘液变蓝。"
+    },
+    {
+      "id": "dev-distributed-02",
+      "category": "distributed",
+      "split": "dev",
+      "query": "淀粉 碘液 蓝",
+      "scope": {
+        "class": "D",
+        "subjects": [
+          "science"
+        ]
+      },
+      "labels": [
+        {
+          "material": "dev-02",
+          "start": 0,
+          "end": 8,
+          "quote": "淀粉遇碘液变蓝。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "淀粉遇碘液变蓝。"
+    },
+    {
+      "id": "dev-paraphrase-02",
+      "category": "paraphrase",
+      "split": "dev",
+      "query": "用碘检验淀粉应观察到什么颜色",
+      "scope": {
+        "class": "D",
+        "subjects": [
+          "science"
+        ]
+      },
+      "labels": [
+        {
+          "material": "dev-02",
+          "start": 0,
+          "end": 8,
+          "quote": "淀粉遇碘液变蓝。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "淀粉遇碘液变蓝。"
+    },
+    {
+      "id": "dev-exact-03",
+      "category": "exact",
+      "split": "dev",
+      "query": "力可以改变物体的形状。",
+      "scope": {
+        "class": "D",
+        "subjects": [
+          "science"
+        ]
+      },
+      "labels": [
+        {
+          "material": "dev-03",
+          "start": 0,
+          "end": 11,
+          "quote": "力可以改变物体的形状。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "力可以改变物体的形状。"
+    },
+    {
+      "id": "dev-distributed-03",
+      "category": "distributed",
+      "split": "dev",
+      "query": "力 物体 形状",
+      "scope": {
+        "class": "D",
+        "subjects": [
+          "science"
+        ]
+      },
+      "labels": [
+        {
+          "material": "dev-03",
+          "start": 0,
+          "end": 11,
+          "quote": "力可以改变物体的形状。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "力可以改变物体的形状。"
+    },
+    {
+      "id": "dev-paraphrase-03",
+      "category": "paraphrase",
+      "split": "dev",
+      "query": "施力能否使物体变形",
+      "scope": {
+        "class": "D",
+        "subjects": [
+          "science"
+        ]
+      },
+      "labels": [
+        {
+          "material": "dev-03",
+          "start": 0,
+          "end": 11,
+          "quote": "力可以改变物体的形状。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "力可以改变物体的形状。"
+    },
+    {
+      "id": "dev-exact-04",
+      "category": "exact",
+      "split": "dev",
+      "query": "种子萌发需要适宜的温度。",
+      "scope": {
+        "class": "D",
+        "subjects": [
+          "science"
+        ]
+      },
+      "labels": [
+        {
+          "material": "dev-04",
+          "start": 0,
+          "end": 12,
+          "quote": "种子萌发需要适宜的温度。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "种子萌发需要适宜的温度。"
+    },
+    {
+      "id": "dev-distributed-04",
+      "category": "distributed",
+      "split": "dev",
+      "query": "种子 萌发 温度",
+      "scope": {
+        "class": "D",
+        "subjects": [
+          "science"
+        ]
+      },
+      "labels": [
+        {
+          "material": "dev-04",
+          "start": 0,
+          "end": 12,
+          "quote": "种子萌发需要适宜的温度。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "种子萌发需要适宜的温度。"
+    },
+    {
+      "id": "dev-paraphrase-04",
+      "category": "paraphrase",
+      "split": "dev",
+      "query": "种子发芽对冷热有什么要求",
+      "scope": {
+        "class": "D",
+        "subjects": [
+          "science"
+        ]
+      },
+      "labels": [
+        {
+          "material": "dev-04",
+          "start": 0,
+          "end": 12,
+          "quote": "种子萌发需要适宜的温度。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "种子萌发需要适宜的温度。"
+    },
+    {
+      "id": "dev-exact-05",
+      "category": "exact",
+      "split": "dev",
+      "query": "长方形的四个角都是直角。",
+      "scope": {
+        "class": "D",
+        "subjects": [
+          "science"
+        ]
+      },
+      "labels": [
+        {
+          "material": "dev-05",
+          "start": 0,
+          "end": 12,
+          "quote": "长方形的四个角都是直角。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "长方形的四个角都是直角。"
+    },
+    {
+      "id": "dev-distributed-05",
+      "category": "distributed",
+      "split": "dev",
+      "query": "长方形 四个角 直角",
+      "scope": {
+        "class": "D",
+        "subjects": [
+          "science"
+        ]
+      },
+      "labels": [
+        {
+          "material": "dev-05",
+          "start": 0,
+          "end": 12,
+          "quote": "长方形的四个角都是直角。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "长方形的四个角都是直角。"
+    },
+    {
+      "id": "dev-paraphrase-05",
+      "category": "paraphrase",
+      "split": "dev",
+      "query": "长方形的每个内角是多少度",
+      "scope": {
+        "class": "D",
+        "subjects": [
+          "science"
+        ]
+      },
+      "labels": [
+        {
+          "material": "dev-05",
+          "start": 0,
+          "end": 12,
+          "quote": "长方形的四个角都是直角。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "长方形的四个角都是直角。"
+    },
+    {
+      "id": "dev-exact-06",
+      "category": "exact",
+      "split": "dev",
+      "query": "二氧化碳能使澄清石灰水变浑浊。",
+      "scope": {
+        "class": "D",
+        "subjects": [
+          "science"
+        ]
+      },
+      "labels": [
+        {
+          "material": "dev-06",
+          "start": 0,
+          "end": 15,
+          "quote": "二氧化碳能使澄清石灰水变浑浊。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "二氧化碳能使澄清石灰水变浑浊。"
+    },
+    {
+      "id": "dev-distributed-06",
+      "category": "distributed",
+      "split": "dev",
+      "query": "二氧化碳 石灰水 浑浊",
+      "scope": {
+        "class": "D",
+        "subjects": [
+          "science"
+        ]
+      },
+      "labels": [
+        {
+          "material": "dev-06",
+          "start": 0,
+          "end": 15,
+          "quote": "二氧化碳能使澄清石灰水变浑浊。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "二氧化碳能使澄清石灰水变浑浊。"
+    },
+    {
+      "id": "dev-paraphrase-06",
+      "category": "paraphrase",
+      "split": "dev",
+      "query": "通入二氧化碳如何改变澄清石灰水",
+      "scope": {
+        "class": "D",
+        "subjects": [
+          "science"
+        ]
+      },
+      "labels": [
+        {
+          "material": "dev-06",
+          "start": 0,
+          "end": 15,
+          "quote": "二氧化碳能使澄清石灰水变浑浊。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "二氧化碳能使澄清石灰水变浑浊。"
+    },
+    {
+      "id": "dev-exact-07",
+      "category": "exact",
+      "split": "dev",
+      "query": "平面镜成等大的虚像。",
+      "scope": {
+        "class": "D",
+        "subjects": [
+          "science"
+        ]
+      },
+      "labels": [
+        {
+          "material": "dev-07",
+          "start": 0,
+          "end": 10,
+          "quote": "平面镜成等大的虚像。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "平面镜成等大的虚像。"
+    },
+    {
+      "id": "dev-distributed-07",
+      "category": "distributed",
+      "split": "dev",
+      "query": "平面镜 等大 虚像",
+      "scope": {
+        "class": "D",
+        "subjects": [
+          "science"
+        ]
+      },
+      "labels": [
+        {
+          "material": "dev-07",
+          "start": 0,
+          "end": 10,
+          "quote": "平面镜成等大的虚像。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "平面镜成等大的虚像。"
+    },
+    {
+      "id": "dev-paraphrase-07",
+      "category": "paraphrase",
+      "split": "dev",
+      "query": "人在平面镜中的像大小和性质如何",
+      "scope": {
+        "class": "D",
+        "subjects": [
+          "science"
+        ]
+      },
+      "labels": [
+        {
+          "material": "dev-07",
+          "start": 0,
+          "end": 10,
+          "quote": "平面镜成等大的虚像。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "平面镜成等大的虚像。"
+    },
+    {
+      "id": "dev-exact-08",
+      "category": "exact",
+      "split": "dev",
+      "query": "骨骼肌收缩能牵动骨产生运动。",
+      "scope": {
+        "class": "D",
+        "subjects": [
+          "science"
+        ]
+      },
+      "labels": [
+        {
+          "material": "dev-08",
+          "start": 0,
+          "end": 14,
+          "quote": "骨骼肌收缩能牵动骨产生运动。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "骨骼肌收缩能牵动骨产生运动。"
+    },
+    {
+      "id": "dev-distributed-08",
+      "category": "distributed",
+      "split": "dev",
+      "query": "骨骼肌 收缩 运动",
+      "scope": {
+        "class": "D",
+        "subjects": [
+          "science"
+        ]
+      },
+      "labels": [
+        {
+          "material": "dev-08",
+          "start": 0,
+          "end": 14,
+          "quote": "骨骼肌收缩能牵动骨产生运动。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "骨骼肌收缩能牵动骨产生运动。"
+    },
+    {
+      "id": "dev-paraphrase-08",
+      "category": "paraphrase",
+      "split": "dev",
+      "query": "肌肉缩短如何带来骨的活动",
+      "scope": {
+        "class": "D",
+        "subjects": [
+          "science"
+        ]
+      },
+      "labels": [
+        {
+          "material": "dev-08",
+          "start": 0,
+          "end": 14,
+          "quote": "骨骼肌收缩能牵动骨产生运动。"
+        }
+      ],
+      "can_answer": true,
+      "expected_status": "answered",
+      "reference_fact": "骨骼肌收缩能牵动骨产生运动。"
+    },
+    {
+      "id": "dev-unrelated-01",
+      "category": "unrelated",
+      "split": "dev",
+      "query": "如何办理护照续签",
+      "scope": {
+        "class": "D",
+        "subjects": [
+          "science"
+        ]
+      },
+      "labels": [],
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": "",
+      "review_required": false
+    },
+    {
+      "id": "dev-unrelated-02",
+      "category": "unrelated",
+      "split": "dev",
+      "query": "今天电影院几点开门",
+      "scope": {
+        "class": "D",
+        "subjects": [
+          "science"
+        ]
+      },
+      "labels": [],
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": "",
+      "review_required": false
+    },
+    {
+      "id": "dev-unrelated-03",
+      "category": "unrelated",
+      "split": "dev",
+      "query": "如何更换汽车轮胎",
+      "scope": {
+        "class": "D",
+        "subjects": [
+          "science"
+        ]
+      },
+      "labels": [],
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": "",
+      "review_required": false
+    },
+    {
+      "id": "dev-unrelated-04",
+      "category": "unrelated",
+      "split": "dev",
+      "query": "银行转账多久到账",
+      "scope": {
+        "class": "D",
+        "subjects": [
+          "science"
+        ]
+      },
+      "labels": [],
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": "",
+      "review_required": false
+    },
+    {
+      "id": "dev-unrelated-05",
+      "category": "unrelated",
+      "split": "dev",
+      "query": "明年音乐节在哪里买票",
+      "scope": {
+        "class": "D",
+        "subjects": [
+          "science"
+        ]
+      },
+      "labels": [],
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": "",
+      "review_required": false
+    },
+    {
+      "id": "dev-unrelated-06",
+      "category": "unrelated",
+      "split": "dev",
+      "query": "如何给宠物办理登记",
+      "scope": {
+        "class": "D",
+        "subjects": [
+          "science"
+        ]
+      },
+      "labels": [],
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": "",
+      "review_required": false
+    },
+    {
+      "id": "dev-unrelated-07",
+      "category": "unrelated",
+      "split": "dev",
+      "query": "手机屏幕维修费用是多少",
+      "scope": {
+        "class": "D",
+        "subjects": [
+          "science"
+        ]
+      },
+      "labels": [],
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": "",
+      "review_required": false
+    },
+    {
+      "id": "dev-unrelated-08",
+      "category": "unrelated",
+      "split": "dev",
+      "query": "航班延误如何申请退款",
+      "scope": {
+        "class": "D",
+        "subjects": [
+          "science"
+        ]
+      },
+      "labels": [],
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": "",
+      "review_required": false
+    },
+    {
+      "id": "dev-unrelated-09",
+      "category": "unrelated",
+      "split": "dev",
+      "query": "酒店入住需要什么证件",
+      "scope": {
+        "class": "D",
+        "subjects": [
+          "science"
+        ]
+      },
+      "labels": [],
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": "",
+      "review_required": false
+    },
+    {
+      "id": "dev-unrelated-10",
+      "category": "unrelated",
+      "split": "dev",
+      "query": "如何申请软件著作权",
+      "scope": {
+        "class": "D",
+        "subjects": [
+          "science"
+        ]
+      },
+      "labels": [],
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": "",
+      "review_required": false
+    },
+    {
+      "id": "dev-unrelated-11",
+      "category": "unrelated",
+      "split": "dev",
+      "query": "快递丢失如何索赔",
+      "scope": {
+        "class": "D",
+        "subjects": [
+          "science"
+        ]
+      },
+      "labels": [],
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": "",
+      "review_required": false
+    },
+    {
+      "id": "dev-unrelated-12",
+      "category": "unrelated",
+      "split": "dev",
+      "query": "怎样预约牙齿检查",
+      "scope": {
+        "class": "D",
+        "subjects": [
+          "science"
+        ]
+      },
+      "labels": [],
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": "",
+      "review_required": false
+    },
+    {
+      "id": "dev-unrelated-13",
+      "category": "unrelated",
+      "split": "dev",
+      "query": "咖啡豆的烘焙时间是多少",
+      "scope": {
+        "class": "D",
+        "subjects": [
+          "science"
+        ]
+      },
+      "labels": [],
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": "",
+      "review_required": false
+    },
+    {
+      "id": "dev-unrelated-14",
+      "category": "unrelated",
+      "split": "dev",
+      "query": "火车卧铺如何改签",
+      "scope": {
+        "class": "D",
+        "subjects": [
+          "science"
+        ]
+      },
+      "labels": [],
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": "",
+      "review_required": false
+    },
+    {
+      "id": "dev-unrelated-15",
+      "category": "unrelated",
+      "split": "dev",
+      "query": "图书馆借书证如何挂失",
+      "scope": {
+        "class": "D",
+        "subjects": [
+          "science"
+        ]
+      },
+      "labels": [],
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": "",
+      "review_required": false
+    },
+    {
+      "id": "dev-unrelated-16",
+      "category": "unrelated",
+      "split": "dev",
+      "query": "房屋租赁押金如何退还",
+      "scope": {
+        "class": "D",
+        "subjects": [
+          "science"
+        ]
+      },
+      "labels": [],
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": "",
+      "review_required": false
+    },
+    {
+      "id": "dev-unrelated-17",
+      "category": "unrelated",
+      "split": "dev",
+      "query": "洗衣机滤网如何清洗",
+      "scope": {
+        "class": "D",
+        "subjects": [
+          "science"
+        ]
+      },
+      "labels": [],
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": "",
+      "review_required": false
+    },
+    {
+      "id": "dev-unrelated-18",
+      "category": "unrelated",
+      "split": "dev",
+      "query": "网络游戏账号如何申诉",
+      "scope": {
+        "class": "D",
+        "subjects": [
+          "science"
+        ]
+      },
+      "labels": [],
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": "",
+      "review_required": false
+    },
+    {
+      "id": "dev-unrelated-19",
+      "category": "unrelated",
+      "split": "dev",
+      "query": "如何预约博物馆参观",
+      "scope": {
+        "class": "D",
+        "subjects": [
+          "science"
+        ]
+      },
+      "labels": [],
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": "",
+      "review_required": false
+    },
+    {
+      "id": "dev-unrelated-20",
+      "category": "unrelated",
+      "split": "dev",
+      "query": "自行车刹车如何调整",
+      "scope": {
+        "class": "D",
+        "subjects": [
+          "science"
+        ]
+      },
+      "labels": [],
+      "can_answer": false,
+      "expected_status": "no_evidence",
+      "reference_fact": "",
+      "review_required": false
+    }
+  ]
+}

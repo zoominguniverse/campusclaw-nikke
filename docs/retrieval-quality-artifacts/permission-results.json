@@ -1,0 +1,988 @@
+{
+  "cases": 20,
+  "paths": 140,
+  "leaks": 0,
+  "provider": "structural-demo-only",
+  "results": [
+    {
+      "case_id": "permission-01",
+      "mode": "keyword",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-01",
+      "mode": "vector",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-01",
+      "mode": "hybrid",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-01",
+      "mode": "ask",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-01",
+      "mode": "detail",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 404
+    },
+    {
+      "case_id": "permission-01",
+      "mode": "preview",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 403
+    },
+    {
+      "case_id": "permission-01",
+      "mode": "retry",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 403
+    },
+    {
+      "case_id": "permission-02",
+      "mode": "keyword",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-02",
+      "mode": "vector",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-02",
+      "mode": "hybrid",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-02",
+      "mode": "ask",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-02",
+      "mode": "detail",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 404
+    },
+    {
+      "case_id": "permission-02",
+      "mode": "preview",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 403
+    },
+    {
+      "case_id": "permission-02",
+      "mode": "retry",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 403
+    },
+    {
+      "case_id": "permission-03",
+      "mode": "keyword",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-03",
+      "mode": "vector",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-03",
+      "mode": "hybrid",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-03",
+      "mode": "ask",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-03",
+      "mode": "detail",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 404
+    },
+    {
+      "case_id": "permission-03",
+      "mode": "preview",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 403
+    },
+    {
+      "case_id": "permission-03",
+      "mode": "retry",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 403
+    },
+    {
+      "case_id": "permission-04",
+      "mode": "keyword",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-04",
+      "mode": "vector",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-04",
+      "mode": "hybrid",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-04",
+      "mode": "ask",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-04",
+      "mode": "detail",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 404
+    },
+    {
+      "case_id": "permission-04",
+      "mode": "preview",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 403
+    },
+    {
+      "case_id": "permission-04",
+      "mode": "retry",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 403
+    },
+    {
+      "case_id": "permission-05",
+      "mode": "keyword",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-05",
+      "mode": "vector",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-05",
+      "mode": "hybrid",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-05",
+      "mode": "ask",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-05",
+      "mode": "detail",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 404
+    },
+    {
+      "case_id": "permission-05",
+      "mode": "preview",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 403
+    },
+    {
+      "case_id": "permission-05",
+      "mode": "retry",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 403
+    },
+    {
+      "case_id": "permission-06",
+      "mode": "keyword",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-06",
+      "mode": "vector",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-06",
+      "mode": "hybrid",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-06",
+      "mode": "ask",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-06",
+      "mode": "detail",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 404
+    },
+    {
+      "case_id": "permission-06",
+      "mode": "preview",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 403
+    },
+    {
+      "case_id": "permission-06",
+      "mode": "retry",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 403
+    },
+    {
+      "case_id": "permission-07",
+      "mode": "keyword",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-07",
+      "mode": "vector",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-07",
+      "mode": "hybrid",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-07",
+      "mode": "ask",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-07",
+      "mode": "detail",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 404
+    },
+    {
+      "case_id": "permission-07",
+      "mode": "preview",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 403
+    },
+    {
+      "case_id": "permission-07",
+      "mode": "retry",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 403
+    },
+    {
+      "case_id": "permission-08",
+      "mode": "keyword",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-08",
+      "mode": "vector",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-08",
+      "mode": "hybrid",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-08",
+      "mode": "ask",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-08",
+      "mode": "detail",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 404
+    },
+    {
+      "case_id": "permission-08",
+      "mode": "preview",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 403
+    },
+    {
+      "case_id": "permission-08",
+      "mode": "retry",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 403
+    },
+    {
+      "case_id": "permission-09",
+      "mode": "keyword",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-09",
+      "mode": "vector",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-09",
+      "mode": "hybrid",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-09",
+      "mode": "ask",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-09",
+      "mode": "detail",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 404
+    },
+    {
+      "case_id": "permission-09",
+      "mode": "preview",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 403
+    },
+    {
+      "case_id": "permission-09",
+      "mode": "retry",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 403
+    },
+    {
+      "case_id": "permission-10",
+      "mode": "keyword",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-10",
+      "mode": "vector",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-10",
+      "mode": "hybrid",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-10",
+      "mode": "ask",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-10",
+      "mode": "detail",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 404
+    },
+    {
+      "case_id": "permission-10",
+      "mode": "preview",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 403
+    },
+    {
+      "case_id": "permission-10",
+      "mode": "retry",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 403
+    },
+    {
+      "case_id": "permission-11",
+      "mode": "keyword",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-11",
+      "mode": "vector",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-11",
+      "mode": "hybrid",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-11",
+      "mode": "ask",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-11",
+      "mode": "detail",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 404
+    },
+    {
+      "case_id": "permission-11",
+      "mode": "preview",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 404
+    },
+    {
+      "case_id": "permission-11",
+      "mode": "retry",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 404
+    },
+    {
+      "case_id": "permission-12",
+      "mode": "keyword",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-12",
+      "mode": "vector",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-12",
+      "mode": "hybrid",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-12",
+      "mode": "ask",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-12",
+      "mode": "detail",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 404
+    },
+    {
+      "case_id": "permission-12",
+      "mode": "preview",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 404
+    },
+    {
+      "case_id": "permission-12",
+      "mode": "retry",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 404
+    },
+    {
+      "case_id": "permission-13",
+      "mode": "keyword",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-13",
+      "mode": "vector",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-13",
+      "mode": "hybrid",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-13",
+      "mode": "ask",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-13",
+      "mode": "detail",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 404
+    },
+    {
+      "case_id": "permission-13",
+      "mode": "preview",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 404
+    },
+    {
+      "case_id": "permission-13",
+      "mode": "retry",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 404
+    },
+    {
+      "case_id": "permission-14",
+      "mode": "keyword",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-14",
+      "mode": "vector",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-14",
+      "mode": "hybrid",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-14",
+      "mode": "ask",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-14",
+      "mode": "detail",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 404
+    },
+    {
+      "case_id": "permission-14",
+      "mode": "preview",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 404
+    },
+    {
+      "case_id": "permission-14",
+      "mode": "retry",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 404
+    },
+    {
+      "case_id": "permission-15",
+      "mode": "keyword",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-15",
+      "mode": "vector",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-15",
+      "mode": "hybrid",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-15",
+      "mode": "ask",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-15",
+      "mode": "detail",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 404
+    },
+    {
+      "case_id": "permission-15",
+      "mode": "preview",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 404
+    },
+    {
+      "case_id": "permission-15",
+      "mode": "retry",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 404
+    },
+    {
+      "case_id": "permission-16",
+      "mode": "keyword",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-16",
+      "mode": "vector",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-16",
+      "mode": "hybrid",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-16",
+      "mode": "ask",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-16",
+      "mode": "detail",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 404
+    },
+    {
+      "case_id": "permission-16",
+      "mode": "preview",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 404
+    },
+    {
+      "case_id": "permission-16",
+      "mode": "retry",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 404
+    },
+    {
+      "case_id": "permission-17",
+      "mode": "keyword",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-17",
+      "mode": "vector",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-17",
+      "mode": "hybrid",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-17",
+      "mode": "ask",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-17",
+      "mode": "detail",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 404
+    },
+    {
+      "case_id": "permission-17",
+      "mode": "preview",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 404
+    },
+    {
+      "case_id": "permission-17",
+      "mode": "retry",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 404
+    },
+    {
+      "case_id": "permission-18",
+      "mode": "keyword",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-18",
+      "mode": "vector",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-18",
+      "mode": "hybrid",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-18",
+      "mode": "ask",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-18",
+      "mode": "detail",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 404
+    },
+    {
+      "case_id": "permission-18",
+      "mode": "preview",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 404
+    },
+    {
+      "case_id": "permission-18",
+      "mode": "retry",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 404
+    },
+    {
+      "case_id": "permission-19",
+      "mode": "keyword",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-19",
+      "mode": "vector",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-19",
+      "mode": "hybrid",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-19",
+      "mode": "ask",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-19",
+      "mode": "detail",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 404
+    },
+    {
+      "case_id": "permission-19",
+      "mode": "preview",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 404
+    },
+    {
+      "case_id": "permission-19",
+      "mode": "retry",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 404
+    },
+    {
+      "case_id": "permission-20",
+      "mode": "keyword",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-20",
+      "mode": "vector",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-20",
+      "mode": "hybrid",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-20",
+      "mode": "ask",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 200
+    },
+    {
+      "case_id": "permission-20",
+      "mode": "detail",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 404
+    },
+    {
+      "case_id": "permission-20",
+      "mode": "preview",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 404
+    },
+    {
+      "case_id": "permission-20",
+      "mode": "retry",
+      "status": "ok",
+      "leak_count": 0,
+      "http_status": 404
+    }
+  ]
+}

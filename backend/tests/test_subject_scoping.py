@@ -109,12 +109,12 @@ def test_subject_scoped_retrieval_and_answer_citations(app, client):
     assert found.get_json()["hits"][0]["subject_id"] == language
     assert found.get_json()["hits"][0]["subject_name"] == "语文"
     with patch("app.answers.chat_client") as chat:
-        chat.return_value.answer.return_value = "答案依据 [1]"
+        chat.return_value.answer.side_effect = lambda question, evidence, history: {"status": "answered", "claims": [{"text": "答案依据", "evidence": [{"index": 1, "quote": evidence[0]["excerpt"]}]}]}
         answer = student.post("/api/classes/1/knowledge/ask", json={"question": "语言学专属关键词"})
     assert answer.status_code == 200
     assert answer.get_json()["citations"][0]["subject_id"] == language
     restricted = math_teacher.post("/api/classes/1/knowledge/ask", json={"question": "语言学专属关键词"})
-    assert restricted.get_json() == {"answer": NO_EVIDENCE_MESSAGE, "citations": []}
+    assert restricted.get_json() == {"answer": NO_EVIDENCE_MESSAGE, "citations": [], "status": "no_evidence", "demo_mode": True}
 
 
 def test_subject_deletion_conflict_and_revocation_take_effect_immediately(app, client):

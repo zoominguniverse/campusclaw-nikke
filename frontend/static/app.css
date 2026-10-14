@@ -94,6 +94,21 @@ input:focus, select:focus { border-color: var(--brand); outline: 3px solid #f9d5
 .material-list button:hover, .admin-list button:hover, .material-list a:hover { border-color: var(--brand); color: var(--brand); }
 .result-list pre, #preview-body { max-height: 340px; overflow: auto; padding: .8rem; border-radius: 8px; color: #344054; background: #f8fafc; white-space: pre-wrap; word-break: break-word; }
 .preview-panel { margin-top: 1rem; }
+.scope-panel { margin-bottom: 1.4rem; }
+.scope-panel select { max-width: 360px; }
+.action-row { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .65rem; }
+.action-row button, #close-preview { padding: .5rem .7rem; border: 1px solid var(--line); border-radius: 6px; background: white; cursor: pointer; }
+.action-row .primary-action { background: var(--brand); color: white; }
+.evidence-location, .material-state, .field-hint { font-size: .85rem; color: var(--muted); }
+.evidence-excerpt, .answer-body { white-space: pre-wrap; word-break: break-word; line-height: 1.8; }
+.chunk-options { border: 1px solid var(--line); border-radius: 8px; padding: .8rem; }
+.chunk-options label { display: block; margin-top: .6rem; }
+.chunk-options .checkbox-field { display: flex; align-items: center; gap: .5rem; }
+.checkbox-field input { width: auto; }
+.chunk-options textarea { width: 100%; }
+.chunk-preview pre { white-space: pre-wrap; word-break: break-word; max-height: 220px; overflow: auto; }
+#preview-body mark { background: #fff09b; color: inherit; padding: .1rem 0; }
+button:disabled { opacity: .6; cursor: wait; }
 .table-wrap { overflow-x: auto; }
 table { width: 100%; border-collapse: collapse; font-size: .9rem; }
 th, td { padding: .7rem; border-bottom: 1px solid var(--line); text-align: left; white-space: nowrap; }

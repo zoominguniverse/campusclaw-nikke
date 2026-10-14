@@ -1,0 +1,8 @@
+.vendor
+.venv
+__pycache__
+**/__pycache__
+.pytest-uploads
+.pytest-cache
+.pytest_cache
+.tokenizer-cache

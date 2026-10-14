@@ -11,3 +11,6 @@ uploads/
 .smoke-postgres-data/
 .smoke-uploads/
 backend/.coverage
+.vendor/
+.tokenizer-cache/
+.retrieval-backups/

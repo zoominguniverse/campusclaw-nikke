@@ -1,0 +1,5096 @@
+{
+  "profile_fingerprint": "93a61e494055dd956a003109bb9b215031372bab1704bd607bdc6ef4a4d98274",
+  "processing_version": "source-map-v1;chunker-v2;jieba-0.42.1/default-dict+terms-v2",
+  "active_chunks": 10000,
+  "scopes": 20,
+  "warmup_per_path": 20,
+  "measured_per_path": 100,
+  "exact_comparison_queries": 50,
+  "ann_enabled": false,
+  "recall10": 1.0,
+  "provider": "deterministic-demo",
+  "dimensions": 64,
+  "real_profile_gate": "incomplete",
+  "semantic_release_passed": false,
+  "hardware": {
+    "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.41",
+    "cpu": "AMD Ryzen 7 9700X 8-Core Processor",
+    "logical_cpus": 16,
+    "memory_bytes": 7855575040
+  },
+  "extensions": {
+    "vector": "0.8.6",
+    "pg_trgm": "1.6"
+  },
+  "postgres": "16.15 (Debian 16.15-1.pgdg12+2)",
+  "stage_p95_ms": {
+    "keyword": {
+      "db": 59.10848300118232,
+      "embedding": 0.0,
+      "chat": 0.0,
+      "total": 76.49712300008105
+    },
+    "vector": {
+      "db": 9.897422998619732,
+      "embedding": 0.1068479996320093,
+      "chat": 0.0,
+      "total": 20.046816000103718
+    },
+    "hybrid": {
+      "db": 55.444853998778854,
+      "embedding": 0.10009400102717336,
+      "chat": 0.0,
+      "total": 75.89336300043215
+    },
+    "ask": {
+      "db": 58.18169000121998,
+      "embedding": 0.12119600069127046,
+      "chat": 0.005420999514171854,
+      "total": 78.07575600054406
+    }
+  },
+  "measurements": [
+    {
+      "mode": "keyword",
+      "scope": 0,
+      "latency_ms": {
+        "db": 42.385294000268914,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 56.17153900129779
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 1,
+      "latency_ms": {
+        "db": 42.82477499873494,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 53.38327999925241
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 2,
+      "latency_ms": {
+        "db": 38.15511999891896,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 46.64781800056517
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 3,
+      "latency_ms": {
+        "db": 36.66854099901684,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 44.65268800049671
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 4,
+      "latency_ms": {
+        "db": 36.00295099931827,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 45.28664100143942
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 5,
+      "latency_ms": {
+        "db": 37.343904999943334,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 46.239180001066416
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 6,
+      "latency_ms": {
+        "db": 38.937709001402254,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 48.71373400055745
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 7,
+      "latency_ms": {
+        "db": 41.339194000102,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 49.07830400043167
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 8,
+      "latency_ms": {
+        "db": 40.78641100022651,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 49.46392499914509
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 9,
+      "latency_ms": {
+        "db": 36.96870599742397,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 44.640996000453015
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 10,
+      "latency_ms": {
+        "db": 35.222281998358085,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 47.660930000347435
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 11,
+      "latency_ms": {
+        "db": 38.755895002395846,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 47.32700299973658
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 12,
+      "latency_ms": {
+        "db": 33.951858000364155,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 41.68988600031298
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 13,
+      "latency_ms": {
+        "db": 35.05508799935342,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 43.31732500031649
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 14,
+      "latency_ms": {
+        "db": 39.58797799896274,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 49.058083999625524
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 15,
+      "latency_ms": {
+        "db": 37.646353001036914,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 46.33761199875153
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 16,
+      "latency_ms": {
+        "db": 35.2659610016417,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 46.0051640002348
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 17,
+      "latency_ms": {
+        "db": 35.252455996669596,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 43.66815200046403
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 18,
+      "latency_ms": {
+        "db": 34.51686399967002,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 43.12542799925723
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 19,
+      "latency_ms": {
+        "db": 39.551941999889095,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 47.778289001144
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 0,
+      "latency_ms": {
+        "db": 41.76636299962411,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 50.910219999423134
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 1,
+      "latency_ms": {
+        "db": 40.2347169983841,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 49.98283900022216
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 2,
+      "latency_ms": {
+        "db": 39.09844199915824,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 50.08901600012905
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 3,
+      "latency_ms": {
+        "db": 50.58389099758642,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 65.78195200017944
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 4,
+      "latency_ms": {
+        "db": 65.1974929987773,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 78.72736100034672
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 5,
+      "latency_ms": {
+        "db": 45.24246900109574,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 55.357782999635674
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 6,
+      "latency_ms": {
+        "db": 68.57635999949707,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 82.8890019984101
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 7,
+      "latency_ms": {
+        "db": 44.40438099845778,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 58.63961700015352
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 8,
+      "latency_ms": {
+        "db": 46.30440000073577,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 72.53776799916523
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 9,
+      "latency_ms": {
+        "db": 56.327349002458504,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 69.01360399933765
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 10,
+      "latency_ms": {
+        "db": 55.574406003870536,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 70.47032800073794
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 11,
+      "latency_ms": {
+        "db": 58.401668997248635,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 73.48666500001855
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 12,
+      "latency_ms": {
+        "db": 79.43492600315949,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 94.08505500141473
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 13,
+      "latency_ms": {
+        "db": 58.55998299921339,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 74.91635800033691
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 14,
+      "latency_ms": {
+        "db": 54.37113299740304,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 69.98140399991826
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 15,
+      "latency_ms": {
+        "db": 52.311577999716974,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 66.28844700026093
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 16,
+      "latency_ms": {
+        "db": 64.63455999983125,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 76.49712300008105
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 17,
+      "latency_ms": {
+        "db": 82.39256199885858,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 93.79604700006894
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 18,
+      "latency_ms": {
+        "db": 49.313649999021436,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 59.8276540004008
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 19,
+      "latency_ms": {
+        "db": 51.80315600227914,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 62.88939600017329
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 0,
+      "latency_ms": {
+        "db": 40.943795000202954,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 52.54627000067558
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 1,
+      "latency_ms": {
+        "db": 45.080600004439475,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 55.47423400093976
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 2,
+      "latency_ms": {
+        "db": 46.82216099899961,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 61.862198999733664
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 3,
+      "latency_ms": {
+        "db": 41.72273499716539,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 52.85178299891413
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 4,
+      "latency_ms": {
+        "db": 45.72949200155563,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 55.87060499965446
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 5,
+      "latency_ms": {
+        "db": 45.10482200203114,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 55.07541000042693
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 6,
+      "latency_ms": {
+        "db": 47.52047399961157,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 58.44739900021523
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 7,
+      "latency_ms": {
+        "db": 51.74541399719601,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 62.745160999838845
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 8,
+      "latency_ms": {
+        "db": 46.71133799820382,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 56.30347999976948
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 9,
+      "latency_ms": {
+        "db": 50.09853500268946,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 62.29293900105404
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 10,
+      "latency_ms": {
+        "db": 40.52416300146433,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 50.65040799854614
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 11,
+      "latency_ms": {
+        "db": 48.32835100023658,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 57.370992999494774
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 12,
+      "latency_ms": {
+        "db": 56.08822199792485,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 68.9337740004703
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 13,
+      "latency_ms": {
+        "db": 48.41789399688423,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 59.318960999007686
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 14,
+      "latency_ms": {
+        "db": 59.10848300118232,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 69.2713200005528
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 15,
+      "latency_ms": {
+        "db": 45.120811999368016,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 54.91133600116882
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 16,
+      "latency_ms": {
+        "db": 40.932066998720984,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 50.26847000044654
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 17,
+      "latency_ms": {
+        "db": 44.74844300057157,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 54.18237100093393
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 18,
+      "latency_ms": {
+        "db": 40.555904002758325,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 48.92075899988413
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 19,
+      "latency_ms": {
+        "db": 39.93351399913081,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 48.540910000156146
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 0,
+      "latency_ms": {
+        "db": 38.35420699761016,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 46.922395998990396
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 1,
+      "latency_ms": {
+        "db": 38.10937200250919,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 47.96694400101842
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 2,
+      "latency_ms": {
+        "db": 42.995329000405036,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 54.008543000236386
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 3,
+      "latency_ms": {
+        "db": 40.886316000978695,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 51.04978399867832
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 4,
+      "latency_ms": {
+        "db": 49.12150699965423,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 61.48796399975254
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 5,
+      "latency_ms": {
+        "db": 40.53838100116991,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 115.96051299966348
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 6,
+      "latency_ms": {
+        "db": 39.84320200106595,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 49.66893600067124
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 7,
+      "latency_ms": {
+        "db": 39.97793900089164,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 49.670643000354175
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 8,
+      "latency_ms": {
+        "db": 41.972707002059906,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 52.731699999640114
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 9,
+      "latency_ms": {
+        "db": 42.42378999697394,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 53.04195099961362
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 10,
+      "latency_ms": {
+        "db": 48.98185599995486,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 59.89063100059866
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 11,
+      "latency_ms": {
+        "db": 50.820559001294896,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 60.002080999765894
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 12,
+      "latency_ms": {
+        "db": 42.68002299977525,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 51.424264998786384
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 13,
+      "latency_ms": {
+        "db": 40.27302999929816,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 49.61209599969152
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 14,
+      "latency_ms": {
+        "db": 44.01963400232489,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 53.48264199892583
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 15,
+      "latency_ms": {
+        "db": 41.44054299831623,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 51.6746659995988
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 16,
+      "latency_ms": {
+        "db": 40.711384999667644,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 51.2408829999913
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 17,
+      "latency_ms": {
+        "db": 40.46903299786209,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 50.27389499991841
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 18,
+      "latency_ms": {
+        "db": 40.664675001607975,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 49.51846899894008
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 19,
+      "latency_ms": {
+        "db": 41.79756300072768,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 54.001378999601
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 0,
+      "latency_ms": {
+        "db": 48.16941900025995,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 58.459262998439954
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 1,
+      "latency_ms": {
+        "db": 42.97871800008579,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 53.19323000003351
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 2,
+      "latency_ms": {
+        "db": 46.3441799965949,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 56.14305900053296
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 3,
+      "latency_ms": {
+        "db": 44.01520000465098,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 56.30519299847947
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 4,
+      "latency_ms": {
+        "db": 46.665704998304136,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 58.97292600093351
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 5,
+      "latency_ms": {
+        "db": 47.71466499732924,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 57.64993999946455
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 6,
+      "latency_ms": {
+        "db": 48.40907200014044,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 57.932097999582766
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 7,
+      "latency_ms": {
+        "db": 44.403490001059254,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 53.272307999577606
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 8,
+      "latency_ms": {
+        "db": 46.20702500324114,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 56.01418399965041
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 9,
+      "latency_ms": {
+        "db": 44.391575996996835,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 54.92917099945771
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 10,
+      "latency_ms": {
+        "db": 40.93836200081569,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 49.712138999893796
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 11,
+      "latency_ms": {
+        "db": 42.81614100182196,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 52.02820799968322
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 12,
+      "latency_ms": {
+        "db": 37.64539499934472,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 46.291796999867074
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 13,
+      "latency_ms": {
+        "db": 40.673201001482084,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 49.87681400052679
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 14,
+      "latency_ms": {
+        "db": 45.20637099631131,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 54.92865999985952
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 15,
+      "latency_ms": {
+        "db": 39.02636299790174,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 46.93222600144509
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 16,
+      "latency_ms": {
+        "db": 41.808541001955746,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 49.677880999297486
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 17,
+      "latency_ms": {
+        "db": 39.61963099936838,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 46.693278000020655
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 18,
+      "latency_ms": {
+        "db": 40.2797240021755,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 47.17417100073362
+      }
+    },
+    {
+      "mode": "keyword",
+      "scope": 19,
+      "latency_ms": {
+        "db": 40.52137300095637,
+        "embedding": 0.0,
+        "chat": 0.0,
+        "total": 48.241271999359014
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 0,
+      "latency_ms": {
+        "db": 8.450648998405086,
+        "embedding": 0.06054700133972801,
+        "chat": 0.0,
+        "total": 18.393234999166452
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 1,
+      "latency_ms": {
+        "db": 8.9353809999011,
+        "embedding": 0.060758000472560525,
+        "chat": 0.0,
+        "total": 18.33631699992111
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 2,
+      "latency_ms": {
+        "db": 7.85079000161204,
+        "embedding": 0.059986001360812224,
+        "chat": 0.0,
+        "total": 17.331851000562892
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 3,
+      "latency_ms": {
+        "db": 9.64518400542147,
+        "embedding": 0.06473500070569571,
+        "chat": 0.0,
+        "total": 19.851830000334303
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 4,
+      "latency_ms": {
+        "db": 9.693824998976197,
+        "embedding": 0.06377399949997198,
+        "chat": 0.0,
+        "total": 20.250614999895333
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 5,
+      "latency_ms": {
+        "db": 9.87006399918755,
+        "embedding": 0.06679900070594158,
+        "chat": 0.0,
+        "total": 18.844214999262476
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 6,
+      "latency_ms": {
+        "db": 8.977461000540643,
+        "embedding": 0.060416999986045994,
+        "chat": 0.0,
+        "total": 18.093721999321133
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 7,
+      "latency_ms": {
+        "db": 7.931920996270492,
+        "embedding": 0.05930599945713766,
+        "chat": 0.0,
+        "total": 17.08153800063883
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 8,
+      "latency_ms": {
+        "db": 7.747665000351844,
+        "embedding": 0.06277099964790978,
+        "chat": 0.0,
+        "total": 17.061911001292174
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 9,
+      "latency_ms": {
+        "db": 8.275099997263169,
+        "embedding": 0.07593700138386339,
+        "chat": 0.0,
+        "total": 17.015405999700306
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 10,
+      "latency_ms": {
+        "db": 7.853233000787441,
+        "embedding": 0.05898500057810452,
+        "chat": 0.0,
+        "total": 15.972434999639518
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 11,
+      "latency_ms": {
+        "db": 7.991337994099013,
+        "embedding": 0.061269000070751645,
+        "chat": 0.0,
+        "total": 16.510679000930395
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 12,
+      "latency_ms": {
+        "db": 8.18876000084856,
+        "embedding": 0.06074799966881983,
+        "chat": 0.0,
+        "total": 16.49077000001853
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 13,
+      "latency_ms": {
+        "db": 8.060009000473656,
+        "embedding": 0.11199800064787269,
+        "chat": 0.0,
+        "total": 17.764595000699046
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 14,
+      "latency_ms": {
+        "db": 8.59068899990234,
+        "embedding": 0.06829300036770292,
+        "chat": 0.0,
+        "total": 18.932803999632597
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 15,
+      "latency_ms": {
+        "db": 9.798780001801788,
+        "embedding": 0.06217099871719256,
+        "chat": 0.0,
+        "total": 18.694009999308037
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 16,
+      "latency_ms": {
+        "db": 8.594829001594917,
+        "embedding": 0.05938600043009501,
+        "chat": 0.0,
+        "total": 17.48736500121595
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 17,
+      "latency_ms": {
+        "db": 8.262300996648264,
+        "embedding": 0.05927499842073303,
+        "chat": 0.0,
+        "total": 16.756596998675377
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 18,
+      "latency_ms": {
+        "db": 8.02614399981394,
+        "embedding": 0.05990599856886547,
+        "chat": 0.0,
+        "total": 17.21034799993504
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 19,
+      "latency_ms": {
+        "db": 8.778668001468759,
+        "embedding": 0.0821289995656116,
+        "chat": 0.0,
+        "total": 18.23497899931681
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 0,
+      "latency_ms": {
+        "db": 8.878820997779258,
+        "embedding": 0.05919499926676508,
+        "chat": 0.0,
+        "total": 18.706273000134388
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 1,
+      "latency_ms": {
+        "db": 9.708915002192953,
+        "embedding": 0.06276100066315848,
+        "chat": 0.0,
+        "total": 18.38204500018037
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 2,
+      "latency_ms": {
+        "db": 8.597739999459009,
+        "embedding": 0.06040799962647725,
+        "chat": 0.0,
+        "total": 17.052179000529577
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 3,
+      "latency_ms": {
+        "db": 8.04342099945643,
+        "embedding": 0.05898500057810452,
+        "chat": 0.0,
+        "total": 17.328561001704657
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 4,
+      "latency_ms": {
+        "db": 9.063008003067807,
+        "embedding": 0.07494600140489638,
+        "chat": 0.0,
+        "total": 18.968483000207925
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 5,
+      "latency_ms": {
+        "db": 8.621743001640425,
+        "embedding": 0.05998599954182282,
+        "chat": 0.0,
+        "total": 18.138751000151387
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 6,
+      "latency_ms": {
+        "db": 8.897916002752027,
+        "embedding": 0.0614889995631529,
+        "chat": 0.0,
+        "total": 19.178807000571396
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 7,
+      "latency_ms": {
+        "db": 8.465367998724105,
+        "embedding": 0.05956599852652289,
+        "chat": 0.0,
+        "total": 18.091457999616978
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 8,
+      "latency_ms": {
+        "db": 7.7867620002507465,
+        "embedding": 0.1015899997582892,
+        "chat": 0.0,
+        "total": 16.549997999391053
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 9,
+      "latency_ms": {
+        "db": 8.60720200034848,
+        "embedding": 0.05989700002828613,
+        "chat": 0.0,
+        "total": 17.207512000823044
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 10,
+      "latency_ms": {
+        "db": 7.871596000768477,
+        "embedding": 0.05967600009171292,
+        "chat": 0.0,
+        "total": 15.827494999030023
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 11,
+      "latency_ms": {
+        "db": 8.63776199730637,
+        "embedding": 0.060247000874369405,
+        "chat": 0.0,
+        "total": 17.452666999815847
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 12,
+      "latency_ms": {
+        "db": 10.037553995061899,
+        "embedding": 0.07094799912010785,
+        "chat": 0.0,
+        "total": 19.9923950003722
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 13,
+      "latency_ms": {
+        "db": 8.849995998389204,
+        "embedding": 0.06323199886537623,
+        "chat": 0.0,
+        "total": 17.92682999985118
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 14,
+      "latency_ms": {
+        "db": 9.2373330026021,
+        "embedding": 0.06438499985961244,
+        "chat": 0.0,
+        "total": 18.785354999636183
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 15,
+      "latency_ms": {
+        "db": 8.656383000925416,
+        "embedding": 0.05950600098003633,
+        "chat": 0.0,
+        "total": 17.40330500069831
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 16,
+      "latency_ms": {
+        "db": 9.342407998701674,
+        "embedding": 0.06058799954189453,
+        "chat": 0.0,
+        "total": 17.509156999949482
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 17,
+      "latency_ms": {
+        "db": 8.971856999778538,
+        "embedding": 0.05941600102232769,
+        "chat": 0.0,
+        "total": 18.17010400009167
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 18,
+      "latency_ms": {
+        "db": 8.482501998514635,
+        "embedding": 0.05952500032435637,
+        "chat": 0.0,
+        "total": 18.339651000133017
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 19,
+      "latency_ms": {
+        "db": 9.246993000488146,
+        "embedding": 0.060927999584237114,
+        "chat": 0.0,
+        "total": 18.95331299965619
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 0,
+      "latency_ms": {
+        "db": 9.427070001038373,
+        "embedding": 0.07368300066445954,
+        "chat": 0.0,
+        "total": 20.046816000103718
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 1,
+      "latency_ms": {
+        "db": 9.60514699909254,
+        "embedding": 0.06803199903515633,
+        "chat": 0.0,
+        "total": 18.8676680008939
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 2,
+      "latency_ms": {
+        "db": 9.657393005909398,
+        "embedding": 0.12677599988819566,
+        "chat": 0.0,
+        "total": 20.172780999928364
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 3,
+      "latency_ms": {
+        "db": 9.009553001305903,
+        "embedding": 0.061069000366842374,
+        "chat": 0.0,
+        "total": 18.299532999662915
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 4,
+      "latency_ms": {
+        "db": 8.962943997175898,
+        "embedding": 0.06056800157239195,
+        "chat": 0.0,
+        "total": 17.605725999601418
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 5,
+      "latency_ms": {
+        "db": 8.341668004504754,
+        "embedding": 0.0597160014876863,
+        "chat": 0.0,
+        "total": 17.00951000020723
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 6,
+      "latency_ms": {
+        "db": 8.401775001402711,
+        "embedding": 0.06408400076907128,
+        "chat": 0.0,
+        "total": 17.78828999886173
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 7,
+      "latency_ms": {
+        "db": 7.47550299820432,
+        "embedding": 0.05921500087424647,
+        "chat": 0.0,
+        "total": 16.47650399900158
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 8,
+      "latency_ms": {
+        "db": 7.163700001910911,
+        "embedding": 0.059145000705029815,
+        "chat": 0.0,
+        "total": 16.412209000918665
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 9,
+      "latency_ms": {
+        "db": 7.80101999771432,
+        "embedding": 0.05935500121267978,
+        "chat": 0.0,
+        "total": 16.1824639999395
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 10,
+      "latency_ms": {
+        "db": 8.925028998419293,
+        "embedding": 0.07759099935356062,
+        "chat": 0.0,
+        "total": 18.93307299906155
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 11,
+      "latency_ms": {
+        "db": 9.369251001771772,
+        "embedding": 0.07394400017801672,
+        "chat": 0.0,
+        "total": 18.69526200061955
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 12,
+      "latency_ms": {
+        "db": 9.174504999464261,
+        "embedding": 0.06074799966881983,
+        "chat": 0.0,
+        "total": 18.597762000354123
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 13,
+      "latency_ms": {
+        "db": 8.058127001277171,
+        "embedding": 0.05840299854753539,
+        "chat": 0.0,
+        "total": 16.829459000291536
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 14,
+      "latency_ms": {
+        "db": 8.160056000633631,
+        "embedding": 0.059255000451230444,
+        "chat": 0.0,
+        "total": 17.125594000390265
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 15,
+      "latency_ms": {
+        "db": 8.116013999824645,
+        "embedding": 0.06122900049376767,
+        "chat": 0.0,
+        "total": 17.55420600056823
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 16,
+      "latency_ms": {
+        "db": 9.379883998917649,
+        "embedding": 0.061810000261175446,
+        "chat": 0.0,
+        "total": 18.52944999882311
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 17,
+      "latency_ms": {
+        "db": 9.31452800250554,
+        "embedding": 0.05998699998599477,
+        "chat": 0.0,
+        "total": 17.311555999185657
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 18,
+      "latency_ms": {
+        "db": 8.554111002013087,
+        "embedding": 0.05899499956285581,
+        "chat": 0.0,
+        "total": 17.737861000568955
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 19,
+      "latency_ms": {
+        "db": 9.064952002518112,
+        "embedding": 0.062111001170706004,
+        "chat": 0.0,
+        "total": 18.567846000223653
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 0,
+      "latency_ms": {
+        "db": 8.536737001122674,
+        "embedding": 0.06008700074744411,
+        "chat": 0.0,
+        "total": 16.617106000921922
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 1,
+      "latency_ms": {
+        "db": 8.146098001816426,
+        "embedding": 0.05803299973194953,
+        "chat": 0.0,
+        "total": 16.318607000357588
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 2,
+      "latency_ms": {
+        "db": 7.878152997363941,
+        "embedding": 0.059996000345563516,
+        "chat": 0.0,
+        "total": 16.132164000737248
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 3,
+      "latency_ms": {
+        "db": 7.811828998455894,
+        "embedding": 0.05927599886490498,
+        "chat": 0.0,
+        "total": 16.589983000812936
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 4,
+      "latency_ms": {
+        "db": 7.8719050015934044,
+        "embedding": 0.05912500091653783,
+        "chat": 0.0,
+        "total": 17.33323799999198
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 5,
+      "latency_ms": {
+        "db": 7.826076001947513,
+        "embedding": 0.058774001445272006,
+        "chat": 0.0,
+        "total": 16.54419499936921
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 6,
+      "latency_ms": {
+        "db": 7.675205000850838,
+        "embedding": 0.11154599997098558,
+        "chat": 0.0,
+        "total": 16.544875999898068
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 7,
+      "latency_ms": {
+        "db": 7.652757001778809,
+        "embedding": 0.0581620006414596,
+        "chat": 0.0,
+        "total": 16.38600699880044
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 8,
+      "latency_ms": {
+        "db": 8.03263800116838,
+        "embedding": 0.061269000070751645,
+        "chat": 0.0,
+        "total": 17.246217999854707
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 9,
+      "latency_ms": {
+        "db": 8.4820510019199,
+        "embedding": 0.06037700040906202,
+        "chat": 0.0,
+        "total": 18.64684800057148
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 10,
+      "latency_ms": {
+        "db": 9.160746001725784,
+        "embedding": 0.05910500112804584,
+        "chat": 0.0,
+        "total": 18.283332999999402
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 11,
+      "latency_ms": {
+        "db": 7.986272999914945,
+        "embedding": 0.05907499871682376,
+        "chat": 0.0,
+        "total": 16.979109999738284
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 12,
+      "latency_ms": {
+        "db": 7.72800499908044,
+        "embedding": 0.057782001022133045,
+        "chat": 0.0,
+        "total": 16.806895000627264
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 13,
+      "latency_ms": {
+        "db": 8.268677000160096,
+        "embedding": 0.05888499981665518,
+        "chat": 0.0,
+        "total": 17.78548499896715
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 14,
+      "latency_ms": {
+        "db": 8.167898000465357,
+        "embedding": 0.05763199987995904,
+        "chat": 0.0,
+        "total": 17.824511000071652
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 15,
+      "latency_ms": {
+        "db": 8.091170997431618,
+        "embedding": 0.05922499985899776,
+        "chat": 0.0,
+        "total": 17.063944000256015
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 16,
+      "latency_ms": {
+        "db": 8.326927994858124,
+        "embedding": 0.05962500108580571,
+        "chat": 0.0,
+        "total": 17.142125998361735
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 17,
+      "latency_ms": {
+        "db": 8.285537000119803,
+        "embedding": 0.061159000324551016,
+        "chat": 0.0,
+        "total": 18.364058998486144
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 18,
+      "latency_ms": {
+        "db": 10.686351002732408,
+        "embedding": 0.07139800072764046,
+        "chat": 0.0,
+        "total": 20.785592001629993
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 19,
+      "latency_ms": {
+        "db": 10.246145999190048,
+        "embedding": 0.12132600022596307,
+        "chat": 0.0,
+        "total": 20.626293000532314
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 0,
+      "latency_ms": {
+        "db": 9.897422998619732,
+        "embedding": 0.06340300024021417,
+        "chat": 0.0,
+        "total": 19.263854999735486
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 1,
+      "latency_ms": {
+        "db": 8.807641997918836,
+        "embedding": 0.060627999118878506,
+        "chat": 0.0,
+        "total": 17.95689899881836
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 2,
+      "latency_ms": {
+        "db": 7.739605001916061,
+        "embedding": 0.05850399975315668,
+        "chat": 0.0,
+        "total": 16.499958999702358
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 3,
+      "latency_ms": {
+        "db": 7.667366995519842,
+        "embedding": 0.0590149993513478,
+        "chat": 0.0,
+        "total": 16.727210000681225
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 4,
+      "latency_ms": {
+        "db": 8.226630998251494,
+        "embedding": 0.058683001043391414,
+        "chat": 0.0,
+        "total": 16.970474000117974
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 5,
+      "latency_ms": {
+        "db": 7.6175760023033945,
+        "embedding": 0.05829299880133476,
+        "chat": 0.0,
+        "total": 16.113988000142854
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 6,
+      "latency_ms": {
+        "db": 8.238517000791035,
+        "embedding": 0.06615799975406844,
+        "chat": 0.0,
+        "total": 16.938520000621793
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 7,
+      "latency_ms": {
+        "db": 7.739537997622392,
+        "embedding": 0.05732099998567719,
+        "chat": 0.0,
+        "total": 17.47232700108725
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 8,
+      "latency_ms": {
+        "db": 8.727290996830561,
+        "embedding": 0.0624210006208159,
+        "chat": 0.0,
+        "total": 18.668116001208546
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 9,
+      "latency_ms": {
+        "db": 9.804992001591017,
+        "embedding": 0.07056700087559875,
+        "chat": 0.0,
+        "total": 18.566766999356332
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 10,
+      "latency_ms": {
+        "db": 11.43686199975491,
+        "embedding": 0.07585700041090604,
+        "chat": 0.0,
+        "total": 21.585692000371637
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 11,
+      "latency_ms": {
+        "db": 10.30571199953556,
+        "embedding": 0.07826200089766644,
+        "chat": 0.0,
+        "total": 19.40901899979508
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 12,
+      "latency_ms": {
+        "db": 9.05700200019055,
+        "embedding": 0.184548000106588,
+        "chat": 0.0,
+        "total": 18.329611999433837
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 13,
+      "latency_ms": {
+        "db": 9.005274998344248,
+        "embedding": 0.1068479996320093,
+        "chat": 0.0,
+        "total": 18.466106999767362
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 14,
+      "latency_ms": {
+        "db": 8.680735998495948,
+        "embedding": 0.05883399899175856,
+        "chat": 0.0,
+        "total": 18.111829000190482
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 15,
+      "latency_ms": {
+        "db": 8.254027996372315,
+        "embedding": 0.05865399907634128,
+        "chat": 0.0,
+        "total": 17.486222999650636
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 16,
+      "latency_ms": {
+        "db": 8.527580002919422,
+        "embedding": 0.061519000155385584,
+        "chat": 0.0,
+        "total": 18.06224399842904
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 17,
+      "latency_ms": {
+        "db": 8.244358001320506,
+        "embedding": 0.05981600043014623,
+        "chat": 0.0,
+        "total": 16.495200999997905
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 18,
+      "latency_ms": {
+        "db": 8.037393004997284,
+        "embedding": 0.05743200017604977,
+        "chat": 0.0,
+        "total": 16.98791499984509
+      }
+    },
+    {
+      "mode": "vector",
+      "scope": 19,
+      "latency_ms": {
+        "db": 8.190954002202488,
+        "embedding": 0.07939399984024931,
+        "chat": 0.0,
+        "total": 17.664649998550885
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 0,
+      "latency_ms": {
+        "db": 45.988339003088186,
+        "embedding": 0.06471599954238627,
+        "chat": 0.0,
+        "total": 61.55593699986639
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 1,
+      "latency_ms": {
+        "db": 44.59267799575173,
+        "embedding": 0.06601899985980708,
+        "chat": 0.0,
+        "total": 59.668080999472295
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 2,
+      "latency_ms": {
+        "db": 45.50645399103814,
+        "embedding": 0.06357399979606271,
+        "chat": 0.0,
+        "total": 58.58100099976582
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 3,
+      "latency_ms": {
+        "db": 45.398311003737035,
+        "embedding": 0.06250099977478385,
+        "chat": 0.0,
+        "total": 58.83649500174215
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 4,
+      "latency_ms": {
+        "db": 46.61230099918612,
+        "embedding": 0.06253100036701653,
+        "chat": 0.0,
+        "total": 60.57957300072303
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 5,
+      "latency_ms": {
+        "db": 45.56524699910369,
+        "embedding": 0.0621109993517166,
+        "chat": 0.0,
+        "total": 59.135084999070386
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 6,
+      "latency_ms": {
+        "db": 44.50078000445501,
+        "embedding": 0.06236100125533994,
+        "chat": 0.0,
+        "total": 58.35192499944242
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 7,
+      "latency_ms": {
+        "db": 44.508386999950744,
+        "embedding": 0.08656799946038518,
+        "chat": 0.0,
+        "total": 57.83972300014284
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 8,
+      "latency_ms": {
+        "db": 44.350838998070685,
+        "embedding": 0.06763100100215524,
+        "chat": 0.0,
+        "total": 58.15674699988449
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 9,
+      "latency_ms": {
+        "db": 46.40547000235529,
+        "embedding": 0.06773200038878713,
+        "chat": 0.0,
+        "total": 61.08016299913288
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 10,
+      "latency_ms": {
+        "db": 48.51072499695874,
+        "embedding": 0.12002299990854226,
+        "chat": 0.0,
+        "total": 62.67642300008447
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 11,
+      "latency_ms": {
+        "db": 47.091830001591006,
+        "embedding": 0.06224100070539862,
+        "chat": 0.0,
+        "total": 60.39979100023629
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 12,
+      "latency_ms": {
+        "db": 55.4132259949256,
+        "embedding": 0.10009400102717336,
+        "chat": 0.0,
+        "total": 76.59371799854853
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 13,
+      "latency_ms": {
+        "db": 48.85078799998155,
+        "embedding": 0.06688999928883277,
+        "chat": 0.0,
+        "total": 62.69053999858443
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 14,
+      "latency_ms": {
+        "db": 47.005062999232905,
+        "embedding": 0.06648900125583168,
+        "chat": 0.0,
+        "total": 60.434580000219285
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 15,
+      "latency_ms": {
+        "db": 50.08007000287762,
+        "embedding": 0.06135900002846029,
+        "chat": 0.0,
+        "total": 67.28959000065515
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 16,
+      "latency_ms": {
+        "db": 52.550399997926434,
+        "embedding": 0.07588700100313872,
+        "chat": 0.0,
+        "total": 69.51386800028558
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 17,
+      "latency_ms": {
+        "db": 52.51323599804891,
+        "embedding": 0.0680719986121403,
+        "chat": 0.0,
+        "total": 74.2640839998785
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 18,
+      "latency_ms": {
+        "db": 54.413434001617134,
+        "embedding": 0.07324199941649567,
+        "chat": 0.0,
+        "total": 71.70603399936226
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 19,
+      "latency_ms": {
+        "db": 55.13956500180939,
+        "embedding": 0.08868199984135572,
+        "chat": 0.0,
+        "total": 77.28806799968879
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 0,
+      "latency_ms": {
+        "db": 49.18843400082551,
+        "embedding": 0.07170900062192231,
+        "chat": 0.0,
+        "total": 66.01129999944533
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 1,
+      "latency_ms": {
+        "db": 47.972019001463195,
+        "embedding": 0.08090700066532008,
+        "chat": 0.0,
+        "total": 63.96517400025914
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 2,
+      "latency_ms": {
+        "db": 47.286368999266415,
+        "embedding": 0.08116699973470531,
+        "chat": 0.0,
+        "total": 64.79255199883482
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 3,
+      "latency_ms": {
+        "db": 46.62982699665008,
+        "embedding": 0.06910400043125264,
+        "chat": 0.0,
+        "total": 62.581759000750026
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 4,
+      "latency_ms": {
+        "db": 45.185829994807136,
+        "embedding": 0.06673999996564817,
+        "chat": 0.0,
+        "total": 61.299029001020244
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 5,
+      "latency_ms": {
+        "db": 45.84594100015238,
+        "embedding": 0.06790199950046372,
+        "chat": 0.0,
+        "total": 61.54530599997088
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 6,
+      "latency_ms": {
+        "db": 45.86220300006971,
+        "embedding": 0.0690240012772847,
+        "chat": 0.0,
+        "total": 61.502163000113796
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 7,
+      "latency_ms": {
+        "db": 54.608312999334885,
+        "embedding": 0.12272799904167186,
+        "chat": 0.0,
+        "total": 72.80376800008526
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 8,
+      "latency_ms": {
+        "db": 48.92743100390362,
+        "embedding": 0.0746749992686091,
+        "chat": 0.0,
+        "total": 66.9171669997013
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 9,
+      "latency_ms": {
+        "db": 49.01025499930256,
+        "embedding": 0.07367299986071885,
+        "chat": 0.0,
+        "total": 66.67163299971435
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 10,
+      "latency_ms": {
+        "db": 57.732010003746836,
+        "embedding": 0.10459300028742291,
+        "chat": 0.0,
+        "total": 77.8958450009668
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 11,
+      "latency_ms": {
+        "db": 55.762416997822584,
+        "embedding": 0.15682400044170208,
+        "chat": 0.0,
+        "total": 75.89336300043215
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 12,
+      "latency_ms": {
+        "db": 60.53275599879271,
+        "embedding": 0.08485400030622259,
+        "chat": 0.0,
+        "total": 77.2919519986317
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 13,
+      "latency_ms": {
+        "db": 50.639245000638766,
+        "embedding": 0.081808999311761,
+        "chat": 0.0,
+        "total": 66.47501299994474
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 14,
+      "latency_ms": {
+        "db": 48.04501099897607,
+        "embedding": 0.06969500100240111,
+        "chat": 0.0,
+        "total": 64.3857510003727
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 15,
+      "latency_ms": {
+        "db": 49.336971998855006,
+        "embedding": 0.06526600009237882,
+        "chat": 0.0,
+        "total": 65.02459200055455
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 16,
+      "latency_ms": {
+        "db": 48.82817399993655,
+        "embedding": 0.06420499994419515,
+        "chat": 0.0,
+        "total": 63.39098099851981
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 17,
+      "latency_ms": {
+        "db": 48.898660998020205,
+        "embedding": 0.06201100040925667,
+        "chat": 0.0,
+        "total": 61.82549099867174
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 18,
+      "latency_ms": {
+        "db": 47.585821002940065,
+        "embedding": 0.0704970007063821,
+        "chat": 0.0,
+        "total": 61.55270200179075
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 19,
+      "latency_ms": {
+        "db": 50.08360100327991,
+        "embedding": 0.06844299969088752,
+        "chat": 0.0,
+        "total": 63.90637700133084
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 0,
+      "latency_ms": {
+        "db": 50.15848000039114,
+        "embedding": 0.06365300032484811,
+        "chat": 0.0,
+        "total": 65.09532400013995
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 1,
+      "latency_ms": {
+        "db": 43.95301700242271,
+        "embedding": 0.06310299977485556,
+        "chat": 0.0,
+        "total": 57.32372700003907
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 2,
+      "latency_ms": {
+        "db": 44.62792999947851,
+        "embedding": 0.06153899994387757,
+        "chat": 0.0,
+        "total": 58.68543600081466
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 3,
+      "latency_ms": {
+        "db": 44.87807299847191,
+        "embedding": 0.07900399941718206,
+        "chat": 0.0,
+        "total": 58.04293599976518
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 4,
+      "latency_ms": {
+        "db": 47.59671600186266,
+        "embedding": 0.06579799992323387,
+        "chat": 0.0,
+        "total": 60.417245998905855
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 5,
+      "latency_ms": {
+        "db": 45.58646800069255,
+        "embedding": 0.17620300059206784,
+        "chat": 0.0,
+        "total": 61.60206499953347
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 6,
+      "latency_ms": {
+        "db": 44.82516099778877,
+        "embedding": 0.06254100117075723,
+        "chat": 0.0,
+        "total": 59.57134500022221
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 7,
+      "latency_ms": {
+        "db": 47.63521600034437,
+        "embedding": 0.06531699909828603,
+        "chat": 0.0,
+        "total": 62.443800999972154
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 8,
+      "latency_ms": {
+        "db": 45.647238001038204,
+        "embedding": 0.07001599988143425,
+        "chat": 0.0,
+        "total": 60.7166869995126
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 9,
+      "latency_ms": {
+        "db": 50.82809499617724,
+        "embedding": 0.06472499990195502,
+        "chat": 0.0,
+        "total": 65.21319800049241
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 10,
+      "latency_ms": {
+        "db": 46.55536100108293,
+        "embedding": 0.06396400021912996,
+        "chat": 0.0,
+        "total": 61.64877700030047
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 11,
+      "latency_ms": {
+        "db": 47.403746995769325,
+        "embedding": 0.06204999954206869,
+        "chat": 0.0,
+        "total": 62.91160000000673
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 12,
+      "latency_ms": {
+        "db": 46.84018500302045,
+        "embedding": 0.06295200000749901,
+        "chat": 0.0,
+        "total": 62.003715998798725
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 13,
+      "latency_ms": {
+        "db": 48.3074330004456,
+        "embedding": 0.07748000098217744,
+        "chat": 0.0,
+        "total": 63.30377300037071
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 14,
+      "latency_ms": {
+        "db": 51.961848001155886,
+        "embedding": 0.06339300125546288,
+        "chat": 0.0,
+        "total": 66.19723000039812
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 15,
+      "latency_ms": {
+        "db": 51.334159999896656,
+        "embedding": 0.065526999605936,
+        "chat": 0.0,
+        "total": 64.32336099896929
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 16,
+      "latency_ms": {
+        "db": 49.71023300095112,
+        "embedding": 0.06401400059985463,
+        "chat": 0.0,
+        "total": 64.45787099983136
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 17,
+      "latency_ms": {
+        "db": 51.674084998012404,
+        "embedding": 0.09537499863654375,
+        "chat": 0.0,
+        "total": 65.8035939995898
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 18,
+      "latency_ms": {
+        "db": 47.354659996926785,
+        "embedding": 0.06266099990170915,
+        "chat": 0.0,
+        "total": 63.916652999978396
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 19,
+      "latency_ms": {
+        "db": 47.916672001520055,
+        "embedding": 0.0808869990578387,
+        "chat": 0.0,
+        "total": 63.33812699995178
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 0,
+      "latency_ms": {
+        "db": 45.3796469973895,
+        "embedding": 0.08350200005224906,
+        "chat": 0.0,
+        "total": 59.44071099838766
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 1,
+      "latency_ms": {
+        "db": 51.600465001683915,
+        "embedding": 0.0632720002613496,
+        "chat": 0.0,
+        "total": 67.7097359985055
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 2,
+      "latency_ms": {
+        "db": 48.850895998839405,
+        "embedding": 0.08183899990399368,
+        "chat": 0.0,
+        "total": 64.4266309991508
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 3,
+      "latency_ms": {
+        "db": 46.99315800280601,
+        "embedding": 0.07201000153145287,
+        "chat": 0.0,
+        "total": 61.05366300107562
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 4,
+      "latency_ms": {
+        "db": 44.8141740016581,
+        "embedding": 0.06622900036745705,
+        "chat": 0.0,
+        "total": 58.56180299997504
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 5,
+      "latency_ms": {
+        "db": 47.043695998581825,
+        "embedding": 0.06370399933075532,
+        "chat": 0.0,
+        "total": 61.17354500020156
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 6,
+      "latency_ms": {
+        "db": 46.411003000685014,
+        "embedding": 0.06544700045196805,
+        "chat": 0.0,
+        "total": 60.86406100075692
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 7,
+      "latency_ms": {
+        "db": 43.918739997025114,
+        "embedding": 0.06363300053635612,
+        "chat": 0.0,
+        "total": 57.31647299944598
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 8,
+      "latency_ms": {
+        "db": 44.26908000277763,
+        "embedding": 0.0627410008746665,
+        "chat": 0.0,
+        "total": 57.95860900070693
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 9,
+      "latency_ms": {
+        "db": 44.63307500373048,
+        "embedding": 0.0633429990557488,
+        "chat": 0.0,
+        "total": 58.680228001321666
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 10,
+      "latency_ms": {
+        "db": 46.86958299862454,
+        "embedding": 0.07162899964896496,
+        "chat": 0.0,
+        "total": 62.11631599944667
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 11,
+      "latency_ms": {
+        "db": 48.71122599615774,
+        "embedding": 0.06368400136125274,
+        "chat": 0.0,
+        "total": 64.21890700039512
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 12,
+      "latency_ms": {
+        "db": 47.771143001227756,
+        "embedding": 0.06661999941570684,
+        "chat": 0.0,
+        "total": 61.83865500133834
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 13,
+      "latency_ms": {
+        "db": 46.62479699982214,
+        "embedding": 0.09028499880514573,
+        "chat": 0.0,
+        "total": 60.23785599973053
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 14,
+      "latency_ms": {
+        "db": 47.0559739987948,
+        "embedding": 0.06395399941538926,
+        "chat": 0.0,
+        "total": 60.21972200142045
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 15,
+      "latency_ms": {
+        "db": 47.41479000222171,
+        "embedding": 0.06073800068406854,
+        "chat": 0.0,
+        "total": 60.33982299959462
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 16,
+      "latency_ms": {
+        "db": 47.93071300264273,
+        "embedding": 0.0645849995635217,
+        "chat": 0.0,
+        "total": 61.48652099909668
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 17,
+      "latency_ms": {
+        "db": 47.672939999756636,
+        "embedding": 0.060708000091835856,
+        "chat": 0.0,
+        "total": 62.23361000047589
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 18,
+      "latency_ms": {
+        "db": 46.81860300115659,
+        "embedding": 0.061720000303466804,
+        "chat": 0.0,
+        "total": 61.32393700136163
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 19,
+      "latency_ms": {
+        "db": 58.10857200049213,
+        "embedding": 0.06128899985924363,
+        "chat": 0.0,
+        "total": 72.17565199971432
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 0,
+      "latency_ms": {
+        "db": 57.44852899988473,
+        "embedding": 0.07989500045368914,
+        "chat": 0.0,
+        "total": 74.32919500024582
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 1,
+      "latency_ms": {
+        "db": 50.6331529977615,
+        "embedding": 0.07634800022060517,
+        "chat": 0.0,
+        "total": 66.43155300116632
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 2,
+      "latency_ms": {
+        "db": 53.67789999945671,
+        "embedding": 0.06735100032528862,
+        "chat": 0.0,
+        "total": 71.48975900054211
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 3,
+      "latency_ms": {
+        "db": 53.240956000081496,
+        "embedding": 0.08814100146992132,
+        "chat": 0.0,
+        "total": 71.11689600060345
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 4,
+      "latency_ms": {
+        "db": 53.732132002551225,
+        "embedding": 0.07105799886630848,
+        "chat": 0.0,
+        "total": 72.50563299930946
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 5,
+      "latency_ms": {
+        "db": 55.444853998778854,
+        "embedding": 0.07467599971278105,
+        "chat": 0.0,
+        "total": 73.69739700152422
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 6,
+      "latency_ms": {
+        "db": 49.57080500025768,
+        "embedding": 0.07112800085451454,
+        "chat": 0.0,
+        "total": 64.66312299926358
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 7,
+      "latency_ms": {
+        "db": 49.84925699682208,
+        "embedding": 0.07097799971234053,
+        "chat": 0.0,
+        "total": 66.67888599986327
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 8,
+      "latency_ms": {
+        "db": 48.18657700343465,
+        "embedding": 0.0652069993520854,
+        "chat": 0.0,
+        "total": 111.84283500006131
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 9,
+      "latency_ms": {
+        "db": 49.98399100077222,
+        "embedding": 0.07051700049487408,
+        "chat": 0.0,
+        "total": 66.43597299989779
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 10,
+      "latency_ms": {
+        "db": 50.061822003044654,
+        "embedding": 0.07633799941686448,
+        "chat": 0.0,
+        "total": 65.77755699981935
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 11,
+      "latency_ms": {
+        "db": 44.277160999627085,
+        "embedding": 0.06647999907727353,
+        "chat": 0.0,
+        "total": 57.34368400044332
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 12,
+      "latency_ms": {
+        "db": 44.26902299564972,
+        "embedding": 0.06019700049364474,
+        "chat": 0.0,
+        "total": 57.15525800042087
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 13,
+      "latency_ms": {
+        "db": 44.49241500333301,
+        "embedding": 0.061811000705347396,
+        "chat": 0.0,
+        "total": 56.96582100063097
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 14,
+      "latency_ms": {
+        "db": 53.514876002736855,
+        "embedding": 0.06128899985924363,
+        "chat": 0.0,
+        "total": 69.01160199959122
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 15,
+      "latency_ms": {
+        "db": 49.737835997802904,
+        "embedding": 0.09532500007480849,
+        "chat": 0.0,
+        "total": 62.562807001086185
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 16,
+      "latency_ms": {
+        "db": 45.50116800055548,
+        "embedding": 0.08057599916355684,
+        "chat": 0.0,
+        "total": 60.4938279993803
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 17,
+      "latency_ms": {
+        "db": 47.89867999897979,
+        "embedding": 0.06577699969056994,
+        "chat": 0.0,
+        "total": 62.14055100099358
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 18,
+      "latency_ms": {
+        "db": 44.37828300251567,
+        "embedding": 0.06477600072685163,
+        "chat": 0.0,
+        "total": 57.89873799949419
+      }
+    },
+    {
+      "mode": "hybrid",
+      "scope": 19,
+      "latency_ms": {
+        "db": 45.75296799521311,
+        "embedding": 0.06409500019799452,
+        "chat": 0.0,
+        "total": 60.49792100020568
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 0,
+      "latency_ms": {
+        "db": 54.283816994939116,
+        "embedding": 0.06832199869677424,
+        "chat": 0.0041980001697083935,
+        "total": 73.81414399969799
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 1,
+      "latency_ms": {
+        "db": 54.004897003324004,
+        "embedding": 0.06343300083244685,
+        "chat": 0.004408999302540906,
+        "total": 72.77580600020883
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 2,
+      "latency_ms": {
+        "db": 49.668457999359816,
+        "embedding": 0.06351400043058675,
+        "chat": 0.003876999471685849,
+        "total": 67.26931299999706
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 3,
+      "latency_ms": {
+        "db": 50.43435900006443,
+        "embedding": 0.06357300117088016,
+        "chat": 0.003556999217835255,
+        "total": 67.75474500136625
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 4,
+      "latency_ms": {
+        "db": 50.65670000112732,
+        "embedding": 0.06103899977460969,
+        "chat": 0.004108000211999752,
+        "total": 67.87277600051311
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 5,
+      "latency_ms": {
+        "db": 48.96256900065055,
+        "embedding": 0.061349001043708995,
+        "chat": 0.003767001544474624,
+        "total": 66.64420699962648
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 6,
+      "latency_ms": {
+        "db": 52.630384991061874,
+        "embedding": 0.3555409984983271,
+        "chat": 0.00523999915458262,
+        "total": 72.2047190010926
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 7,
+      "latency_ms": {
+        "db": 51.73204200218606,
+        "embedding": 0.1106550007534679,
+        "chat": 0.004228000761941075,
+        "total": 69.120328000281
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 8,
+      "latency_ms": {
+        "db": 48.8841640035389,
+        "embedding": 0.07684000047447626,
+        "chat": 0.0031360013963421807,
+        "total": 64.31275900104083
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 9,
+      "latency_ms": {
+        "db": 51.59612899842614,
+        "embedding": 0.06326299990178086,
+        "chat": 0.004568999429466203,
+        "total": 69.15946300068754
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 10,
+      "latency_ms": {
+        "db": 50.617807000890025,
+        "embedding": 0.0650670008326415,
+        "chat": 0.0046789991756668314,
+        "total": 71.7061499999545
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 11,
+      "latency_ms": {
+        "db": 51.38708899721678,
+        "embedding": 0.06469599975389428,
+        "chat": 0.004178000381216407,
+        "total": 69.98353400013002
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 12,
+      "latency_ms": {
+        "db": 56.17696900480951,
+        "embedding": 0.11867099965456873,
+        "chat": 0.0032370007829740644,
+        "total": 72.8348949996871
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 13,
+      "latency_ms": {
+        "db": 49.47979299686267,
+        "embedding": 0.0622609986749012,
+        "chat": 0.0034159984352299944,
+        "total": 66.62183200023719
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 14,
+      "latency_ms": {
+        "db": 51.799378996292944,
+        "embedding": 0.08054600039031357,
+        "chat": 0.0033659998734947294,
+        "total": 67.86345799991977
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 15,
+      "latency_ms": {
+        "db": 50.289761002204614,
+        "embedding": 0.06096899960539304,
+        "chat": 0.004268000338925049,
+        "total": 68.77445500140311
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 16,
+      "latency_ms": {
+        "db": 51.782287995592924,
+        "embedding": 0.06163000034575816,
+        "chat": 0.0037970003177179024,
+        "total": 71.3661610006966
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 17,
+      "latency_ms": {
+        "db": 56.278238002050784,
+        "embedding": 0.07648900100321043,
+        "chat": 0.004989000444766134,
+        "total": 75.3529929988872
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 18,
+      "latency_ms": {
+        "db": 54.260690998489736,
+        "embedding": 0.06199000017659273,
+        "chat": 0.004469000487006269,
+        "total": 72.72831999944174
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 19,
+      "latency_ms": {
+        "db": 52.235499997550505,
+        "embedding": 0.06409500019799452,
+        "chat": 0.004388999514048919,
+        "total": 70.4848530003801
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 0,
+      "latency_ms": {
+        "db": 49.10408300202107,
+        "embedding": 0.06886399933137,
+        "chat": 0.0034169988794019446,
+        "total": 64.82376300118631
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 1,
+      "latency_ms": {
+        "db": 49.91529299877584,
+        "embedding": 0.06871299956401344,
+        "chat": 0.0037070003600092605,
+        "total": 66.46972999988066
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 2,
+      "latency_ms": {
+        "db": 48.483400996701675,
+        "embedding": 0.06202099939400796,
+        "chat": 0.004338000508141704,
+        "total": 66.68360999901779
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 3,
+      "latency_ms": {
+        "db": 56.29613200289896,
+        "embedding": 0.06987599954300094,
+        "chat": 0.007534999895142391,
+        "total": 78.63208600065263
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 4,
+      "latency_ms": {
+        "db": 57.60468500193383,
+        "embedding": 0.1444610006728908,
+        "chat": 0.004579000233206898,
+        "total": 78.07575600054406
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 5,
+      "latency_ms": {
+        "db": 53.13199099509802,
+        "embedding": 0.06494599983852822,
+        "chat": 0.004438001269591041,
+        "total": 71.08471399988048
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 6,
+      "latency_ms": {
+        "db": 49.5094359957875,
+        "embedding": 0.06199000017659273,
+        "chat": 0.0046889999794075266,
+        "total": 68.0334299995593
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 7,
+      "latency_ms": {
+        "db": 48.15324900118867,
+        "embedding": 0.06245099939405918,
+        "chat": 0.0037970003177179024,
+        "total": 64.27389000054973
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 8,
+      "latency_ms": {
+        "db": 55.54763899817772,
+        "embedding": 0.06316299914033152,
+        "chat": 0.003477000063867308,
+        "total": 72.64879499962262
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 9,
+      "latency_ms": {
+        "db": 49.6950570068293,
+        "embedding": 0.12119600069127046,
+        "chat": 0.004178000381216407,
+        "total": 68.55651200021384
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 10,
+      "latency_ms": {
+        "db": 53.559376998236985,
+        "embedding": 0.06316300095932093,
+        "chat": 0.003778000973397866,
+        "total": 69.68672800030618
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 11,
+      "latency_ms": {
+        "db": 52.749602999028866,
+        "embedding": 0.06096799916122109,
+        "chat": 0.00395800088881515,
+        "total": 70.02401299905614
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 12,
+      "latency_ms": {
+        "db": 50.96278500423068,
+        "embedding": 0.061779999668942764,
+        "chat": 0.006652999218204059,
+        "total": 68.81801900090068
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 13,
+      "latency_ms": {
+        "db": 52.547605002473574,
+        "embedding": 0.07106900011422113,
+        "chat": 0.0043379986891523,
+        "total": 69.41575699966052
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 14,
+      "latency_ms": {
+        "db": 51.35151600734389,
+        "embedding": 0.061449998611351475,
+        "chat": 0.0034670010791160166,
+        "total": 68.59194099888555
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 15,
+      "latency_ms": {
+        "db": 52.70755200035637,
+        "embedding": 0.05949600017629564,
+        "chat": 0.0033770011214073747,
+        "total": 106.16898900116212
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 16,
+      "latency_ms": {
+        "db": 51.97858900828578,
+        "embedding": 0.07450500015693251,
+        "chat": 0.0029650000215042382,
+        "total": 67.82293700052833
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 17,
+      "latency_ms": {
+        "db": 50.97553699852142,
+        "embedding": 0.06201999894983601,
+        "chat": 0.0030960000003688037,
+        "total": 66.43150600029912
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 18,
+      "latency_ms": {
+        "db": 51.093910999043146,
+        "embedding": 0.06136899901321158,
+        "chat": 0.004478999471757561,
+        "total": 68.64672299889207
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 19,
+      "latency_ms": {
+        "db": 53.03461299808987,
+        "embedding": 0.06240199945750646,
+        "chat": 0.0037280005926731974,
+        "total": 69.78574399909121
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 0,
+      "latency_ms": {
+        "db": 49.094670999693335,
+        "embedding": 0.061269000070751645,
+        "chat": 0.003998000465799123,
+        "total": 65.49480600006063
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 1,
+      "latency_ms": {
+        "db": 48.93161600011808,
+        "embedding": 0.0614990003668936,
+        "chat": 0.0032970001484500244,
+        "total": 65.15874400065513
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 2,
+      "latency_ms": {
+        "db": 47.910059003697825,
+        "embedding": 0.12390099982440006,
+        "chat": 0.0037569989217445254,
+        "total": 66.06202200055122
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 3,
+      "latency_ms": {
+        "db": 48.98511400460848,
+        "embedding": 0.06329300049401354,
+        "chat": 0.004006999006378464,
+        "total": 65.44161199963128
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 4,
+      "latency_ms": {
+        "db": 49.02962699816271,
+        "embedding": 0.06163900070532691,
+        "chat": 0.003977000233135186,
+        "total": 64.93673700060754
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 5,
+      "latency_ms": {
+        "db": 49.048169996240176,
+        "embedding": 0.06129899884399492,
+        "chat": 0.004088000423507765,
+        "total": 65.51949999993667
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 6,
+      "latency_ms": {
+        "db": 51.260800997624756,
+        "embedding": 0.0681630008330103,
+        "chat": 0.004307999915909022,
+        "total": 69.4350840003608
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 7,
+      "latency_ms": {
+        "db": 48.06580500189739,
+        "embedding": 0.060247000874369405,
+        "chat": 0.00407799961976707,
+        "total": 64.68103000042902
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 8,
+      "latency_ms": {
+        "db": 50.235455006259144,
+        "embedding": 0.09070600026461761,
+        "chat": 0.0043790005292976275,
+        "total": 69.4388190004247
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 9,
+      "latency_ms": {
+        "db": 54.47900100261904,
+        "embedding": 0.07361300049524289,
+        "chat": 0.004038000042783096,
+        "total": 73.36350900004618
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 10,
+      "latency_ms": {
+        "db": 53.61764199733443,
+        "embedding": 0.06457599920395296,
+        "chat": 0.0045889992179581895,
+        "total": 72.6725050008099
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 11,
+      "latency_ms": {
+        "db": 53.326759005358326,
+        "embedding": 0.06657899939455092,
+        "chat": 0.004248000550433062,
+        "total": 72.92926499940222
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 12,
+      "latency_ms": {
+        "db": 52.12859699895489,
+        "embedding": 0.06137899981695227,
+        "chat": 0.0034870008676080033,
+        "total": 68.51331999860122
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 13,
+      "latency_ms": {
+        "db": 56.395283001620555,
+        "embedding": 0.060416999986045994,
+        "chat": 0.004499001079238951,
+        "total": 72.92074900033185
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 14,
+      "latency_ms": {
+        "db": 50.51118600204063,
+        "embedding": 0.06134899922471959,
+        "chat": 0.0038369998947018757,
+        "total": 67.77256000168563
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 15,
+      "latency_ms": {
+        "db": 56.714748996455455,
+        "embedding": 0.0607879992458038,
+        "chat": 0.005109999619890004,
+        "total": 73.9300369987177
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 16,
+      "latency_ms": {
+        "db": 56.54353900354181,
+        "embedding": 0.06230100007087458,
+        "chat": 0.00595199890085496,
+        "total": 77.090410000892
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 17,
+      "latency_ms": {
+        "db": 71.64456099781091,
+        "embedding": 0.08566600081394427,
+        "chat": 0.005420999514171854,
+        "total": 96.99815800013312
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 18,
+      "latency_ms": {
+        "db": 56.431361994327744,
+        "embedding": 0.1040619990817504,
+        "chat": 0.004419000106281601,
+        "total": 75.59702700018534
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 19,
+      "latency_ms": {
+        "db": 58.18169000121998,
+        "embedding": 0.06515700079035014,
+        "chat": 0.004929999704472721,
+        "total": 76.65461999931722
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 0,
+      "latency_ms": {
+        "db": 53.50460900081089,
+        "embedding": 0.07322199962800369,
+        "chat": 0.004228999387123622,
+        "total": 72.436968999682
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 1,
+      "latency_ms": {
+        "db": 53.276739996363176,
+        "embedding": 0.0649859994155122,
+        "chat": 0.0044079988583689556,
+        "total": 71.43164300032367
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 2,
+      "latency_ms": {
+        "db": 55.394074001014815,
+        "embedding": 0.06399399899237324,
+        "chat": 0.004309000360080972,
+        "total": 72.59031499961566
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 3,
+      "latency_ms": {
+        "db": 56.35483199330338,
+        "embedding": 0.06309299897111487,
+        "chat": 0.0048790006985655054,
+        "total": 74.90422100090655
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 4,
+      "latency_ms": {
+        "db": 61.16048699550447,
+        "embedding": 0.08192899986170232,
+        "chat": 0.004628998794942163,
+        "total": 81.39248400038923
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 5,
+      "latency_ms": {
+        "db": 50.5121899968799,
+        "embedding": 0.06720099918311462,
+        "chat": 0.003908000508090481,
+        "total": 68.87707500027318
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 6,
+      "latency_ms": {
+        "db": 54.1060890082008,
+        "embedding": 0.06525699973281007,
+        "chat": 0.004829000317840837,
+        "total": 72.27921800040349
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 7,
+      "latency_ms": {
+        "db": 54.306546991938376,
+        "embedding": 0.07563700091850478,
+        "chat": 0.004248000550433062,
+        "total": 73.19411499884154
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 8,
+      "latency_ms": {
+        "db": 53.64875500345079,
+        "embedding": 0.06230100007087458,
+        "chat": 0.004980000085197389,
+        "total": 72.05959199927747
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 9,
+      "latency_ms": {
+        "db": 49.49627399764722,
+        "embedding": 0.06671000119240489,
+        "chat": 0.00421799995820038,
+        "total": 67.28809900050692
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 10,
+      "latency_ms": {
+        "db": 52.44588800269412,
+        "embedding": 0.06310299977485556,
+        "chat": 0.004978999641025439,
+        "total": 70.05655600005412
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 11,
+      "latency_ms": {
+        "db": 57.84337400109507,
+        "embedding": 0.06615799975406844,
+        "chat": 0.0053700005082646385,
+        "total": 76.7543759993714
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 12,
+      "latency_ms": {
+        "db": 55.380990999765345,
+        "embedding": 0.06358300015563145,
+        "chat": 0.004559000444714911,
+        "total": 73.6971820006147
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 13,
+      "latency_ms": {
+        "db": 58.40378499487997,
+        "embedding": 0.0714190009603044,
+        "chat": 0.0041980001697083935,
+        "total": 76.41778700053692
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 14,
+      "latency_ms": {
+        "db": 50.953254003616166,
+        "embedding": 0.061779999668942764,
+        "chat": 0.004088000423507765,
+        "total": 67.9860189993633
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 15,
+      "latency_ms": {
+        "db": 59.37937299495388,
+        "embedding": 0.06093800038797781,
+        "chat": 0.004800000169780105,
+        "total": 76.72905099934724
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 16,
+      "latency_ms": {
+        "db": 57.55065000084869,
+        "embedding": 0.06677999954263214,
+        "chat": 0.004419000106281601,
+        "total": 75.89262200053781
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 17,
+      "latency_ms": {
+        "db": 56.65518499699829,
+        "embedding": 0.06231099905562587,
+        "chat": 0.003946999640902504,
+        "total": 74.63558000017656
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 18,
+      "latency_ms": {
+        "db": 59.993633007252356,
+        "embedding": 0.06193999979586806,
+        "chat": 0.004348999937064946,
+        "total": 77.73001899840892
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 19,
+      "latency_ms": {
+        "db": 58.15643199821352,
+        "embedding": 0.06965500142541714,
+        "chat": 0.004489000275498256,
+        "total": 75.78913700126577
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 0,
+      "latency_ms": {
+        "db": 50.63147999862849,
+        "embedding": 0.06314300117082894,
+        "chat": 0.0041380008042324334,
+        "total": 67.87046499994176
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 1,
+      "latency_ms": {
+        "db": 50.349670000287006,
+        "embedding": 0.0650570000289008,
+        "chat": 0.0037170011637499556,
+        "total": 67.14351899972826
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 2,
+      "latency_ms": {
+        "db": 56.59479699352232,
+        "embedding": 0.12721800158033147,
+        "chat": 0.005549998604692519,
+        "total": 75.94514800075558
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 3,
+      "latency_ms": {
+        "db": 53.98452100598661,
+        "embedding": 0.08482500015816186,
+        "chat": 0.004488001650315709,
+        "total": 72.8036720011005
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 4,
+      "latency_ms": {
+        "db": 50.391906002914766,
+        "embedding": 0.06290199962677434,
+        "chat": 0.003336001100251451,
+        "total": 66.40991799940821
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 5,
+      "latency_ms": {
+        "db": 57.10960899887141,
+        "embedding": 0.07776100028422661,
+        "chat": 0.0055510008678538725,
+        "total": 79.01582199883705
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 6,
+      "latency_ms": {
+        "db": 55.92307299957611,
+        "embedding": 0.07139800072764046,
+        "chat": 0.004618999810190871,
+        "total": 76.20615599989833
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 7,
+      "latency_ms": {
+        "db": 52.74901399570808,
+        "embedding": 0.10963299973809626,
+        "chat": 0.004237999746692367,
+        "total": 69.34621200161928
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 8,
+      "latency_ms": {
+        "db": 52.80039600438613,
+        "embedding": 0.060869000662933104,
+        "chat": 0.00362699938705191,
+        "total": 69.06894199892122
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 9,
+      "latency_ms": {
+        "db": 52.37042700355232,
+        "embedding": 0.06168000072648283,
+        "chat": 0.004509000063990243,
+        "total": 69.60315099968284
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 10,
+      "latency_ms": {
+        "db": 47.46287700072571,
+        "embedding": 0.06183000004966743,
+        "chat": 0.004117999196751043,
+        "total": 64.05513499885274
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 11,
+      "latency_ms": {
+        "db": 46.99963300481613,
+        "embedding": 0.061779999668942764,
+        "chat": 0.004187999365967698,
+        "total": 64.11914300042554
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 12,
+      "latency_ms": {
+        "db": 49.952941000810824,
+        "embedding": 0.08695900032762438,
+        "chat": 0.0043479994928929955,
+        "total": 68.25249200119288
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 13,
+      "latency_ms": {
+        "db": 50.97481999837328,
+        "embedding": 0.06821299939474557,
+        "chat": 0.0037970003177179024,
+        "total": 68.71815100021195
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 14,
+      "latency_ms": {
+        "db": 50.515464005002286,
+        "embedding": 0.06145899897092022,
+        "chat": 0.004167999577475712,
+        "total": 66.70117999965441
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 15,
+      "latency_ms": {
+        "db": 50.2448879997246,
+        "embedding": 0.18568999985291157,
+        "chat": 0.00401800025429111,
+        "total": 69.11217199922248
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 16,
+      "latency_ms": {
+        "db": 49.87531999722705,
+        "embedding": 0.062451001213048585,
+        "chat": 0.0037669997254852206,
+        "total": 65.50084000082279
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 17,
+      "latency_ms": {
+        "db": 48.10634699424554,
+        "embedding": 0.08247000005212612,
+        "chat": 0.004599000021698885,
+        "total": 66.32482400164008
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 18,
+      "latency_ms": {
+        "db": 49.42079200191074,
+        "embedding": 0.08438400072918739,
+        "chat": 0.004408999302540906,
+        "total": 69.43379299991648
+      }
+    },
+    {
+      "mode": "ask",
+      "scope": 19,
+      "latency_ms": {
+        "db": 52.54625199631846,
+        "embedding": 0.0656079992040759,
+        "chat": 0.004929001079290174,
+        "total": 71.22452800103929
+      }
+    }
+  ],
+  "exact_comparisons": [
+    {
+      "scope": 0,
+      "query_number": 20,
+      "recall10": 1.0
+    },
+    {
+      "scope": 1,
+      "query_number": 21,
+      "recall10": 1.0
+    },
+    {
+      "scope": 2,
+      "query_number": 22,
+      "recall10": 1.0
+    },
+    {
+      "scope": 3,
+      "query_number": 23,
+      "recall10": 1.0
+    },
+    {
+      "scope": 4,
+      "query_number": 24,
+      "recall10": 1.0
+    },
+    {
+      "scope": 5,
+      "query_number": 25,
+      "recall10": 1.0
+    },
+    {
+      "scope": 6,
+      "query_number": 26,
+      "recall10": 1.0
+    },
+    {
+      "scope": 7,
+      "query_number": 27,
+      "recall10": 1.0
+    },
+    {
+      "scope": 8,
+      "query_number": 28,
+      "recall10": 1.0
+    },
+    {
+      "scope": 9,
+      "query_number": 29,
+      "recall10": 1.0
+    },
+    {
+      "scope": 10,
+      "query_number": 30,
+      "recall10": 1.0
+    },
+    {
+      "scope": 11,
+      "query_number": 31,
+      "recall10": 1.0
+    },
+    {
+      "scope": 12,
+      "query_number": 32,
+      "recall10": 1.0
+    },
+    {
+      "scope": 13,
+      "query_number": 33,
+      "recall10": 1.0
+    },
+    {
+      "scope": 14,
+      "query_number": 34,
+      "recall10": 1.0
+    },
+    {
+      "scope": 15,
+      "query_number": 35,
+      "recall10": 1.0
+    },
+    {
+      "scope": 16,
+      "query_number": 36,
+      "recall10": 1.0
+    },
+    {
+      "scope": 17,
+      "query_number": 37,
+      "recall10": 1.0
+    },
+    {
+      "scope": 18,
+      "query_number": 38,
+      "recall10": 1.0
+    },
+    {
+      "scope": 19,
+      "query_number": 39,
+      "recall10": 1.0
+    },
+    {
+      "scope": 0,
+      "query_number": 40,
+      "recall10": 1.0
+    },
+    {
+      "scope": 1,
+      "query_number": 41,
+      "recall10": 1.0
+    },
+    {
+      "scope": 2,
+      "query_number": 42,
+      "recall10": 1.0
+    },
+    {
+      "scope": 3,
+      "query_number": 43,
+      "recall10": 1.0
+    },
+    {
+      "scope": 4,
+      "query_number": 44,
+      "recall10": 1.0
+    },
+    {
+      "scope": 5,
+      "query_number": 45,
+      "recall10": 1.0
+    },
+    {
+      "scope": 6,
+      "query_number": 46,
+      "recall10": 1.0
+    },
+    {
+      "scope": 7,
+      "query_number": 47,
+      "recall10": 1.0
+    },
+    {
+      "scope": 8,
+      "query_number": 48,
+      "recall10": 1.0
+    },
+    {
+      "scope": 9,
+      "query_number": 49,
+      "recall10": 1.0
+    },
+    {
+      "scope": 10,
+      "query_number": 50,
+      "recall10": 1.0
+    },
+    {
+      "scope": 11,
+      "query_number": 51,
+      "recall10": 1.0
+    },
+    {
+      "scope": 12,
+      "query_number": 52,
+      "recall10": 1.0
+    },
+    {
+      "scope": 13,
+      "query_number": 53,
+      "recall10": 1.0
+    },
+    {
+      "scope": 14,
+      "query_number": 54,
+      "recall10": 1.0
+    },
+    {
+      "scope": 15,
+      "query_number": 55,
+      "recall10": 1.0
+    },
+    {
+      "scope": 16,
+      "query_number": 56,
+      "recall10": 1.0
+    },
+    {
+      "scope": 17,
+      "query_number": 57,
+      "recall10": 1.0
+    },
+    {
+      "scope": 18,
+      "query_number": 58,
+      "recall10": 1.0
+    },
+    {
+      "scope": 19,
+      "query_number": 59,
+      "recall10": 1.0
+    },
+    {
+      "scope": 0,
+      "query_number": 60,
+      "recall10": 1.0
+    },
+    {
+      "scope": 1,
+      "query_number": 61,
+      "recall10": 1.0
+    },
+    {
+      "scope": 2,
+      "query_number": 62,
+      "recall10": 1.0
+    },
+    {
+      "scope": 3,
+      "query_number": 63,
+      "recall10": 1.0
+    },
+    {
+      "scope": 4,
+      "query_number": 64,
+      "recall10": 1.0
+    },
+    {
+      "scope": 5,
+      "query_number": 65,
+      "recall10": 1.0
+    },
+    {
+      "scope": 6,
+      "query_number": 66,
+      "recall10": 1.0
+    },
+    {
+      "scope": 7,
+      "query_number": 67,
+      "recall10": 1.0
+    },
+    {
+      "scope": 8,
+      "query_number": 68,
+      "recall10": 1.0
+    },
+    {
+      "scope": 9,
+      "query_number": 69,
+      "recall10": 1.0
+    }
+  ],
+  "plans": {
+    "keyword": [
+      {
+        "Plan": {
+          "Node Type": "Limit",
+          "Parallel Aware": false,
+          "Async Capable": false,
+          "Startup Cost": 23.63,
+          "Total Cost": 23.64,
+          "Plan Rows": 1,
+          "Plan Width": 981,
+          "Actual Startup Time": 31.605,
+          "Actual Total Time": 31.613,
+          "Actual Rows": 100,
+          "Actual Loops": 1,
+          "Shared Hit Blocks": 581,
+          "Shared Read Blocks": 0,
+          "Shared Dirtied Blocks": 0,
+          "Shared Written Blocks": 0,
+          "Local Hit Blocks": 0,
+          "Local Read Blocks": 0,
+          "Local Dirtied Blocks": 0,
+          "Local Written Blocks": 0,
+          "Temp Read Blocks": 0,
+          "Temp Written Blocks": 0,
+          "Plans": [
+            {
+              "Node Type": "Sort",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Async Capable": false,
+              "Startup Cost": 23.63,
+              "Total Cost": 23.64,
+              "Plan Rows": 1,
+              "Plan Width": 981,
+              "Actual Startup Time": 31.604,
+              "Actual Total Time": 31.609,
+              "Actual Rows": 100,
+              "Actual Loops": 1,
+              "Sort Key": [
+                "((knowledge_chunks.chunk_text ~~* '%范围0性能片0细胞结构功能单位背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背。%'::text)) DESC",
+                "(((((((((((0 + CASE WHEN ((to_tsvector('simple'::regconfig, knowledge_chunks.lexical_terms) @@ '''范围'''::tsquery) OR (((knowledge_chunks.provenance_version)::text = 'legacy'::text) AND (knowledge_chunks.chunk_text ~~* '%范围%'::text))) THEN 1 ELSE 0 END) + CASE WHEN ((to_tsvector('simple'::regconfig, knowledge_chunks.lexical_terms) @@ '''0'''::tsquery) OR (((knowledge_chunks.provenance_version)::text = 'legacy'::text) AND (knowledge_chunks.chunk_text ~~* '%0%'::text))) THEN 1 ELSE 0 END) + CASE WHEN ((to_tsvector('simple'::regconfig, knowledge_chunks.lexical_terms) @@ '''性能'''::tsquery) OR (((knowledge_chunks.provenance_version)::text = 'legacy'::text) AND (knowledge_chunks.chunk_text ~~* '%性能%'::text))) THEN 1 ELSE 0 END) + CASE WHEN ((to_tsvector('simple'::regconfig, knowledge_chunks.lexical_terms) @@ '''片'''::tsquery) OR (((knowledge_chunks.provenance_version)::text = 'legacy'::text) AND (knowledge_chunks.chunk_text ~~* '%片%'::text))) THEN 1 ELSE 0 END) + CASE WHEN ((to_tsvector('simple'::regconfig, knowledge_chunks.lexical_terms) @@ '''细胞'''::tsquery) OR (((knowledge_chunks.provenance_version)::text = 'legacy'::text) AND (knowledge_chunks.chunk_text ~~* '%细胞%'::text))) THEN 1 ELSE 0 END) + CASE WHEN ((to_tsvector('simple'::regconfig, knowledge_chunks.lexical_terms) @@ '''结构'''::tsquery) OR (((knowledge_chunks.provenance_version)::text = 'legacy'::text) AND (knowledge_chunks.chunk_text ~~* '%结构%'::text))) THEN 1 ELSE 0 END) + CASE WHEN ((to_tsvector('simple'::regconfig, knowledge_chunks.lexical_terms) @@ '''功能'''::tsquery) OR (((knowledge_chunks.provenance_version)::text = 'legacy'::text) AND (knowledge_chunks.chunk_text ~~* '%功能%'::text))) THEN 1 ELSE 0 END) + CASE WHEN ((to_tsvector('simple'::regconfig, knowledge_chunks.lexical_terms) @@ '''单位'''::tsquery) OR (((knowledge_chunks.provenance_version)::text = 'legacy'::text) AND (knowledge_chunks.chunk_text ~~* '%单位%'::text))) THEN 1 ELSE 0 END) + CASE WHEN ((to_tsvector('simple'::regconfig, knowledge_chunks.lexical_terms) @@ '''背景'''::tsquery) OR (((knowledge_chunks.provenance_version)::text = 'legacy'::text) AND (knowledge_chunks.chunk_text ~~* '%背景%'::text))) THEN 1 ELSE 0 END) + CASE WHEN ((to_tsvector('simple'::regconfig, knowledge_chunks.lexical_terms) @@ '''背'''::tsquery) OR (((knowledge_chunks.provenance_version)::text = 'legacy'::text) AND (knowledge_chunks.chunk_text ~~* '%背%'::text))) THEN 1 ELSE 0 END)) DESC",
+                "(ts_rank_cd(to_tsvector('simple'::regconfig, knowledge_chunks.lexical_terms), '''范围'' | ''0'' | ''性能'' | ''片'' | ''细胞'' | ''结构'' | ''功能'' | ''单位'' | ''背景'' | ''背'''::tsquery)) DESC",
+                "knowledge_chunks.id"
+              ],
+              "Sort Method": "top-N heapsort",
+              "Sort Space Used": 306,
+              "Sort Space Type": "Memory",
+              "Shared Hit Blocks": 581,
+              "Shared Read Blocks": 0,
+              "Shared Dirtied Blocks": 0,
+              "Shared Written Blocks": 0,
+              "Local Hit Blocks": 0,
+              "Local Read Blocks": 0,
+              "Local Dirtied Blocks": 0,
+              "Local Written Blocks": 0,
+              "Temp Read Blocks": 0,
+              "Temp Written Blocks": 0,
+              "Plans": [
+                {
+                  "Node Type": "Nested Loop",
+                  "Parent Relationship": "Outer",
+                  "Parallel Aware": false,
+                  "Async Capable": false,
+                  "Join Type": "Inner",
+                  "Startup Cost": 8.56,
+                  "Total Cost": 23.62,
+                  "Plan Rows": 1,
+                  "Plan Width": 981,
+                  "Actual Startup Time": 0.312,
+                  "Actual Total Time": 30.892,
+                  "Actual Rows": 500,
+                  "Actual Loops": 1,
+                  "Inner Unique": true,
+                  "Join Filter": "((materials.id)::text = (knowledge_chunks.material_id)::text)",
+                  "Rows Removed by Join Filter": 0,
+                  "Shared Hit Blocks": 570,
+                  "Shared Read Blocks": 0,
+                  "Shared Dirtied Blocks": 0,
+                  "Shared Written Blocks": 0,
+                  "Local Hit Blocks": 0,
+                  "Local Read Blocks": 0,
+                  "Local Dirtied Blocks": 0,
+                  "Local Written Blocks": 0,
+                  "Temp Read Blocks": 0,
+                  "Temp Written Blocks": 0,
+                  "Plans": [
+                    {
+                      "Node Type": "Nested Loop",
+                      "Parent Relationship": "Outer",
+                      "Parallel Aware": false,
+                      "Async Capable": false,
+                      "Join Type": "Inner",
+                      "Startup Cost": 8.56,
+                      "Total Cost": 19.41,
+                      "Plan Rows": 1,
+                      "Plan Width": 909,
+                      "Actual Startup Time": 0.053,
+                      "Actual Total Time": 14.296,
+                      "Actual Rows": 500,
+                      "Actual Loops": 1,
+                      "Inner Unique": false,
+                      "Join Filter": "((knowledge_entries.id = knowledge_chunks.knowledge_entry_id) AND ((knowledge_entries.material_id)::text = (knowledge_chunks.material_id)::text))",
+                      "Rows Removed by Join Filter": 0,
+                      "Shared Hit Blocks": 70,
+                      "Shared Read Blocks": 0,
+                      "Shared Dirtied Blocks": 0,
+                      "Shared Written Blocks": 0,
+                      "Local Hit Blocks": 0,
+                      "Local Read Blocks": 0,
+                      "Local Dirtied Blocks": 0,
+                      "Local Written Blocks": 0,
+                      "Temp Read Blocks": 0,
+                      "Temp Written Blocks": 0,
+                      "Plans": [
+                        {
+                          "Node Type": "Nested Loop",
+                          "Parent Relationship": "Outer",
+                          "Parallel Aware": false,
+                          "Async Capable": false,
+                          "Join Type": "Inner",
+                          "Startup Cost": 0.0,
+                          "Total Cost": 3.92,
+                          "Plan Rows": 1,
+                          "Plan Width": 53,
+                          "Actual Startup Time": 0.005,
+                          "Actual Total Time": 0.012,
+                          "Actual Rows": 1,
+                          "Actual Loops": 1,
+                          "Inner Unique": false,
+                          "Join Filter": "(knowledge_index_generations.knowledge_entry_id = knowledge_entries.id)",
+                          "Rows Removed by Join Filter": 22,
+                          "Shared Hit Blocks": 3,
+                          "Shared Read Blocks": 0,
+                          "Shared Dirtied Blocks": 0,
+                          "Shared Written Blocks": 0,
+                          "Local Hit Blocks": 0,
+                          "Local Read Blocks": 0,
+                          "Local Dirtied Blocks": 0,
+                          "Local Written Blocks": 0,
+                          "Temp Read Blocks": 0,
+                          "Temp Written Blocks": 0,
+                          "Plans": [
+                            {
+                              "Node Type": "Seq Scan",
+                              "Parent Relationship": "Outer",
+                              "Parallel Aware": false,
+                              "Async Capable": false,
+                              "Relation Name": "knowledge_entries",
+                              "Alias": "knowledge_entries",
+                              "Startup Cost": 0.0,
+                              "Total Cost": 1.34,
+                              "Plan Rows": 1,
+                              "Plan Width": 45,
+                              "Actual Startup Time": 0.002,
+                              "Actual Total Time": 0.004,
+                              "Actual Rows": 1,
+                              "Actual Loops": 1,
+                              "Filter": "((class_id = 4) AND (subject_id = 22))",
+                              "Rows Removed by Filter": 22,
+                              "Shared Hit Blocks": 1,
+                              "Shared Read Blocks": 0,
+                              "Shared Dirtied Blocks": 0,
+                              "Shared Written Blocks": 0,
+                              "Local Hit Blocks": 0,
+                              "Local Read Blocks": 0,
+                              "Local Dirtied Blocks": 0,
+                              "Local Written Blocks": 0,
+                              "Temp Read Blocks": 0,
+                              "Temp Written Blocks": 0
+                            },
+                            {
+                              "Node Type": "Seq Scan",
+                              "Parent Relationship": "Inner",
+                              "Parallel Aware": false,
+                              "Async Capable": false,
+                              "Relation Name": "knowledge_index_generations",
+                              "Alias": "knowledge_index_generations",
+                              "Startup Cost": 0.0,
+                              "Total Cost": 2.29,
+                              "Plan Rows": 23,
+                              "Plan Width": 8,
+                              "Actual Startup Time": 0.001,
+                              "Actual Total Time": 0.006,
+                              "Actual Rows": 23,
+                              "Actual Loops": 1,
+                              "Filter": "((is_current IS TRUE) AND ((status)::text = 'ready'::text))",
+                              "Rows Removed by Filter": 0,
+                              "Shared Hit Blocks": 2,
+                              "Shared Read Blocks": 0,
+                              "Shared Dirtied Blocks": 0,
+                              "Shared Written Blocks": 0,
+                              "Local Hit Blocks": 0,
+                              "Local Read Blocks": 0,
+                              "Local Dirtied Blocks": 0,
+                              "Local Written Blocks": 0,
+                              "Temp Read Blocks": 0,
+                              "Temp Written Blocks": 0
+                            }
+                          ]
+                        },
+                        {
+                          "Node Type": "Bitmap Heap Scan",
+                          "Parent Relationship": "Inner",
+                          "Parallel Aware": false,
+                          "Async Capable": false,
+                          "Relation Name": "knowledge_chunks",
+                          "Alias": "knowledge_chunks",
+                          "Startup Cost": 8.56,
+                          "Total Cost": 15.48,
+                          "Plan Rows": 1,
+                          "Plan Width": 868,
+                          "Actual Startup Time": 0.046,
+                          "Actual Total Time": 14.189,
+                          "Actual Rows": 500,
+                          "Actual Loops": 1,
+                          "Recheck Cond": "((knowledge_entry_id = knowledge_index_generations.knowledge_entry_id) AND (knowledge_index_generations.id = generation_id) AND (class_id = 4) AND (subject_id = 22) AND ((index_status)::text = 'ready'::text))",
+                          "Rows Removed by Index Recheck": 0,
+                          "Filter": "(((searchable_active IS TRUE) OR ((provenance_version)::text = 'legacy'::text)) AND ((chunk_text ~~* '%范围0性能片0细胞结构功能单位背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背。%'::text) OR (to_tsvector('simple'::regconfig, lexical_terms) @@ '''范围'' | ''0'' | ''性能'' | ''片'' | ''细胞'' | ''结构'' | ''功能'' | ''单位'' | ''背景'' | ''背'''::tsquery) OR (((provenance_version)::text = 'legacy'::text) AND ((chunk_text ~~* '%范围%'::text) OR (chunk_text ~~* '%0%'::text) OR (chunk_text ~~* '%性能%'::text) OR (chunk_text ~~* '%片%'::text) OR (chunk_text ~~* '%细胞%'::text) OR (chunk_text ~~* '%结构%'::text) OR (chunk_text ~~* '%功能%'::text) OR (chunk_text ~~* '%单位%'::text) OR (chunk_text ~~* '%背景%'::text) OR (chunk_text ~~* '%背%'::text)))) AND ((chunk_text ~~* '%范围0性能片0细胞结构功能单位背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背景背。%'::text) OR (((((((((((0 + CASE WHEN ((to_tsvector('simple'::regconfig, lexical_terms) @@ '''范围'''::tsquery) OR (((provenance_version)::text = 'legacy'::text) AND (chunk_text ~~* '%范围%'::text))) THEN 1 ELSE 0 END) + CASE WHEN ((to_tsvector('simple'::regconfig, lexical_terms) @@ '''0'''::tsquery) OR (((provenance_version)::text = 'legacy'::text) AND (chunk_text ~~* '%0%'::text))) THEN 1 ELSE 0 END) + CASE WHEN ((to_tsvector('simple'::regconfig, lexical_terms) @@ '''性能'''::tsquery) OR (((provenance_version)::text = 'legacy'::text) AND (chunk_text ~~* '%性能%'::text))) THEN 1 ELSE 0 END) + CASE WHEN ((to_tsvector('simple'::regconfig, lexical_terms) @@ '''片'''::tsquery) OR (((provenance_version)::text = 'legacy'::text) AND (chunk_text ~~* '%片%'::text))) THEN 1 ELSE 0 END) + CASE WHEN ((to_tsvector('simple'::regconfig, lexical_terms) @@ '''细胞'''::tsquery) OR (((provenance_version)::text = 'legacy'::text) AND (chunk_text ~~* '%细胞%'::text))) THEN 1 ELSE 0 END) + CASE WHEN ((to_tsvector('simple'::regconfig, lexical_terms) @@ '''结构'''::tsquery) OR (((provenance_version)::text = 'legacy'::text) AND (chunk_text ~~* '%结构%'::text))) THEN 1 ELSE 0 END) + CASE WHEN ((to_tsvector('simple'::regconfig, lexical_terms) @@ '''功能'''::tsquery) OR (((provenance_version)::text = 'legacy'::text) AND (chunk_text ~~* '%功能%'::text))) THEN 1 ELSE 0 END) + CASE WHEN ((to_tsvector('simple'::regconfig, lexical_terms) @@ '''单位'''::tsquery) OR (((provenance_version)::text = 'legacy'::text) AND (chunk_text ~~* '%单位%'::text))) THEN 1 ELSE 0 END) + CASE WHEN ((to_tsvector('simple'::regconfig, lexical_terms) @@ '''背景'''::tsquery) OR (((provenance_version)::text = 'legacy'::text) AND (chunk_text ~~* '%背景%'::text))) THEN 1 ELSE 0 END) + CASE WHEN ((to_tsvector('simple'::regconfig, lexical_terms) @@ '''背'''::tsquery) OR (((provenance_version)::text = 'legacy'::text) AND (chunk_text ~~* '%背%'::text))) THEN 1 ELSE 0 END) >= 6)))",
+                          "Rows Removed by Filter": 0,
+                          "Exact Heap Blocks": 62,
+                          "Lossy Heap Blocks": 0,
+                          "Shared Hit Blocks": 67,
+                          "Shared Read Blocks": 0,
+                          "Shared Dirtied Blocks": 0,
+                          "Shared Written Blocks": 0,
+                          "Local Hit Blocks": 0,
+                          "Local Read Blocks": 0,
+                          "Local Dirtied Blocks": 0,
+                          "Local Written Blocks": 0,
+                          "Temp Read Blocks": 0,
+                          "Temp Written Blocks": 0,
+                          "Plans": [
+                            {
+                              "Node Type": "BitmapAnd",
+                              "Parent Relationship": "Outer",
+                              "Parallel Aware": false,
+                              "Async Capable": false,
+                              "Startup Cost": 8.56,
+                              "Total Cost": 8.56,
+                              "Plan Rows": 1,
+                              "Plan Width": 0,
+                              "Actual Startup Time": 0.03,
+                              "Actual Total Time": 0.031,
+                              "Actual Rows": 0,
+                              "Actual Loops": 1,
+                              "Shared Hit Blocks": 5,
+                              "Shared Read Blocks": 0,
+                              "Shared Dirtied Blocks": 0,
+                              "Shared Written Blocks": 0,
+                              "Local Hit Blocks": 0,
+                              "Local Read Blocks": 0,
+                              "Local Dirtied Blocks": 0,
+                              "Local Written Blocks": 0,
+                              "Temp Read Blocks": 0,
+                              "Temp Written Blocks": 0,
+                              "Plans": [
+                                {
+                                  "Node Type": "Bitmap Index Scan",
+                                  "Parent Relationship": "Member",
+                                  "Parallel Aware": false,
+                                  "Async Capable": false,
+                                  "Index Name": "ix_chunks_entry_current",
+                                  "Startup Cost": 0.0,
+                                  "Total Cost": 3.78,
+                                  "Plan Rows": 19,
+                                  "Plan Width": 0,
+                                  "Actual Startup Time": 0.012,
+                                  "Actual Total Time": 0.012,
+                                  "Actual Rows": 500,
+                                  "Actual Loops": 1,
+                                  "Index Cond": "((knowledge_entry_id = knowledge_index_generations.knowledge_entry_id) AND (generation_id = knowledge_index_generations.id))",
+                                  "Shared Hit Blocks": 3,
+                                  "Shared Read Blocks": 0,
+                                  "Shared Dirtied Blocks": 0,
+                                  "Shared Written Blocks": 0,
+                                  "Local Hit Blocks": 0,
+                                  "Local Read Blocks": 0,
+                                  "Local Dirtied Blocks": 0,
+                                  "Local Written Blocks": 0,
+                                  "Temp Read Blocks": 0,
+                                  "Temp Written Blocks": 0
+                                },
+                                {
+                                  "Node Type": "Bitmap Index Scan",
+                                  "Parent Relationship": "Member",
+                                  "Parallel Aware": false,
+                                  "Async Capable": false,
+                                  "Index Name": "ix_chunks_class_subject_status_ready",
+                                  "Startup Cost": 0.0,
+                                  "Total Cost": 4.54,
+                                  "Plan Rows": 25,
+                                  "Plan Width": 0,
+                                  "Actual Startup Time": 0.016,
+                                  "Actual Total Time": 0.016,
+                                  "Actual Rows": 500,
+                                  "Actual Loops": 1,
+                                  "Index Cond": "((class_id = 4) AND (subject_id = 22))",
+                                  "Shared Hit Blocks": 2,
+                                  "Shared Read Blocks": 0,
+                                  "Shared Dirtied Blocks": 0,
+                                  "Shared Written Blocks": 0,
+                                  "Local Hit Blocks": 0,
+                                  "Local Read Blocks": 0,
+                                  "Local Dirtied Blocks": 0,
+                                  "Local Written Blocks": 0,
+                                  "Temp Read Blocks": 0,
+                                  "Temp Written Blocks": 0
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Node Type": "Seq Scan",
+                      "Parent Relationship": "Inner",
+                      "Parallel Aware": false,
+                      "Async Capable": false,
+                      "Relation Name": "materials",
+                      "Alias": "materials",
+                      "Startup Cost": 0.0,
+                      "Total Cost": 1.34,
+                      "Plan Rows": 1,
+                      "Plan Width": 104,
+                      "Actual Startup Time": 0.0,
+                      "Actual Total Time": 0.0,
+                      "Actual Rows": 1,
+                      "Actual Loops": 500,
+                      "Filter": "((class_id = 4) AND (subject_id = 22))",
+                      "Rows Removed by Filter": 3,
+                      "Shared Hit Blocks": 500,
+                      "Shared Read Blocks": 0,
+                      "Shared Dirtied Blocks": 0,
+                      "Shared Written Blocks": 0,
+                      "Local Hit Blocks": 0,
+                      "Local Read Blocks": 0,
+                      "Local Dirtied Blocks": 0,
+                      "Local Written Blocks": 0,
+                      "Temp Read Blocks": 0,
+                      "Temp Written Blocks": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "Planning": {
+          "Shared Hit Blocks": 1016,
+          "Shared Read Blocks": 0,
+          "Shared Dirtied Blocks": 0,
+          "Shared Written Blocks": 0,
+          "Local Hit Blocks": 0,
+          "Local Read Blocks": 0,
+          "Local Dirtied Blocks": 0,
+          "Local Written Blocks": 0,
+          "Temp Read Blocks": 0,
+          "Temp Written Blocks": 0
+        },
+        "Planning Time": 3.801,
+        "Triggers": [],
+        "Execution Time": 31.706
+      }
+    ],
+    "vector": [
+      {
+        "Plan": {
+          "Node Type": "Limit",
+          "Parallel Aware": false,
+          "Async Capable": false,
+          "Startup Cost": 25.64,
+          "Total Cost": 25.64,
+          "Plan Rows": 1,
+          "Plan Width": 980,
+          "Actual Startup Time": 1.186,
+          "Actual Total Time": 1.193,
+          "Actual Rows": 100,
+          "Actual Loops": 1,
+          "Shared Hit Blocks": 2073,
+          "Shared Read Blocks": 0,
+          "Shared Dirtied Blocks": 0,
+          "Shared Written Blocks": 0,
+          "Local Hit Blocks": 0,
+          "Local Read Blocks": 0,
+          "Local Dirtied Blocks": 0,
+          "Local Written Blocks": 0,
+          "Temp Read Blocks": 0,
+          "Temp Written Blocks": 0,
+          "Plans": [
+            {
+              "Node Type": "Sort",
+              "Parent Relationship": "Outer",
+              "Parallel Aware": false,
+              "Async Capable": false,
+              "Startup Cost": 25.64,
+              "Total Cost": 25.64,
+              "Plan Rows": 1,
+              "Plan Width": 980,
+              "Actual Startup Time": 1.186,
+              "Actual Total Time": 1.189,
+              "Actual Rows": 100,
+              "Actual Loops": 1,
+              "Sort Key": [
+                "((knowledge_embeddings.embedding <=> '[0,0.016790723,0,0,0.016790723,0.016790723,0,0,0,0,0,0,0.016790723,0,0,0,0,0.016790723,0,0.016790723,0,0,0,0.016790723,0,0,0,0,0,0,0,0,0.7052104,0,0,0,0,0,0.033581447,0,0,0,0,0,0,0,0,0.016790723,0.7052104,0,0,0,0,0.016790723,0,0,0,0,0,0.016790723,0.033581447,0,0.016790723,0]'::vector))",
+                "knowledge_chunks.id"
+              ],
+              "Sort Method": "top-N heapsort",
+              "Sort Space Used": 144,
+              "Sort Space Type": "Memory",
+              "Shared Hit Blocks": 2073,
+              "Shared Read Blocks": 0,
+              "Shared Dirtied Blocks": 0,
+              "Shared Written Blocks": 0,
+              "Local Hit Blocks": 0,
+              "Local Read Blocks": 0,
+              "Local Dirtied Blocks": 0,
+              "Local Written Blocks": 0,
+              "Temp Read Blocks": 0,
+              "Temp Written Blocks": 0,
+              "Plans": [
+                {
+                  "Node Type": "Nested Loop",
+                  "Parent Relationship": "Outer",
+                  "Parallel Aware": false,
+                  "Async Capable": false,
+                  "Join Type": "Inner",
+                  "Startup Cost": 8.86,
+                  "Total Cost": 25.63,
+                  "Plan Rows": 1,
+                  "Plan Width": 980,
+                  "Actual Startup Time": 0.032,
+                  "Actual Total Time": 0.971,
+                  "Actual Rows": 500,
+                  "Actual Loops": 1,
+                  "Inner Unique": true,
+                  "Shared Hit Blocks": 2070,
+                  "Shared Read Blocks": 0,
+                  "Shared Dirtied Blocks": 0,
+                  "Shared Written Blocks": 0,
+                  "Local Hit Blocks": 0,
+                  "Local Read Blocks": 0,
+                  "Local Dirtied Blocks": 0,
+                  "Local Written Blocks": 0,
+                  "Temp Read Blocks": 0,
+                  "Temp Written Blocks": 0,
+                  "Plans": [
+                    {
+                      "Node Type": "Nested Loop",
+                      "Parent Relationship": "Outer",
+                      "Parallel Aware": false,
+                      "Async Capable": false,
+                      "Join Type": "Inner",
+                      "Startup Cost": 8.57,
+                      "Total Cost": 17.95,
+                      "Plan Rows": 1,
+                      "Plan Width": 972,
+                      "Actual Startup Time": 0.028,
+                      "Actual Total Time": 0.53,
+                      "Actual Rows": 500,
+                      "Actual Loops": 1,
+                      "Inner Unique": true,
+                      "Join Filter": "((materials.id)::text = (knowledge_chunks.material_id)::text)",
+                      "Rows Removed by Join Filter": 0,
+                      "Shared Hit Blocks": 570,
+                      "Shared Read Blocks": 0,
+                      "Shared Dirtied Blocks": 0,
+                      "Shared Written Blocks": 0,
+                      "Local Hit Blocks": 0,
+                      "Local Read Blocks": 0,
+                      "Local Dirtied Blocks": 0,
+                      "Local Written Blocks": 0,
+                      "Temp Read Blocks": 0,
+                      "Temp Written Blocks": 0,
+                      "Plans": [
+                        {
+                          "Node Type": "Nested Loop",
+                          "Parent Relationship": "Outer",
+                          "Parallel Aware": false,
+                          "Async Capable": false,
+                          "Join Type": "Inner",
+                          "Startup Cost": 8.57,
+                          "Total Cost": 16.59,
+                          "Plan Rows": 1,
+                          "Plan Width": 909,
+                          "Actual Startup Time": 0.026,
+                          "Actual Total Time": 0.179,
+                          "Actual Rows": 500,
+                          "Actual Loops": 1,
+                          "Inner Unique": false,
+                          "Join Filter": "((knowledge_entries.id = knowledge_chunks.knowledge_entry_id) AND ((knowledge_entries.material_id)::text = (knowledge_chunks.material_id)::text))",
+                          "Rows Removed by Join Filter": 0,
+                          "Shared Hit Blocks": 70,
+                          "Shared Read Blocks": 0,
+                          "Shared Dirtied Blocks": 0,
+                          "Shared Written Blocks": 0,
+                          "Local Hit Blocks": 0,
+                          "Local Read Blocks": 0,
+                          "Local Dirtied Blocks": 0,
+                          "Local Written Blocks": 0,
+                          "Temp Read Blocks": 0,
+                          "Temp Written Blocks": 0,
+                          "Plans": [
+                            {
+                              "Node Type": "Nested Loop",
+                              "Parent Relationship": "Outer",
+                              "Parallel Aware": false,
+                              "Async Capable": false,
+                              "Join Type": "Inner",
+                              "Startup Cost": 0.0,
+                              "Total Cost": 3.98,
+                              "Plan Rows": 1,
+                              "Plan Width": 53,
+                              "Actual Startup Time": 0.005,
+                              "Actual Total Time": 0.009,
+                              "Actual Rows": 1,
+                              "Actual Loops": 1,
+                              "Inner Unique": false,
+                              "Join Filter": "(knowledge_index_generations.knowledge_entry_id = knowledge_entries.id)",
+                              "Rows Removed by Join Filter": 22,
+                              "Shared Hit Blocks": 3,
+                              "Shared Read Blocks": 0,
+                              "Shared Dirtied Blocks": 0,
+                              "Shared Written Blocks": 0,
+                              "Local Hit Blocks": 0,
+                              "Local Read Blocks": 0,
+                              "Local Dirtied Blocks": 0,
+                              "Local Written Blocks": 0,
+                              "Temp Read Blocks": 0,
+                              "Temp Written Blocks": 0,
+                              "Plans": [
+                                {
+                                  "Node Type": "Seq Scan",
+                                  "Parent Relationship": "Outer",
+                                  "Parallel Aware": false,
+                                  "Async Capable": false,
+                                  "Relation Name": "knowledge_entries",
+                                  "Alias": "knowledge_entries",
+                                  "Startup Cost": 0.0,
+                                  "Total Cost": 1.34,
+                                  "Plan Rows": 1,
+                                  "Plan Width": 45,
+                                  "Actual Startup Time": 0.002,
+                                  "Actual Total Time": 0.003,
+                                  "Actual Rows": 1,
+                                  "Actual Loops": 1,
+                                  "Filter": "((class_id = 4) AND (subject_id = 22))",
+                                  "Rows Removed by Filter": 22,
+                                  "Shared Hit Blocks": 1,
+                                  "Shared Read Blocks": 0,
+                                  "Shared Dirtied Blocks": 0,
+                                  "Shared Written Blocks": 0,
+                                  "Local Hit Blocks": 0,
+                                  "Local Read Blocks": 0,
+                                  "Local Dirtied Blocks": 0,
+                                  "Local Written Blocks": 0,
+                                  "Temp Read Blocks": 0,
+                                  "Temp Written Blocks": 0
+                                },
+                                {
+                                  "Node Type": "Seq Scan",
+                                  "Parent Relationship": "Inner",
+                                  "Parallel Aware": false,
+                                  "Async Capable": false,
+                                  "Relation Name": "knowledge_index_generations",
+                                  "Alias": "knowledge_index_generations",
+                                  "Startup Cost": 0.0,
+                                  "Total Cost": 2.34,
+                                  "Plan Rows": 23,
+                                  "Plan Width": 8,
+                                  "Actual Startup Time": 0.001,
+                                  "Actual Total Time": 0.005,
+                                  "Actual Rows": 23,
+                                  "Actual Loops": 1,
+                                  "Filter": "((is_current IS TRUE) AND ((status)::text = 'ready'::text) AND (profile_id = 1))",
+                                  "Rows Removed by Filter": 0,
+                                  "Shared Hit Blocks": 2,
+                                  "Shared Read Blocks": 0,
+                                  "Shared Dirtied Blocks": 0,
+                                  "Shared Written Blocks": 0,
+                                  "Local Hit Blocks": 0,
+                                  "Local Read Blocks": 0,
+                                  "Local Dirtied Blocks": 0,
+                                  "Local Written Blocks": 0,
+                                  "Temp Read Blocks": 0,
+                                  "Temp Written Blocks": 0
+                                }
+                              ]
+                            },
+                            {
+                              "Node Type": "Bitmap Heap Scan",
+                              "Parent Relationship": "Inner",
+                              "Parallel Aware": false,
+                              "Async Capable": false,
+                              "Relation Name": "knowledge_chunks",
+                              "Alias": "knowledge_chunks",
+                              "Startup Cost": 8.57,
+                              "Total Cost": 12.6,
+                              "Plan Rows": 1,
+                              "Plan Width": 868,
+                              "Actual Startup Time": 0.02,
+                              "Actual Total Time": 0.125,
+                              "Actual Rows": 500,
+                              "Actual Loops": 1,
+                              "Recheck Cond": "((knowledge_entry_id = knowledge_index_generations.knowledge_entry_id) AND (knowledge_index_generations.id = generation_id) AND (class_id = 4) AND (subject_id = 22) AND ((index_status)::text = 'ready'::text))",
+                              "Rows Removed by Index Recheck": 0,
+                              "Filter": "((searchable_active IS TRUE) OR ((provenance_version)::text = 'legacy'::text))",
+                              "Rows Removed by Filter": 0,
+                              "Exact Heap Blocks": 62,
+                              "Lossy Heap Blocks": 0,
+                              "Shared Hit Blocks": 67,
+                              "Shared Read Blocks": 0,
+                              "Shared Dirtied Blocks": 0,
+                              "Shared Written Blocks": 0,
+                              "Local Hit Blocks": 0,
+                              "Local Read Blocks": 0,
+                              "Local Dirtied Blocks": 0,
+                              "Local Written Blocks": 0,
+                              "Temp Read Blocks": 0,
+                              "Temp Written Blocks": 0,
+                              "Plans": [
+                                {
+                                  "Node Type": "BitmapAnd",
+                                  "Parent Relationship": "Outer",
+                                  "Parallel Aware": false,
+                                  "Async Capable": false,
+                                  "Startup Cost": 8.57,
+                                  "Total Cost": 8.57,
+                                  "Plan Rows": 1,
+                                  "Plan Width": 0,
+                                  "Actual Startup Time": 0.015,
+                                  "Actual Total Time": 0.015,
+                                  "Actual Rows": 0,
+                                  "Actual Loops": 1,
+                                  "Shared Hit Blocks": 5,
+                                  "Shared Read Blocks": 0,
+                                  "Shared Dirtied Blocks": 0,
+                                  "Shared Written Blocks": 0,
+                                  "Local Hit Blocks": 0,
+                                  "Local Read Blocks": 0,
+                                  "Local Dirtied Blocks": 0,
+                                  "Local Written Blocks": 0,
+                                  "Temp Read Blocks": 0,
+                                  "Temp Written Blocks": 0,
+                                  "Plans": [
+                                    {
+                                      "Node Type": "Bitmap Index Scan",
+                                      "Parent Relationship": "Member",
+                                      "Parallel Aware": false,
+                                      "Async Capable": false,
+                                      "Index Name": "ix_chunks_entry_current",
+                                      "Startup Cost": 0.0,
+                                      "Total Cost": 3.78,
+                                      "Plan Rows": 19,
+                                      "Plan Width": 0,
+                                      "Actual Startup Time": 0.007,
+                                      "Actual Total Time": 0.007,
+                                      "Actual Rows": 500,
+                                      "Actual Loops": 1,
+                                      "Index Cond": "((knowledge_entry_id = knowledge_index_generations.knowledge_entry_id) AND (generation_id = knowledge_index_generations.id))",
+                                      "Shared Hit Blocks": 3,
+                                      "Shared Read Blocks": 0,
+                                      "Shared Dirtied Blocks": 0,
+                                      "Shared Written Blocks": 0,
+                                      "Local Hit Blocks": 0,
+                                      "Local Read Blocks": 0,
+                                      "Local Dirtied Blocks": 0,
+                                      "Local Written Blocks": 0,
+                                      "Temp Read Blocks": 0,
+                                      "Temp Written Blocks": 0
+                                    },
+                                    {
+                                      "Node Type": "Bitmap Index Scan",
+                                      "Parent Relationship": "Member",
+                                      "Parallel Aware": false,
+                                      "Async Capable": false,
+                                      "Index Name": "ix_chunks_class_subject_status_ready",
+                                      "Startup Cost": 0.0,
+                                      "Total Cost": 4.54,
+                                      "Plan Rows": 25,
+                                      "Plan Width": 0,
+                                      "Actual Startup Time": 0.006,
+                                      "Actual Total Time": 0.006,
+                                      "Actual Rows": 500,
+                                      "Actual Loops": 1,
+                                      "Index Cond": "((class_id = 4) AND (subject_id = 22))",
+                                      "Shared Hit Blocks": 2,
+                                      "Shared Read Blocks": 0,
+                                      "Shared Dirtied Blocks": 0,
+                                      "Shared Written Blocks": 0,
+                                      "Local Hit Blocks": 0,
+                                      "Local Read Blocks": 0,
+                                      "Local Dirtied Blocks": 0,
+                                      "Local Written Blocks": 0,
+                                      "Temp Read Blocks": 0,
+                                      "Temp Written Blocks": 0
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Node Type": "Seq Scan",
+                          "Parent Relationship": "Inner",
+                          "Parallel Aware": false,
+                          "Async Capable": false,
+                          "Relation Name": "materials",
+                          "Alias": "materials",
+                          "Startup Cost": 0.0,
+                          "Total Cost": 1.34,
+                          "Plan Rows": 1,
+                          "Plan Width": 104,
+                          "Actual Startup Time": 0.0,
+                          "Actual Total Time": 0.0,
+                          "Actual Rows": 1,
+                          "Actual Loops": 500,
+                          "Filter": "((class_id = 4) AND (subject_id = 22))",
+                          "Rows Removed by Filter": 3,
+                          "Shared Hit Blocks": 500,
+                          "Shared Read Blocks": 0,
+                          "Shared Dirtied Blocks": 0,
+                          "Shared Written Blocks": 0,
+                          "Local Hit Blocks": 0,
+                          "Local Read Blocks": 0,
+                          "Local Dirtied Blocks": 0,
+                          "Local Written Blocks": 0,
+                          "Temp Read Blocks": 0,
+                          "Temp Written Blocks": 0
+                        }
+                      ]
+                    },
+                    {
+                      "Node Type": "Index Scan",
+                      "Parent Relationship": "Inner",
+                      "Parallel Aware": false,
+                      "Async Capable": false,
+                      "Scan Direction": "Forward",
+                      "Index Name": "uq_chunk_profile",
+                      "Relation Name": "knowledge_embeddings",
+                      "Alias": "knowledge_embeddings",
+                      "Startup Cost": 0.29,
+                      "Total Cost": 7.67,
+                      "Plan Rows": 1,
+                      "Plan Width": 268,
+                      "Actual Startup Time": 0.001,
+                      "Actual Total Time": 0.001,
+                      "Actual Rows": 1,
+                      "Actual Loops": 500,
+                      "Index Cond": "((chunk_id = knowledge_chunks.id) AND (profile_id = 1))",
+                      "Rows Removed by Index Recheck": 0,
+                      "Filter": "((is_active IS TRUE) AND ((state)::text = 'ready'::text) AND (dimensions = 64) AND ((embedding <=> '[0,0.016790723,0,0,0.016790723,0.016790723,0,0,0,0,0,0,0.016790723,0,0,0,0,0.016790723,0,0.016790723,0,0,0,0.016790723,0,0,0,0,0,0,0,0,0.7052104,0,0,0,0,0,0.033581447,0,0,0,0,0,0,0,0,0.016790723,0.7052104,0,0,0,0,0.016790723,0,0,0,0,0,0.016790723,0.033581447,0,0.016790723,0]'::vector) <= '0.65'::double precision))",
+                      "Rows Removed by Filter": 0,
+                      "Shared Hit Blocks": 1500,
+                      "Shared Read Blocks": 0,
+                      "Shared Dirtied Blocks": 0,
+                      "Shared Written Blocks": 0,
+                      "Local Hit Blocks": 0,
+                      "Local Read Blocks": 0,
+                      "Local Dirtied Blocks": 0,
+                      "Local Written Blocks": 0,
+                      "Temp Read Blocks": 0,
+                      "Temp Written Blocks": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "Planning": {
+          "Shared Hit Blocks": 184,
+          "Shared Read Blocks": 0,
+          "Shared Dirtied Blocks": 0,
+          "Shared Written Blocks": 0,
+          "Local Hit Blocks": 0,
+          "Local Read Blocks": 0,
+          "Local Dirtied Blocks": 0,
+          "Local Written Blocks": 0,
+          "Temp Read Blocks": 0,
+          "Temp Written Blocks": 0
+        },
+        "Planning Time": 0.981,
+        "Triggers": [],
+        "Execution Time": 1.233
+      }
+    ]
+  }
+}

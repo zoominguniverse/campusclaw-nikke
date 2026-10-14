@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import shutil
 import tempfile
+import json
+from dataclasses import asdict
 from io import BytesIO
 from pathlib import Path
 from uuid import uuid4
@@ -10,7 +12,8 @@ from flask import Blueprint, current_app, g, jsonify, request, send_file
 
 from .auth import json_error, require_auth
 from .database import db
-from .indexing import IndexingFailed, index_entry, reindex_entry
+from .indexing import IndexingFailed, IndexingConflict, index_entry, reindex_entry
+from .chunking import chunk_text, normalize_options
 from .authorization import subject_in_class, subject_is_allowed, subject_scope
 from .models import ClassMembership, ClassSubject, KnowledgeChunk, KnowledgeEntry, KnowledgeIndexGeneration, Material
 from .repositories import find_membership
@@ -64,12 +67,14 @@ def _assert_class_scope(*, teacher_required: bool = False):
 
 
 def _material_payload(material: Material) -> dict:
+    from .profiles import generation_compatible
     entry = KnowledgeEntry.query.filter_by(material_id=material.id, class_id=material.class_id).one_or_none()
     generation = (
         KnowledgeIndexGeneration.query.filter_by(knowledge_entry_id=entry.id, is_current=True).one_or_none()
         if entry
         else None
     )
+    latest = KnowledgeIndexGeneration.query.filter_by(knowledge_entry_id=entry.id).order_by(KnowledgeIndexGeneration.generation.desc()).first() if entry else None
     return {
         "id": material.id,
         "title": material.title,
@@ -78,6 +83,14 @@ def _material_payload(material: Material) -> dict:
         "original_filename": material.original_filename,
         "created_at": material.created_at.isoformat(),
         "index_status": generation.status if generation else "pending",
+        "source_saved": bool(entry),
+        "searchable_status": "ready" if generation and generation.status == "ready" else "unavailable",
+        "latest_attempt_status": latest.status if latest else "pending",
+        "latest_attempt_error_code": latest.error_code if latest else None,
+        "index_compatibility": "compatible" if generation and generation_compatible(generation) else "reindex_required" if generation else "missing",
+        "generation_id": generation.id if generation else None,
+        "latest_generation_id": latest.id if latest else None,
+        "chunking": latest.normalized_options if latest else {},
     }
 
 
@@ -125,7 +138,9 @@ def get_material(class_id: int, material_id: str):
     if not material:
         return json_error(404, "material not found")
     entry = KnowledgeEntry.query.filter_by(material_id=material.id, class_id=scope.class_id).one_or_none()
-    return jsonify(material=_material_payload(material), body_text=entry.body_text if entry else "")
+    from .retrieval_schema import source_hash
+    body = entry.body_text if entry else ""
+    return jsonify(material=_material_payload(material), body_text=body, source_hash=source_hash(body), offset_unit="unicode_code_point")
 
 
 @materials_bp.get("/<int:class_id>/materials/<string:material_id>/download")
@@ -226,10 +241,10 @@ def upload_material(class_id: int):
         db.session.add(entry)
         db.session.flush()
         options = _chunking_options_from_form()
-        index_result = index_entry(entry, options)
         shutil.move(str(temp_path), str(final_path))
         db.session.commit()
         committed = True
+        index_result = index_entry(entry, options)
         return jsonify(material=_material_payload(material), indexing=index_result), 201
     except ValueError as error:
         db.session.rollback()
@@ -237,6 +252,8 @@ def upload_material(class_id: int):
     except Exception:
         db.session.rollback()
         current_app.logger.exception("material upload failed")
+        if committed:
+            return jsonify(material=_material_payload(material), indexing={"status": "failed", "error_code": "indexing_failed"}), 201
         return json_error(500, "material upload failed")
     finally:
         if temp_path and temp_path.exists():
@@ -246,15 +263,20 @@ def upload_material(class_id: int):
 
 
 def _chunking_options_from_form() -> dict:
-    strategy = request.form.get("strategy") or "auto"
-    if strategy != "custom":
-        return {"strategy": strategy}
-    options: dict = {"strategy": "custom"}
-    if request.form.get("max_length"):
-        options["max_length"] = request.form.get("max_length", type=int)
-    if request.form.get("overlap_percent"):
-        options["overlap_percent"] = request.form.get("overlap_percent", type=float)
-    return options
+    try:
+        if "chunking" in request.form:
+            return normalize_options(json.loads(request.form["chunking"]))
+        options = {"strategy": request.form.get("strategy", "auto")}
+        if "max_length" in request.form:
+            options["max_length"] = int(request.form["max_length"])
+        if "overlap_percent" in request.form:
+            options["overlap_percent"] = float(request.form["overlap_percent"])
+        for name in ("separators", "preprocess"):
+            if name in request.form:
+                options[name] = json.loads(request.form[name])
+        return normalize_options(options)
+    except (ValueError, TypeError):
+        raise ValueError("invalid chunking options") from None
 
 
 @materials_bp.post("/<int:class_id>/materials/<string:material_id>/reindex")
@@ -271,10 +293,15 @@ def reindex_material(class_id: int, material_id: str):
     if not entry:
         return json_error(404, "material not found")
     payload = request.get_json(silent=True) or {}
+    if not isinstance(payload, dict):
+        return json_error(400, "request must be a JSON object")
     try:
         result = reindex_entry(entry, payload.get("chunking"))
         db.session.commit()
-        return jsonify(material=_material_payload(material), indexing=result)
+        return jsonify(material=_material_payload(material), indexing=result), 409 if result["status"] == "conflict" else 200
+    except IndexingConflict:
+        db.session.rollback()
+        return json_error(409, "indexing conflict; retry")
     except ValueError as error:
         db.session.rollback()
         return json_error(400, str(error))
@@ -282,6 +309,52 @@ def reindex_material(class_id: int, material_id: str):
         db.session.rollback()
         current_app.logger.exception("material reindex failed")
         return json_error(500, "material reindex failed")
+
+
+def _preview_payload(text, options):
+    chunks, normalized = chunk_text(text, options)
+    return {"total": len(chunks), "samples": [asdict(c) for c in chunks[:10]], "chunking": normalized, "offset_unit": "unicode_code_point"}
+
+
+@materials_bp.post("/<int:class_id>/materials/chunk-preview")
+@require_auth
+def preview_new_chunking(class_id):
+    denied = _assert_class_scope(teacher_required=True)
+    if denied:
+        return denied
+    scope = _material_scope()
+    payload = request.get_json(silent=True)
+    if not isinstance(payload, dict):
+        return json_error(400, "request must be a JSON object")
+    subject_id, text = payload.get("subject_id"), payload.get("text")
+    if type(subject_id) is not int or not subject_is_allowed(scope, subject_id):
+        return json_error(404, "subject not found")
+    if not isinstance(text, str) or not text.strip():
+        return json_error(400, "preview text is required")
+    try:
+        return jsonify(_preview_payload(text, payload.get("chunking")))
+    except ValueError as error:
+        return json_error(400, str(error))
+
+
+@materials_bp.post("/<int:class_id>/materials/<string:material_id>/chunk-preview")
+@require_auth
+def preview_existing_chunking(class_id, material_id):
+    denied = _assert_class_scope(teacher_required=True)
+    if denied:
+        return denied
+    scope = _material_scope()
+    material = _allowed_material(material_id, scope)
+    if not material:
+        return json_error(404, "material not found")
+    payload = request.get_json(silent=True)
+    if not isinstance(payload, dict):
+        return json_error(400, "request must be a JSON object")
+    entry = KnowledgeEntry.query.filter_by(material_id=material.id).one_or_none()
+    try:
+        return jsonify(_preview_payload(entry.body_text if entry else "", payload.get("chunking")))
+    except ValueError as error:
+        return json_error(400, str(error))
 
 
 @materials_bp.put("/<int:class_id>/materials/<string:material_id>")
@@ -300,6 +373,32 @@ def rename_material(class_id: int, material_id: str):
     material.title = title
     db.session.commit()
     return jsonify(material=_material_payload(material))
+
+
+@materials_bp.post("/<int:class_id>/materials/<string:material_id>/restore")
+@require_auth
+def restore_material(class_id, material_id):
+    from .generation_restore import restore_generation
+    denied = _assert_class_scope(teacher_required=True)
+    if denied:
+        return denied
+    scope = _material_scope()
+    material = _allowed_material(material_id, scope)
+    if not material:
+        return json_error(404, "material not found")
+    entry = KnowledgeEntry.query.filter_by(material_id=material.id).one_or_none()
+    payload = request.get_json(silent=True) or {}
+    generation_id = payload.get("generation_id") if isinstance(payload, dict) else None
+    if type(generation_id) is not int or generation_id < 1:
+        return json_error(400, "generation_id must be a positive integer")
+    if not entry or not KnowledgeIndexGeneration.query.filter_by(id=generation_id, knowledge_entry_id=entry.id).first():
+        return json_error(404, "generation not found")
+    try:
+        result = restore_generation(entry.id, generation_id)
+        return jsonify(material=_material_payload(material), indexing=result)
+    except ValueError as error:
+        db.session.rollback()
+        return json_error(400, str(error))
 
 
 @materials_bp.delete("/<int:class_id>/materials/<string:material_id>")

@@ -1,0 +1,47 @@
+{
+  "metadata": {
+    "provider": "openai-compatible",
+    "model": "text-embedding-v4",
+    "revision": "local-bailian-v4-v1",
+    "dimensions": 1024,
+    "processing_version": "source-map-v1;chunker-v2;jieba-0.42.1/default-dict+terms-v2",
+    "fingerprint": "340c5e8586b85a9473c8f940bee385108cf146f8522480315c1a98ddca5a8bbe",
+    "chat_provider": "openai-compatible",
+    "chat_model": "deepseek-flash",
+    "hardware": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.41",
+    "embedding_endpoint_host": "ws-iaucspuhthee68eh.cn-beijing.maas.aliyuncs.com",
+    "chat_endpoint_host": "api.deepseek.com"
+  },
+  "checks": {
+    "embedding": {
+      "status": "passed",
+      "batch_items": 2,
+      "query_items": 1,
+      "dimensions": 1024,
+      "latency_ms": 234.86323799443198
+    },
+    "chat": {
+      "status": "passed",
+      "answer_status": "answered",
+      "claims": [
+        {
+          "text": "细胞是生物体结构和功能的基本单位。",
+          "evidence": [
+            {
+              "index": 1,
+              "quote": "细胞是生物体结构和功能的基本单位。",
+              "source_span": {
+                "start": 0,
+                "end": 17
+              }
+            }
+          ]
+        }
+      ],
+      "human_review": "pending",
+      "latency_ms": 909.5231219980633
+    }
+  },
+  "provider_contract_passed": true,
+  "semantic_release_passed": false
+}

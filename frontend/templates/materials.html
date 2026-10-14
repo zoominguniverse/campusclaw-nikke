@@ -1,3 +1,50 @@
 <!doctype html>
-<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>CampusClaw 教学工作区</title><link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}"></head>
-<body class="workspace-page" data-api-url="{{ api_url }}" data-sidebar-open="false"><div class="app-shell"><aside id="workspace-sidebar" class="sidebar"><a class="sidebar-brand" href="#materials"><span class="brand-mark">✦</span><span><strong>CampusClaw</strong><small>智能教学平台</small></span></a><p id="role-kicker" class="nav-kicker"></p><nav id="workspace-nav" class="role-nav"></nav></aside><div class="workspace"><header class="topbar"><button id="nav-toggle" class="nav-toggle" type="button">☰</button><span id="context-indicator" class="context-indicator"></span><span class="topbar-spacer"></span><span id="current-account" class="current-account"></span><button id="logout-button" class="logout-action" type="button">退出登录</button></header><main class="workspace-content"><p id="message" class="status-message"></p><section id="view-materials" class="workspace-view" data-view="materials"><div class="page-intro"><h1 id="materials-heading">教学材料</h1><p>按学科浏览、预览、下载和维护课程资料。</p></div><div class="panel-grid"><section class="panel panel--wide"><h2>材料列表</h2><label class="field-label">学科 <select id="subject-select"><option value="">全部可访问学科</option></select></label><ul id="materials" class="material-list"></ul></section><section id="upload-panel" class="panel panel--narrow" hidden><h2>上传材料</h2><form id="upload-form" class="form-stack"><label>标题（可选）<input name="title"></label><label>材料 <input type="file" name="file" accept=".txt,.md" required></label><input id="upload-subject-id" name="subject_id" type="hidden"><button class="primary-action">上传材料</button></form></section></div></section><section id="view-retrieve" class="workspace-view" data-view="retrieve" hidden><div class="page-intro"><h1>知识检索</h1></div><section class="panel"><form id="search-form" class="inline-form"><label class="field-label">检索词 <input id="search-query" required></label><label class="field-label">模式 <select id="search-mode"><option value="hybrid">混合检索</option><option value="keyword">关键词</option><option value="vector">语义向量</option></select></label><button class="primary-action">开始检索</button></form><p id="search-message" class="status-message"></p><ol id="search-results" class="result-list"></ol></section></section><section id="view-ask" class="workspace-view" data-view="ask" hidden><div class="page-intro"><h1>基于资料提问</h1></div><section class="panel"><form id="ask-form" class="inline-form"><label class="field-label">问题 <input id="ask-question" required></label><button class="primary-action">提交问题</button></form><p id="answer-text" class="status-message"></p><ol id="citations" class="result-list"></ol></section></section><section id="preview" class="panel preview-panel" hidden><h2 id="preview-title">材料预览</h2><pre id="preview-body"></pre><button id="close-preview" class="logout-action" type="button">关闭预览</button></section></main></div></div><script src="{{ url_for('static', filename='auth.js') }}" defer></script><script src="{{ url_for('static', filename='materials.js') }}" defer></script></body></html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>CampusClaw 教学工作区</title><link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}"></head>
+<body class="workspace-page" data-api-url="{{ api_url }}" data-sidebar-open="false">
+<div class="app-shell">
+  <aside id="workspace-sidebar" class="sidebar"><a class="sidebar-brand" href="#materials"><span class="brand-mark">✦</span><span><strong>CampusClaw</strong><small>智能教学平台</small></span></a><p id="role-kicker" class="nav-kicker"></p><nav id="workspace-nav" class="role-nav"></nav></aside>
+  <div class="workspace">
+    <header class="topbar"><button id="nav-toggle" class="nav-toggle" type="button">☰</button><span id="context-indicator" class="context-indicator"></span><span class="topbar-spacer"></span><span id="current-account" class="current-account"></span><button id="logout-button" class="logout-action" type="button">退出登录</button></header>
+    <main class="workspace-content">
+      <section class="panel scope-panel"><label class="field-label">当前学科范围 <select id="subject-select"><option value="">全部可访问学科</option></select></label><p id="capability-status" class="status-message" role="status"></p></section>
+      <p id="message" class="status-message" role="status" aria-live="polite"></p>
+      <section id="view-materials" class="workspace-view" data-view="materials">
+        <div class="page-intro"><h1 id="materials-heading">教学材料</h1><p>按学科浏览课程资料，查看保存与索引状态。</p></div>
+        <div class="panel-grid">
+          <section class="panel panel--wide"><h2>材料列表</h2><ul id="materials" class="material-list"></ul></section>
+          <section id="upload-panel" class="panel panel--narrow" hidden><h2>上传材料</h2><form id="upload-form" class="form-stack"><label>标题（可选）<input name="title"></label><label>材料 <input type="file" name="file" accept=".txt,.md" required></label><input id="upload-subject-id" name="subject_id" type="hidden"><div class="chunk-options-host"></div><div class="action-row"><button id="upload-preview" type="button">预览切片</button><button class="primary-action">保存并建立索引</button></div><div class="chunk-preview" aria-live="polite"></div></form></section>
+        </div>
+        <section id="rebuild-panel" class="panel preview-panel" hidden><h2 id="rebuild-title">重建材料索引</h2><form id="rebuild-form" class="form-stack"><div class="chunk-options-host"></div><div class="action-row"><button id="rebuild-preview" type="button">预览切片</button><button class="primary-action">按当前设置重建</button><button id="close-rebuild" type="button">关闭</button></div><div class="chunk-preview" aria-live="polite"></div></form></section>
+      </section>
+      <section id="view-retrieve" class="workspace-view" data-view="retrieve" hidden>
+        <div class="page-intro"><h1>知识检索</h1><p>先看相关短摘录，再展开证据或定位原文。</p></div>
+        <section class="panel"><form id="search-form" class="inline-form"><label class="field-label">检索词 <input id="search-query" maxlength="2000" required></label><label class="field-label">模式 <select id="search-mode"><option value="hybrid">混合检索</option><option value="keyword">关键词</option><option value="vector">语义向量</option></select></label><button class="primary-action">开始检索</button></form><p id="search-message" class="status-message" role="status"></p><ol id="search-results" class="result-list"></ol></section>
+      </section>
+      <section id="view-ask" class="workspace-view" data-view="ask" hidden>
+        <div class="page-intro"><h1>基于资料提问</h1><p>回答引用已授权资料；资料不足时会明确说明。</p></div>
+        <section class="panel"><form id="ask-form" class="inline-form"><label class="field-label">问题 <input id="ask-question" maxlength="2000" required></label><button class="primary-action">提交问题</button></form><p id="answer-status" class="status-message" role="status"></p><p id="answer-text" class="answer-body"></p><ol id="citations" class="result-list"></ol></section>
+      </section>
+      <section id="preview" class="panel preview-panel" hidden><h2 id="preview-title">材料原文</h2><p id="preview-status" class="status-message"></p><pre id="preview-body" tabindex="0"></pre><button id="close-preview" type="button">关闭原文</button></section>
+    </main>
+  </div>
+</div>
+<template id="chunk-options-template">
+  <fieldset class="chunk-options"><legend>切片设置</legend>
+    <label>策略 <select name="strategy"><option value="auto">自动</option><option value="hierarchy">Markdown 章节</option><option value="custom">自定义</option></select></label>
+    <div class="custom-options" hidden>
+      <label>每片最多字符（100–2000）<input name="max_length" type="number" min="100" max="2000" step="1" value="800"></label>
+      <label>重叠比例（0–50%）<input name="overlap_percent" type="number" min="0" max="50" step="any" value="10"></label>
+      <p class="field-hint">优先在选中的位置切分；都不选时按长度切分。</p>
+      <label class="checkbox-field"><input name="sep_blank_line" type="checkbox" checked>段落边界</label>
+      <label class="checkbox-field"><input name="sep_line" type="checkbox" checked>换行边界</label>
+      <label class="checkbox-field"><input name="sep_sentence" type="checkbox" checked>句末边界</label>
+    </div>
+    <label class="checkbox-field"><input name="remove_urls" type="checkbox">移除链接</label>
+    <label class="checkbox-field"><input name="remove_emails" type="checkbox">移除邮箱</label>
+    <label class="checkbox-field"><input name="collapse_whitespace" type="checkbox">合并连续空白</label>
+    <p class="field-hint">预览不保存资料，也不调用模型。重建失败时保留已有可检索索引。</p>
+  </fieldset>
+</template>
+<script src="{{ url_for('static', filename='auth.js') }}" defer></script><script src="{{ url_for('static', filename='materials.js') }}" defer></script>
+</body></html>
