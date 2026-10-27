@@ -1,0 +1,975 @@
+{
+  "date": "2026-10-27",
+  "environment": "main-normal-runtime",
+  "servers": [
+    {
+      "class_id": 3,
+      "server": {
+        "base_url": "http://mcp-demo:8090",
+        "class_id": 3,
+        "configuration_revision": 1,
+        "connected": true,
+        "connected_at": "2026-10-27T13:39:19.174765+00:00",
+        "has_token": true,
+        "id": 1,
+        "last_error_code": null,
+        "name": "school",
+        "operation_revision": 1,
+        "updated_at": "2026-10-27T13:39:19.159887+00:00"
+      },
+      "tools": [
+        {
+          "declaration_hash": "929538a02e79afc29fd9f64da1f46a48ffaab74e71e22ef85e083b2f6af59695",
+          "description": "给出去括号、移项或公式选择的下一步检查提示，不给出题目最终答案。",
+          "inputSchema": {
+            "additionalProperties": false,
+            "properties": {
+              "query": {
+                "maxLength": 500,
+                "minLength": 2,
+                "type": "string"
+              }
+            },
+            "required": [
+              "query"
+            ],
+            "type": "object"
+          },
+          "name": "formula_hint",
+          "permitted": true,
+          "ref": "formula_hint@school"
+        },
+        {
+          "declaration_hash": "589f160b07e64612f9e5b11aad03e0901b068f545a115a000f774d5b8801fe48",
+          "description": "说明长度、面积、体积、时间和质量的单位关系与换算方向，不计算题目最终答案。",
+          "inputSchema": {
+            "additionalProperties": false,
+            "properties": {
+              "query": {
+                "maxLength": 500,
+                "minLength": 2,
+                "type": "string"
+              }
+            },
+            "required": [
+              "query"
+            ],
+            "type": "object"
+          },
+          "name": "unit_convert",
+          "permitted": true,
+          "ref": "unit_convert@school"
+        }
+      ],
+      "skill_id": 8,
+      "agent_id": 19,
+      "agent_count": 7,
+      "templates": 6
+    },
+    {
+      "class_id": 4,
+      "server": {
+        "base_url": "http://mcp-demo:8090",
+        "class_id": 4,
+        "configuration_revision": 1,
+        "connected": true,
+        "connected_at": "2026-10-27T13:39:19.611109+00:00",
+        "has_token": true,
+        "id": 2,
+        "last_error_code": null,
+        "name": "school",
+        "operation_revision": 1,
+        "updated_at": "2026-10-27T13:39:19.602931+00:00"
+      },
+      "tools": [
+        {
+          "declaration_hash": "929538a02e79afc29fd9f64da1f46a48ffaab74e71e22ef85e083b2f6af59695",
+          "description": "给出去括号、移项或公式选择的下一步检查提示，不给出题目最终答案。",
+          "inputSchema": {
+            "additionalProperties": false,
+            "properties": {
+              "query": {
+                "maxLength": 500,
+                "minLength": 2,
+                "type": "string"
+              }
+            },
+            "required": [
+              "query"
+            ],
+            "type": "object"
+          },
+          "name": "formula_hint",
+          "permitted": true,
+          "ref": "formula_hint@school"
+        },
+        {
+          "declaration_hash": "589f160b07e64612f9e5b11aad03e0901b068f545a115a000f774d5b8801fe48",
+          "description": "说明长度、面积、体积、时间和质量的单位关系与换算方向，不计算题目最终答案。",
+          "inputSchema": {
+            "additionalProperties": false,
+            "properties": {
+              "query": {
+                "maxLength": 500,
+                "minLength": 2,
+                "type": "string"
+              }
+            },
+            "required": [
+              "query"
+            ],
+            "type": "object"
+          },
+          "name": "unit_convert",
+          "permitted": true,
+          "ref": "unit_convert@school"
+        }
+      ],
+      "skill_id": 9,
+      "agent_id": 20,
+      "agent_count": 7,
+      "templates": 6
+    },
+    {
+      "class_id": 5,
+      "server": {
+        "base_url": "http://mcp-demo:8090",
+        "class_id": 5,
+        "configuration_revision": 1,
+        "connected": true,
+        "connected_at": "2026-10-27T13:39:20.003581+00:00",
+        "has_token": true,
+        "id": 3,
+        "last_error_code": null,
+        "name": "school",
+        "operation_revision": 1,
+        "updated_at": "2026-10-27T13:39:19.995058+00:00"
+      },
+      "tools": [
+        {
+          "declaration_hash": "929538a02e79afc29fd9f64da1f46a48ffaab74e71e22ef85e083b2f6af59695",
+          "description": "给出去括号、移项或公式选择的下一步检查提示，不给出题目最终答案。",
+          "inputSchema": {
+            "additionalProperties": false,
+            "properties": {
+              "query": {
+                "maxLength": 500,
+                "minLength": 2,
+                "type": "string"
+              }
+            },
+            "required": [
+              "query"
+            ],
+            "type": "object"
+          },
+          "name": "formula_hint",
+          "permitted": true,
+          "ref": "formula_hint@school"
+        },
+        {
+          "declaration_hash": "589f160b07e64612f9e5b11aad03e0901b068f545a115a000f774d5b8801fe48",
+          "description": "说明长度、面积、体积、时间和质量的单位关系与换算方向，不计算题目最终答案。",
+          "inputSchema": {
+            "additionalProperties": false,
+            "properties": {
+              "query": {
+                "maxLength": 500,
+                "minLength": 2,
+                "type": "string"
+              }
+            },
+            "required": [
+              "query"
+            ],
+            "type": "object"
+          },
+          "name": "unit_convert",
+          "permitted": true,
+          "ref": "unit_convert@school"
+        }
+      ],
+      "skill_id": 10,
+      "agent_id": 21,
+      "agent_count": 7,
+      "templates": 6
+    }
+  ],
+  "real_conversations": [
+    {
+      "case": "formula",
+      "conversation_id": 1,
+      "question": "我把2-(3+x)写成2-3+x，请调用公式提示工具只检查去括号的符号，不要给出最终答案。",
+      "events": [
+        {
+          "event": "meta",
+          "data": {
+            "status": "ok",
+            "skill": {
+              "id": 8,
+              "name": "课堂工具解题引导"
+            },
+            "citations": [],
+            "demo_mode": false
+          }
+        },
+        {
+          "event": "meta",
+          "data": {
+            "status": "ok",
+            "skill": {
+              "id": 8,
+              "name": "课堂工具解题引导"
+            },
+            "citations": [],
+            "demo_mode": false,
+            "tool_calls": [
+              {
+                "call_id": "50078a66418d43beb657423c79790230",
+                "ref": "formula_hint@school",
+                "round": 1,
+                "status": "ok",
+                "reason_code": null,
+                "text": "先看括号前的符号：前面是加号，括号内各项符号保持；前面是减号，每一项都要变号。若有乘数，检查是否乘到了括号内的每一项。请先自己写出这一步，再检查各项。"
+              }
+            ]
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "先"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "看"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "括号"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "前的"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "符号"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "，"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "并"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "逐"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "项"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "对比"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "括号"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "内"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "每一项"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "的"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "符号"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "变化"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "[工具"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "提示"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "]。"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "这一步"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "先"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "不"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "急着"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "算"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "结果"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "。\n\n"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "你"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "写的"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "式子"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "中"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "，"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "减"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "号"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "后面的"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "括号"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "里"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "，"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "每一项"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "是否"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "都"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "变了"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "号"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "？"
+          }
+        },
+        {
+          "event": "done",
+          "data": {
+            "message_id": 2
+          }
+        }
+      ],
+      "answer": "先看括号前的符号，并逐项对比括号内每一项的符号变化[工具提示]。这一步先不急着算结果。\n\n你写的式子中，减号后面的括号里，每一项是否都变了号？",
+      "history": [
+        {
+          "citations": [],
+          "completion_state": "complete",
+          "content": "我把2-(3+x)写成2-3+x，请调用公式提示工具只检查去括号的符号，不要给出最终答案。",
+          "created_at": "2026-10-27T13:39:20.340808+00:00",
+          "id": 1,
+          "role": "user",
+          "skill_name": null,
+          "tool_calls": [
+            {
+              "call_id": "50078a66418d43beb657423c79790230",
+              "reason_code": null,
+              "ref": "formula_hint@school",
+              "round": 1,
+              "status": "ok",
+              "text": "先看括号前的符号：前面是加号，括号内各项符号保持；前面是减号，每一项都要变号。若有乘数，检查是否乘到了括号内的每一项。请先自己写出这一步，再检查各项。"
+            }
+          ]
+        },
+        {
+          "citations": [],
+          "completion_state": "complete",
+          "content": "先看括号前的符号，并逐项对比括号内每一项的符号变化[工具提示]。这一步先不急着算结果。\n\n你写的式子中，减号后面的括号里，每一项是否都变了号？",
+          "created_at": "2026-10-27T13:39:23.545888+00:00",
+          "id": 2,
+          "role": "assistant",
+          "skill_name": "课堂工具解题引导",
+          "tool_calls": [
+            {
+              "call_id": "50078a66418d43beb657423c79790230",
+              "reason_code": null,
+              "ref": "formula_hint@school",
+              "round": 1,
+              "status": "ok",
+              "text": "先看括号前的符号：前面是加号，括号内各项符号保持；前面是减号，每一项都要变号。若有乘数，检查是否乘到了括号内的每一项。请先自己写出这一步，再检查各项。"
+            }
+          ]
+        }
+      ],
+      "audits": [
+        {
+          "call_id": "50078a66418d43beb657423c79790230",
+          "conversation_id": 1,
+          "created_at": "2026-10-27T13:39:21.673757+00:00",
+          "duration_ms": 18,
+          "id": 1,
+          "reason_code": null,
+          "ref": "formula_hint@school",
+          "round": 1,
+          "sequence": 1,
+          "server_id": 1,
+          "server_name": "school",
+          "status": "ok",
+          "text": "先看括号前的符号：前面是加号，括号内各项符号保持；前面是减号，每一项都要变号。若有乘数，检查是否乘到了括号内的每一项。请先自己写出这一步，再检查各项。",
+          "user_id": 31,
+          "user_message_id": 1
+        }
+      ],
+      "passed": true
+    },
+    {
+      "case": "unit",
+      "conversation_id": 2,
+      "question": "5米换算厘米先看什么？请调用单位换算工具给一个提示，不要给出最终数值。",
+      "events": [
+        {
+          "event": "meta",
+          "data": {
+            "status": "ok",
+            "skill": {
+              "id": 8,
+              "name": "课堂工具解题引导"
+            },
+            "citations": [],
+            "demo_mode": false
+          }
+        },
+        {
+          "event": "meta",
+          "data": {
+            "status": "ok",
+            "skill": {
+              "id": 8,
+              "name": "课堂工具解题引导"
+            },
+            "citations": [],
+            "demo_mode": false,
+            "tool_calls": [
+              {
+                "call_id": "d35dbc6e086e4ee6a8266bbd6e6b8ad0",
+                "ref": "unit_convert@school",
+                "round": 1,
+                "status": "ok",
+                "reason_code": null,
+                "text": "长度关系：1 千米等于 1000 米，1 米等于 10 分米或 100 厘米，1 厘米等于 10 毫米。大单位转小单位乘进率，反方向除进率。"
+              }
+            ]
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "先"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "确认"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "“"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "米"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "”"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "和"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "“"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "厘米"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "”"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "之间的"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "进"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "率"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "关系"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "。"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "你能"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "找出"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "1"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "米"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "里面"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "有多少"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "个"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "1"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "厘米"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "吗"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "？\n\n"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": " "
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "工具"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": " unit"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "_"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "convert"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "@"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "school"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": " "
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "返回"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "的数据"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "："
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "1"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": " "
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "米"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "等于"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": " "
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "10"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": " "
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "分米"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "或"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": " "
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "100"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": " "
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "厘米"
+          }
+        },
+        {
+          "event": "delta",
+          "data": {
+            "text": "。"
+          }
+        },
+        {
+          "event": "done",
+          "data": {
+            "message_id": 4
+          }
+        }
+      ],
+      "answer": "先确认“米”和“厘米”之间的进率关系。你能找出1米里面有多少个1厘米吗？\n\n 工具 unit_convert@school 返回的数据：1 米等于 10 分米或 100 厘米。",
+      "history": [
+        {
+          "citations": [],
+          "completion_state": "complete",
+          "content": "5米换算厘米先看什么？请调用单位换算工具给一个提示，不要给出最终数值。",
+          "created_at": "2026-10-27T13:39:23.835042+00:00",
+          "id": 3,
+          "role": "user",
+          "skill_name": null,
+          "tool_calls": [
+            {
+              "call_id": "d35dbc6e086e4ee6a8266bbd6e6b8ad0",
+              "reason_code": null,
+              "ref": "unit_convert@school",
+              "round": 1,
+              "status": "ok",
+              "text": "长度关系：1 千米等于 1000 米，1 米等于 10 分米或 100 厘米，1 厘米等于 10 毫米。大单位转小单位乘进率，反方向除进率。"
+            }
+          ]
+        },
+        {
+          "citations": [],
+          "completion_state": "complete",
+          "content": "先确认“米”和“厘米”之间的进率关系。你能找出1米里面有多少个1厘米吗？\n\n 工具 unit_convert@school 返回的数据：1 米等于 10 分米或 100 厘米。",
+          "created_at": "2026-10-27T13:39:26.946679+00:00",
+          "id": 4,
+          "role": "assistant",
+          "skill_name": "课堂工具解题引导",
+          "tool_calls": [
+            {
+              "call_id": "d35dbc6e086e4ee6a8266bbd6e6b8ad0",
+              "reason_code": null,
+              "ref": "unit_convert@school",
+              "round": 1,
+              "status": "ok",
+              "text": "长度关系：1 千米等于 1000 米，1 米等于 10 分米或 100 厘米，1 厘米等于 10 毫米。大单位转小单位乘进率，反方向除进率。"
+            }
+          ]
+        }
+      ],
+      "audits": [
+        {
+          "call_id": "d35dbc6e086e4ee6a8266bbd6e6b8ad0",
+          "conversation_id": 2,
+          "created_at": "2026-10-27T13:39:24.756144+00:00",
+          "duration_ms": 15,
+          "id": 2,
+          "reason_code": null,
+          "ref": "unit_convert@school",
+          "round": 1,
+          "sequence": 1,
+          "server_id": 1,
+          "server_name": "school",
+          "status": "ok",
+          "text": "长度关系：1 千米等于 1000 米，1 米等于 10 分米或 100 厘米，1 厘米等于 10 毫米。大单位转小单位乘进率，反方向除进率。",
+          "user_id": 31,
+          "user_message_id": 3
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "student_management_denied": true
+}

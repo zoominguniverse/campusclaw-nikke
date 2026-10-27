@@ -17,6 +17,7 @@ from .retrieval import ReindexRequired, RetrievalInputError
 from .mcp_bindings import prepare_bindings, replace_bindings, binding_payload
 from .models import SkillMCPBinding
 from .tutor_tools import ToolPhase, selected_refs, recovered_snapshot
+from .tutor_catalog import catalog, render_template_prompt
 
 tutors_bp = Blueprint("tutors", __name__)
 NOT_FOUND = "resource not found"
@@ -51,6 +52,35 @@ def body_object():
     if not isinstance(body, dict):
         raise ValueError("request must be a JSON object")
     return body
+
+
+@tutors_bp.get("/api/classes/<int:class_id>/prompt-templates")
+@api_doc("prompt_templates_list", "教师读取内置课堂提示词模板", role="teacher", response=obj({"items": {"type": "array", "items": {"type": "object"}}}))
+@require_auth
+def list_prompt_templates(class_id):
+    _, denied = scope_or_error(write=True)
+    return denied if denied else jsonify(items=catalog())
+
+
+@tutors_bp.post("/api/classes/<int:class_id>/prompt-templates/<string:template_id>/render")
+@api_doc("prompt_templates_render", "教师预览带课堂变量的提示词", role="teacher", body=obj({"variables": {"type": "object", "additionalProperties": STRING}}, []), response=obj({"template": {"type": "object"}}), errors={400: "Invalid variables", 404: "Template not found"})
+@require_auth
+def render_prompt_template(class_id, template_id):
+    _, denied = scope_or_error(write=True)
+    if denied:
+        return denied
+    try:
+        body = body_object()
+        if set(body) - {"variables"}:
+            raise ValueError("只接受 variables 字段")
+        variables = body.get("variables", {})
+        if not isinstance(variables, dict):
+            raise ValueError("variables 须为对象")
+        return jsonify(template=render_template_prompt(template_id, variables))
+    except LookupError as error:
+        return json_error(404, str(error))
+    except ValueError as error:
+        return json_error(400, str(error))
 
 
 def skill_payload(skill):

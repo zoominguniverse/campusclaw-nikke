@@ -8,6 +8,20 @@ from uuid import uuid4
 import requests
 
 
+def prompt_templates_list(c):
+    response = c.http('GET', c.base_class + '/prompt-templates', operation='prompt_templates_list')
+    assert response.status_code == 200 and len(response.json()['items']) == 6
+    assert c.http('GET', c.base_class + '/prompt-templates', auth='student', operation='prompt_templates_list').status_code == 403
+
+
+def prompt_templates_render(c):
+    before = c.sql('SELECT count(*) FROM tutor_agents')[0][0]
+    response = c.http('POST', c.base_class + '/prompt-templates/lesson-plan/render', json={'variables': {'subject': '数学', 'topic': '分数', 'minutes': '35'}}, operation='prompt_templates_render')
+    assert response.status_code == 200 and '35分钟' in response.json()['template']['prompt']
+    assert c.http('POST', c.base_class + '/prompt-templates/lesson-plan/render', json={'variables': {'minutes': '0'}}, operation='prompt_templates_render').status_code == 400
+    assert c.sql('SELECT count(*) FROM tutor_agents')[0][0] == before
+
+
 def auth_login(c):
     for role in ("teacher", "student", "classmate", "foreign", "admin"):
         data = c.login(role)

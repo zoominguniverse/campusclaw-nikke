@@ -1,7 +1,8 @@
 """Idempotent demo configuration; never rewrites an existing teacher configuration."""
 from .extensions import db
-from .models import ClassSubject, Material, Skill, TeacherSubjectAssignment, TutorAgent, TutorAgentMaterial, TutorAgentSkill
+from .models import ClassMembership, ClassSubject, Material, SchoolClass, Skill, TeacherSubjectAssignment, TutorAgent, TutorAgentMaterial, TutorAgentSkill
 from .tutor_skills import parse_skill
+from .tutor_catalog import TEMPLATES, NEW_APPLICATION_IDS, render_template_prompt
 
 SAMPLES = {
     "mathematics": "名称：数学解题引导\n适用条件：方程,去括号,分数,通分,面积,应用题,未知数,行程\n资料：数学\n工具：knowledge_search\n启用：是\n\n先看懂学生卡在哪一步，只指出下一步该检查什么。去括号时检查每一项是否都乘到了系数，分母不同先检查是否通分。不要算出最终得数，不要给完整过程。依据本班数学资料，说明错在哪一项。",
@@ -35,4 +36,18 @@ def seed_tutor_data():
             db.session.add(TutorAgentSkill(agent_id=agent.id, skill_id=skill.id))
         for material in Material.query.filter_by(class_id=subject.class_id, subject_id=subject.id):
             db.session.add(TutorAgentMaterial(agent_id=agent.id, material_id=material.id))
+    for school_class in SchoolClass.query.order_by(SchoolClass.id):
+        teacher = ClassMembership.query.filter_by(class_id=school_class.id, is_teacher=True).order_by(ClassMembership.id).first()
+        if not teacher:
+            continue
+        for template in TEMPLATES:
+            if template["id"] not in NEW_APPLICATION_IDS:
+                continue
+            seed_key = f"classroom-{template['id']}-v1"
+            existing = TutorAgent.query.filter_by(class_id=school_class.id, seed_key=seed_key).first()
+            if existing or TutorAgent.query.filter_by(class_id=school_class.id, name=template["app_name"]).first():
+                continue
+            rendered = render_template_prompt(template["id"])
+            db.session.add(TutorAgent(class_id=school_class.id, seed_key=seed_key, name=template["app_name"],
+                                     prompt=rendered["prompt"], created_by=teacher.user_id, updated_by=teacher.user_id))
     db.session.commit()

@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-27",
+  "real_model_calls": 1,
+  "embedding_calls": 1,
+  "chat_http_status": 200,
+  "embedding_http_status": 200,
+  "system_code_points": 704,
+  "selected_skill_source_code_points": 161,
+  "selected_skill_description_code_points": 87,
+  "full_skill_description_sent": true,
+  "original_skill_file_sent": false,
+  "evidence_count": 1,
+  "evidence_code_points": [
+    11
+  ],
+  "sse_reconstruction_matches": true,
+  "database_counts_unchanged": true,
+  "mcp_current_runtime_enabled": false,
+  "mcp_new_live_verification": false,
+  "historical_mcp_cases_checked": 5,
+  "historical_mcp_dependent_decisions": 3,
+  "exchange_record_sha256": "354e69fc4fb105040e210eae5fc08fd5e63d7fb3aed515e3f5c071baab7e0268",
+  "historical_mcp_record_sha256": "d415b6a0053ec41b1446172597a69833fe10a558dfcc8f3639170e4ec178a0e1"
+}

@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const selected = id => [...$(id).selectedOptions].map(option => option.value);
   let agentId = null, skillId = null, agents = [], skills = [], materials = [], base;
   let materialsTouched = false, hiddenMaterials = 0;
+  let promptTemplates = [];
   async function api(path, options) {
     const response = await CampusAuth.apiFetch(path, options), data = response.status === 204 ? {} : await response.json().catch(() => ({}));
     if (!response.ok) throw new Error(response.status === 401 ? '登录已过期，请重新登录。' : data.error || '请求失败');
@@ -78,10 +79,46 @@ document.addEventListener('DOMContentLoaded', async () => {
     } catch (error) { $('#skill-mcp-hint').textContent = error.message; }
   });
   $('#new-agent').onclick = () => { editAgent(); $('#agent-name').focus(); };
+  async function renderTemplate() {
+    const identifier = $('#prompt-template').value;
+    if (!identifier) throw new Error('请先选择提示词模板');
+    const variables = Object.fromEntries(['subject', 'grade', 'topic', 'minutes'].map(name => [name, $(`#template-${name}`).value]));
+    const data = await api(`${base}/prompt-templates/${encodeURIComponent(identifier)}/render`, json({variables}, 'POST'));
+    $('#template-preview').value = data.template.prompt;
+    return data.template;
+  }
+  async function templateAction(apply) {
+    $('#preview-template').disabled = true; $('#apply-template').disabled = true;
+    try {
+      const item = await renderTemplate();
+      if (apply) {
+        $('#agent-prompt').value = item.prompt;
+        if (!agentId && !$('#agent-name').value.trim()) $('#agent-name').value = item.app_name;
+        $('#template-status').textContent = '已应用到角色提示词；可继续编辑，点击“保存智能体”后生效。';
+        $('#agent-prompt').focus();
+      } else $('#template-status').textContent = '预览已生成，尚未修改或保存智能体。';
+    } catch (error) { $('#template-status').textContent = error.message; }
+    finally { $('#preview-template').disabled = false; $('#apply-template').disabled = false; }
+  }
+  $('#preview-template').onclick = () => templateAction(false);
+  $('#apply-template').onclick = () => templateAction(true);
+  $('#prompt-template').onchange = () => {
+    const item = promptTemplates.find(item => item.id === $('#prompt-template').value);
+    $('#template-description').textContent = item ? `${item.audience} · ${item.description}` : '';
+    $('#template-preview').value = ''; $('#template-status').textContent = '';
+  };
   $('#new-skill').onclick = () => { editSkill(); $('#skill-source').focus(); };
   $('#delete-skill').onclick = async () => {
     if (!skillId || !confirm('删除此技能并解除所有智能体绑定？')) return;
     try { await api(`${base}/skills/${skillId}`, {method: 'DELETE'}); skillId = null; await load(); status('技能已删除并解绑。'); } catch (error) { status(error.message); }
   };
   try { await load(); } catch (error) { status(error.message); }
+  try {
+    promptTemplates = (await api(`${base}/prompt-templates`)).items;
+    const host = $('#prompt-template');
+    host.replaceChildren(...promptTemplates.map(item => { const option = node('option', item.name); option.value = item.id; return option; }));
+    host.disabled = !promptTemplates.length;
+    $('#preview-template').disabled = !promptTemplates.length; $('#apply-template').disabled = !promptTemplates.length;
+    host.onchange();
+  } catch (error) { $('#template-status').textContent = `模板暂不可用：${error.message}`; }
 });
