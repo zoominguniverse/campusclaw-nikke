@@ -4,6 +4,10 @@
 场景：教师上传 `.txt` 或 `.md` 材料后，本班师生可在材料列表中看到记录，跨班访问与学生上传均由服务端拒绝。  
 范围：实现材料管理、可追溯检索和简短证据问答；暂不实现通用对话助手、作业提交/批改、SSO 或生产级高可用。
 
+## OpenSpec 规格与归档
+
+2026-10-27 已完成全部 10 项变更的主规格同步与归档，270/270 项任务完成，当前无活动变更。30 个主规格位于 `openspec/specs/`，历史提案、设计和任务原文保存在 `openspec/changes/archive/2026-10-27-*/`。变更清单、能力导航和新旧约定合并说明见 [OpenSpec 归档记录](openspec/README.md)。
+
 ## Docker Compose 启动
 
 1. 复制配置：`Copy-Item .env.example .env`（PowerShell）或 `cp .env.example .env`。
@@ -102,7 +106,7 @@ docker compose -p campusclaw-tutor-test -f docker-compose.tutor-test.yml run --r
 
 2026-10-20：收紧解题引导为单步提示，避免把阅读中心拆成关键词泄露及虚构学生进度；相关26项回归通过，重新采集12组真实模型输出并核对流/引用范围/数据库记录一致。语文解绑对照仍有1例漏标引用，质量未通过；人工质量与同伴验收继续待办，进度43/45。5177隔离演示已使用当前提示词。
 
-2026-10-27：用户确认第5课9.2真实模型质量验收、9.3实际同伴交叉验证均已完成，OpenSpec `add-agent-skills-streaming-tutor` 45/45，未归档。见 [用户验收确认](docs/tutor-acceptance/user-confirmation.md)；原始回答、历史问题和采集状态保留，本次未新增模型测试或同伴明细。
+2026-10-27：用户确认第5课9.2真实模型质量验收、9.3实际同伴交叉验证均已完成，OpenSpec `add-agent-skills-streaming-tutor` 45/45，已于同日同步主规格并归档。见 [用户验收确认](docs/tutor-acceptance/user-confirmation.md)；原始回答、历史问题和采集状态保留，本次未新增模型测试或同伴明细。
 
 
 ### 第6课：MCP 工具与模型自主多轮调用
@@ -113,4 +117,4 @@ docker compose -p campusclaw-tutor-test -f docker-compose.tutor-test.yml run --r
 
 2026-10-21：后端249项、隔离PostgreSQL18项、前端7项、MCP服务9项通过，36/36接口操作和浏览器/Swagger流程通过；已演练升级两次、关闭功能与旧镜像回滚。用户授权的5组真实 DeepSeek 样例已执行、审阅并核对 SSE/审计/消息/配额一致，见 [真实模型复核](docs/mcp-acceptance/real-model-review.md)。OpenSpec 42/43，实际同伴交叉验证待完成；fixture不计为真实模型质量通过，原第5课43/45待办保持原状。证据、复现入口和限制见 [第6课验收记录](docs/mcp-acceptance/implementation-acceptance.md)。
 
-2026-10-27：用户确认四项实际同伴复核完成、结果正确，并要求简化为用户确认记录；验收约定和 [同伴复核记录](docs/mcp-acceptance/peer-review.md) 已同步，OpenSpec `add-mcp-tool-integration` 43/43 完成，未归档。第5课随后也经用户确认9.2、9.3完成，现为45/45，见上方第5课用户验收确认。
+2026-10-27：用户确认四项实际同伴复核完成、结果正确，并要求简化为用户确认记录；验收约定和 [同伴复核记录](docs/mcp-acceptance/peer-review.md) 已同步，OpenSpec `add-mcp-tool-integration` 43/43 完成，已于同日同步主规格并归档。第5课随后也经用户确认9.2、9.3完成，现为45/45，见上方第5课用户验收确认。
