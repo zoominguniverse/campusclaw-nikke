@@ -62,8 +62,8 @@ CHAT_TIMEOUT_SECONDS=60
 2. 在独立数据库跑开发集，校准并冻结profile/阈值，最低cosine仍为0.35。override只导入provider配置，数据库仍为独立`quality_test`/tmpfs：
 
 ```powershell
-docker compose -p campusclaw-quality-real -f docker-compose.retrieval-test.yml -f docker-compose.retrieval-real.yml config --quiet
-docker compose -p campusclaw-quality-real -f docker-compose.retrieval-test.yml -f docker-compose.retrieval-real.yml run --build --rm --entrypoint python quality-tests -m evaluation.run --split dev --output /quality-results/dev-real
+docker compose --env-file .env -p campusclaw-quality-real -f deploy/testing/docker-compose.retrieval-test.yml -f deploy/testing/docker-compose.retrieval-real.yml config --quiet
+docker compose --env-file .env -p campusclaw-quality-real -f deploy/testing/docker-compose.retrieval-test.yml -f deploy/testing/docker-compose.retrieval-real.yml run --build --rm --entrypoint python quality-tests -m evaluation.run --split dev --output /quality-results/dev-real
 ```
 
 3. 冻结后改为`--split release --output /quality-results/release-real`。未通过退出2（部分Compose版本对外返回1），报告仍保存。不能改发布查询/标签掩盖失败。

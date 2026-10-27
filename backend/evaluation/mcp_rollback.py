@@ -5,7 +5,7 @@ import subprocess
 
 def main():
     root = Path(__file__).resolve().parents[2]
-    compose = ["docker", "compose", "-f", str(root / "docker-compose.mcp-test.yml")]
+    compose = ["docker", "compose", "-f", str(root / "deploy/testing/docker-compose.mcp-test.yml")]
     def run(args):
         return subprocess.run(args, check=True, capture_output=True, text=True).stdout
     run(compose + ["exec", "-T", "mcp-postgres", "pg_dump", "-U", "mcp_test", "-d", "mcp_test", "-Fc", "-f", "/tmp/mcp-rollback.dump"])

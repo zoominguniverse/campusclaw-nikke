@@ -16,8 +16,8 @@ docker compose up -d --build api web mcp-demo
 先在独立副本升级两次并核对旧行，再对正式库操作。可复现机器验收：
 
 ```powershell
-docker compose -f docker-compose.mcp-test.yml up -d --build mcp-postgres mcp-demo mcp-provider mcp-api mcp-web
-docker compose -f docker-compose.mcp-test.yml run --rm mcp-apitest
+docker compose -f deploy/testing/docker-compose.mcp-test.yml up -d --build mcp-postgres mcp-demo mcp-provider mcp-api mcp-web
+docker compose -f deploy/testing/docker-compose.mcp-test.yml run --rm mcp-apitest
 ```
 
 该环境数据库mcp_test、tmpfs、独立上传目录、只读验收角色mcp_readonly，与开发库及5174隔离。重复运行使用新资源名；不会删除教师资源。报告在忽略的 apitest/reports。Windows本机验收端口5284，5178被系统保留。PostgreSQL破坏性schema测试只能使用另建的quality_*库与QUALITY_DISPOSABLE_DATABASE=true，不得指向mcp_test或开发库。

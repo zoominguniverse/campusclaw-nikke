@@ -14,14 +14,14 @@ services:
       timeout: 5s
       retries: 30
   mcp-demo:
-    build: ./mcp-server
+    build: ../../mcp-server
     environment:
       MCP_AUTH_TOKEN: disposable-mcp-token
   mcp-provider:
-    build: ./backend
+    build: ../../backend
     entrypoint: [gunicorn, --bind, "0.0.0.0:8090", --workers, "1", --worker-class, gthread, --threads, "8", "evaluation.tutor_provider_fixture:app"]
   mcp-api:
-    build: ./backend
+    build: ../../backend
     entrypoint: [python, -m, evaluation.tutor_fixture]
     environment:
       SECRET_KEY: disposable-mcp-server-secret
@@ -48,7 +48,7 @@ services:
       timeout: 5s
       retries: 30
   mcp-web:
-    build: ./frontend
+    build: ../../frontend
     environment:
       API_INTERNAL_URL: http://mcp-api:8080
       API_PUBLIC_URL: ""
@@ -56,10 +56,10 @@ services:
     depends_on:
       mcp-api: {condition: service_healthy}
   mcp-apitest:
-    build: ./backend
+    build: ../../backend
     volumes:
-      - ./apitest:/apitest
-      - ./backend/tutor_samples:/samples:ro
+      - ../../apitest:/apitest
+      - ../../backend/tutor_samples:/samples:ro
     working_dir: /apitest
     entrypoint: [python, run_all.py]
     environment:

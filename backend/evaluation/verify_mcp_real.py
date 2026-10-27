@@ -23,7 +23,7 @@ def main():
          FROM messages m WHERE m.conversation_id=c.id) AS messages
         FROM conversations c WHERE c.id IN (%s) ORDER BY c.id
     ) t""" % ",".join(str(i) for i in identifiers)
-    command = ["docker", "compose", "-f", str(root / "docker-compose.mcp-test.yml"),
+    command = ["docker", "compose", "-f", str(root / "deploy/testing/docker-compose.mcp-test.yml"),
                "exec", "-T", "mcp-postgres", "psql", "-U", "mcp_readonly", "-d", "mcp_test",
                "-At", "-v", "ON_ERROR_STOP=1", "-c", "BEGIN READ ONLY; " + query + "; COMMIT;"]
     output = subprocess.run(command, check=True, capture_output=True, text=True, encoding="utf-8").stdout

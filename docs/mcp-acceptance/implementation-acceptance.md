@@ -62,9 +62,9 @@ Chrome 访问独立 `http://localhost:5284`，仅用隔离 fixture 账号。
 ## 复现入口
 
 ```powershell
-docker compose -f docker-compose.mcp-test.yml up -d --build mcp-postgres mcp-demo mcp-provider mcp-api mcp-web
-docker compose -f docker-compose.mcp-test.yml run --rm mcp-apitest
-docker compose -f docker-compose.mcp-test.yml run --rm mcp-apitest --inject-failure
+docker compose -f deploy/testing/docker-compose.mcp-test.yml up -d --build mcp-postgres mcp-demo mcp-provider mcp-api mcp-web
+docker compose -f deploy/testing/docker-compose.mcp-test.yml run --rm mcp-apitest
+docker compose -f deploy/testing/docker-compose.mcp-test.yml run --rm mcp-apitest --inject-failure
 node frontend/tests/test_tutor_sse.cjs
 node frontend/tests/test_tutor_tools.cjs
 openspec validate add-mcp-tool-integration --strict

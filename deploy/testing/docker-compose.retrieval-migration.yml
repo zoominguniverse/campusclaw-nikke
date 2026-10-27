@@ -1,0 +1,6 @@
+# Prepare the ignored backup copy before using this isolated drill override.
+services:
+  quality-tests:
+    volumes:
+      - ../../.retrieval-backups/migration-drill/backend:/legacy/backend:ro
+      - ../../.retrieval-backups/migration-drill/uploads:/tmp/quality-uploads:ro

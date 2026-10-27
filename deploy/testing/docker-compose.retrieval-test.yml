@@ -14,11 +14,11 @@ services:
       timeout: 5s
       retries: 30
   quality-tests:
-    build: ./backend
+    build: ../../backend
     volumes:
-      - ./.env.example:/.env.example:ro
-      - ./README.md:/README.md:ro
-      - ./docs/retrieval-quality-artifacts:/quality-results
+      - ../../.env.example:/.env.example:ro
+      - ../../README.md:/README.md:ro
+      - ../../docs/retrieval-quality-artifacts:/quality-results
     entrypoint: ["python", "-m", "pytest"]
     command: ["tests", "-q", "-p", "no:cacheprovider"]
     environment:

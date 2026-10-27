@@ -13,7 +13,7 @@ services:
       timeout: 5s
       retries: 30
   browser-api:
-    build: ./backend
+    build: ../../backend
     entrypoint: [python, -m, evaluation.browser_fixture]
     environment:
       SECRET_KEY: disposable-browser-server-secret
@@ -33,7 +33,7 @@ services:
       timeout: 5s
       retries: 30
   browser-web:
-    build: ./frontend
+    build: ../../frontend
     environment:
       API_INTERNAL_URL: http://browser-api:8080
       API_PUBLIC_URL: ""

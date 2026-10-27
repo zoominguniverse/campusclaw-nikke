@@ -14,6 +14,8 @@
 2. 在 `.env` 中填入彼此不同的强随机 `SECRET_KEY` 和 `AUTH_TOKEN_SECRET`、数据库密码，以及 `DEMO_ACCOUNT_PASSWORDS` JSON 中每个固定演示用户名的私有密码。数据库连接中的密码须与 `POSTGRES_PASSWORD` 一致。
 3. 执行：`docker compose up --build`。
 
+根目录的 `docker-compose.yml` 用于正常运行。测试与验收配置统一位于 [`deploy/testing/`](deploy/testing/README.md)，以下相关命令均从项目根目录执行。
+
 服务端口：
 
 | 服务 | 地址 | 用途 |
@@ -84,9 +86,9 @@ SEMANTIC_RELEASE=false
 硅基流动/BGE-M3、百炼和DeepSeek的配置示例及接入顺序见[真实服务配置](docs/retrieval-provider-setup.md)。
 
 ```powershell
-docker compose -p campusclaw-quality -f docker-compose.retrieval-test.yml run --build --rm quality-tests
-docker compose -p campusclaw-quality -f docker-compose.retrieval-test.yml run --rm -e QUALITY_PERFORMANCE=true quality-tests tests/test_retrieval_performance.py -q
-docker compose -p campusclaw-quality-browser -f docker-compose.retrieval-browser.yml up -d --build
+docker compose -p campusclaw-quality -f deploy/testing/docker-compose.retrieval-test.yml run --build --rm quality-tests
+docker compose -p campusclaw-quality -f deploy/testing/docker-compose.retrieval-test.yml run --rm -e QUALITY_PERFORMANCE=true quality-tests tests/test_retrieval_performance.py -q
+docker compose -p campusclaw-quality-browser -f deploy/testing/docker-compose.retrieval-browser.yml up -d --build
 ```
 
 测试数据库仅使用独立 `quality_*` PostgreSQL/tmpfs，不连接当前开发库；浏览器环境为 `http://localhost:5175/login`，使用可控演示服务，测试凭据见测试fixture。报告保存在 `docs/retrieval-quality-artifacts`，2026-10-14 已通过真实语义门槛、50 条人工审阅和真实性能/回滚验收，OpenSpec 44/44 完成。主项目运行于 http://localhost:5174，已切换百炼 1024 维 + DeepSeek，并在备份后重建全部 4 条既有材料。见[最终报告](docs/retrieval-quality-artifacts/release-acceptance.md)。详见[评测步骤](docs/retrieval-quality-evaluation.md)和[迁移/回滚](docs/retrieval-quality-migration.md)。
@@ -96,8 +98,8 @@ docker compose -p campusclaw-quality-browser -f docker-compose.retrieval-browser
 教师在 `/tutor-config` 维护本班智能体、中文技能文件及当前获授权材料绑定；师生在 `/tutor` 创建固定智能体的私有会话，查看增量回答、技能标签与原文引用。`/swagger/` 提供同源接口试调。已有材料、知识检索及单次证据问答入口保留。技能格式、师生操作和升级策略见[技能说明](docs/tutor-skills.md)、[使用与接口契约](docs/tutor-conversations.md)、[升级与回滚](docs/tutor-migration.md)。
 
 ```powershell
-docker compose -p campusclaw-tutor-test -f docker-compose.tutor-test.yml up -d --build tutor-web tutor-provider
-docker compose -p campusclaw-tutor-test -f docker-compose.tutor-test.yml run --rm --build tutor-apitest
+docker compose -p campusclaw-tutor-test -f deploy/testing/docker-compose.tutor-test.yml up -d --build tutor-web tutor-provider
+docker compose -p campusclaw-tutor-test -f deploy/testing/docker-compose.tutor-test.yml run --rm --build tutor-apitest
 ```
 
 隔离演示入口为 `http://localhost:5176/login`，fixture凭据见 `backend/tests/conftest.py`；接口报告生成至已忽略的 `apitest/reports/latest.html`。不连接5174开发库。真实模型验收使用独立5177环境，调用计划及样例见[真实模型复核](docs/tutor-acceptance/review-results.md)。
@@ -113,7 +115,7 @@ docker compose -p campusclaw-tutor-test -f docker-compose.tutor-test.yml run --r
 
 教师可在 `/tutor-config` 登记班内MCP服务器，连接发现、审阅并确认声明，将 `formula_hint@school` / `unit_convert@school` 写入技能并绑定智能体。模型自主决定工具和参数，宿主逐次检查权限、持久化配额与审计，最终正文仍增量流式返回。MCP默认关闭，原知识检索可继续使用。
 
-配置与预算见 [工具说明](docs/mcp-tools.md)，密钥、升级和回滚见 [迁移说明](docs/mcp-migration.md)，独立服务见 [服务README](mcp-server/README.md)。隔离验收使用 `docker compose -f docker-compose.mcp-test.yml up -d --build mcp-postgres mcp-demo mcp-provider mcp-api mcp-web`，随后 `docker compose -f docker-compose.mcp-test.yml run --rm mcp-apitest`。浏览器入口 http://localhost:5284，固定测试账号同第5课，不使用开发库或真实密钥；报告在忽略的 `apitest/reports/latest.html`。
+配置与预算见 [工具说明](docs/mcp-tools.md)，密钥、升级和回滚见 [迁移说明](docs/mcp-migration.md)，独立服务见 [服务README](mcp-server/README.md)。隔离验收使用 `docker compose -f deploy/testing/docker-compose.mcp-test.yml up -d --build mcp-postgres mcp-demo mcp-provider mcp-api mcp-web`，随后 `docker compose -f deploy/testing/docker-compose.mcp-test.yml run --rm mcp-apitest`。浏览器入口 http://localhost:5284，固定测试账号同第5课，不使用开发库或真实密钥；报告在忽略的 `apitest/reports/latest.html`。
 
 2026-10-21：后端249项、隔离PostgreSQL18项、前端7项、MCP服务9项通过，36/36接口操作和浏览器/Swagger流程通过；已演练升级两次、关闭功能与旧镜像回滚。用户授权的5组真实 DeepSeek 样例已执行、审阅并核对 SSE/审计/消息/配额一致，见 [真实模型复核](docs/mcp-acceptance/real-model-review.md)。OpenSpec 42/43，实际同伴交叉验证待完成；fixture不计为真实模型质量通过，原第5课43/45待办保持原状。证据、复现入口和限制见 [第6课验收记录](docs/mcp-acceptance/implementation-acceptance.md)。
 

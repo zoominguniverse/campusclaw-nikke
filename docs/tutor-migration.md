@@ -15,7 +15,7 @@
 可复现命令（先将上一版 `backend/` 解压到忽略的 `.vendor/tutor-previous/backend`）：
 
 ```powershell
-docker compose -p campusclaw-quality-test -f docker-compose.retrieval-test.yml run --rm --build -e PREVIOUS_BACKEND_DIR=/previous-backend -v E:/Projects/campusclaw-nikke/.vendor/tutor-previous/backend:/previous-backend:ro quality-tests tests -q -p no:cacheprovider
+docker compose -p campusclaw-quality-test -f deploy/testing/docker-compose.retrieval-test.yml run --rm --build -e PREVIOUS_BACKEND_DIR=/previous-backend -v E:/Projects/campusclaw-nikke/.vendor/tutor-previous/backend:/previous-backend:ro quality-tests tests -q -p no:cacheprovider
 ```
 
 挂载源路径替换为本机仓库的绝对路径。`test_tutor_postgres.py`仅接受隔离 `quality_*` 数据库；旧源码目录未配置时回滚项会跳过，不能把跳过计为回滚完成。

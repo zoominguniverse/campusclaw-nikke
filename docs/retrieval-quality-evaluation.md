@@ -22,9 +22,9 @@ python -m pytest tests/test_retrieval_quality_regressions.py -q -p no:cacheprovi
 在项目根目录执行；独立compose项目、tmpfs、无host端口、无生产volume，不加载业务.env的数据库地址：
 
 ```powershell
-docker compose -p campusclaw-quality -f docker-compose.retrieval-test.yml up -d --wait quality-postgres
-docker compose -p campusclaw-quality -f docker-compose.retrieval-test.yml run --build --rm quality-tests
-docker compose -p campusclaw-quality -f docker-compose.retrieval-test.yml down
+docker compose -p campusclaw-quality -f deploy/testing/docker-compose.retrieval-test.yml up -d --wait quality-postgres
+docker compose -p campusclaw-quality -f deploy/testing/docker-compose.retrieval-test.yml run --build --rm quality-tests
+docker compose -p campusclaw-quality -f deploy/testing/docker-compose.retrieval-test.yml down
 ```
 
 fixture在每次运行创建自己的schema/演示资料，测试结束清理。仅允许数据库名 `quality_*` 且设置 `QUALITY_DISPOSABLE_DATABASE=true` 的目标。常规pytest缺少`POSTGRES_INTEGRATION_URL`会skip：这表示PostgreSQL验收未完成，不能视为发布通过。
@@ -46,7 +46,7 @@ python -m evaluation.report --results <results.json> --output <report-path> --sp
 执行框架会在明确标为一次性的数据库中幂等装载上述语料、按scope检索，并产出`.results.json`和报告。运行示例（容器内`/tmp`报告为临时文件，可按需要增加工作区目录bind mount保存）：
 
 ```powershell
-docker compose -p campusclaw-quality -f docker-compose.retrieval-test.yml run --build --rm --entrypoint python quality-tests -m evaluation.run --split release --output /quality-results/release-demo
+docker compose -p campusclaw-quality -f deploy/testing/docker-compose.retrieval-test.yml run --build --rm --entrypoint python quality-tests -m evaluation.run --split release --output /quality-results/release-demo
 ```
 
 目前测试服务刻意固定为demo；此命令的真实vector/hybrid/ask记录为`incomplete`，退出2。真实验收须用服务端环境覆盖真实provider及已冻结profile；不要使用生产数据库或把密钥作为可见的命令参数。
@@ -60,7 +60,7 @@ docker compose -p campusclaw-quality -f docker-compose.retrieval-test.yml run --
 根目录`.env`配置方法见[服务接入说明](retrieval-provider-setup.md)。先执行受控请求，不装载业务资料或写入业务库：
 
 ```powershell
-docker compose -p campusclaw-quality-real -f docker-compose.retrieval-test.yml -f docker-compose.retrieval-real.yml run --build --rm --entrypoint python quality-tests -m evaluation.preflight --output /quality-results/provider-preflight.json
+docker compose --env-file .env -p campusclaw-quality-real -f deploy/testing/docker-compose.retrieval-test.yml -f deploy/testing/docker-compose.retrieval-real.yml run --build --rm --entrypoint python quality-tests -m evaluation.preflight --output /quality-results/provider-preflight.json
 ```
 
 检查两个embedding文本的批量响应与一个查询响应、维度/finite/nonzero及chat结构化引用。此命令即使契约通过也不代表语义质量通过。演示或配置缺失返回未完成；错误记录不包含服务响应正文或密钥。旧[演示契约报告](retrieval-quality-artifacts/provider-preflight.json)保留用于工具对照；实际通过证据以[最终验收报告](retrieval-quality-artifacts/release-acceptance.md)为准。
@@ -68,20 +68,20 @@ docker compose -p campusclaw-quality-real -f docker-compose.retrieval-test.yml -
 真实发布集完成后导出待人工审阅文件：
 
 ```powershell
-docker compose -p campusclaw-quality-real -f docker-compose.retrieval-test.yml -f docker-compose.retrieval-real.yml run --rm --entrypoint python quality-tests -m evaluation.review --results /quality-results/release-real.results.json --output /quality-results/release-real-review.pending.json
+docker compose --env-file .env -p campusclaw-quality-real -f deploy/testing/docker-compose.retrieval-test.yml -f deploy/testing/docker-compose.retrieval-real.yml run --rm --entrypoint python quality-tests -m evaluation.review --results /quality-results/release-real.results.json --output /quality-results/release-real-review.pending.json
 ```
 
 复制文件为`release-real-review.completed.json`，填写`reviewer`，逐条检查claim与quote、原文区间、reference_fact的支持关系，并填写每条`claim_reviews`和整体`response_review`的status/note。status可为pending/supported/unsupported/ambiguous，已审阅项必须写说明；资料不足也需要整体审阅。不要修改绑定的查询、回答、引用或hash。模型/profile/回答变化后重新导出审阅，不复用旧结论。演示[50条待审阅清单](retrieval-quality-artifacts/release-demo-review.pending.json)仅展示格式。
 
 ```powershell
-docker compose -p campusclaw-quality-real -f docker-compose.retrieval-test.yml -f docker-compose.retrieval-real.yml run --rm --entrypoint python quality-tests -m evaluation.review --results /quality-results/release-real.results.json --reviews /quality-results/release-real-review.completed.json --output /quality-results/release-real.reviewed.results.json
-docker compose -p campusclaw-quality-real -f docker-compose.retrieval-test.yml -f docker-compose.retrieval-real.yml run --rm --entrypoint python quality-tests -m evaluation.report --results /quality-results/release-real.reviewed.results.json --output /quality-results/release-real-reviewed --split release
+docker compose --env-file .env -p campusclaw-quality-real -f deploy/testing/docker-compose.retrieval-test.yml -f deploy/testing/docker-compose.retrieval-real.yml run --rm --entrypoint python quality-tests -m evaluation.review --results /quality-results/release-real.results.json --reviews /quality-results/release-real-review.completed.json --output /quality-results/release-real.reviewed.results.json
+docker compose --env-file .env -p campusclaw-quality-real -f deploy/testing/docker-compose.retrieval-test.yml -f deploy/testing/docker-compose.retrieval-real.yml run --rm --entrypoint python quality-tests -m evaluation.report --results /quality-results/release-real.reviewed.results.json --output /quality-results/release-real-reviewed --split release
 ```
 
 真实性能使用专属一次性项目，装载20 scopes/10,000片；会调用真实embedding/chat并产生服务费用。不要与语料评测或业务库共用数据库。工具使用当前配置维度及同一次查询向量做50次精确Top10对照，记录每路径20次预热后100次请求、DB/provider/total p95、硬件与EXPLAIN。未启用ANN；性能通过仍不能单独启用semantic release。
 
 ```powershell
-docker compose -p campusclaw-quality-performance -f docker-compose.retrieval-test.yml -f docker-compose.retrieval-real.yml run --build --rm --entrypoint python quality-tests -m evaluation.performance --output /quality-results/performance-real.json
+docker compose --env-file .env -p campusclaw-quality-performance -f deploy/testing/docker-compose.retrieval-test.yml -f deploy/testing/docker-compose.retrieval-real.yml run --build --rm --entrypoint python quality-tests -m evaluation.performance --output /quality-results/performance-real.json
 ```
 
 重新运行前用相同project/files执行`down`清理该一次性tmpfs数据库。禁止对业务项目执行此清理。非真实provider默认退出未完成且不装载性能fixture；`--allow-demo`仅用于工具回归。

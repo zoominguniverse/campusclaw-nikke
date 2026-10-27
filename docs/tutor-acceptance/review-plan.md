@@ -6,7 +6,7 @@
 
 当前目标：DeepSeek `api.deepseek.com` 的 `deepseek-flash`（角色、技能、问题、证据和历史）；阿里云 `ws-iaucspuhthee68eh.cn-beijing.maas.aliyuncs.com` 的 `text-embedding-v4`（上述样例原文与问题embedding）。独立临时数据库，web5177，不改动5174开发环境。
 
-通过 `docker compose -p campusclaw-tutor-real -f docker-compose.tutor-real.yml up -d --build real-web` 启动，随后 `docker compose -p campusclaw-tutor-real -f docker-compose.tutor-real.yml exec real-api python -m evaluation.tutor_real_review` 收集真实输出。此计划不代表已取得出站批准或已通过质量验收。记录保存在 `real-provider.json`，没有令牌或密钥。
+通过 `docker compose --env-file .env -p campusclaw-tutor-real -f deploy/testing/docker-compose.tutor-real.yml up -d --build real-web` 启动，随后 `docker compose --env-file .env -p campusclaw-tutor-real -f deploy/testing/docker-compose.tutor-real.yml exec real-api python -m evaluation.tutor_real_review` 收集真实输出。此计划不代表已取得出站批准或已通过质量验收。记录保存在 `real-provider.json`，没有令牌或密钥。
 
 用户已于2026-10-14明确批准上述真实模型调用，12组最终实际输出已收集至 `review-results.md` 和 `real-provider.json`。用户选择“稍后审阅，保留待办”，故人工质量状态继续为pending，任务9.2未勾选。实际同伴复核未提供，任务9.3未勾选。
 

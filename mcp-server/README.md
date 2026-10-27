@@ -11,8 +11,8 @@
 在独立、无真实密钥的环境复现：
 
 ```powershell
-docker compose -f docker-compose.mcp-test.yml up -d --build mcp-postgres mcp-api mcp-provider mcp-demo mcp-web
-docker compose -f docker-compose.mcp-test.yml exec -e MCP_SMOKE_TOKEN=disposable-mcp-token mcp-api python -m evaluation.mcp_smoke
+docker compose -f deploy/testing/docker-compose.mcp-test.yml up -d --build mcp-postgres mcp-api mcp-provider mcp-demo mcp-web
+docker compose -f deploy/testing/docker-compose.mcp-test.yml exec -e MCP_SMOKE_TOKEN=disposable-mcp-token mcp-api python -m evaluation.mcp_smoke
 ```
 
 该命令从 API 容器验证 health200、缺令牌401、initialize、发现和两个 tools/call。浏览器入口为 http://localhost:5284（本机5178属于 Windows 保留段）。生产环境用私有环境变量注入 smoke token，不把实际值写进命令历史或报告。

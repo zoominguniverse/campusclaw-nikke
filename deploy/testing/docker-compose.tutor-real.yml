@@ -13,10 +13,10 @@ services:
       timeout: 5s
       retries: 30
   real-api:
-    build: ./backend
+    build: ../../backend
     entrypoint: [python, -m, evaluation.tutor_fixture]
     volumes:
-      - ./docs/tutor-acceptance:/acceptance
+      - ../../docs/tutor-acceptance:/acceptance
     environment:
       SECRET_KEY: disposable-tutor-real-server-secret
       AUTH_TOKEN_SECRET: disposable-tutor-real-token-secret
@@ -44,7 +44,7 @@ services:
       timeout: 5s
       retries: 40
   real-web:
-    build: ./frontend
+    build: ../../frontend
     environment:
       API_INTERNAL_URL: http://real-api:8080
       API_PUBLIC_URL: ""

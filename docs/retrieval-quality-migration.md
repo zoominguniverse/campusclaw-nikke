@@ -13,7 +13,7 @@
 先备份数据库和uploads，记录文件hash与current generation。在现有schema的隔离副本重复运行：
 
 ```powershell
-docker compose -p campusclaw-quality -f docker-compose.retrieval-test.yml run --build --rm quality-tests
+docker compose -p campusclaw-quality -f deploy/testing/docker-compose.retrieval-test.yml run --build --rm quality-tests
 ```
 
 应用增量入口仍是`python init_db.py`。启动仅允许本地demo补建；配置真实embedding不会在启动自动触发付费全量重建。force/resume与恢复工具已通过结构fixture测试；真实 profile 在当前 schema 隔离副本的完整演练已通过，见[真实演练报告](retrieval-quality-artifacts/migration-real-v2.json)。
