@@ -54,3 +54,27 @@ def test_token_pages_send_restrictive_security_headers():
     response = app.test_client().get("/login")
     assert "script-src 'self'" in response.headers["Content-Security-Policy"]
     assert response.headers["Referrer-Policy"] == "no-referrer"
+
+
+def test_proxy_yields_before_upstream_complete_and_closes(monkeypatch):
+    state = {"closed": False, "complete": False}
+
+    class Upstream:
+        status_code = 200
+        headers = {"Content-Type": "text/event-stream", "Set-Cookie": "secret=value"}
+        def iter_content(self, chunk_size):
+            yield b"event: meta\ndata: {}\n\n"
+            yield b"event: delta\ndata: {\"text\":\"early\"}\n\n"
+            state["complete"] = True
+            yield b"event: done\ndata: {}\n\n"
+        def close(self):
+            state["closed"] = True
+
+    monkeypatch.setattr("server.requests.request", lambda *args, **kwargs: Upstream())
+    response = app.test_client().post("/api/conversations/1/messages", buffered=False)
+    iterator = iter(response.response)
+    assert b"meta" in next(iterator) and b"early" in next(iterator)
+    assert not state["complete"]
+    assert "Set-Cookie" not in response.headers and response.headers["X-Accel-Buffering"] == "no"
+    response.close()
+    assert state["closed"]

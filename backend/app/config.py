@@ -53,6 +53,15 @@ class Config:
     SEMANTIC_ACCEPTANCE_REPORT = os.getenv("SEMANTIC_ACCEPTANCE_REPORT", "")
     RETRIEVAL_MAX_HITS = int(os.getenv("RETRIEVAL_MAX_HITS", "10"))
     ANSWER_HISTORY_LIMIT = int(os.getenv("ANSWER_HISTORY_LIMIT", "6"))
+    MCP_ENABLED = _as_bool(os.getenv("MCP_ENABLED"))
+    MCP_TOKEN_ENCRYPTION_KEY = os.getenv("MCP_TOKEN_ENCRYPTION_KEY", "")
+    MCP_TOOL_POLICY_JSON = os.getenv("MCP_TOOL_POLICY_JSON", "{}")
+    MCP_MAX_ROUNDS = int(os.getenv("MCP_MAX_ROUNDS", "3"))
+    MCP_MAX_PROPOSALS = int(os.getenv("MCP_MAX_PROPOSALS", "16"))
+    MCP_MAX_ATTEMPTS_PER_TURN = int(os.getenv("MCP_MAX_ATTEMPTS_PER_TURN", "6"))
+    MCP_MAX_ATTEMPTS_PER_CONVERSATION = int(os.getenv("MCP_MAX_ATTEMPTS_PER_CONVERSATION", "30"))
+    MCP_PHASE_TIMEOUT_SECONDS = float(os.getenv("MCP_PHASE_TIMEOUT_SECONDS", "20"))
+    MCP_REQUEST_TIMEOUT_SECONDS = float(os.getenv("MCP_REQUEST_TIMEOUT_SECONDS", "5"))
 
 
 def validate_retrieval_config(config):

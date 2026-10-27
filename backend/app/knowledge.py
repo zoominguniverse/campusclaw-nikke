@@ -7,6 +7,7 @@ from .auth import json_error, require_auth
 from .authorization import subject_is_allowed, subject_scope
 from .providers import ProviderUnavailable
 from .retrieval import ReindexRequired, RetrievalInputError, retrieve
+from .api_docs import api_doc, obj, array, ref, STRING, INTEGER, BOOLEAN
 
 
 knowledge_bp = Blueprint("knowledge", __name__, url_prefix="/api/classes")
@@ -43,6 +44,7 @@ def _effective_class_id() -> int:
 
 
 @knowledge_bp.post("/<int:class_id>/knowledge/retrieve")
+@api_doc("knowledge_retrieve", "检索授权班级学科证据", body=obj({"query": {"type": "string", "minLength": 1, "maxLength": 2000}, "mode": {"type": "string", "enum": ["keyword", "vector", "hybrid"]}, "subject_id": INTEGER, "limit": {"type": "integer", "minimum": 1, "maximum": 20}}, ["query"]), response=obj({"mode": STRING, "hits": array(ref("Evidence")), "message": {"type": "string", "nullable": True}}), errors={400: "Invalid query, mode, subject or limit", 503: "Provider unavailable or authorized sources require reindexing"}, description="class_id不能覆盖认证派生班级；subject_id只能缩小权限。无证据返回空hits，向量profile不兼容返回503/code reindex_required。")
 @require_auth
 def retrieve_knowledge(class_id: int):
     payload = request.get_json(silent=True) or {}
@@ -76,6 +78,7 @@ def retrieve_knowledge(class_id: int):
 
 
 @knowledge_bp.get("/<int:class_id>/knowledge/chunks/<int:chunk_id>")
+@api_doc("knowledge_evidence", "打开授权的原文证据", response=obj({"evidence": ref("Evidence")}), errors={400: "Invalid query", 404: "Evidence not found", 409: "Source hash changed"}, parameters=[{"name": "source_hash", "in": "query", "schema": STRING}, {"name": "query", "in": "query", "schema": STRING}])
 @require_auth
 def evidence_detail(class_id, chunk_id):
     from .models import KnowledgeChunk, KnowledgeIndexGeneration, KnowledgeEntry
@@ -104,6 +107,7 @@ def evidence_detail(class_id, chunk_id):
 
 
 @knowledge_bp.post("/<int:class_id>/knowledge/ask")
+@api_doc("knowledge_ask", "基于证据作简短单次回答", body=obj({"question": {"type": "string", "minLength": 1, "maxLength": 2000}, "subject_id": INTEGER, "history": array(obj({"role": {"type": "string", "enum": ["user", "assistant"]}, "content": STRING}))}, ["question"]), response=obj({"answer": STRING, "citations": array(ref("Evidence")), "status": {"type": "string", "enum": ["answered", "no_evidence", "insufficient"]}, "demo_mode": BOOLEAN}), errors={400: "Invalid question/history/subject", 502: "Citations failed validation", 503: "Provider/profile unavailable"}, description="原第4课契约：无证据不调用chat；资料不足明确拒答。最多200字且精确quote验证，与新增会话无证据仍回答不同。")
 @require_auth
 def ask_knowledge(class_id: int):
     payload = request.get_json(silent=True) or {}

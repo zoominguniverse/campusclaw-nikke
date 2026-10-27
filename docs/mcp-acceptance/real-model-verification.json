@@ -1,0 +1,284 @@
+{
+  "model": "deepseek-flash",
+  "scope": "actual CHAT decisions and final streaming; real local teaching MCP; deterministic embeddings and no materials",
+  "source_modified_utc": "2026-10-20T23:35:23.933004+00:00",
+  "verification": "read-only existing records; no further CHAT requests",
+  "cases": [
+    {
+      "case": "no_call",
+      "conversation_id": 23,
+      "audit_meta_message_snapshot_match": true,
+      "delta_equals_stored_text": true,
+      "attempts": 0,
+      "decision_requests": 1,
+      "tool_rounds": [],
+      "warning": null
+    },
+    {
+      "case": "choose",
+      "conversation_id": 24,
+      "audit_meta_message_snapshot_match": true,
+      "delta_equals_stored_text": true,
+      "attempts": 1,
+      "decision_requests": 2,
+      "tool_rounds": [
+        1
+      ],
+      "warning": null
+    },
+    {
+      "case": "dependent",
+      "conversation_id": 25,
+      "audit_meta_message_snapshot_match": true,
+      "delta_equals_stored_text": true,
+      "attempts": 2,
+      "decision_requests": 3,
+      "tool_rounds": [
+        1,
+        2
+      ],
+      "warning": null
+    },
+    {
+      "case": "remote_failure",
+      "conversation_id": 26,
+      "audit_meta_message_snapshot_match": true,
+      "delta_equals_stored_text": true,
+      "attempts": 1,
+      "decision_requests": 2,
+      "tool_rounds": [
+        1
+      ],
+      "warning": null
+    },
+    {
+      "case": "budget",
+      "conversation_id": 27,
+      "audit_meta_message_snapshot_match": true,
+      "delta_equals_stored_text": true,
+      "attempts": 2,
+      "decision_requests": 1,
+      "tool_rounds": [
+        1,
+        1
+      ],
+      "warning": "工具阶段已结束，将依据现有资料继续辅导。"
+    }
+  ],
+  "database_snapshots": [
+    {
+      "id": 23,
+      "mcp_attempt_count": 0,
+      "messages": [
+        {
+          "id": 149,
+          "role": "user",
+          "content": "MCP括号：我想先说说自己的想法。现在不需要规则核对，不调用任何工具，只问我打算先检查哪里。",
+          "completion_state": "complete",
+          "tool_calls": [],
+          "citations": []
+        },
+        {
+          "id": 150,
+          "role": "assistant",
+          "content": "你想先检查哪里？",
+          "completion_state": "complete",
+          "tool_calls": [],
+          "citations": []
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "mcp_attempt_count": 1,
+      "messages": [
+        {
+          "id": 151,
+          "role": "user",
+          "content": "MCP括号：化简2-(3+x)前我不确定去括号规则，请选择合适的工具核对后只给下一步提示，不给最终结果。",
+          "completion_state": "complete",
+          "tool_calls": [
+            {
+              "call_id": "3e51e79beae744c8aadda15115a800f6",
+              "ref": "formula_hint@real_04c966f2",
+              "round": 1,
+              "status": "ok",
+              "reason_code": null,
+              "text": "先看括号前的符号：前面是加号，括号内各项符号保持；前面是减号，每一项都要变号。若有乘数，检查是否乘到了括号内的每一项。请先自己写出这一步，再检查各项。"
+            }
+          ],
+          "citations": []
+        },
+        {
+          "id": 152,
+          "role": "assistant",
+          "content": "先看括号前是减号时，去掉括号后括号内每一项的符号该怎么处理？请对照工具提示，先只专注“－(3+x)”这一部分，写出它去括号后的样子。",
+          "completion_state": "complete",
+          "tool_calls": [
+            {
+              "call_id": "3e51e79beae744c8aadda15115a800f6",
+              "ref": "formula_hint@real_04c966f2",
+              "round": 1,
+              "status": "ok",
+              "reason_code": null,
+              "text": "先看括号前的符号：前面是加号，括号内各项符号保持；前面是减号，每一项都要变号。若有乘数，检查是否乘到了括号内的每一项。请先自己写出这一步，再检查各项。"
+            }
+          ],
+          "citations": []
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "mcp_attempt_count": 2,
+      "messages": [
+        {
+          "id": 153,
+          "role": "user",
+          "content": "MCP括号：我把括号化简和米转厘米放在同一份草稿中。请先用formula_hint检查去括号；收到结果后，再用unit_convert说明米与厘米的关系，第二次query要引用第一次检查提示说明两步区别。必须收到第一次结果后再决定第二次参数，不要直接算最终结果。",
+          "completion_state": "complete",
+          "tool_calls": [
+            {
+              "call_id": "931e7737b7744fedb3c9816741b34db5",
+              "ref": "formula_hint@real_04c966f2",
+              "round": 1,
+              "status": "ok",
+              "reason_code": null,
+              "text": "先看括号前的符号：前面是加号，括号内各项符号保持；前面是减号，每一项都要变号。若有乘数，检查是否乘到了括号内的每一项。请先自己写出这一步，再检查各项。"
+            },
+            {
+              "call_id": "264e0a2d779a45bdb45dfcce489ddff3",
+              "ref": "unit_convert@real_04c966f2",
+              "round": 2,
+              "status": "ok",
+              "reason_code": null,
+              "text": "长度关系：1 千米等于 1000 米，1 米等于 10 分米或 100 厘米，1 厘米等于 10 毫米。大单位转小单位乘进率，反方向除进率。"
+            }
+          ],
+          "citations": []
+        },
+        {
+          "id": 154,
+          "role": "assistant",
+          "content": "先只处理去括号这一步：写下你草稿里括号前是加号还是减号，并据此让括号内每一项保持符号还是逐项变号。你这一题括号前是什么符号？",
+          "completion_state": "complete",
+          "tool_calls": [
+            {
+              "call_id": "931e7737b7744fedb3c9816741b34db5",
+              "ref": "formula_hint@real_04c966f2",
+              "round": 1,
+              "status": "ok",
+              "reason_code": null,
+              "text": "先看括号前的符号：前面是加号，括号内各项符号保持；前面是减号，每一项都要变号。若有乘数，检查是否乘到了括号内的每一项。请先自己写出这一步，再检查各项。"
+            },
+            {
+              "call_id": "264e0a2d779a45bdb45dfcce489ddff3",
+              "ref": "unit_convert@real_04c966f2",
+              "round": 2,
+              "status": "ok",
+              "reason_code": null,
+              "text": "长度关系：1 千米等于 1000 米，1 米等于 10 分米或 100 厘米，1 厘米等于 10 毫米。大单位转小单位乘进率，反方向除进率。"
+            }
+          ],
+          "citations": []
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "mcp_attempt_count": 1,
+      "messages": [
+        {
+          "id": 155,
+          "role": "user",
+          "content": "MCP括号：请用工具核对2-(3+x)的去括号规则。工具失败时仍只给一个提示，不给最终答案。",
+          "completion_state": "complete",
+          "tool_calls": [
+            {
+              "call_id": "340f3caaeaff4604a258645fd4eed708",
+              "ref": "formula_hint@real_04c966f2",
+              "round": 1,
+              "status": "error",
+              "reason_code": "remote_unauthorized",
+              "text": "工具未能提供可用提示（remote_unauthorized）。"
+            }
+          ],
+          "citations": []
+        },
+        {
+          "id": 156,
+          "role": "assistant",
+          "content": "先看括号前是“减号”的情形：去掉括号时，括号里每一项的符号都要改变。你先试着指出，括号里的“3”和“x”各自去括号后应分别变成什么符号？",
+          "completion_state": "complete",
+          "tool_calls": [
+            {
+              "call_id": "340f3caaeaff4604a258645fd4eed708",
+              "ref": "formula_hint@real_04c966f2",
+              "round": 1,
+              "status": "error",
+              "reason_code": "remote_unauthorized",
+              "text": "工具未能提供可用提示（remote_unauthorized）。"
+            }
+          ],
+          "citations": []
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "mcp_attempt_count": 2,
+      "messages": [
+        {
+          "id": 157,
+          "role": "user",
+          "content": "MCP括号：先用formula_hint核对去括号，再根据结果用unit_convert检查米与厘米。请不要直接给最终答案。",
+          "completion_state": "complete",
+          "tool_calls": [
+            {
+              "call_id": "55f9e2cbcec849678b69e59488bcced0",
+              "ref": "formula_hint@real_04c966f2",
+              "round": 1,
+              "status": "ok",
+              "reason_code": null,
+              "text": "先看括号前的符号：前面是加号，括号内各项符号保持；前面是减号，每一项都要变号。若有乘数，检查是否乘到了括号内的每一项。请先自己写出这一步，再检查各项。"
+            },
+            {
+              "call_id": "93c3b30d1e414225badb82d1aeeed4d3",
+              "ref": "unit_convert@real_04c966f2",
+              "round": 1,
+              "status": "ok",
+              "reason_code": null,
+              "text": "长度关系：1 千米等于 1000 米，1 米等于 10 分米或 100 厘米，1 厘米等于 10 毫米。大单位转小单位乘进率，反方向除进率。"
+            }
+          ],
+          "citations": []
+        },
+        {
+          "id": 158,
+          "role": "assistant",
+          "content": "先看题目里括号前的符号是什么：是加号还是减号？请把这一个符号找出来告诉我。",
+          "completion_state": "complete",
+          "tool_calls": [
+            {
+              "call_id": "55f9e2cbcec849678b69e59488bcced0",
+              "ref": "formula_hint@real_04c966f2",
+              "round": 1,
+              "status": "ok",
+              "reason_code": null,
+              "text": "先看括号前的符号：前面是加号，括号内各项符号保持；前面是减号，每一项都要变号。若有乘数，检查是否乘到了括号内的每一项。请先自己写出这一步，再检查各项。"
+            },
+            {
+              "call_id": "93c3b30d1e414225badb82d1aeeed4d3",
+              "ref": "unit_convert@real_04c966f2",
+              "round": 1,
+              "status": "ok",
+              "reason_code": null,
+              "text": "长度关系：1 千米等于 1000 米，1 米等于 10 分米或 100 厘米，1 厘米等于 10 毫米。大单位转小单位乘进率，反方向除进率。"
+            }
+          ],
+          "citations": []
+        }
+      ]
+    }
+  ]
+}

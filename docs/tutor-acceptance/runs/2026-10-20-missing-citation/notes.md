@@ -1,0 +1,1 @@
+Intermediate real run: reading case 4 omitted a citation marker despite supplied evidence. Kept as failure evidence; not quality acceptance. Prompt source SHA-256: 4870f77b0fb25fa42980e734a5c27148205ab6a594f17e0f2fdfa15b423c05ff

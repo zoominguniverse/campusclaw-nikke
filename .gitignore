@@ -3,6 +3,7 @@
 __pycache__/
 *.py[cod]
 .pytest_cache/
+.pytest-cache/
 .pytest-tmp/
 .pytest-fixture/
 .pytest-uploads/
@@ -14,3 +15,4 @@ backend/.coverage
 .vendor/
 .tokenizer-cache/
 .retrieval-backups/
+apitest/reports/

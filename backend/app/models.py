@@ -320,5 +320,148 @@ class Assistant(db.Model):
 
 class Skill(db.Model):
     __tablename__ = "skills"
+    __table_args__ = (
+        db.UniqueConstraint("class_id", "name", name="uq_skill_class_name"),
+        db.UniqueConstraint("class_id", "seed_key", name="uq_skill_class_seed"),
+        db.CheckConstraint("legacy_placeholder OR (class_id IS NOT NULL AND length(name) BETWEEN 1 AND 32 AND length(trigger_text) BETWEEN 1 AND 120 AND length(description) BETWEEN 1 AND 2000 AND length(source_text) <= 8000 AND length(subject_text) <= 32)", name="ck_skill_definition"),
+        db.CheckConstraint("NOT legacy_placeholder OR NOT enabled", name="ck_skill_legacy_disabled"),
+    )
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), nullable=False)
+    class_id = db.Column(db.Integer, db.ForeignKey("classes.id"), nullable=True, index=True)
+    trigger_text = db.Column(db.String(120), nullable=False, default="", server_default="")
+    description = db.Column(db.Text, nullable=False, default="", server_default="")
+    tools_json = db.Column(db.JSON, nullable=False, default=list, server_default="[]")
+    source_text = db.Column(db.Text, nullable=False, default="", server_default="")
+    subject_text = db.Column(db.String(32), nullable=False, default="", server_default="")
+    enabled = db.Column(db.Boolean, nullable=False, default=False, server_default=db.false())
+    legacy_placeholder = db.Column(db.Boolean, nullable=False, default=True, server_default=db.true())
+    seed_key = db.Column(db.String(64), nullable=True)
+    created_by = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
+    updated_by = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
+    created_at = db.Column(db.DateTime(timezone=True), nullable=False, default=utc_now)
+    updated_at = db.Column(db.DateTime(timezone=True), nullable=False, default=utc_now)
+
+
+class TutorAgent(db.Model):
+    __tablename__ = "tutor_agents"
+    __table_args__ = (
+        db.UniqueConstraint("class_id", "name", name="uq_agent_class_name"),
+        db.UniqueConstraint("class_id", "seed_key", name="uq_agent_class_seed"),
+        db.CheckConstraint("length(name) BETWEEN 1 AND 64 AND length(prompt) <= 2000", name="ck_agent_text_bounds"),
+    )
+    id = db.Column(db.Integer, primary_key=True)
+    class_id = db.Column(db.Integer, db.ForeignKey("classes.id"), nullable=False, index=True)
+    name = db.Column(db.String(64), nullable=False)
+    prompt = db.Column(db.Text, nullable=False, default="", server_default="")
+    enabled = db.Column(db.Boolean, nullable=False, default=True, server_default=db.true())
+    seed_key = db.Column(db.String(64), nullable=True)
+    created_by = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
+    updated_by = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=True)
+    created_at = db.Column(db.DateTime(timezone=True), nullable=False, default=utc_now)
+    updated_at = db.Column(db.DateTime(timezone=True), nullable=False, default=utc_now)
+
+
+class TutorAgentSkill(db.Model):
+    __tablename__ = "tutor_agent_skills"
+    agent_id = db.Column(db.Integer, db.ForeignKey("tutor_agents.id", ondelete="CASCADE"), primary_key=True)
+    skill_id = db.Column(db.Integer, db.ForeignKey("skills.id", ondelete="CASCADE"), primary_key=True)
+
+
+class TutorAgentMaterial(db.Model):
+    __tablename__ = "tutor_agent_materials"
+    agent_id = db.Column(db.Integer, db.ForeignKey("tutor_agents.id", ondelete="CASCADE"), primary_key=True)
+    material_id = db.Column(db.String(36), db.ForeignKey("materials.id", ondelete="CASCADE"), primary_key=True)
+
+
+class Conversation(db.Model):
+    __tablename__ = "conversations"
+    __table_args__ = (db.Index("ix_conversation_owner_activity", "user_id", "class_id", "updated_at", "id"), db.CheckConstraint("mcp_attempt_count >= 0", name="ck_conversation_mcp_attempts"))
+    id = db.Column(db.Integer, primary_key=True)
+    class_id = db.Column(db.Integer, db.ForeignKey("classes.id"), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    agent_id = db.Column(db.Integer, db.ForeignKey("tutor_agents.id"), nullable=False)
+    title = db.Column(db.String(24), nullable=False, default="新的提问")
+    mcp_attempt_count = db.Column(db.Integer, nullable=False, default=0, server_default="0")
+    created_at = db.Column(db.DateTime(timezone=True), nullable=False, default=utc_now)
+    updated_at = db.Column(db.DateTime(timezone=True), nullable=False, default=utc_now)
+
+
+class Message(db.Model):
+    __tablename__ = "messages"
+    __table_args__ = (
+        db.CheckConstraint("role IN ('user', 'assistant')", name="ck_message_role"),
+        db.CheckConstraint("completion_state IN ('complete', 'interrupted')", name="ck_message_state"),
+        db.Index("ix_message_conversation_order", "conversation_id", "id"),
+    )
+    id = db.Column(db.Integer, primary_key=True)
+    conversation_id = db.Column(db.Integer, db.ForeignKey("conversations.id", ondelete="CASCADE"), nullable=False)
+    role = db.Column(db.String(16), nullable=False)
+    content = db.Column(db.Text, nullable=False)
+    citations_json = db.Column(db.JSON, nullable=False, default=list)
+    tool_calls_json = db.Column(db.JSON, nullable=False, default=list, server_default="[]")
+    skill_name = db.Column(db.String(32), nullable=True)
+    completion_state = db.Column(db.String(16), nullable=False, default="complete")
+    created_at = db.Column(db.DateTime(timezone=True), nullable=False, default=utc_now)
+
+
+class MCPServer(db.Model):
+    __tablename__ = "mcp_servers"
+    __table_args__ = (db.UniqueConstraint("class_id", "name", name="uq_mcp_server_class_name"),)
+    id = db.Column(db.Integer, primary_key=True)
+    class_id = db.Column(db.Integer, db.ForeignKey("classes.id"), nullable=False, index=True)
+    name = db.Column(db.String(64), nullable=False)
+    base_url = db.Column(db.String(512), nullable=False)
+    token_ciphertext = db.Column(db.Text, nullable=False)
+    connected = db.Column(db.Boolean, nullable=False, default=False)
+    operation_revision = db.Column(db.Integer, nullable=False, default=0)
+    configuration_revision = db.Column(db.Integer, nullable=False, default=1)
+    last_error_code = db.Column(db.String(64), nullable=True)
+    connected_at = db.Column(db.DateTime(timezone=True), nullable=True)
+    created_by = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    updated_by = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    created_at = db.Column(db.DateTime(timezone=True), nullable=False, default=utc_now)
+    updated_at = db.Column(db.DateTime(timezone=True), nullable=False, default=utc_now)
+
+
+class MCPTool(db.Model):
+    __tablename__ = "mcp_tools"
+    __table_args__ = (db.UniqueConstraint("server_id", "name", name="uq_mcp_tool_server_name"),)
+    id = db.Column(db.Integer, primary_key=True)
+    server_id = db.Column(db.Integer, db.ForeignKey("mcp_servers.id", ondelete="CASCADE"), nullable=False, index=True)
+    name = db.Column(db.String(64), nullable=False)
+    description = db.Column(db.Text, nullable=False)
+    input_schema = db.Column(db.JSON, nullable=False)
+    declaration_hash = db.Column(db.String(64), nullable=False)
+
+
+class SkillMCPBinding(db.Model):
+    __tablename__ = "skill_mcp_bindings"
+    __table_args__ = (db.UniqueConstraint("skill_id", "tool_ref", name="uq_skill_mcp_ref"),)
+    id = db.Column(db.Integer, primary_key=True)
+    skill_id = db.Column(db.Integer, db.ForeignKey("skills.id", ondelete="CASCADE"), nullable=False, index=True)
+    tool_ref = db.Column(db.String(130), nullable=False)
+    server_id = db.Column(db.Integer, db.ForeignKey("mcp_servers.id", ondelete="SET NULL"), nullable=True, index=True)
+    configuration_revision = db.Column(db.Integer, nullable=False)
+    declaration_hash = db.Column(db.String(64), nullable=False)
+
+
+class MCPToolCall(db.Model):
+    __tablename__ = "mcp_tool_calls"
+    __table_args__ = (db.Index("ix_mcp_calls_class_order", "class_id", "id"),)
+    id = db.Column(db.Integer, primary_key=True)
+    class_id = db.Column(db.Integer, db.ForeignKey("classes.id"), nullable=False)
+    server_id = db.Column(db.Integer, db.ForeignKey("mcp_servers.id", ondelete="SET NULL"), nullable=True)
+    server_name = db.Column(db.String(64), nullable=False)
+    tool_ref = db.Column(db.String(130), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    conversation_id = db.Column(db.Integer, db.ForeignKey("conversations.id", ondelete="CASCADE"), nullable=False)
+    user_message_id = db.Column(db.Integer, db.ForeignKey("messages.id", ondelete="CASCADE"), nullable=False)
+    call_id = db.Column(db.String(64), nullable=False, unique=True)
+    round = db.Column(db.Integer, nullable=False)
+    sequence = db.Column(db.Integer, nullable=False)
+    status = db.Column(db.String(16), nullable=False)
+    reason_code = db.Column(db.String(64), nullable=True)
+    summary = db.Column(db.String(200), nullable=False, default="")
+    duration_ms = db.Column(db.Integer, nullable=False, default=0)
+    created_at = db.Column(db.DateTime(timezone=True), nullable=False, default=utc_now)

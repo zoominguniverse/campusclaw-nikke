@@ -1,0 +1,53 @@
+# Real-provider review against a separate temporary database; keys only from .env.
+services:
+  real-postgres:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_DB: tutor_test
+      POSTGRES_USER: tutor_test
+      POSTGRES_PASSWORD: disposable-tutor-only
+    tmpfs: [/var/lib/postgresql/data]
+    healthcheck:
+      test: [CMD-SHELL, pg_isready -U tutor_test -d tutor_test]
+      interval: 2s
+      timeout: 5s
+      retries: 30
+  real-api:
+    build: ./backend
+    entrypoint: [python, -m, evaluation.tutor_fixture]
+    volumes:
+      - ./docs/tutor-acceptance:/acceptance
+    environment:
+      SECRET_KEY: disposable-tutor-real-server-secret
+      AUTH_TOKEN_SECRET: disposable-tutor-real-token-secret
+      DATABASE_URL: postgresql+psycopg://tutor_test:disposable-tutor-only@real-postgres:5432/tutor_test
+      TUTOR_DISPOSABLE_DATABASE: "true"
+      TUTOR_REAL_PROVIDER: "true"
+      EMBEDDING_PROVIDER: openai-compatible
+      EMBEDDING_API_URL: ${EMBEDDING_API_URL:?configure server-side real embedding URL}
+      EMBEDDING_API_KEY: ${EMBEDDING_API_KEY:?configure server-side real embedding key}
+      EMBEDDING_MODEL: ${EMBEDDING_MODEL:?configure real embedding model}
+      EMBEDDING_DIMENSIONS: ${EMBEDDING_DIMENSIONS:?configure real dimensions}
+      EMBEDDING_REVISION: ${EMBEDDING_REVISION:?configure model revision}
+      CHAT_PROVIDER: openai-compatible
+      CHAT_API_URL: ${CHAT_API_URL:?configure server-side real chat URL}
+      CHAT_API_KEY: ${CHAT_API_KEY:?configure server-side real chat key}
+      CHAT_MODEL: ${CHAT_MODEL:?configure real chat model}
+      SEMANTIC_RELEASE: "false"
+      UPLOAD_DIR: /tmp/tutor-real-uploads
+      TRUSTED_ORIGINS: http://localhost:5177
+    depends_on:
+      real-postgres: {condition: service_healthy}
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/health')"]
+      interval: 3s
+      timeout: 5s
+      retries: 40
+  real-web:
+    build: ./frontend
+    environment:
+      API_INTERNAL_URL: http://real-api:8080
+      API_PUBLIC_URL: ""
+    ports: ["127.0.0.1:5177:5173"]
+    depends_on:
+      real-api: {condition: service_healthy}

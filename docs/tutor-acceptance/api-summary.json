@@ -1,0 +1,253 @@
+{
+  "date": "2026-10-14",
+  "environment": "campusclaw-tutor-test (isolated)",
+  "passed": 27,
+  "total": 27,
+  "operations": [
+    {
+      "operation": "auth_login",
+      "status": "PASS",
+      "seconds": 0.449
+    },
+    {
+      "operation": "auth_me",
+      "status": "PASS",
+      "seconds": 0.01
+    },
+    {
+      "operation": "materials_upload",
+      "status": "PASS",
+      "seconds": 0.456
+    },
+    {
+      "operation": "materials_list",
+      "status": "PASS",
+      "seconds": 0.07
+    },
+    {
+      "operation": "materials_get",
+      "status": "PASS",
+      "seconds": 0.028
+    },
+    {
+      "operation": "materials_download",
+      "status": "PASS",
+      "seconds": 0.008
+    },
+    {
+      "operation": "materials_reindex",
+      "status": "PASS",
+      "seconds": 0.043
+    },
+    {
+      "operation": "materials_update",
+      "status": "PASS",
+      "seconds": 0.023
+    },
+    {
+      "operation": "knowledge_retrieve",
+      "status": "PASS",
+      "seconds": 0.063
+    },
+    {
+      "operation": "knowledge_evidence",
+      "status": "PASS",
+      "seconds": 0.02
+    },
+    {
+      "operation": "knowledge_ask",
+      "status": "PASS",
+      "seconds": 0.04
+    },
+    {
+      "operation": "skills_create",
+      "status": "PASS",
+      "seconds": 0.061
+    },
+    {
+      "operation": "skills_list",
+      "status": "PASS",
+      "seconds": 0.006
+    },
+    {
+      "operation": "skills_get",
+      "status": "PASS",
+      "seconds": 0.02
+    },
+    {
+      "operation": "skills_update",
+      "status": "PASS",
+      "seconds": 0.016
+    },
+    {
+      "operation": "agents_create",
+      "status": "PASS",
+      "seconds": 0.066
+    },
+    {
+      "operation": "agents_list",
+      "status": "PASS",
+      "seconds": 0.021
+    },
+    {
+      "operation": "agents_get",
+      "status": "PASS",
+      "seconds": 0.03
+    },
+    {
+      "operation": "agents_update",
+      "status": "PASS",
+      "seconds": 0.083
+    },
+    {
+      "operation": "conversations_create",
+      "status": "PASS",
+      "seconds": 0.068
+    },
+    {
+      "operation": "conversations_list",
+      "status": "PASS",
+      "seconds": 0.006
+    },
+    {
+      "operation": "conversations_get",
+      "status": "PASS",
+      "seconds": 0.025
+    },
+    {
+      "operation": "messages_create",
+      "status": "PASS",
+      "seconds": 10.501
+    },
+    {
+      "operation": "skills_delete",
+      "status": "PASS",
+      "seconds": 0.033
+    },
+    {
+      "operation": "materials_delete",
+      "status": "PASS",
+      "seconds": 0.104
+    },
+    {
+      "operation": "auth_refresh",
+      "status": "PASS",
+      "seconds": 0.014
+    },
+    {
+      "operation": "auth_logout",
+      "status": "PASS",
+      "seconds": 0.017
+    }
+  ],
+  "stream_evidence": [
+    {
+      "conversation": 18,
+      "event_order": [
+        "meta",
+        "delta",
+        "delta",
+        "delta",
+        "done"
+      ],
+      "first_delta_seconds": 0.204,
+      "last_event_seconds": 1.559
+    },
+    {
+      "conversation": 18,
+      "event_order": [
+        "meta",
+        "delta",
+        "delta",
+        "delta",
+        "done"
+      ],
+      "first_delta_seconds": 0.202,
+      "last_event_seconds": 1.556
+    },
+    {
+      "conversation": 19,
+      "event_order": [
+        "meta",
+        "delta",
+        "delta",
+        "delta",
+        "done"
+      ],
+      "first_delta_seconds": 0.202,
+      "last_event_seconds": 1.556
+    },
+    {
+      "cancelled_conversation": 20,
+      "saved_state": "interrupted",
+      "advisory_locks_after": 0
+    },
+    {
+      "conversation": 21,
+      "event_order": [
+        "meta",
+        "delta",
+        "delta",
+        "delta",
+        "done"
+      ],
+      "first_delta_seconds": 0.171,
+      "last_event_seconds": 1.524
+    },
+    {
+      "conversation": 18,
+      "event_order": [
+        "meta",
+        "delta",
+        "delta",
+        "delta",
+        "done"
+      ],
+      "first_delta_seconds": 0.19,
+      "last_event_seconds": 1.543
+    },
+    {
+      "conversation": 18,
+      "event_order": [
+        "meta",
+        "delta",
+        "error"
+      ],
+      "first_delta_seconds": 0.198,
+      "last_event_seconds": 0.403
+    },
+    {
+      "conversation": 18,
+      "event_order": [
+        "meta",
+        "error"
+      ],
+      "first_delta_seconds": null,
+      "last_event_seconds": 0.184
+    },
+    {
+      "conversation": 18,
+      "event_order": [
+        "meta",
+        "delta",
+        "delta",
+        "delta",
+        "error"
+      ],
+      "first_delta_seconds": 0.193,
+      "last_event_seconds": 1.544
+    },
+    {
+      "conversation": 18,
+      "event_order": [
+        "meta",
+        "delta",
+        "delta",
+        "delta",
+        "done"
+      ],
+      "first_delta_seconds": 0.192,
+      "last_event_seconds": 1.546
+    }
+  ]
+}

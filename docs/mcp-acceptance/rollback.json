@@ -1,0 +1,39 @@
+{
+  "source_database": "mcp_test",
+  "copy_database": "mcp_rollback",
+  "copy_method": "pg_dump -Fc / pg_restore",
+  "upgrade_twice": "upgrade twice pass",
+  "old_api_image": "f3223cd7d429",
+  "old_web_image": "f4cdac11e39b",
+  "old_api": {
+    "health": 200,
+    "auth": 200,
+    "retrieval": 200,
+    "history": 200
+  },
+  "new_api_mcp_disabled": {
+    "health": 200,
+    "auth": 200,
+    "retrieval": 200,
+    "history": 200
+  },
+  "old_web_pages": 200,
+  "preserved_table_hashes": {
+    "materials": "6879856c72e74318ec3ad9994f6dd552",
+    "knowledge_entries": "68af38d2fe196452b9c57819ed5744a4",
+    "knowledge_chunks": "fde3604cc5964fa26f0b0b8dcb7f8904",
+    "knowledge_embeddings": "b2a4e7261859f30ee2841699d10b26b3",
+    "knowledge_sentence_embeddings": "346dfbe1b0d350c5a311840b01b8e5ce",
+    "users": "d4ab231a709a9f3a3052448b22226d25",
+    "class_memberships": "f672b747ba3d08382913aacb72397e82",
+    "teacher_subject_assignments": "66e225957a49462f77b2822eafff7c93",
+    "conversations": "0434e7e94913369acfd2650e8ca4f22f",
+    "messages": "f7d42f0c41b4115f7d8acc1435672af2",
+    "mcp_servers": "47e08e7764d034c2ad361d4b7c971d66",
+    "mcp_tools": "507a0194d938acd1e80e74a49abdb73c",
+    "skill_mcp_bindings": "a5b75587e0bdc4cc0c5fe9d2df516d20",
+    "mcp_tool_calls": "4ee480ed956c815c2728ae8297cf48ea"
+  },
+  "auth_note": "Normal test sign-ins add/revoke sessions as designed; identity and membership preserved. All content, counters, snapshots and MCP tables unchanged.",
+  "compatibility": "Old parser cannot save @ references; exported definitions and new columns retained. No tables dropped."
+}

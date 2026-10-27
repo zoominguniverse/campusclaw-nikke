@@ -1,0 +1,162 @@
+POST
+/api/classes/{class_id}/skills
+教师用文本文件创建技能
+Parameters
+Cancel
+Reset
+Name	Description
+
+class_id *
+integer
+(path)
+	
+Request body
+application/json
+multipart/form-data
+Execute
+Clear
+Responses
+Curl
+curl -X 'POST' \
+  'http://localhost:5284/api/classes/1/skills' \
+  -H 'accept: application/json' \
+  -H 'Authorization: Bearer [redacted]' \
+  -H 'Content-Type: application/json' \
+  -d '{"source_text":"名称：Swagger解题引导\n适用条件：Swagger去括号与单位\n工具：formula_hint@swagger_school，unit_convert@swagger_school\n启用：是\n\n只给下一步提示，不给最终答案。","tool_confirmations":{"formula_hint@swagger_school":"929538a02e79afc29fd9f64da1f46a48ffaab74e71e22ef85e083b2f6af59695","unit_convert@swagger_school":"589f160b07e64612f9e5b11aad03e0901b068f545a115a000f774d5b8801fe48"}}'
+Request URL
+http://localhost:5284/api/classes/1/skills
+Server response
+Code	Details
+201	
+Response body
+Download
+{
+  "skill": {
+    "class_id": 1,
+    "created_by": 5,
+    "description": "只给下一步提示，不给最终答案。",
+    "enabled": true,
+    "id": 21,
+    "mcp_bindings": [
+      {
+        "declaration_hash": "929538a02e79afc29fd9f64da1f46a48ffaab74e71e22ef85e083b2f6af59695",
+        "ref": "formula_hint@swagger_school",
+        "status": "ready"
+      },
+      {
+        "declaration_hash": "589f160b07e64612f9e5b11aad03e0901b068f545a115a000f774d5b8801fe48",
+        "ref": "unit_convert@swagger_school",
+        "status": "ready"
+      }
+    ],
+    "name": "Swagger解题引导",
+    "source_text": "名称：Swagger解题引导\n适用条件：Swagger去括号与单位\n工具：formula_hint@swagger_school，unit_convert@swagger_school\n启用：是\n\n只给下一步提示，不给最终答案。",
+    "subject_text": "",
+    "tools": [
+      "formula_hint@swagger_school",
+      "unit_convert@swagger_school"
+    ],
+    "trigger_text": "Swagger去括号与单位",
+    "updated_at": "2026-10-20T21:08:55.012320+00:00",
+    "updated_by": 5
+  }
+}
+Response headers
+ connection: keep-alive 
+ content-length: 1063 
+ content-security-policy: default-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none' 
+ content-type: application/json 
+ date: Tue,20 Oct 2026 21:08:55 GMT 
+ referrer-policy: no-referrer 
+ server: gunicorn 
+ x-content-type-options: nosniff 
+ x-frame-options: DENY 
+Responses
+Code	Description	Links
+201	
+
+Success
+
+Media type
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "skill": {
+    "class_id": 0,
+    "created_by": 0,
+    "description": "string",
+    "enabled": true,
+    "id": 0,
+    "mcp_bindings": [
+      {
+        "declaration_hash": "string",
+        "ref": "string",
+        "status": "string"
+      }
+    ],
+    "name": "string",
+    "source_text": "string",
+    "subject_text": "string",
+    "tools": [
+      "string"
+    ],
+    "trigger_text": "string",
+    "updated_at": "string",
+    "updated_by": 0
+  }
+}
+	No links
+400	
+
+Invalid skill definition, unreviewed tool or duplicate class name
+
+Media type
+application/json
+Example Value
+Schema
+{
+  "code": "string",
+  "error": "string"
+}
+	No links
+401	
+
+Missing, expired or revoked Bearer access token
+
+Media type
+application/json
+Example Value
+Schema
+{
+  "code": "string",
+  "error": "string"
+}
+	No links
+403	
+
+Role or subject access denied
+
+Media type
+application/json
+Example Value
+Schema
+{
+  "code": "string",
+  "error": "string"
+}
+	No links
+404	
+
+resource not found
+
+Media type
+application/json
+Example Value
+Schema
+{
+  "code": "string",
+  "error": "string"
+}
+	No links

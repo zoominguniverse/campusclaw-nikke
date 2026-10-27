@@ -108,8 +108,14 @@ LEGACY_DEMO_USERNAMES = frozenset(
 def initialize_database() -> None:
     _install_postgres_extensions()
     from .retrieval_schema import prepare_legacy_tables, finish_retrieval_upgrade
+    from .tutor_schema import prepare_tutor_upgrade, finish_tutor_upgrade
+    from .mcp_schema import prepare_mcp_upgrade, finish_mcp_upgrade
     prepare_legacy_tables()
+    prepare_tutor_upgrade()
+    prepare_mcp_upgrade()
     db.create_all()
+    finish_tutor_upgrade()
+    finish_mcp_upgrade()
     _upgrade_subject_schema()
     _upgrade_authorization_only_auth()
     _install_retrieval_indexes()
@@ -120,6 +126,9 @@ def initialize_database() -> None:
         seed_demo_data()
     _migrate_subject_ownership()
     _enforce_subject_ownership()
+    if current_app.config["SEED_DEMO_DATA"]:
+        from .tutor_seed import seed_tutor_data
+        seed_tutor_data()
     # Existing materials receive an idempotent auto-strategy generation at startup.
     from .indexing import backfill_entries
 

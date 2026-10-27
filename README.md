@@ -86,3 +86,31 @@ docker compose -p campusclaw-quality-browser -f docker-compose.retrieval-browser
 ```
 
 测试数据库仅使用独立 `quality_*` PostgreSQL/tmpfs，不连接当前开发库；浏览器环境为 `http://localhost:5175/login`，使用可控演示服务，测试凭据见测试fixture。报告保存在 `docs/retrieval-quality-artifacts`，2026-10-14 已通过真实语义门槛、50 条人工审阅和真实性能/回滚验收，OpenSpec 44/44 完成。主项目运行于 http://localhost:5174，已切换百炼 1024 维 + DeepSeek，并在备份后重建全部 4 条既有材料。见[最终报告](docs/retrieval-quality-artifacts/release-acceptance.md)。详见[评测步骤](docs/retrieval-quality-evaluation.md)和[迁移/回滚](docs/retrieval-quality-migration.md)。
+
+## 第5课：智能体、技能与流式辅导
+
+教师在 `/tutor-config` 维护本班智能体、中文技能文件及当前获授权材料绑定；师生在 `/tutor` 创建固定智能体的私有会话，查看增量回答、技能标签与原文引用。`/swagger/` 提供同源接口试调。已有材料、知识检索及单次证据问答入口保留。技能格式、师生操作和升级策略见[技能说明](docs/tutor-skills.md)、[使用与接口契约](docs/tutor-conversations.md)、[升级与回滚](docs/tutor-migration.md)。
+
+```powershell
+docker compose -p campusclaw-tutor-test -f docker-compose.tutor-test.yml up -d --build tutor-web tutor-provider
+docker compose -p campusclaw-tutor-test -f docker-compose.tutor-test.yml run --rm --build tutor-apitest
+```
+
+隔离演示入口为 `http://localhost:5176/login`，fixture凭据见 `backend/tests/conftest.py`；接口报告生成至已忽略的 `apitest/reports/latest.html`。不连接5174开发库。真实模型验收使用独立5177环境，调用计划及样例见[真实模型复核](docs/tutor-acceptance/review-results.md)。
+
+2026-10-14：后端223项通过（2项条件跳过），前端7项通过，27/27接口操作通过，桌面/窄屏和隔离升级回滚通过。OpenSpec `add-agent-skills-streaming-tutor` 的实现验收43/45；真实回答人工质量审阅与实际同伴交叉验证保留待办。本次未更新5174运行服务。完整证据见[第5课验收记录](docs/tutor-acceptance/implementation-acceptance.md)。
+
+2026-10-20：收紧解题引导为单步提示，避免把阅读中心拆成关键词泄露及虚构学生进度；相关26项回归通过，重新采集12组真实模型输出并核对流/引用范围/数据库记录一致。语文解绑对照仍有1例漏标引用，质量未通过；人工质量与同伴验收继续待办，进度43/45。5177隔离演示已使用当前提示词。
+
+2026-10-27：用户确认第5课9.2真实模型质量验收、9.3实际同伴交叉验证均已完成，OpenSpec `add-agent-skills-streaming-tutor` 45/45，未归档。见 [用户验收确认](docs/tutor-acceptance/user-confirmation.md)；原始回答、历史问题和采集状态保留，本次未新增模型测试或同伴明细。
+
+
+### 第6课：MCP 工具与模型自主多轮调用
+
+教师可在 `/tutor-config` 登记班内MCP服务器，连接发现、审阅并确认声明，将 `formula_hint@school` / `unit_convert@school` 写入技能并绑定智能体。模型自主决定工具和参数，宿主逐次检查权限、持久化配额与审计，最终正文仍增量流式返回。MCP默认关闭，原知识检索可继续使用。
+
+配置与预算见 [工具说明](docs/mcp-tools.md)，密钥、升级和回滚见 [迁移说明](docs/mcp-migration.md)，独立服务见 [服务README](mcp-server/README.md)。隔离验收使用 `docker compose -f docker-compose.mcp-test.yml up -d --build mcp-postgres mcp-demo mcp-provider mcp-api mcp-web`，随后 `docker compose -f docker-compose.mcp-test.yml run --rm mcp-apitest`。浏览器入口 http://localhost:5284，固定测试账号同第5课，不使用开发库或真实密钥；报告在忽略的 `apitest/reports/latest.html`。
+
+2026-10-21：后端249项、隔离PostgreSQL18项、前端7项、MCP服务9项通过，36/36接口操作和浏览器/Swagger流程通过；已演练升级两次、关闭功能与旧镜像回滚。用户授权的5组真实 DeepSeek 样例已执行、审阅并核对 SSE/审计/消息/配额一致，见 [真实模型复核](docs/mcp-acceptance/real-model-review.md)。OpenSpec 42/43，实际同伴交叉验证待完成；fixture不计为真实模型质量通过，原第5课43/45待办保持原状。证据、复现入口和限制见 [第6课验收记录](docs/mcp-acceptance/implementation-acceptance.md)。
+
+2026-10-27：用户确认四项实际同伴复核完成、结果正确，并要求简化为用户确认记录；验收约定和 [同伴复核记录](docs/mcp-acceptance/peer-review.md) 已同步，OpenSpec `add-mcp-tool-integration` 43/43 完成，未归档。第5课随后也经用户确认9.2、9.3完成，现为45/45，见上方第5课用户验收确认。

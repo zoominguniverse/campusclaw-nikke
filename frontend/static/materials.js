@@ -55,6 +55,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     const a = node('a', ['材料管理', '知识检索', '基于资料提问'][index]);
     a.href = `#${id}`; a.onclick = event => { event.preventDefault(); activate(id); }; nav.append(a);
   });
+  if (['teacher', 'student'].includes(user.role)) {
+    const tutorLink = node('a', 'AI 学习辅导'); tutorLink.href = '/tutor'; nav.append(tutorLink);
+  }
+  if (user.role === 'teacher') {
+    const configLink = node('a', '智能体与技能'); configLink.href = '/tutor-config'; nav.append(configLink);
+  }
   async function capabilities() {
     const stamp = revision;
     try {

@@ -1,0 +1,73 @@
+# Dedicated lesson-six project. No development .env, volumes or database used.
+name: campusclaw-mcp-test
+services:
+  mcp-postgres:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_DB: mcp_test
+      POSTGRES_USER: mcp_test
+      POSTGRES_PASSWORD: disposable-mcp-only
+    tmpfs: [/var/lib/postgresql/data]
+    healthcheck:
+      test: [CMD-SHELL, pg_isready -U mcp_test -d mcp_test]
+      interval: 2s
+      timeout: 5s
+      retries: 30
+  mcp-demo:
+    build: ./mcp-server
+    environment:
+      MCP_AUTH_TOKEN: disposable-mcp-token
+  mcp-provider:
+    build: ./backend
+    entrypoint: [gunicorn, --bind, "0.0.0.0:8090", --workers, "1", --worker-class, gthread, --threads, "8", "evaluation.tutor_provider_fixture:app"]
+  mcp-api:
+    build: ./backend
+    entrypoint: [python, -m, evaluation.tutor_fixture]
+    environment:
+      SECRET_KEY: disposable-mcp-server-secret
+      AUTH_TOKEN_SECRET: disposable-mcp-auth-secret
+      DATABASE_URL: postgresql+psycopg://mcp_test:disposable-mcp-only@mcp-postgres:5432/mcp_test
+      TUTOR_DISPOSABLE_DATABASE: "true"
+      MCP_DISPOSABLE_DATABASE: "true"
+      MCP_ENABLED: "true"
+      MCP_TOKEN_ENCRYPTION_KEY: ZGlzcG9zYWJsZS1tY3AtdGVzdC1rZXktMDAwMDAwMDA=
+      MCP_TOOL_POLICY_JSON: '{"http://mcp-demo:8090":{"formula_hint":"read","unit_convert":"read"}}'
+      EMBEDDING_PROVIDER: deterministic
+      EMBEDDING_DIMENSIONS: "64"
+      CHAT_PROVIDER: openai-compatible
+      CHAT_API_URL: http://mcp-provider:8090
+      CHAT_API_KEY: disposable-fixture-key
+      CHAT_MODEL: controlled-mcp-fixture
+      UPLOAD_DIR: /tmp/mcp-uploads
+      TRUSTED_ORIGINS: http://localhost:5284
+    depends_on:
+      mcp-postgres: {condition: service_healthy}
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/health')"]
+      interval: 3s
+      timeout: 5s
+      retries: 30
+  mcp-web:
+    build: ./frontend
+    environment:
+      API_INTERNAL_URL: http://mcp-api:8080
+      API_PUBLIC_URL: ""
+    ports: ["127.0.0.1:5284:5173"]
+    depends_on:
+      mcp-api: {condition: service_healthy}
+  mcp-apitest:
+    build: ./backend
+    volumes:
+      - ./apitest:/apitest
+      - ./backend/tutor_samples:/samples:ro
+    working_dir: /apitest
+    entrypoint: [python, run_all.py]
+    environment:
+      MCP_DISPOSABLE_DATABASE: "true"
+      TUTOR_TEST_BASE_URL: http://mcp-web:5173
+      TUTOR_TEST_INFO_URL: http://mcp-api:8080/tutor-test-info
+      TUTOR_TEST_DATABASE_URL: postgresql://mcp_readonly:disposable-readonly-only@mcp-postgres:5432/mcp_test
+      TUTOR_TEST_PROVIDER_URL: http://mcp-provider:8090
+      TUTOR_DISPOSABLE_DATABASE: "true"
+    depends_on:
+      mcp-web: {condition: service_started}

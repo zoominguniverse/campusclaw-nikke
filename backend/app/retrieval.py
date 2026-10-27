@@ -28,7 +28,7 @@ class ReindexRequired(ProviderUnavailable):
     pass
 
 
-def retrieve(*, class_id, query, mode=None, limit=None, subject_ids=None):
+def retrieve(*, class_id, query, mode=None, limit=None, subject_ids=None, material_ids=None):
     if not isinstance(query, str) or not query.strip() or len(query) > 2000:
         raise RetrievalInputError("query must be a nonempty string of at most 2000 code points")
     query = query.strip()
@@ -43,28 +43,33 @@ def retrieve(*, class_id, query, mode=None, limit=None, subject_ids=None):
     if subject_ids is not None and any(type(ident) is not int or ident < 1 for ident in subject_ids):
         raise RetrievalInputError("subject IDs must be positive integers")
     effective = set(subject_ids) if subject_ids is not None else None
+    if material_ids is not None and any(not isinstance(ident, str) or not ident for ident in material_ids):
+        raise RetrievalInputError("material IDs must be nonempty strings")
+    materials = set(material_ids) if material_ids is not None else None
     terms = tokenize(query, query=True)
     if len(terms) > 64:
         raise RetrievalInputError("query contains too many effective terms (maximum 64)")
     empty = {"mode": mode, "hits": [], "message": NO_EVIDENCE_MESSAGE}
-    if effective == set() or not terms:
+    if effective == set() or materials == set() or not terms:
         return empty
     vector = None
     if mode != "keyword":
-        _ensure_compatible(class_id, effective)
+        _ensure_compatible(class_id, effective, materials)
         # An empty authorized source scope needs no provider or diagnostic.
         scope = KnowledgeEntry.query.join(Material).filter(KnowledgeEntry.class_id == class_id, Material.class_id == class_id)
         if effective is not None:
             scope = scope.filter(KnowledgeEntry.subject_id.in_(effective), Material.subject_id.in_(effective))
+        if materials is not None:
+            scope = scope.filter(Material.id.in_(materials), KnowledgeEntry.material_id.in_(materials))
         if scope.first() is None:
             return empty
         vector = embed_validated(embedding_client(), [query])[0]
     if mode == "keyword":
-        ranked = _keyword_ranked(class_id, query, CANDIDATE_LIMIT, effective)
+        ranked = _keyword_ranked(class_id, query, CANDIDATE_LIMIT, effective, materials)
     elif mode == "vector":
-        ranked = _vector_ranked(class_id, query, CANDIDATE_LIMIT, effective, vector)
+        ranked = _vector_ranked(class_id, query, CANDIDATE_LIMIT, effective, vector, materials)
     else:
-        ranked = _rrf(_keyword_ranked(class_id, query, CANDIDATE_LIMIT, effective), _vector_ranked(class_id, query, CANDIDATE_LIMIT, effective, vector), CANDIDATE_LIMIT)
+        ranked = _rrf(_keyword_ranked(class_id, query, CANDIDATE_LIMIT, effective, materials), _vector_ranked(class_id, query, CANDIDATE_LIMIT, effective, vector, materials), CANDIDATE_LIMIT)
     context = evidence_context([chunk for chunk, _ in ranked], vector)
     hits, seen = [], set()
     for chunk, score in ranked:
@@ -79,16 +84,18 @@ def retrieve(*, class_id, query, mode=None, limit=None, subject_ids=None):
     return {"mode": mode, "hits": hits, "message": None if hits else NO_EVIDENCE_MESSAGE}
 
 
-def _ensure_compatible(class_id, subject_ids):
+def _ensure_compatible(class_id, subject_ids, material_ids=None):
     from .indexing import _eligible_query
     query = _eligible_query(0, False).join(Material).filter(KnowledgeEntry.class_id == class_id, Material.class_id == class_id, KnowledgeEntry.subject_id == Material.subject_id)
     if subject_ids is not None:
         query = query.filter(KnowledgeEntry.subject_id.in_(subject_ids), Material.subject_id.in_(subject_ids))
+    if material_ids is not None:
+        query = query.filter(Material.id.in_(material_ids), KnowledgeEntry.material_id.in_(material_ids))
     if query.first():
         raise ReindexRequired("authorized sources require rebuilding for the configured profile")
 
 
-def _base_query(class_id, subject_ids=None):
+def _base_query(class_id, subject_ids=None, material_ids=None):
     query = db.session.query(KnowledgeChunk, Material).join(KnowledgeIndexGeneration, KnowledgeChunk.generation_id == KnowledgeIndexGeneration.id).join(KnowledgeEntry, KnowledgeChunk.knowledge_entry_id == KnowledgeEntry.id).join(Material, KnowledgeChunk.material_id == Material.id).filter(
         KnowledgeChunk.class_id == class_id, Material.class_id == class_id, KnowledgeEntry.class_id == class_id,
         KnowledgeEntry.material_id == Material.id, KnowledgeIndexGeneration.knowledge_entry_id == KnowledgeEntry.id,
@@ -97,6 +104,8 @@ def _base_query(class_id, subject_ids=None):
         or_(KnowledgeChunk.searchable_active.is_(True), KnowledgeChunk.provenance_version == "legacy"))
     if subject_ids is not None:
         query = query.filter(KnowledgeChunk.subject_id.in_(subject_ids), Material.subject_id.in_(subject_ids))
+    if material_ids is not None:
+        query = query.filter(Material.id.in_(material_ids), KnowledgeChunk.material_id.in_(material_ids))
     return query
 
 
@@ -104,13 +113,13 @@ def _escape_like(value):
     return value.replace("\\", "\\\\").replace("%", "\\%").replace("_", "\\_")
 
 
-def _keyword_ranked(class_id, query, limit, subject_ids=None):
+def _keyword_ranked(class_id, query, limit, subject_ids=None, material_ids=None):
     terms = tokenize(query, query=True)
     if not terms:
         return []
     groups = query_groups(query)
     required = 1 if len(groups) == 1 else max(2, math.ceil(.6 * len(groups)))
-    base = _base_query(class_id, subject_ids)
+    base = _base_query(class_id, subject_ids, material_ids)
     if db.engine.dialect.name == "postgresql":
         phrase = KnowledgeChunk.chunk_text.ilike(f"%{_escape_like(query)}%", escape="\\")
         document = func.to_tsvector("simple", KnowledgeChunk.lexical_terms)
@@ -131,14 +140,14 @@ def _keyword_ranked(class_id, query, limit, subject_ids=None):
     return sorted(ranked, key=lambda item: (-item[1], item[0].id))[:min(limit, CANDIDATE_LIMIT)]
 
 
-def _vector_ranked(class_id, query, limit, subject_ids=None, vector=None):
+def _vector_ranked(class_id, query, limit, subject_ids=None, vector=None, material_ids=None):
     if vector is None:
-        _ensure_compatible(class_id, subject_ids)
+        _ensure_compatible(class_id, subject_ids, material_ids)
         vector = embed_validated(embedding_client(), [query])[0]
     profile = current_profile()
     if not profile:
         return []
-    base = _base_query(class_id, subject_ids).join(KnowledgeEmbedding, KnowledgeEmbedding.chunk_id == KnowledgeChunk.id).filter(KnowledgeEmbedding.profile_id == profile.id, KnowledgeIndexGeneration.profile_id == profile.id, KnowledgeEmbedding.dimensions == profile.dimensions, KnowledgeEmbedding.state == "ready", KnowledgeEmbedding.is_active.is_(True))
+    base = _base_query(class_id, subject_ids, material_ids).join(KnowledgeEmbedding, KnowledgeEmbedding.chunk_id == KnowledgeChunk.id).filter(KnowledgeEmbedding.profile_id == profile.id, KnowledgeIndexGeneration.profile_id == profile.id, KnowledgeEmbedding.dimensions == profile.dimensions, KnowledgeEmbedding.state == "ready", KnowledgeEmbedding.is_active.is_(True))
     threshold = max(VECTOR_THRESHOLD, current_app.config["VECTOR_THRESHOLD"])
     if db.engine.dialect.name == "postgresql":
         distance = KnowledgeEmbedding.embedding.op("<=>", return_type=db.Float)(vector)

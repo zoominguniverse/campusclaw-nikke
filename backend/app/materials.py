@@ -17,6 +17,7 @@ from .chunking import chunk_text, normalize_options
 from .authorization import subject_in_class, subject_is_allowed, subject_scope
 from .models import ClassMembership, ClassSubject, KnowledgeChunk, KnowledgeEntry, KnowledgeIndexGeneration, Material
 from .repositories import find_membership
+from .api_docs import api_doc, obj, array, ref, STRING, INTEGER
 
 materials_bp = Blueprint("materials", __name__, url_prefix="/api/classes")
 ALLOWED_EXTENSIONS = {".txt": "text/plain", ".md": "text/markdown"}
@@ -100,6 +101,7 @@ def _allowed_material(material_id: str, scope):
 
 
 @materials_bp.get("/<int:class_id>/materials")
+@api_doc("materials_list", "列出当前授权学科的材料", response=obj({"items": array(ref("Material")), "page": INTEGER, "total": INTEGER}), parameters=[{"name": name, "in": "query", "schema": schema} for name, schema in [("page", INTEGER), ("limit", INTEGER), ("subject_id", INTEGER), ("search", STRING)]])
 @require_auth
 def list_materials(class_id: int):
     denied = _assert_class_scope()
@@ -128,6 +130,7 @@ def list_materials(class_id: int):
 
 
 @materials_bp.get("/<int:class_id>/materials/<string:material_id>")
+@api_doc("materials_get", "读取材料原文及索引状态", response=obj({"material": ref("Material"), "body_text": STRING, "source_hash": STRING, "offset_unit": STRING}), errors={404: "Material not found in authorized scope"})
 @require_auth
 def get_material(class_id: int, material_id: str):
     denied = _assert_class_scope()
@@ -144,6 +147,7 @@ def get_material(class_id: int, material_id: str):
 
 
 @materials_bp.get("/<int:class_id>/materials/<string:material_id>/download")
+@api_doc("materials_download", "下载材料原始文件", response={"type": "string", "format": "binary"}, response_media="text/plain", errors={404: "Material not found"}, description="响应为原始文件，Content-Type 为text/plain或text/markdown；通过Authorization下载。")
 @require_auth
 def download_material(class_id: int, material_id: str):
     denied = _assert_class_scope()
@@ -180,6 +184,7 @@ def download_material(class_id: int, material_id: str):
 
 
 @materials_bp.post("/<int:class_id>/materials")
+@api_doc("materials_upload", "教师上传学科材料", role="teacher", status=201, multipart=obj({"file": {"type": "string", "format": "binary"}, "subject_id": INTEGER, "title": STRING, "chunking": STRING}, ["file", "subject_id"]), response=obj({"material": ref("Material"), "indexing": {"type": "object"}}), errors={400: "Invalid filename, encoding, subject or chunking", 413: "Upload too large", 500: "Save failed"}, description="支持txt/md及UTF-8/GB18030/GBK。索引失败仍可返回201，必须检查indexing和材料状态。chunking表单字段是JSON字符串。")
 @require_auth
 def upload_material(class_id: int):
     denied = _assert_class_scope(teacher_required=True)
@@ -280,6 +285,7 @@ def _chunking_options_from_form() -> dict:
 
 
 @materials_bp.post("/<int:class_id>/materials/<string:material_id>/reindex")
+@api_doc("materials_reindex", "教师重建材料索引", role="teacher", body=obj({"chunking": ref("Chunking")}, []), response=obj({"material": ref("Material"), "indexing": {"type": "object"}}), errors={400: "Invalid chunking", 404: "Material not found", 409: "Generation conflict", 500: "Reindex failed"})
 @require_auth
 def reindex_material(class_id: int, material_id: str):
     denied = _assert_class_scope(teacher_required=True)
@@ -358,6 +364,7 @@ def preview_existing_chunking(class_id, material_id):
 
 
 @materials_bp.put("/<int:class_id>/materials/<string:material_id>")
+@api_doc("materials_update", "教师修改材料标题", role="teacher", body=obj({"title": STRING}), response=obj({"material": ref("Material")}), errors={400: "Title required", 404: "Material not found"})
 @require_auth
 def rename_material(class_id: int, material_id: str):
     denied = _assert_class_scope(teacher_required=True)
@@ -402,6 +409,7 @@ def restore_material(class_id, material_id):
 
 
 @materials_bp.delete("/<int:class_id>/materials/<string:material_id>")
+@api_doc("materials_delete", "教师删除材料并解绑智能体", role="teacher", status=204, errors={404: "Material not found"})
 @require_auth
 def delete_material(class_id: int, material_id: str):
     denied = _assert_class_scope(teacher_required=True)
@@ -422,6 +430,8 @@ def delete_material(class_id: int, material_id: str):
             KnowledgeChunk.query.filter(KnowledgeChunk.generation_id.in_(generation_ids)).delete(synchronize_session=False)
             KnowledgeIndexGeneration.query.filter(KnowledgeIndexGeneration.id.in_(generation_ids)).delete(synchronize_session=False)
         db.session.delete(entry)
+    from .models import TutorAgentMaterial
+    TutorAgentMaterial.query.filter_by(material_id=material.id).delete(synchronize_session=False)
     db.session.delete(material)
     db.session.commit()
     if not is_seeded and file_path.is_relative_to(upload_root) and file_path.exists():

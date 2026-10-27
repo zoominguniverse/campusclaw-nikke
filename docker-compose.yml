@@ -46,6 +46,9 @@ services:
       CHAT_TIMEOUT_SECONDS: ${CHAT_TIMEOUT_SECONDS:-60}
       SEMANTIC_RELEASE: ${SEMANTIC_RELEASE:-false}
       SEMANTIC_ACCEPTANCE_REPORT: ${SEMANTIC_ACCEPTANCE_REPORT:-}
+      MCP_ENABLED: ${MCP_ENABLED:-false}
+      MCP_TOKEN_ENCRYPTION_KEY: ${MCP_TOKEN_ENCRYPTION_KEY:-}
+      MCP_TOOL_POLICY_JSON: ${MCP_TOOL_POLICY_JSON:-{}}
     volumes:
       - uploads_data:/app/uploads
       - ./docs/retrieval-quality-artifacts/release-acceptance.json:/app/acceptance/release-acceptance.json:ro
@@ -54,6 +57,16 @@ services:
         condition: service_healthy
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/health')"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+
+  mcp-demo:
+    build: ./mcp-server
+    environment:
+      MCP_AUTH_TOKEN: ${MCP_AUTH_TOKEN:-}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8090/health')"]
       interval: 5s
       timeout: 5s
       retries: 12

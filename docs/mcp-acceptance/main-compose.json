@@ -1,0 +1,9 @@
+{
+  "project": "campusclaw-mcp-main-smoke",
+  "source": "docker-compose.yml",
+  "private_environment_file": false,
+  "container_initialize_list_two_calls": "pass",
+  "missing_token_401": "pass",
+  "mcp_stopped_api_health": 200,
+  "mcp_stopped_original_material_route": 401
+}

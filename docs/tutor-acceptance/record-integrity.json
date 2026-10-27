@@ -1,0 +1,138 @@
+{
+  "timestamp_utc": "2026-10-20T12:14:11.735495+00:00",
+  "scope": "record integrity only; no semantic quality or peer sign-off",
+  "source_sha256": "f6e2aba9eaafbcbf8a23cdbf6ddb671f6b12dbd87b19e7a4463998a8dadc1bf7",
+  "source_matches_running_real_api": true,
+  "fixed_agent_verified": true,
+  "cases": [
+    {
+      "case": 1,
+      "label": "math-bound-enabled-empty-prompt",
+      "event_order_and_stream_timing": "pass",
+      "persisted_message_matches": "pass",
+      "citation_bounds_and_source_budget": "pass",
+      "skill_selection_and_material_presence": "pass",
+      "marker_present_when_evidence_supplied": true,
+      "human_semantic_review": "pending"
+    },
+    {
+      "case": 2,
+      "label": "math-bound-enabled-empty-prompt",
+      "event_order_and_stream_timing": "pass",
+      "persisted_message_matches": "pass",
+      "citation_bounds_and_source_budget": "pass",
+      "skill_selection_and_material_presence": "pass",
+      "marker_present_when_evidence_supplied": true,
+      "human_semantic_review": "pending"
+    },
+    {
+      "case": 3,
+      "label": "language-bound-enabled-empty-prompt",
+      "event_order_and_stream_timing": "pass",
+      "persisted_message_matches": "pass",
+      "citation_bounds_and_source_budget": "pass",
+      "skill_selection_and_material_presence": "pass",
+      "marker_present_when_evidence_supplied": true,
+      "human_semantic_review": "pending"
+    },
+    {
+      "case": 4,
+      "label": "language-bound-enabled-empty-prompt",
+      "event_order_and_stream_timing": "pass",
+      "persisted_message_matches": "pass",
+      "citation_bounds_and_source_budget": "pass",
+      "skill_selection_and_material_presence": "pass",
+      "marker_present_when_evidence_supplied": true,
+      "human_semantic_review": "pending"
+    },
+    {
+      "case": 5,
+      "label": "math-skill-disabled",
+      "event_order_and_stream_timing": "pass",
+      "persisted_message_matches": "pass",
+      "citation_bounds_and_source_budget": "pass",
+      "skill_selection_and_material_presence": "pass",
+      "marker_present_when_evidence_supplied": true,
+      "human_semantic_review": "pending"
+    },
+    {
+      "case": 6,
+      "label": "math-skill-unbound",
+      "event_order_and_stream_timing": "pass",
+      "persisted_message_matches": "pass",
+      "citation_bounds_and_source_budget": "pass",
+      "skill_selection_and_material_presence": "pass",
+      "marker_present_when_evidence_supplied": true,
+      "human_semantic_review": "pending"
+    },
+    {
+      "case": 7,
+      "label": "math-no-materials",
+      "event_order_and_stream_timing": "pass",
+      "persisted_message_matches": "pass",
+      "citation_bounds_and_source_budget": "pass",
+      "skill_selection_and_material_presence": "pass",
+      "marker_present_when_evidence_supplied": null,
+      "human_semantic_review": "pending"
+    },
+    {
+      "case": 8,
+      "label": "math-retrieval-miss",
+      "event_order_and_stream_timing": "pass",
+      "persisted_message_matches": "pass",
+      "citation_bounds_and_source_budget": "pass",
+      "skill_selection_and_material_presence": "pass",
+      "marker_present_when_evidence_supplied": null,
+      "human_semantic_review": "pending"
+    },
+    {
+      "case": 9,
+      "label": "language-skill-disabled",
+      "event_order_and_stream_timing": "pass",
+      "persisted_message_matches": "pass",
+      "citation_bounds_and_source_budget": "pass",
+      "skill_selection_and_material_presence": "pass",
+      "marker_present_when_evidence_supplied": true,
+      "human_semantic_review": "pending"
+    },
+    {
+      "case": 10,
+      "label": "language-skill-unbound",
+      "event_order_and_stream_timing": "pass",
+      "persisted_message_matches": "pass",
+      "citation_bounds_and_source_budget": "pass",
+      "skill_selection_and_material_presence": "pass",
+      "marker_present_when_evidence_supplied": false,
+      "human_semantic_review": "pending"
+    },
+    {
+      "case": 11,
+      "label": "language-no-materials",
+      "event_order_and_stream_timing": "pass",
+      "persisted_message_matches": "pass",
+      "citation_bounds_and_source_budget": "pass",
+      "skill_selection_and_material_presence": "pass",
+      "marker_present_when_evidence_supplied": null,
+      "human_semantic_review": "pending"
+    },
+    {
+      "case": 12,
+      "label": "language-retrieval-miss",
+      "event_order_and_stream_timing": "pass",
+      "persisted_message_matches": "pass",
+      "citation_bounds_and_source_budget": "pass",
+      "skill_selection_and_material_presence": "pass",
+      "marker_present_when_evidence_supplied": null,
+      "human_semantic_review": "pending"
+    }
+  ],
+  "quality_findings": [
+    {
+      "case": 10,
+      "issue": "evidence supplied but answer omitted citation marker",
+      "status": "unresolved quality finding; not accepted"
+    }
+  ],
+  "human_review_status": "pending",
+  "peer_review_status": "pending"
+}

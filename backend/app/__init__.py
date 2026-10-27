@@ -11,6 +11,10 @@ from .database import db, initialize_database
 from .materials import materials_bp
 from .knowledge import knowledge_bp
 from .administration import admin_bp
+from .api_docs import docs_bp
+from .tutors import tutors_bp
+from .mcp_policy import validate_mcp_config
+from .mcp import mcp_bp
 
 
 def create_app(test_config: dict | None = None) -> Flask:
@@ -20,6 +24,7 @@ def create_app(test_config: dict | None = None) -> Flask:
         app.config.update(test_config)
     validate_auth_config(app.config)
     validate_retrieval_config(app.config)
+    validate_mcp_config(app.config)
 
     Path(app.config["UPLOAD_DIR"]).mkdir(parents=True, exist_ok=True)
     Path(app.config["UPLOAD_DIR"], ".tmp").mkdir(parents=True, exist_ok=True)
@@ -33,6 +38,9 @@ def create_app(test_config: dict | None = None) -> Flask:
     app.register_blueprint(materials_bp)
     app.register_blueprint(knowledge_bp)
     app.register_blueprint(admin_bp)
+    app.register_blueprint(docs_bp)
+    app.register_blueprint(tutors_bp)
+    app.register_blueprint(mcp_bp)
 
     @app.after_request
     def security_headers(response):

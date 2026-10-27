@@ -15,6 +15,7 @@ from .database import db
 from .models import AuthToken, LoginAttempt, LoginSession, User, utc_now
 from .repositories import find_user_by_username
 from .security import hash_password, verify_password
+from .api_docs import api_doc, obj, ref, STRING
 
 auth_bp = Blueprint("auth", __name__, url_prefix="/api/auth")
 DUMMY_PASSWORD_HASH = hash_password(secrets.token_urlsafe(32))
@@ -140,6 +141,7 @@ def _pair(user: User, family: LoginSession) -> tuple[dict, list[AuthToken]]:
 
 
 @auth_bp.post("/login")
+@api_doc("auth_login", "登录并签发令牌对", public=True, body=obj({"username": STRING, "password": {"type": "string", "format": "password"}}), response=ref("TokenPair"), errors={401: "Invalid credentials or rate limited"}, description="每次成功登录撤销该用户旧登录会话。令牌只在响应返回，数据库保存HMAC hash。")
 def login():
     payload = request.get_json(silent=True) or request.form
     username, password = (payload.get("username") or "").strip(), payload.get("password") or ""
@@ -169,6 +171,7 @@ def login():
 
 
 @auth_bp.post("/token/refresh")
+@api_doc("auth_refresh", "使用刷新令牌轮换令牌对", response=ref("TokenPair"), description="Authorization 必须携带 refresh token。旧刷新令牌重用撤销整个会话族。")
 def refresh():
     raw = _authorization_value()
     if not raw:
@@ -195,6 +198,7 @@ def refresh():
 
 
 @auth_bp.post("/logout")
+@api_doc("auth_logout", "撤销当前登录会话族", status=204)
 @require_auth
 def logout():
     _revoke_family(g.auth_context.session_id)
@@ -204,6 +208,7 @@ def logout():
 
 
 @auth_bp.get("/me")
+@api_doc("auth_me", "读取当前身份", response=obj({"user": ref("User")}))
 @require_auth
 def me():
     return _no_store(jsonify(user=serialize_user(g.current_user)))

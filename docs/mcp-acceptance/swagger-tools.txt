@@ -1,0 +1,150 @@
+GET
+/api/classes/{class_id}/mcp/servers/{server_id}/tools
+教师读取完整缓存声明与本地许可
+Parameters
+Cancel
+Name	Description
+
+class_id *
+integer
+(path)
+	
+
+server_id *
+integer
+(path)
+	
+Execute
+Clear
+Responses
+Curl
+curl -X 'GET' \
+  'http://localhost:5284/api/classes/1/mcp/servers/11/tools' \
+  -H 'accept: application/json' \
+  -H 'Authorization: Bearer [redacted]'
+Request URL
+http://localhost:5284/api/classes/1/mcp/servers/11/tools
+Server response
+Code	Details
+200	
+Response body
+Download
+{
+  "items": [
+    {
+      "declaration_hash": "929538a02e79afc29fd9f64da1f46a48ffaab74e71e22ef85e083b2f6af59695",
+      "description": "给出去括号、移项或公式选择的下一步检查提示，不给出题目最终答案。",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "query": {
+            "maxLength": 500,
+            "minLength": 2,
+            "type": "string"
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "type": "object"
+      },
+      "name": "formula_hint",
+      "permitted": true,
+      "ref": "formula_hint@swagger_school"
+    },
+    {
+      "declaration_hash": "589f160b07e64612f9e5b11aad03e0901b068f545a115a000f774d5b8801fe48",
+      "description": "说明长度、面积、体积、时间和质量的单位关系与换算方向，不计算题目最终答案。",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "query": {
+            "maxLength": 500,
+            "minLength": 2,
+            "type": "string"
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "type": "object"
+      },
+      "name": "unit_convert",
+      "permitted": true,
+      "ref": "unit_convert@swagger_school"
+    }
+  ]
+}
+Response headers
+ connection: keep-alive 
+ content-length: 1092 
+ content-security-policy: default-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none' 
+ content-type: application/json 
+ date: Tue,20 Oct 2026 21:08:39 GMT 
+ referrer-policy: no-referrer 
+ server: gunicorn 
+ x-content-type-options: nosniff 
+ x-frame-options: DENY 
+Responses
+Code	Description	Links
+200	
+
+Success
+
+Media type
+application/json
+Controls Accept header.
+Example Value
+Schema
+{
+  "items": [
+    {
+      "declaration_hash": "string",
+      "description": "string",
+      "inputSchema": {},
+      "name": "string",
+      "permitted": true,
+      "ref": "string"
+    }
+  ]
+}
+	No links
+401	
+
+Missing, expired or revoked Bearer access token
+
+Media type
+application/json
+Example Value
+Schema
+{
+  "code": "string",
+  "error": "string"
+}
+	No links
+403	
+
+Role or subject access denied
+
+Media type
+application/json
+Example Value
+Schema
+{
+  "code": "string",
+  "error": "string"
+}
+	No links
+404	
+
+resource not found
+
+Media type
+application/json
+Example Value
+Schema
+{
+  "code": "string",
+  "error": "string"
+}
+	No links
